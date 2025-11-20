@@ -379,14 +379,14 @@ const Navbar = () => {
       className="block w-full py-2 border-b border-gray-200 text-[15px] text-gray-800 hover:text-[#0D47A1]"
       onClick={() => setMenuOpen(false)}
     >
-      Products
+      About Us
     </Link>
     <Link
       to="/products"
       className="block w-full py-2 border-b border-gray-200 text-[15px] text-gray-800 hover:text-[#0D47A1]"
       onClick={() => setMenuOpen(false)}
     >
-      About Us
+      Products
     </Link>
 
   <Link
