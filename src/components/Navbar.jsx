@@ -374,34 +374,28 @@ const Navbar = () => {
     >
       Home
     </Link>
-
-    <button
-      className="block w-full py-2 border-b border-gray-200 text-left text-[15px] text-gray-800 hover:text-[#0D47A1]"
-      onClick={(e) => {
-        setMenuOpen(false);
-        handleAnchorClick(e, "#about");
-      }}
-    >
-      About Us
-    </button>
-
-    <Link
-      to="/products"
+<Link
+      to="/about"
       className="block w-full py-2 border-b border-gray-200 text-[15px] text-gray-800 hover:text-[#0D47A1]"
       onClick={() => setMenuOpen(false)}
     >
       Products
     </Link>
+    <Link
+      to="/products"
+      className="block w-full py-2 border-b border-gray-200 text-[15px] text-gray-800 hover:text-[#0D47A1]"
+      onClick={() => setMenuOpen(false)}
+    >
+      About Us
+    </Link>
 
-    <button
-      className="block w-full py-2 border-b border-gray-200 text-left text-[15px] text-gray-800 hover:text-[#0D47A1]"
-      onClick={(e) => {
-        setMenuOpen(false);
-        handleAnchorClick(e, "#factory");
-      }}
+  <Link
+      to="/factorypage"
+      className="block w-full py-2 border-b border-gray-200 text-[15px] text-gray-800 hover:text-[#0D47A1]"
+      onClick={() => setMenuOpen(false)}
     >
       Factory
-    </button>
+    </Link>
 
     <button
       className="block w-full py-2 border-b border-gray-200 text-left text-[15px] text-gray-800 hover:text-[#0D47A1]"
