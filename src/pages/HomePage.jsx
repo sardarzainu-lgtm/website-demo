@@ -6,6 +6,8 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import InquiryForm from "../components/InquiryForm";
+
 import logo from "../assets/logo.jpeg";
 import hero from "../assets/dryfruit.jpeg"
 import factoryVideo from "../assets/factory1.mp4";
@@ -984,6 +986,32 @@ const handlePrevious = () => {
           </div>
         </div>
       </section>
+
+     <section id="inquiry" className="pt-20 pb-20">
+         <InquiryForm />
+      </section>
+<button
+  onClick={() => document.getElementById("inquiry")?.scrollIntoView({ behavior: "smooth" })}
+  className="fixed flex items-center gap-2 font-semibold text-sm sm:text-base"
+  style={{
+    right: "24px",
+    bottom: "110px",
+    zIndex: 9999,
+    background: "#0D47A1",
+    color: "white",
+    padding: "12px 22px",
+    borderRadius: "50px",
+    boxShadow: "0 6px 14px rgba(13,71,161,0.3)",
+    animation: "floatButton 2s ease-in-out infinite",
+    cursor: "pointer",
+  }}
+>
+  <svg width="18" height="18" fill="white" viewBox="0 0 24 24">
+    <path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm0 12h16V9l-8 7L4 9v9z"/>
+  </svg>
+  Inquiry
+</button>
+
 
       {/* Floating WhatsApp */}
 <a

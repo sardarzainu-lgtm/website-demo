@@ -1,8 +1,13 @@
 import React from "react";
 
+const NAVY = "#0A1C2E";
+const ROYAL = "#0D47A1";
+const GOLD = "#D4A857";
+const OFFWHITE = "#F6F6F6";
+
 export default function FactoryPage() {
   return (
-    <div className="bg-[#f5f1e8] pt-32 pb-20 px-4 md:px-10">
+    <div className="pt-32 pb-20 px-4 md:px-10" style={{ background: OFFWHITE }}>
 
       {/* -------------------------------------- */}
       {/* SECTION 1 - CINNAMON FACTORY */}
@@ -16,8 +21,8 @@ export default function FactoryPage() {
         </div>
 
         {/* TEXT */}
-        <div className="border border-amber-300 bg-[#fffaf4] rounded-md p-6">
-          <h2 className="text-xl font-bold text-[#2d5016] mb-3">
+        <div className="rounded-md p-6 bg-white shadow-md" style={{ borderColor: GOLD, borderWidth: "1px", borderStyle: "solid" }}>
+          <h2 className="text-xl font-bold mb-3" style={{ color: NAVY }}>
             Cinnamon – Cassia / Star Anise Factory
           </h2>
 
@@ -38,8 +43,8 @@ export default function FactoryPage() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
 
         {/* TEXT */}
-        <div className="border border-amber-300 bg-[#fffaf4] rounded-md p-6">
-          <h2 className="text-xl font-bold text-[#2d5016] mb-3">
+        <div className="rounded-md p-6 bg-white shadow-md" style={{ borderColor: GOLD, borderWidth: "1px", borderStyle: "solid" }}>
+          <h2 className="text-xl font-bold mb-3" style={{ color: NAVY }}>
             Pepper Factory
           </h2>
 
@@ -74,8 +79,8 @@ export default function FactoryPage() {
         </div>
 
         {/* TEXT */}
-        <div className="border border-amber-300 bg-[#fffaf4] rounded-md p-6">
-          <h2 className="text-xl font-bold text-[#2d5016] mb-3">
+        <div className="rounded-md p-6 bg-white shadow-md" style={{ borderColor: GOLD, borderWidth: "1px", borderStyle: "solid" }}>
+          <h2 className="text-xl font-bold mb-3" style={{ color: NAVY }}>
             Cashew Nuts Factory
           </h2>
 
@@ -95,8 +100,8 @@ export default function FactoryPage() {
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
 
         {/* TEXT */}
-        <div className="border border-amber-300 bg-[#fffaf4] rounded-md p-6">
-          <h2 className="text-xl font-bold text-[#2d5016] mb-3">
+        <div className="rounded-md p-6 bg-white shadow-md" style={{ borderColor: GOLD, borderWidth: "1px", borderStyle: "solid" }}>
+          <h2 className="text-xl font-bold mb-3" style={{ color: NAVY }}>
             Desiccated Coconut Factory
           </h2>
 
@@ -119,7 +124,13 @@ export default function FactoryPage() {
       {/* -------------------------------------- */}
       {/* CERTIFICATIONS */}
       {/* -------------------------------------- */}
-      <h2 className="text-center text-[#2d5016] font-bold mb-8">Product Certification</h2>
+      <div className="text-center mb-8">
+        <div className="inline-block mb-4">
+          <div style={{ width: "2px", height: "48px", background: GOLD, margin: "0 auto" }}></div>
+          <div style={{ width: "8px", height: "8px", background: GOLD, borderRadius: "9999px", margin: "-6px auto 0" }}></div>
+        </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8" style={{ color: NAVY }}>Product Certification</h2>
+      </div>
 
       <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
         <img src="/images/cert1.jpg" className="w-full rounded-md shadow-sm" />
@@ -136,9 +147,15 @@ export default function FactoryPage() {
       {/* -------------------------------------- */}
       {/* PRODUCTION ACTIVITIES */}
       {/* -------------------------------------- */}
-      <h2 className="text-center text-[#2d5016] font-bold mb-8">
-        Production Activities in Tuan Minh
-      </h2>
+      <div className="text-center mb-8">
+        <div className="inline-block mb-4">
+          <div style={{ width: "2px", height: "48px", background: GOLD, margin: "0 auto" }}></div>
+          <div style={{ width: "8px", height: "8px", background: GOLD, borderRadius: "9999px", margin: "-6px auto 0" }}></div>
+        </div>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8" style={{ color: NAVY }}>
+          Production Activities in Tuan Minh
+        </h2>
+      </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
         <img src="/images/a1.jpg" className="rounded-md w-full h-40 md:h-56 object-cover" />

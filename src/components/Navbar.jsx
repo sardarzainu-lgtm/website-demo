@@ -30,6 +30,7 @@ const OFFWHITE = "#F6F6F6";
 const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const [activePage, setActivePage] = useState("/");
 
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -257,8 +258,11 @@ const Navbar = () => {
           </Link>
 
 
-          <Link to="/factorypage" className="hover:text-[#0D47A1]" style={{ color: NAVY }}>
+          <Link to="/factorypage" className="relative" style={{ color: isActive("/factorypage") ? ROYAL : NAVY }}>
             Factory
+            {isActive("/factorypage") && (
+              <span className="absolute left-0 bottom-0 w-full h-0.5" style={{ background: GOLD }}></span>
+            )}
           </Link>
 
            <Link
@@ -271,7 +275,7 @@ const Navbar = () => {
               <span className="absolute left-0 bottom-0 w-full h-0.5" style={{ background: GOLD }}></span>
             )}
           </Link>
-          <a
+          {/* <a
             href="#news"
             style={{ color: NAVY }}
             className="cursor-pointer hover:text-[#0D47A1]"
@@ -287,7 +291,7 @@ const Navbar = () => {
             onClick={(e) => handleAnchorClick(e, "#contact")}
           >
             Contact
-          </a>
+          </a> */}
         </nav>
 
         {/* RIGHT BUTTONS */}
@@ -397,7 +401,7 @@ const Navbar = () => {
       Factory
     </Link>
 
-    <button
+    {/* <button
       className="block w-full py-2 border-b border-gray-200 text-left text-[15px] text-gray-800 hover:text-[#0D47A1]"
       onClick={(e) => {
         setMenuOpen(false);
@@ -415,7 +419,7 @@ const Navbar = () => {
       }}
     >
       Contact
-    </button>
+    </button> */}
   </div>
 )}
 

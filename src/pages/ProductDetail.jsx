@@ -58,7 +58,7 @@ const ProductDetail = () => {
 
           {/* CTA Button */}
           <a
-            href="https://wa.me/84984663966"
+            href="https://wa.me/66982818995"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block w-full text-center font-semibold px-6 py-4 rounded-lg transition-all"

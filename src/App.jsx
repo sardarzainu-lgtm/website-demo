@@ -17,6 +17,7 @@ const pageTransition = {
   transition: { duration: 0.6, ease: "easeInOut" },
 };
 
+
 function AnimatedRoutes() {
   const location = useLocation();
 
