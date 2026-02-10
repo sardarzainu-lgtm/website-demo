@@ -344,6 +344,7 @@ const handlePrevious = () => {
                   spaceBetween={0}
                   slidesPerView={1}
                   className="pb-6"
+                  
                 >
                   {heroHighlights.map((item) => (
                     <SwiperSlide key={item.id}>

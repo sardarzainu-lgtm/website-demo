@@ -130,4 +130,12 @@ html {
 }
 
 
+.swiper .swiper-pagination {
+  bottom: -3px !important; /* move dots 10px above bottom */
+}
+
+/* Component.module.css */
+:global(.swiper-pagination) {
+  bottom: -3px !important; /* move dots 10px above bottom */
+}
 
