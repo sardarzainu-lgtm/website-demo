@@ -544,7 +544,7 @@ const handlePrevious = () => {
 
           {/* Product Display */}
           <div className="flex justify-center">
-            <div className="bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-6 sm:py-8 flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 w-full max-w-md md:max-w-none">
+            <div className="bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-6 sm:py-8 flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 w-full md:w-auto max-w-md md:max-w-none">
             {/* Left Arrow */}
             <button
               onClick={handlePrevious}
