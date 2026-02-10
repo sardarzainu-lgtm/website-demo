@@ -31,7 +31,7 @@ const products = [
     id: 1,
     name: "Cashew Nuts",
     image: cashewnuts,
-    origin: "Goa, India",
+    origin: "Vietnam",
     moisture: "5%",
     color: "Cream White",
   },
@@ -39,7 +39,7 @@ const products = [
     id: 2,
     name: "Desiccated Coconut",
     image: desiccatedCoconut,
-    origin: "Sri Lanka",
+    origin: "Vietnam",
     moisture: "3%",
     color: "Pure White",
   },
@@ -47,7 +47,7 @@ const products = [
     id: 3,
     name: "Copra Cup",
     image: copraCup,
-    origin: "Philippines",
+    origin: "Vietnam",
     moisture: "6%",
     color: "Light Brown",
   },
@@ -63,7 +63,7 @@ const products = [
     id: 5,
     name: "White Pepper",
     image: whitePepper,
-    origin: "Indonesia",
+    origin: "Vietnam",
     moisture: "12%",
     color: "Off-White",
   },
@@ -71,7 +71,7 @@ const products = [
     id: 6,
     name: "Dried Ginger",
     image: driedGinger,
-    origin: "India",
+    origin: "Vietnam",
     moisture: "8%",
     color: "Yellowish Brown",
   },
@@ -87,7 +87,7 @@ const products = [
     id: 8,
     name: "Cashew Nuts WW320",
     image: ww320Cashew,
-    origin: "India",
+    origin: "Vietnam",
     moisture: "5%",
     color: "Classic White",
   },
@@ -103,7 +103,7 @@ const products = [
     id: 10,
     name: "Cashew Nuts WW180",
     image: ww180Cashew,
-    origin: "Brazil",
+    origin: "Vietnam",
     moisture: "5%",
     color: "Ivory White",
   },
@@ -111,7 +111,7 @@ const products = [
     id: 11,
     name: "Cashew Nuts WW450",
     image: ww450Cashew,
-    origin: "Indonesia",
+    origin: "Vietnam",
     moisture: "5%",
     color: "Off-White",
   },
@@ -127,7 +127,7 @@ const products = [
     id: 13,
     name: "Cashew Nuts SL",
     image: cashewSL,
-    origin: "India",
+    origin: "Vietnam",
     moisture: "4%",
     color: "Cream White",
   },
@@ -149,12 +149,40 @@ const productCategories = [
   "Cashew Nuts SL",
 ];
 
+// Small set of rotating hero highlights shown in the top card
+const heroHighlights = [
+  {
+    id: 1,
+    name: "Premium Cashew Nuts",
+    image: cashewnuts,
+  },
+  {
+    id: 2,
+    name: "Desiccated Coconut",
+    image: desiccatedCoconut,
+  },
+  {
+    id: 3,
+    name: "Copra Cup",
+    image: copraCup,
+  },
+  {
+    id: 4,
+    name: "Black Pepper",
+    image: blackPepper,
+  },
+  {
+    id: 5,
+    name: "White Pepper",
+    image: whitePepper,
+  },
+];
+
 export default function HomePage() {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("Cashew Nuts");
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
   const [tradeSlideIndex, setTradeSlideIndex] = useState(0);
-
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
@@ -210,7 +238,7 @@ const handlePrevious = () => {
     >
       {/* Hero Section */}
       <section
-        className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center pt-[140px] pb-16 md:pb-24 overflow-hidden"
+        className="relative min-h-[80vh] md:min-h-screen flex items-center justify-center pt-28 md:pt-36 pb-24 md:pb-24 overflow-hidden"
         style={{
           background: `linear-gradient(180deg, ${ROYAL} 0%, ${LIGHTBLUE} 100%)`,
         }}
@@ -264,14 +292,17 @@ const handlePrevious = () => {
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 w-full">
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10 md:gap-6">
             {/* Left - Text */}
-            <div className="w-full md:w-1/2 mb-4 md:mb-0 text-center md:text-left">
+            <div className="w-full md:w-1/2 max-w-xl md:max-w-none mb-4 md:mb-0 text-center md:text-left mx-auto md:mx-0">
               <h1
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+                className="font-bold mb-4 leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                 style={{ color: NAVY }}
               >
-                Premium Cashew & Spice
-                <br />
+                <span className="block whitespace-nowrap">
+                  Premium Cashew &amp; Spice
+                </span>
+                <span className="block">
                 Exports from Asia
+                </span>
               </h1>
               <p
                 className="text-base sm:text-lg md:text-2xl font-medium"
@@ -285,7 +316,7 @@ const handlePrevious = () => {
               <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                 <a
                   href="#products"
-                  className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold shadow-lg text-sm sm:text-base"
+                  className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold shadow-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D47A1] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-xl"
                   style={{ background: ROYAL }}
                 >
                   Explore Products →
@@ -293,7 +324,7 @@ const handlePrevious = () => {
 
                 <a
                   href="#contact"
-                  className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-lg border-2 text-sm sm:text-base"
+                  className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-lg border-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#D4A857] transition-transform duration-200 hover:-translate-y-0.5 hover:bg-white/40"
                   style={{ borderColor: GOLD, color: NAVY, background: "#ffffff20" }}
                 >
                   Contact Us
@@ -301,12 +332,25 @@ const handlePrevious = () => {
               </div>
             </div>
 
-            {/* Right - Highlight card */}
+            {/* Right - Rotating highlight card (auto-slide every 3s) */}
             <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-2xl w-full max-w-xs sm:max-w-sm transform md:-translate-y-6">
-                <img
-                  src={copraCup}
-                  alt="Product highlight"
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-2xl w-full max-w-xs sm:max-w-sm transform md:-translate-y-6 overflow-hidden">
+                <Swiper
+                  modules={[Autoplay, Pagination]}
+                  autoplay={{ delay: 2300, disableOnInteraction: false }}
+                  pagination={{ clickable: true }}
+                  loop
+                  speed={600}
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  className="pb-6"
+                >
+                  {heroHighlights.map((item) => (
+                    <SwiperSlide key={item.id}>
+                      <div className="flex flex-col">
+                        <img
+                          src={item.image}
+                          alt={item.name}
                   className="w-full h-44 sm:h-52 object-cover rounded-lg"
                 />
                 <div className="mt-4">
@@ -314,13 +358,17 @@ const handlePrevious = () => {
                     className="font-semibold text-lg mb-1"
                     style={{ color: NAVY }}
                   >
-                    Cashew Nuts, Coca Cup & Pepper
+                            {item.name}
                   </h4>
                   <p className="text-sm text-gray-600">
                     Carefully sourced, processed and shipped to global markets
                     with strict quality assurance.
                   </p>
                 </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
               </div>
             </div>
           </div>
@@ -341,7 +389,7 @@ const handlePrevious = () => {
       </section>
 
       {/* About Us Section */}
-      <section id="about" className="py-14 sm:py-16">
+      <section id="about" className="py-14 sm:py-16 pb-8 md:pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-8 sm:mb-10">
             <div className="inline-block mb-4">
@@ -369,33 +417,43 @@ const handlePrevious = () => {
             >
               About Lion & Lotus
             </h2>
-            <p className="max-w-2xl mx-auto text-gray-600 text-sm sm:text-base">
-              Lion & Lotus Trading Co., Ltd. is a premium agri-commodity
-              exporter, specializing in cashews, coconuts, black pepper and
-              select spices. From sourcing to shipment, we focus on quality,
-              consistency and long-term partnerships.
-            </p>
           </div>
 
-          <div className="flex flex-col md:flex-row items-center gap-8 md:gap-10">
+          <div className="flex flex-col md:flex-row items-start md:items-stretch gap-8 md:gap-10">
             {/* LEFT */}
-            <div className="flex-1 w-full">
-              <p className="text-gray-700 leading-relaxed mb-4 sm:mb-6 text-sm sm:text-base">
-                Based in Bangkok, Thailand, with strong sourcing networks across
-                Asia, we supply certified products tailored to the needs of
-                roasters, packers, wholesalers and food manufacturers worldwide.
-                Our processes emphasize traceability, food safety and reliable
-                delivery schedules.
+            <div className="flex-1 w-full max-w-xl mx-auto md:mx-0">
+              <div className="bg-white/70 rounded-2xl p-4 sm:p-5 shadow-sm border border-gray-100 space-y-3 sm:space-y-4">
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                  <span className="font-semibold">Lion & Lotus Trading Co., Ltd.</span> is a premium agri-commodity exporter
+                  focused on cashews, coconut products, black pepper and selected spices. We manage the journey from origin
+                  to shipment with disciplined quality control.
+                </p>
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                  Based in Bangkok, Thailand, and supported by strong sourcing networks across Asia, we supply certified
+                  products tailored to the needs of roasters, packers, wholesalers and food manufacturers worldwide. Our
+                  operations emphasize traceability, food safety and reliable delivery schedules.
               </p>
-              <p className="text-gray-700 leading-relaxed mb-6 text-sm sm:text-base">
-                Whether you are looking for raw cashew kernels, desiccated
-                coconut, whole black pepper or customized spice shipments, our
-                team is committed to providing responsive service and competitive
-                solutions.
-              </p>
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+                  Whether you require raw cashew kernels, desiccated coconut, whole black pepper or customized spice programs,
+                  our team is committed to responsive service and commercially competitive, long-term partnerships.
+                </p>
+
+                <div className="flex flex-wrap gap-2 sm:gap-3">
+                <span className="px-3 py-1 rounded-full text-xs sm:text-sm bg-[#E6EEF9] text-[#0D47A1]">
+                  Traceable supply chain
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs sm:text-sm bg-[#FFF7E6] text-[#92400E]">
+                  Food safety focus
+                </span>
+                <span className="px-3 py-1 rounded-full text-xs sm:text-sm bg-[#E6F6F1] text-[#065F46]">
+                  Reliable delivery
+                </span>
+              </div>
+              </div>
+
               <a
                 href="/about"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm sm:text-base"
+                className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm sm:text-base shadow-md hover:shadow-lg transition-shadow duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D47A1]"
                 style={{ background: ROYAL, color: "white" }}
               >
                 Learn More About Us →
@@ -403,16 +461,20 @@ const handlePrevious = () => {
             </div>
 
             {/* RIGHT */}
-            <div className="flex-1 w-full flex justify-center md:justify-end">
-              <div className="w-full max-w-xs sm:max-w-sm rounded-lg overflow-hidden shadow-xl bg-white">
+            <div className="flex-1 w-full flex justify-center md:justify-end md:self-center">
+              <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md rounded-2xl overflow-hidden shadow-xl bg-white transform transition-transform duration-500 hover:-translate-y-1">
                  <video
                          src={factoryVideo}
                          autoPlay
                          muted
                          loop
                          playsInline
-                         className="w-full h-64 sm:h-80 md:h-96 object-cover"
+                  className="w-full h-64 sm:h-80 md:h-[22rem] object-cover"
                         />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-3 left-3 bg-black/60 text-white text-xs sm:text-sm px-3 py-1 rounded-full backdrop-blur">
+                  Factory processing & quality
+                </div>
               </div>
             </div>
           </div>
@@ -420,7 +482,7 @@ const handlePrevious = () => {
       </section>
 
       {/* Product Section */}
-      <section id="products" className="py-16 sm:py-20 px-4 sm:px-6">
+      <section id="products" className="pt-4 md:pt-12 pb-16 sm:pb-20 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 sm:mb-12">
             <div className="inline-block mb-4">
@@ -455,12 +517,13 @@ const handlePrevious = () => {
             </p>
 
             {/* Category Navigation */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 text-xs sm:text-sm md:text-base">
+            <div className="mb-8 sm:mb-12">
+              <div className="flex md:flex-wrap flex-nowrap justify-start md:justify-center gap-2 sm:gap-4 text-xs sm:text-sm md:text-base overflow-x-auto md:overflow-visible px-1 -mx-1 md:mx-0 md:px-0 scrollbar-hide">
               {productCategories.map((category) => (
                 <button
                   key={category}
                   onClick={() => handleCategoryClick(category)}
-                  className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition-colors"
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition-colors shrink-0"
                   style={{
                     borderBottom:
                       selectedCategory === category
@@ -475,27 +538,29 @@ const handlePrevious = () => {
                   {category}
                 </button>
               ))}
+              </div>
             </div>
           </div>
 
           {/* Product Display */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8">
+          <div className="flex justify-center">
+            <div className="bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-6 sm:py-8 flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 w-full max-w-md md:max-w-none">
             {/* Left Arrow */}
             <button
               onClick={handlePrevious}
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center hover:bg-white transition-colors"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0"
               style={{ borderColor: GOLD, background: "white" }}
             >
-              <ChevronLeft color={NAVY} size={18} />
+              <ChevronLeft color={NAVY} size={14} />
             </button>
 
             {/* Circular Product Display */}
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80">
+            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0">
               <div
                 className="absolute inset-0 rounded-full border-4 border-dashed flex items-center justify-center"
                 style={{ borderColor: GOLD }}
               >
-                <div className="w-44 h-44 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl bg-white">
+                  <div className="w-44 h-44 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl bg-white transition-transform duration-500">
                   <img
                     src={currentProduct.image}
                     alt={currentProduct.name}
@@ -508,11 +573,12 @@ const handlePrevious = () => {
             {/* Right Arrow */}
             <button
               onClick={handleNext}
-              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center hover:bg-white transition-colors"
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0"
               style={{ borderColor: GOLD, background: "white" }}
             >
-              <ChevronRight color={NAVY} size={18} />
+              <ChevronRight color={NAVY} size={14} />
             </button>
+            </div>
           </div>
 
           {/* Product Name and Button */}
@@ -523,13 +589,16 @@ const handlePrevious = () => {
             >
               {currentProduct.name}
             </h3>
+            <p className="text-gray-500 text-sm sm:text-base mb-4">
+              {currentProduct.origin} · Moisture {currentProduct.moisture} · {currentProduct.color}
+            </p>
             <button
               onClick={() =>
                 navigate(`/product/${currentProduct.id}`, {
                   state: { product: currentProduct },
                 })
               }
-              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-colors"
+              className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
               style={{ background: ROYAL, color: "white" }}
             >
               View Details <span>→</span>
@@ -578,6 +647,9 @@ const handlePrevious = () => {
                 color: "white",
               }}
             >
+              <p className="text-xs sm:text-sm tracking-[0.2em] uppercase text-white/60 mb-2">
+                QA &amp; Compliance
+              </p>
               <h2
                 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6"
                 style={{ color: GOLD }}
@@ -596,7 +668,7 @@ const handlePrevious = () => {
                   (cert, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/10 rounded-lg p-2.5 sm:p-3 text-center text-xs sm:text-sm"
+                      className="bg-white/10 rounded-lg p-2.5 sm:p-3 text-center text-xs sm:text-sm border border-white/5 hover:bg-white/15 hover:border-white/40 hover:-translate-y-0.5 hover:shadow-md transition-all duration-200"
                     >
                       {cert}
                     </div>
@@ -605,7 +677,8 @@ const handlePrevious = () => {
               </div>
 
               <button
-                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border-2 font-semibold text-sm sm:text-base"
+                onClick={() => navigate("/factorypage")}
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full border-2 font-semibold text-sm sm:text-base shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
                 style={{
                   background: NAVY,
                   color: "white",
@@ -618,7 +691,7 @@ const handlePrevious = () => {
 
             {/* Right - Visual */}
             <div className="w-full md:w-3/5">
-              <div className="relative rounded-lg overflow-hidden shadow-xl h-64 sm:h-80 md:h-full min-h-[260px] sm:min-h-[320px]">
+              <div className="relative rounded-2xl overflow-hidden shadow-xl h-64 sm:h-80 md:h-full min-h-[260px] sm:min-h-[320px] transition-transform duration-700 hover:scale-[1.01]">
                 <div
                   className="absolute inset-0 "
                   style={{
@@ -631,18 +704,21 @@ const handlePrevious = () => {
                   }}
                 >
                   <div
-                      className="absolute inset-0 bg-cover bg-center opacity-50 "
+                    className="absolute inset-0 bg-cover bg-center opacity-60"
                       style={{ backgroundImage: `url(${hero})` }}
                     ></div>
-                  <div className="absolute text-center text-black p-6 sm:p-8">
-                    <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">🏭</div>
-                    <h3 className="text-xl sm:text-2xl font-bold mb-2">
-                      LION & LOTUS TRADING CO., LTD.
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/30 to-black/10"></div>
+                  <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-8">
+                    <div className="bg-black/45 rounded-2xl px-4 sm:px-6 py-4 sm:py-5 text-center text-white shadow-lg backdrop-blur-sm max-w-md mx-auto">
+                      <div className="text-3xl sm:text-4xl mb-2 sm:mb-3">🏭</div>
+                      <h3 className="text-lg sm:text-2xl font-semibold mb-2">
+                        LION &amp; LOTUS TRADING CO., LTD.
                     </h3>
-                    <p className="text-black/100 text-sm sm:text-base max-w-md mx-auto">
-                      Coordinating sourcing, processing and shipment across Asia
-                      to serve roasters, packers and industrial buyers worldwide.
+                      <p className="text-xs sm:text-sm md:text-base text-white/90">
+                        Coordinating sourcing, processing and shipment across Asia to
+                        serve roasters, packers and industrial buyers worldwide.
                     </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -652,7 +728,7 @@ const handlePrevious = () => {
       </section>
 
       {/* International Trade Activities */}
-      <section id="news" className="py-16 sm:py-20 px-4 sm:px-6">
+      <section id="news" className="py-16 sm:py-10 px-4 sm:px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-10 sm:mb-12 -mt-4">
             <div className="inline-block mb-4">
@@ -682,47 +758,113 @@ const handlePrevious = () => {
             </h2>
           </div>
 
-          <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
-            navigation
-            pagination={{ clickable: true }}
-            autoplay={{ delay: 4000 }}
-            spaceBetween={16}
-            slidesPerView={1}
-            breakpoints={{
-              640: { slidesPerView: 2 },
-              1024: { slidesPerView: 3 },
-            }}
-            className="rounded-lg"
-          >
+          <div className="relative pb-8 sm:pb-10" style={{ overflow: 'visible' }}>
+            <style>{`
+              .swiper-button-next,
+              .swiper-button-prev {
+                width: 25px !important;
+                height: 25px !important;
+                opacity: 0.5 !important;
+                top: 45% !important;
+                margin-top: 0 !important;
+                transform: translateY(-50%) !important;
+              }
+              .swiper-button-next::after,
+              .swiper-button-prev::after {
+                font-size: 16px !important;
+              }
+              @media (min-width: 640px) {
+                .swiper-button-next,
+                .swiper-button-prev {
+                  width: 30px !important;
+                  height: 30px !important;
+                  opacity: 0.6 !important;
+                }
+                .swiper-button-next::after,
+                .swiper-button-prev::after {
+                  font-size: 20px !important;
+                }
+              }
+              .swiper-button-prev {
+                left: 0px !important;
+              }
+              .swiper-button-next {
+                right: 0px !important;
+              }
+              @media (min-width: 640px) {
+                .swiper-button-prev {
+                  left: 0px !important;
+                }
+                .swiper-button-next {
+                  right: 0px !important;
+                }
+              }
+              .swiper-pagination {
+                bottom: -10px !important;
+              }
+              @media (min-width: 640px) {
+                .swiper-pagination {
+                  bottom: -3px !important;
+                }
+              }
+              @media (min-width: 1024px) {
+                .swiper {
+                  overflow: hidden !important;
+                }
+              }
+            `}</style>
+            <Swiper
+              modules={[Navigation, Pagination, Autoplay]}
+              navigation
+              pagination={{ clickable: true }}
+              autoplay={{ delay: 4000 }}
+              loop={false}
+              speed={650}
+              grabCursor
+              spaceBetween={20}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                1024: { 
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+              }}
+              className="rounded-lg"
+              style={{ overflow: 'visible', paddingBottom: '20px' }}
+            >
             {[1, 2, 3, 4].map((item) => (
-              <SwiperSlide key={item}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-lg h-full">
-                  <div className="h-56 sm:h-64 bg-gradient-to-br from-white to-[#f0f6ff] flex items-center justify-center">
+              <SwiperSlide key={item} className="pb-4">
+                <div className="bg-white/95 rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                  <div className="h-56 sm:h-64 bg-gradient-to-br from-white via-[#f4f7ff] to-[#e3efff] flex items-center justify-center">
                     <div className="text-center p-4 sm:p-6">
-                      <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">
-                        🌍
+                      <div className="inline-flex items-center gap-2 mb-3 sm:mb-4">
+                        <span className="text-3xl sm:text-4xl">🌍</span>
+                        <span className="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-gray-500">
+                          Trade Mission
+                        </span>
                       </div>
-                      <p className="text-gray-700 font-semibold text-sm sm:text-base">
+                      <p className="text-gray-800 font-semibold text-sm sm:text-base">
                         Trade Show {item}
                       </p>
-                      <p className="text-xs sm:text-sm text-gray-600 mt-2">
-                        Meetings with buyers, roasters & importers across global
-                        markets.
+                      <p className="text-xs sm:text-sm text-gray-600 mt-2 max-w-xs mx-auto">
+                        Meetings with buyers, roasters and importers to develop
+                        long-term sourcing partnerships.
                       </p>
                     </div>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
-          </Swiper>
+            </Swiper>
+          </div>
         </div>
       </section>
 
       {/* Customer Network & Statistics */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10 sm:mb-12 -mt-4">
+          <div className="text-center mb-4 sm:mb-4 -mt-4">
             <div className="inline-block mb-4">
               <div
                 style={{
@@ -743,7 +885,7 @@ const handlePrevious = () => {
               ></div>
             </div>
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-12"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6"
               style={{ color: NAVY }}
             >
               Customer Network
@@ -751,8 +893,8 @@ const handlePrevious = () => {
           </div>
 
           {/* World Map Placeholder */}
-          <div className="bg-white rounded-lg p-6 sm:p-8 mb-10 sm:mb-12 shadow-lg">
-            <div className="relative h-56 sm:h-64 bg-gradient-to-br from-white to-[#f0fbf7] rounded-lg flex items-center justify-center">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 mb-10 sm:mb-12 shadow-lg">
+            <div className="relative h-56 sm:h-64 bg-gradient-to-br from-white via-[#f5fbff] to-[#e4f3ff] rounded-xl flex items-center justify-center overflow-hidden">
               <div className="text-center px-4">
                 <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">🗺️</div>
                 <p className="text-gray-700 font-semibold text-sm sm:text-base">
@@ -762,16 +904,27 @@ const handlePrevious = () => {
                   Serving importers, roasters and industrial buyers across Asia,
                   Middle East, Europe and the Americas.
                 </p>
-              </div>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <div className="w-3 h-3 sm:w-4 sm:h-4 bg-red-500 rounded-full animate-pulse"></div>
+                <div className="mt-3 flex flex-wrap justify-center gap-2 text-[10px] sm:text-xs">
+                  <span className="px-3 py-1 rounded-full bg-white/80 text-gray-700 shadow-sm">
+                    Asia
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-white/80 text-gray-700 shadow-sm">
+                    Middle East
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-white/80 text-gray-700 shadow-sm">
+                    Europe
+                  </span>
+                  <span className="px-3 py-1 rounded-full bg-white/80 text-gray-700 shadow-sm">
+                    Americas
+                  </span>
+                </div>
               </div>
             </div>
           </div>
 
           {/* Statistics */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
-            <div className="text-center bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+            <div className="text-center bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border border-gray-100">
               <div
                 className="text-3xl sm:text-5xl font-bold mb-2"
                 style={{ color: NAVY }}
@@ -782,7 +935,7 @@ const handlePrevious = () => {
                 Countries served through our export network
               </p>
             </div>
-            <div className="text-center bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+            <div className="text-center bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border border-gray-100">
               <div
                 className="text-3xl sm:text-5xl font-bold mb-2"
                 style={{ color: NAVY }}
@@ -793,7 +946,7 @@ const handlePrevious = () => {
                 Annual export value in USD (combined across product lines)
               </p>
             </div>
-            <div className="text-center bg-white p-6 sm:p-8 rounded-lg shadow-lg">
+            <div className="text-center bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border border-gray-100">
               <div
                 className="text-3xl sm:text-5xl font-bold mb-2"
                 style={{ color: NAVY }}
@@ -807,7 +960,7 @@ const handlePrevious = () => {
           </div>
 
           {/* Revenue Trend */}
-          <div className="bg-white rounded-lg p-6 sm:p-8 shadow-lg">
+          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
             <h3
               className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8"
               style={{ color: NAVY }}
@@ -816,14 +969,14 @@ const handlePrevious = () => {
             </h3>
             <div className="flex flex-col md:flex-row gap-6 sm:gap-8 justify-center items-center">
               {[
-                { year: "2020", revenue: "450" },
-                { year: "2021", revenue: "500" },
-                { year: "2022", revenue: "550" },
+                { year: "2020", revenue: "450", color: "#bfdbfe" },
+                { year: "2021", revenue: "500", color: "#93c5fd" },
+                { year: "2022", revenue: "550", color: "#60a5fa" },
               ].map((item) => (
                 <div key={item.year} className="text-center">
                   <div
                     className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-dashed flex flex-col items-center justify-center mx-auto"
-                    style={{ borderColor: ROYAL }}
+                    style={{ borderColor: item.color }}
                   >
                     <div
                       className="text-xl sm:text-2xl font-bold"
@@ -849,7 +1002,9 @@ const handlePrevious = () => {
       <section
         id="contact"
         className="py-16 sm:py-20 px-4 sm:px-6"
-        style={{ background: `linear-gradient(180deg, ${OFFWHITE}, ${LIGHTBLUE})` }}
+        style={{
+          background: `linear-gradient(135deg, ${OFFWHITE} 0%, #EEF3FF 45%, ${LIGHTBLUE} 100%)`,
+        }}
       >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
@@ -887,7 +1042,7 @@ const handlePrevious = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-14 max-w-4xl mx-auto border border-gray-200 relative overflow-hidden">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 sm:p-10 md:p-10 max-w-4xl mx-auto border border-gray-200 relative overflow-hidden">
             {/* Decorative Blobs */}
             <div
               className="absolute -top-10 -right-10 w-32 sm:w-40 h-32 sm:h-40 rounded-full blur-2xl"
@@ -898,9 +1053,10 @@ const handlePrevious = () => {
               style={{ background: `${ROYAL}12` }}
             ></div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-8 relative z-10 items-stretch">
               {/* Contact Info */}
-              <div className="space-y-5 sm:space-y-6">
+              <div className="w-full">
+                <div className="h-full rounded-2xl bg-gray-50/70 border border-gray-200 p-5 sm:p-6 shadow-sm space-y-5 sm:space-y-6">
                 <h3
                   className="text-xl sm:text-2xl font-bold"
                   style={{ color: NAVY }}
@@ -915,7 +1071,12 @@ const handlePrevious = () => {
                     </span>
                     <div>
                       <p className="font-semibold">Email:</p>
-                      <p>info@lion-lotus.co</p>
+                        <a
+                          href="mailto:info@lion-lotus.co"
+                          className="text-[#0D47A1] hover:underline break-all"
+                        >
+                          info@lion-lotus.co
+                        </a>
                     </div>
                   </div>
 
@@ -925,8 +1086,16 @@ const handlePrevious = () => {
                     </span>
                     <div>
                       <p className="font-semibold">Hotline:</p>
-                      <p>+65 8035 0461</p>
-                      <p>+66 98281 8995</p>
+                        <p>
+                          <a href="tel:+6580350461" className="hover:text-[#0D47A1]">
+                            +65 8035 0461
+                          </a>
+                        </p>
+                        <p>
+                          <a href="tel:+66982818995" className="hover:text-[#0D47A1]">
+                            +66 98281 8995
+                          </a>
+                        </p>
                     </div>
                   </div>
 
@@ -941,77 +1110,73 @@ const handlePrevious = () => {
                         <br />
                         Bangkok 10250, Thailand
                       </p>
-                    </div>
-                  </div>
                 </div>
               </div>
 
-              {/* Hours */}
-              <div className="space-y-5 sm:space-y-6">
-                <h3
-                  className="text-xl sm:text-2xl font-bold"
-                  style={{ color: NAVY }}
-                >
-                  Business Hours
-                </h3>
-
-                <div className="space-y-2 text-gray-700 text-sm sm:text-lg">
-                  <p>
-                    📆 Monday - Friday:{" "}
-                    <span className="font-semibold">9:00 AM - 6:00 PM</span>
-                  </p>
-                  <p>
-                    📆 Saturday:{" "}
-                    <span className="font-semibold">10:00 AM - 2:00 PM</span>
-                  </p>
-                  <p>
-                    📆 Sunday: <span className="font-semibold">Closed</span>
-                  </p>
+                    {/* Business hours / professionalism block */}
+                    <div className="mt-4 rounded-xl bg-white/80 border border-gray-100 px-4 py-3 text-xs sm:text-sm text-gray-700">
+                      <p className="font-semibold mb-2" style={{ color: NAVY }}>
+                        Business Hours &amp; Service
+                      </p>
+                      <ul className="space-y-1">
+                        <li>
+                          <span className="font-semibold">Hours:</span> Mon–Fri{" "}
+                          <span className="font-medium">09:00–18:00 (GMT+7)</span>, Sat{" "}
+                          <span className="font-medium">10:00–14:00</span>
+                        </li>
+                        <li>
+                          <span className="font-semibold">Languages:</span> English, Thai
+                        </li>
+                        <li>
+                          <span className="font-semibold">Typical response time:</span>{" "}
+                          within <span className="font-medium">24 hours</span> on business days.
+                        </li>
+                      </ul>
+                      <p className="mt-3 text-[11px] sm:text-xs text-gray-500">
+                        For quotations, please include product, grade, packing and destination port so
+                        our team can share pricing and lead time accurately.
+                      </p>
+                    </div>
                 </div>
+                </div>
+              </div>
+
+              {/* Inquiry Form (merged into contact section) */}
+              <div className="flex h-full">
+                <InquiryForm compact />
               </div>
             </div>
 
             {/* CTA Button */}
-            <div className="mt-8 sm:mt-12 text-center">
+            <div className="mt-8 sm:mt-12 text-center px-2 sm:px-0">
               <a
                 href="https://wa.me/66982818995"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-8 sm:px-10 py-3.5 sm:py-4 rounded-xl text-sm sm:text-lg font-semibold shadow-lg"
-                style={{ background: ROYAL, color: "white" }}
+                className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-8 md:px-10 py-2.5 sm:py-3.5 md:py-4 rounded-full text-xs sm:text-sm md:text-lg font-semibold shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl cta-whatsapp-button border border-white/30 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto"
+                style={{
+                  background: "linear-gradient(90deg, #0B3A82, #128C7E)",
+                  color: "white",
+                }}
               >
-                Message Us on WhatsApp →
+                <span className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/12 flex-shrink-0">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                    alt="WhatsApp"
+                    className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
+                  />
+                </span>
+                <div className="flex flex-col items-start text-left min-w-0 flex-1">
+                  <span className="text-xs sm:text-sm md:text-base lg:text-lg leading-tight">Message Us on WhatsApp</span>
+                  <span className="text-[10px] sm:text-[11px] md:text-xs font-normal text-white/80 leading-tight mt-0.5">
+                    Preferred channel for quick coordination
+                  </span>
+                </div>
               </a>
             </div>
           </div>
         </div>
       </section>
-
-     <section id="inquiry" className="pt-20 pb-20">
-         <InquiryForm />
-      </section>
-<button
-  onClick={() => document.getElementById("inquiry")?.scrollIntoView({ behavior: "smooth" })}
-  className="fixed flex items-center gap-2 font-semibold text-sm sm:text-base"
-  style={{
-    right: "24px",
-    bottom: "110px",
-    zIndex: 9999,
-    background: "#0D47A1",
-    color: "white",
-    padding: "12px 22px",
-    borderRadius: "50px",
-    boxShadow: "0 6px 14px rgba(13,71,161,0.3)",
-    animation: "floatButton 2s ease-in-out infinite",
-    cursor: "pointer",
-  }}
->
-  <svg width="18" height="18" fill="white" viewBox="0 0 24 24">
-    <path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm0 12h16V9l-8 7L4 9v9z"/>
-  </svg>
-  Inquiry
-</button>
-
 
       {/* Floating WhatsApp */}
 <a

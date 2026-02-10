@@ -8,6 +8,7 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import FactoryPage from "./pages/FactoryPage";
 import AboutUs from "./pages/AboutUs";
+import ContactPage from "./pages/ContactPage";
 
 // ✅ Page transition animation settings
 const pageTransition = {
@@ -69,6 +70,15 @@ function AnimatedRoutes() {
           element={
             <motion.div {...pageTransition}>
               <ProductDetail />
+            </motion.div>
+          }
+        />
+
+        <Route
+          path="/contact"
+          element={
+            <motion.div {...pageTransition}>
+              <ContactPage />
             </motion.div>
           }
         />

@@ -8,7 +8,7 @@ const ROYAL = "#0D47A1";
 const GOLD = "#D4A857";
 const OFFWHITE = "#F6F6F6";
 
-const InquiryForm = () => {
+const InquiryForm = ({ compact = false }) => {
   const formRef = useRef(null);
   const [isSending, setIsSending] = useState(false);
   const [status, setStatus] = useState(null); // { type: 'success' | 'error', message: string }
@@ -47,31 +47,28 @@ const InquiryForm = () => {
 
   return (
     <div
-      className="w-full max-w-xl mx-auto rounded-2xl shadow-2xl p-6 sm:p-8 border relative overflow-hidden"
-      style={{ background: "#ffffff", borderColor: "#E5E7EB" }}
+      className={
+        compact
+          ? "w-full h-full rounded-2xl shadow-md p-4 sm:p-6 border bg-white flex flex-col"
+          : "w-full max-w-xl mx-auto rounded-2xl shadow-2xl p-6 sm:p-8 border bg-white flex flex-col"
+      }
+      style={compact ? {} : { borderColor: "#E5E7EB" }}
     >
-      {/* Subtle background accents */}
-      <div
-        className="absolute -top-16 -right-16 w-40 h-40 rounded-full blur-2xl opacity-20 pointer-events-none"
-        style={{ background: ROYAL }}
-      />
-      <div
-        className="absolute -bottom-16 -left-16 w-40 h-40 rounded-full blur-2xl opacity-15 pointer-events-none"
-        style={{ background: GOLD }}
-      />
-
-      <div className="relative z-10">
+      <div className="flex-1 flex flex-col justify-between">
         <h3
           className="text-xl sm:text-2xl font-bold mb-1"
           style={{ color: NAVY }}
         >
           Send an Inquiry
         </h3>
-        <p className="text-xs sm:text-sm text-gray-600 mb-5">
+        <p className="text-xs sm:text-sm text-gray-600 mb-1">
           Share your product requirements and our team will respond with details,
           pricing and next steps.
         </p>
-<form ref={formRef} onSubmit={handleSubmit} className="space-y-4 text-sm sm:text-base">
+        <p className="text-[11px] sm:text-xs text-gray-400 mb-5">
+          Fields marked <span className="text-red-500">*</span> are required.
+        </p>
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-4 text-sm sm:text-base">
 
   {/* Hidden reply-to for EmailJS */}
   <input type="hidden" name="reply_to" value="" />
@@ -86,7 +83,7 @@ const InquiryForm = () => {
         type="text"
         name="user_name"
         required
-        className="w-full px-3 py-2 rounded-md border"
+        className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0D47A1] focus:border-[#0D47A1]"
         placeholder="Your full name"
       />
     </div>
@@ -99,7 +96,7 @@ const InquiryForm = () => {
         type="email"
         name="user_email"
         required
-        className="w-full px-3 py-2 rounded-md border"
+        className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0D47A1] focus:border-[#0D47A1]"
         placeholder="you@example.com"
       />
     </div>
@@ -113,7 +110,7 @@ const InquiryForm = () => {
     <input
       type="text"
       name="company"
-      className="w-full px-3 py-2 rounded-md border"
+      className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0D47A1] focus:border-[#0D47A1]"
       placeholder="Company / Organization (optional)"
     />
   </div>
@@ -127,7 +124,7 @@ const InquiryForm = () => {
       <select
         name="product_interest"
         required
-        className="w-full px-3 py-2 rounded-md border"
+        className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0D47A1] focus:border-[#0D47A1] bg-white"
       >
         <option value="">Select product</option>
         <option value="Cashew">Cashew</option>
@@ -145,7 +142,7 @@ const InquiryForm = () => {
       <input
         type="text"
         name="quantity"
-        className="w-full px-3 py-2 rounded-md border"
+        className="w-full px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0D47A1] focus:border-[#0D47A1]"
         placeholder="e.g. 1 container / 20 MT"
       />
     </div>
@@ -160,7 +157,7 @@ const InquiryForm = () => {
       name="message"
       required
       rows={4}
-      className="w-full px-3 py-2 rounded-md border resize-none"
+      className="w-full px-3 py-2 rounded-md border border-gray-300 resize-none focus:outline-none focus:ring-2 focus:ring-[#0D47A1] focus:border-[#0D47A1]"
       placeholder="Share product grade, packing, destination port etc."
     />
   </div>
@@ -168,11 +165,26 @@ const InquiryForm = () => {
   <button
     type="submit"
     disabled={isSending}
-    className="px-6 py-2 rounded-lg font-semibold text-white"
+    className={`px-6 py-2 rounded-lg font-semibold text-white transition-colors duration-200 transition-transform ${
+      isSending
+        ? "opacity-70 cursor-not-allowed"
+        : "hover:bg-[#0b3a82] hover:-translate-y-0.5 shadow-md"
+    }`}
     style={{ background: ROYAL }}
   >
     {isSending ? "Sending..." : "Submit Inquiry"}
   </button>
+
+  {status && (
+    <p
+      className={`mt-3 text-xs sm:text-sm ${
+        status.type === "success" ? "text-green-600" : "text-red-600"
+      }`}
+      aria-live="polite"
+    >
+      {status.message}
+    </p>
+  )}
 
 </form>
 

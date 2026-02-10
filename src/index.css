@@ -64,5 +64,70 @@ html {
   100% { transform: translateY(0); }
 }
 
+/* Gentle, professional pulse for primary WhatsApp CTA in contact section */
+@keyframes whatsappCtaPulse {
+  0% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.20);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  }
+}
+
+.cta-whatsapp-button {
+  animation: whatsappCtaPulse 3.6s ease-in-out infinite;
+}
+
+/* Navbar search dropdown animation */
+@keyframes fadeSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fade-slide-down {
+  animation: fadeSlideDown 160ms ease-out;
+}
+
+/* Reusable CTA hover lift */
+.btn-primary-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Hide scrollbars for horizontal chip nav on mobile while keeping scrollability */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Smooth fade + slight slide/scale for hero product card */
+@keyframes heroFadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-hero-fade {
+  animation: heroFadeInUp 0.7s ease-out;
+}
+
 
 
