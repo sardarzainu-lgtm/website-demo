@@ -20,10 +20,17 @@ import cashewnuts from "../assets/cashewnuts.webp";
 import copraCup from "../assets/copraCup.webp"
 import desiccatedCoconut from "../assets/desiccatedCoconut.webp"
 import driedGinger from "../assets/driedGinger.webp"
+import gingerWholeDry from "../assets/drygng-dry.webp"
+import gingerWholeFresh from "../assets/drygng-fresh.webp"
 import roastedSaltedCashew from "../assets/roastedSaltedCashew.webp"
 import whitePepper from "../assets/whitePepper.webp"
 import blackPepper from "../assets/blackPepper.webp"
 import brazilianBlackPepper from "../assets/brazilianBlackPepper.webp"
+import mangoChips from "../assets/mango-chips.webp"
+import redChilli from "../assets/red-chilli.webp"
+import starAnise from "../assets/star-anise.webp"
+import sweetTamarind from "../assets/sweet-tamarind.webp"
+import robustaBeans from "../assets/robusta-beans.webp"
 
 
 // 🌟 Premium Colors
@@ -47,11 +54,17 @@ const Navbar = () => {
   const [ww320SubmenuOpen, setWw320SubmenuOpen] = useState(false);
   const [blackPepperSubmenuOpen, setBlackPepperSubmenuOpen] = useState(false);
   const [desiccatedCoconutSubmenuOpen, setDesiccatedCoconutSubmenuOpen] = useState(false);
+  const [gingerSubmenuOpen, setGingerSubmenuOpen] = useState(false);
+  const [wholeGingerSubmenuOpen, setWholeGingerSubmenuOpen] = useState(false);
+  const [sliceGingerSubmenuOpen, setSliceGingerSubmenuOpen] = useState(false);
   const [mobileProductsDropdownOpen, setMobileProductsDropdownOpen] = useState(false);
   const [mobileCashewSubmenuOpen, setMobileCashewSubmenuOpen] = useState(false);
   const [mobileWw320SubmenuOpen, setMobileWw320SubmenuOpen] = useState(false);
   const [mobileBlackPepperSubmenuOpen, setMobileBlackPepperSubmenuOpen] = useState(false);
   const [mobileDesiccatedCoconutSubmenuOpen, setMobileDesiccatedCoconutSubmenuOpen] = useState(false);
+  const [mobileGingerSubmenuOpen, setMobileGingerSubmenuOpen] = useState(false);
+  const [mobileWholeGingerSubmenuOpen, setMobileWholeGingerSubmenuOpen] = useState(false);
+  const [mobileSliceGingerSubmenuOpen, setMobileSliceGingerSubmenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -95,10 +108,13 @@ const Navbar = () => {
 
   { 
     id: 3, 
-    name: "Copra Cup", 
+    name: "Edible Copra", 
     image: copraCup, 
-    origin: "Vietnam", 
-    moisture: "6%"
+    origin: "Indonesia", 
+    moisture: "7-10%",
+    packing: "40 Kg Net in Mesh Bags",
+    description: "Looking for premium quality copra? Our Edible Copra is the perfect choice for various food applications and international trade!",
+    fullName: "Edible Copra (White Copra Sundry - Split)"
   },
 
   { 
@@ -126,6 +142,47 @@ const Navbar = () => {
     image: driedGinger, 
     origin: "Vietnam", 
     moisture: "8%"
+  },
+  { 
+    id: 35, 
+    name: "DRY SLICE GINGER A GRADE", 
+    image: driedGinger, 
+    origin: "Vietnam", 
+    moisture: "8%" 
+  },
+  { 
+    id: 36, 
+    name: "DRY SLICE GINGER B GRADE", 
+    image: driedGinger, 
+    origin: "Vietnam", 
+    moisture: "8%" 
+  },
+  { 
+    id: 37, 
+    name: "DRY SLICE GINGER C GRADE", 
+    image: driedGinger, 
+    origin: "Vietnam", 
+    moisture: "8%" 
+  },
+  { 
+    id: 38, 
+    name: "Ginger Whole Dry", 
+    image: gingerWholeDry, 
+    origin: "Vietnam", 
+    moisture: "10% max", 
+    grade: "Whole", 
+    appearance: "Natural color, clean, no foreign matter", 
+    packing: "10-25 kg bags" 
+  },
+  { 
+    id: 39, 
+    name: "Ginger Whole Fresh", 
+    image: gingerWholeFresh, 
+    origin: "Vietnam", 
+    moisture: "12-15%", 
+    grade: "Whole Fresh", 
+    appearance: "Fresh appearance, natural color, clean", 
+    packing: "10-25 kg bags" 
   },
  { 
     id: 7, 
@@ -357,10 +414,69 @@ const Navbar = () => {
     name: "High fat Desiccated Coconut Medium Grade", 
     image: desiccatedCoconut, 
     origin: "Vietnam", 
-    moisture: "3% max",
-    ffa: "0.3% max",
-    fatContent: "63% min",
-    so2: "100 ppm max"
+    moisture: "3% max", 
+    ffa: "0.3% max", 
+    fatContent: "63% min", 
+    so2: "100 ppm max" 
+  },
+  { 
+    id: 30, 
+    name: "Soft Dried Mango", 
+    image: mangoChips, 
+    origin: "Vietnam", 
+    moisture: "12-17% max", 
+    ingredients: "100% Mango", 
+    appearanceColor: "Yellow color", 
+    cuttingType: "Slice", 
+    process: "5-10% Sugar Added / without sugar-coated", 
+    length: "8cm - 10cm", 
+    thickness: "0.1cm - 0.2cm", 
+    shelfLife: "12 Months", 
+    packing: "Zip bags, craft paper, bulk packing depends on customer request from 100g - 10kg / pack" 
+  },
+  { 
+    id: 31, 
+    name: "TEJA RED CHILLI", 
+    image: redChilli, 
+    origin: "India", 
+    pungency: "75,000 - 1,000,000 SHU", 
+    capsaicinContent: "1%", 
+    color: "Vibrant Red Color (ASTA 40-60)", 
+    length: "5-6 cm", 
+    skinThickness: "0.50-0.70 mm", 
+    podsWithStalks: "2%", 
+    brokenChilies: "1%", 
+    looseSeeds: "1%", 
+    description: "Perfect for adding bold spice to your curries, sauces, and snacks!" 
+  },
+  { 
+    id: 32, 
+    name: "Star Anise", 
+    image: starAnise, 
+    origin: "Vietnam", 
+    moisture: "13.5%", 
+    size: "2.5 cm 80% up", 
+    brokenPieces: "10% max", 
+    notes: "No fungus, natural color" 
+  },
+  { 
+    id: 33, 
+    name: "Sweet Tamarind", 
+    image: sweetTamarind, 
+    origin: "Vietnam", 
+    moisture: "10-14%", 
+    variety: "Sirthong", 
+    size: "6.9 - 7.5 inches", 
+    process: "Not steamed" 
+  },
+  { 
+    id: 34, 
+    name: "Robusta Coffee Beans", 
+    image: robustaBeans, 
+    origin: "Vietnam", 
+    moisture: "12.5%", 
+    grades: "R1-16, R1-18", 
+    brokenAndBlack: "2% max" 
   },
 ];
 
@@ -368,10 +484,15 @@ const Navbar = () => {
   const productCategories = [
     { id: 1, name: "Cashew Nuts", hasSubcategories: true },
     { id: 2, name: "Desiccated Coconut", hasSubcategories: true },
-    { id: 3, name: "Copra Cup", hasSubcategories: false },
+    { id: 3, name: "Edible Copra", hasSubcategories: false },
     { id: 4, name: "Black Pepper", hasSubcategories: true },
     { id: 5, name: "White Pepper", hasSubcategories: false },
-    { id: 6, name: "Dried Ginger", hasSubcategories: false },
+    { id: 6, name: "Ginger", hasSubcategories: true },
+    { id: 30, name: "Soft Dried Mango", hasSubcategories: false },
+    { id: 31, name: "TEJA RED CHILLI", hasSubcategories: false },
+    { id: 32, name: "Star Anise", hasSubcategories: false },
+    { id: 33, name: "Sweet Tamarind", hasSubcategories: false },
+    { id: 34, name: "Robusta Coffee Beans", hasSubcategories: false },
   ];
 
   // Cashew Nuts subcategories
@@ -411,6 +532,25 @@ const Navbar = () => {
     { id: 23, name: "Low fat Desiccated Coconut Fine Grade" },
     { id: 24, name: "High fat Desiccated Coconut Fine Grade" },
     { id: 25, name: "High fat Desiccated Coconut Medium Grade" },
+  ];
+
+  // Ginger subcategories
+  const gingerSubcategories = [
+    { id: "wholeGinger", name: "Whole Ginger", hasSubcategories: true },
+    { id: "sliceGinger", name: "Slice Ginger", hasSubcategories: true },
+  ];
+
+  // Whole Ginger sub-subcategories
+  const wholeGingerSubcategories = [
+    { id: 38, name: "Ginger Whole Dry" },
+    { id: 39, name: "Ginger Whole Fresh" },
+  ];
+
+  // Slice Ginger sub-subcategories
+  const sliceGingerSubcategories = [
+    { id: 35, name: "DRY SLICE GINGER A GRADE" },
+      { id: 36, name: "DRY SLICE GINGER B GRADE" },
+      { id: 37, name: "DRY SLICE GINGER C GRADE" },
   ];
 
   // Handle product navigation
@@ -547,32 +687,38 @@ const Navbar = () => {
             ref={dropdownRef}
             className="relative"
           >
-            <button
-              onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
-              className={`relative flex items-center gap-1 transition-colors duration-150 ${
-                isActive("/products") || location.pathname.startsWith("/product/")
-                  ? "text-[#0D47A1]"
-                  : isScrolled
-                  ? "text-[#0A1C2E] hover:text-[#0D47A1]"
-                  : "text-white/90 hover:text-white"
-              }`}
+            <div
+              onMouseEnter={() => setProductsDropdownOpen(true)}
+              onMouseLeave={() => setProductsDropdownOpen(false)}
             >
-              Product
-              <ChevronDown 
-                size={16} 
-                className={`transition-transform duration-200 ${productsDropdownOpen ? "rotate-180" : ""}`}
-              />
-              <span
-                className={`absolute left-0 bottom-0 h-0.5 transition-all duration-200 ${isActive("/products") || location.pathname.startsWith("/product/") ? "w-full" : "w-0"} bg-[#0D47A1]`}
-              ></span>
-            </button>
-
-            {/* Dropdown Menu */}
-            {productsDropdownOpen && (
-              <div 
-                className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
-                style={{ minWidth: "280px" }}
+              <button
+                onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
+                className={`relative flex items-center gap-1 transition-colors duration-150 ${
+                  isActive("/products") || location.pathname.startsWith("/product/")
+                    ? "text-[#0D47A1]"
+                    : isScrolled
+                    ? "text-[#0A1C2E] hover:text-[#0D47A1]"
+                    : "text-white/90 hover:text-white"
+                }`}
               >
+                Product
+                <ChevronDown 
+                  size={16} 
+                  className={`transition-transform duration-200 ${productsDropdownOpen ? "rotate-180" : ""}`}
+                />
+                <span
+                  className={`absolute left-0 bottom-0 h-0.5 transition-all duration-200 ${isActive("/products") || location.pathname.startsWith("/product/") ? "w-full" : "w-0"} bg-[#0D47A1]`}
+                ></span>
+              </button>
+
+              {/* Dropdown Menu */}
+              {productsDropdownOpen && (
+                <div 
+                  className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                  style={{ minWidth: "280px" }}
+                  onMouseEnter={() => setProductsDropdownOpen(true)}
+                  onMouseLeave={() => setProductsDropdownOpen(false)}
+                >
                 <Link
                   to="/products"
                   onClick={() => setProductsDropdownOpen(false)}
@@ -590,14 +736,22 @@ const Navbar = () => {
                               setCashewSubmenuOpen(!cashewSubmenuOpen);
                               setBlackPepperSubmenuOpen(false);
                               setDesiccatedCoconutSubmenuOpen(false);
+                              setGingerSubmenuOpen(false);
                             } else if (category.name === "Black Pepper") {
                               setBlackPepperSubmenuOpen(!blackPepperSubmenuOpen);
                               setCashewSubmenuOpen(false);
                               setDesiccatedCoconutSubmenuOpen(false);
+                              setGingerSubmenuOpen(false);
                             } else if (category.name === "Desiccated Coconut") {
                               setDesiccatedCoconutSubmenuOpen(!desiccatedCoconutSubmenuOpen);
                               setCashewSubmenuOpen(false);
                               setBlackPepperSubmenuOpen(false);
+                              setGingerSubmenuOpen(false);
+                            } else if (category.name === "Ginger") {
+                              setGingerSubmenuOpen(!gingerSubmenuOpen);
+                              setCashewSubmenuOpen(false);
+                              setBlackPepperSubmenuOpen(false);
+                              setDesiccatedCoconutSubmenuOpen(false);
                             }
                           }}
                           className="w-full px-4 py-2.5 hover:bg-gray-50 cursor-pointer flex items-center justify-between group text-left"
@@ -610,7 +764,8 @@ const Navbar = () => {
                             className={`text-gray-400 transition-transform duration-200 ${
                               (category.name === "Cashew Nuts" && cashewSubmenuOpen) ||
                               (category.name === "Black Pepper" && blackPepperSubmenuOpen) ||
-                              (category.name === "Desiccated Coconut" && desiccatedCoconutSubmenuOpen)
+                              (category.name === "Desiccated Coconut" && desiccatedCoconutSubmenuOpen) ||
+                              (category.name === "Ginger" && gingerSubmenuOpen)
                                 ? "rotate-90" : ""
                             }`}
                           />
@@ -703,10 +858,91 @@ const Navbar = () => {
                         ))}
                       </div>
                     )}
+                    {/* Ginger Submenu */}
+                    {category.hasSubcategories && category.name === "Ginger" && gingerSubmenuOpen && (
+                      <div 
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                        onMouseEnter={() => setGingerSubmenuOpen(true)}
+                        onMouseLeave={() => setGingerSubmenuOpen(false)}
+                      >
+                        {gingerSubcategories.map((subcat) => (
+                          <div key={subcat.id} className="relative">
+                            {subcat.hasSubcategories ? (
+                              <button
+                                onClick={() => {
+                                  if (subcat.id === "wholeGinger") {
+                                    setWholeGingerSubmenuOpen(!wholeGingerSubmenuOpen);
+                                    setSliceGingerSubmenuOpen(false);
+                                  } else if (subcat.id === "sliceGinger") {
+                                    setSliceGingerSubmenuOpen(!sliceGingerSubmenuOpen);
+                                    setWholeGingerSubmenuOpen(false);
+                                  }
+                                }}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
+                              >
+                                <span>{subcat.name}</span>
+                                <ChevronRight 
+                                  size={14} 
+                                  className={`text-gray-400 transition-transform duration-200 ${
+                                    (subcat.id === "wholeGinger" && wholeGingerSubmenuOpen) ||
+                                    (subcat.id === "sliceGinger" && sliceGingerSubmenuOpen)
+                                      ? "rotate-90" : ""
+                                  }`}
+                                />
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => handleProductClick(subcat.id)}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                              >
+                                {subcat.name}
+                              </button>
+                            )}
+                            {/* Whole Ginger Submenu */}
+                            {subcat.hasSubcategories && subcat.id === "wholeGinger" && wholeGingerSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                                onMouseEnter={() => setWholeGingerSubmenuOpen(true)}
+                                onMouseLeave={() => setWholeGingerSubmenuOpen(false)}
+                              >
+                                {wholeGingerSubcategories.map((wholeGingerSubcat) => (
+                                  <button
+                                    key={wholeGingerSubcat.id}
+                                    onClick={() => handleProductClick(wholeGingerSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {wholeGingerSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                            {/* Slice Ginger Submenu */}
+                            {subcat.hasSubcategories && subcat.id === "sliceGinger" && sliceGingerSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                                onMouseEnter={() => setSliceGingerSubmenuOpen(true)}
+                                onMouseLeave={() => setSliceGingerSubmenuOpen(false)}
+                              >
+                                {sliceGingerSubcategories.map((sliceGingerSubcat) => (
+                                  <button
+                                    key={sliceGingerSubcat.id}
+                                    onClick={() => handleProductClick(sliceGingerSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {sliceGingerSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
             )}
+            </div>
           </div>
 
 
@@ -884,11 +1120,11 @@ const Navbar = () => {
       {/* MOBILE MENU */}
       {menuOpen &&
         createPortal(
-        <div className="lg:hidden fixed inset-0 z-[1200] bg-black/60 backdrop-blur-sm" onClick={() => setMenuOpen(false)}>
-          <div
-            className="ml-auto h-full w-5/6 sm:w-1/2 bg-white/95 backdrop-blur px-4 pb-6 pt-4 flex flex-col space-y-2 text-base font-medium shadow-2xl rounded-l-2xl overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="lg:hidden fixed inset-0 z-[1200] bg-black/60 backdrop-blur-sm" onClick={() => setMenuOpen(false)}>
+            <div
+              className="ml-auto h-full w-5/6 sm:w-1/2 bg-white/95 backdrop-blur px-4 pb-6 pt-4 flex flex-col space-y-2 text-base font-medium shadow-2xl rounded-l-2xl overflow-y-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
             <div className="flex items-center justify-between mb-2">
               <div
                 className="flex items-center gap-3 cursor-pointer"
@@ -975,16 +1211,27 @@ const Navbar = () => {
                                 setMobileWw320SubmenuOpen(false);
                                 setMobileBlackPepperSubmenuOpen(false);
                                 setMobileDesiccatedCoconutSubmenuOpen(false);
+                                setMobileGingerSubmenuOpen(false);
                               } else if (category.name === "Black Pepper") {
                                 setMobileBlackPepperSubmenuOpen(!mobileBlackPepperSubmenuOpen);
                                 setMobileCashewSubmenuOpen(false);
                                 setMobileWw320SubmenuOpen(false);
                                 setMobileDesiccatedCoconutSubmenuOpen(false);
+                                setMobileGingerSubmenuOpen(false);
                               } else if (category.name === "Desiccated Coconut") {
                                 setMobileDesiccatedCoconutSubmenuOpen(!mobileDesiccatedCoconutSubmenuOpen);
                                 setMobileCashewSubmenuOpen(false);
                                 setMobileWw320SubmenuOpen(false);
                                 setMobileBlackPepperSubmenuOpen(false);
+                                setMobileGingerSubmenuOpen(false);
+                              } else if (category.name === "Ginger") {
+                                setMobileGingerSubmenuOpen(!mobileGingerSubmenuOpen);
+                                setMobileCashewSubmenuOpen(false);
+                                setMobileWw320SubmenuOpen(false);
+                                setMobileBlackPepperSubmenuOpen(false);
+                                setMobileDesiccatedCoconutSubmenuOpen(false);
+                                setMobileWholeGingerSubmenuOpen(false);
+                                setMobileSliceGingerSubmenuOpen(false);
                               }
                             }}
                             className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[14px] text-gray-700 hover:text-[#0D47A1] hover:bg-gray-50"
@@ -995,7 +1242,8 @@ const Navbar = () => {
                               className={`transition-transform duration-200 ${
                                 (category.name === "Cashew Nuts" && mobileCashewSubmenuOpen) ||
                                 (category.name === "Black Pepper" && mobileBlackPepperSubmenuOpen) ||
-                                (category.name === "Desiccated Coconut" && mobileDesiccatedCoconutSubmenuOpen)
+                                (category.name === "Desiccated Coconut" && mobileDesiccatedCoconutSubmenuOpen) ||
+                                (category.name === "Ginger" && mobileGingerSubmenuOpen)
                                   ? "rotate-90" : ""
                               }`}
                             />
@@ -1088,6 +1336,90 @@ const Navbar = () => {
                                 >
                                   {subcat.name}
                                 </button>
+                              ))}
+                            </div>
+                          )}
+                          {category.name === "Ginger" && mobileGingerSubmenuOpen && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {gingerSubcategories.map((subcat) => (
+                                <div key={subcat.id}>
+                                  {subcat.hasSubcategories ? (
+                                    <>
+                                      <button
+                                        onClick={() => {
+                                          if (subcat.id === "wholeGinger") {
+                                            setMobileWholeGingerSubmenuOpen(!mobileWholeGingerSubmenuOpen);
+                                            setMobileSliceGingerSubmenuOpen(false);
+                                          } else if (subcat.id === "sliceGinger") {
+                                            setMobileSliceGingerSubmenuOpen(!mobileSliceGingerSubmenuOpen);
+                                            setMobileWholeGingerSubmenuOpen(false);
+                                          }
+                                        }}
+                                        className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                      >
+                                        <span>{subcat.name}</span>
+                                        <ChevronRight 
+                                          size={12} 
+                                          className={`transition-transform duration-200 ${
+                                            (subcat.id === "wholeGinger" && mobileWholeGingerSubmenuOpen) ||
+                                            (subcat.id === "sliceGinger" && mobileSliceGingerSubmenuOpen)
+                                              ? "rotate-90" : ""
+                                          }`}
+                                        />
+                                      </button>
+                                      {subcat.id === "wholeGinger" && mobileWholeGingerSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {wholeGingerSubcategories.map((wholeGingerSubcat) => (
+                                            <button
+                                              key={wholeGingerSubcat.id}
+                                              onClick={() => {
+                                                handleProductClick(wholeGingerSubcat.id);
+                                                setMenuOpen(false);
+                                                setMobileProductsDropdownOpen(false);
+                                                setMobileGingerSubmenuOpen(false);
+                                                setMobileWholeGingerSubmenuOpen(false);
+                                              }}
+                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                            >
+                                              {wholeGingerSubcat.name}
+                                            </button>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {subcat.id === "sliceGinger" && mobileSliceGingerSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {sliceGingerSubcategories.map((sliceGingerSubcat) => (
+                                            <button
+                                              key={sliceGingerSubcat.id}
+                                              onClick={() => {
+                                                handleProductClick(sliceGingerSubcat.id);
+                                                setMenuOpen(false);
+                                                setMobileProductsDropdownOpen(false);
+                                                setMobileGingerSubmenuOpen(false);
+                                                setMobileSliceGingerSubmenuOpen(false);
+                                              }}
+                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                            >
+                                              {sliceGingerSubcat.name}
+                                            </button>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <button
+                                      onClick={() => {
+                                        handleProductClick(subcat.id);
+                                        setMenuOpen(false);
+                                        setMobileProductsDropdownOpen(false);
+                                        setMobileGingerSubmenuOpen(false);
+                                      }}
+                                      className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                    >
+                                      {subcat.name}
+                                    </button>
+                                  )}
+                                </div>
                               ))}
                             </div>
                           )}

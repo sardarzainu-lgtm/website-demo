@@ -141,8 +141,30 @@ export default function ContactPage() {
               ))}
             </div>
           </div>
-          <div className="rounded-xl overflow-hidden border border-gray-200 shadow-inner bg-gradient-to-br from-[#e8f1ff] via-white to-[#eef5ff] h-64 flex items-center justify-center text-gray-500 text-sm">
-            Interactive map / logistics routes (placeholder)
+          <div className="relative">
+            <div className="flex justify-center mb-4">
+              <a
+                href="https://www.google.com/maps/place/117+Simei+Street+1,+%2303+546+Block+117,+Singapore+520117/@1.3494338,103.9418912,13.42z/data=!4m5!3m4!1s0x31da3d229d1b6c4f:0xbc2b051dc8de5624!8m2!3d1.344426!4d103.9513115?entry=ttu&g_ep=EgoyMDI2MDIxMS4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-white font-semibold shadow-md hover:shadow-lg transition-transform duration-200 hover:-translate-y-0.5"
+                style={{ background: "linear-gradient(90deg, #0B3A82, #128C7E)" }}
+              >
+                View on Map
+              </a>
+            </div>
+            <div className="rounded-xl overflow-hidden border border-gray-200 shadow-inner h-64">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.789!2d103.9513115!3d1.344426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da3d229d1b6c4f%3A0xbc2b051dc8de5624!2s117%20Simei%20Street%201%2C%20%2303-546%20Block%20117%2C%20Singapore%20520117!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus&q=117+Simei+Street+1,+Singapore+520117"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Location Map"
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>

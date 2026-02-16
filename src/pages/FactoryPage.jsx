@@ -1,4 +1,20 @@
 import React from "react";
+import starAnise from "../assets/star-anise.webp";
+import blackPepper from "../assets/blackPepper.webp";
+import blackpepperf from "../assets/blackpepperf.webp";
+import blackpepperf2 from "../assets/blackpepperf2.webp";
+import blackpepperf3 from "../assets/blackpepperf3.webp";
+import whitePepper from "../assets/whitePepper.webp";
+import cashewnuts from "../assets/cashewnuts.webp";
+import ww320Cashew from "../assets/ww320Cashew.webp";
+import ww240Cashew from "../assets/ww240Cashew.webp";
+import desiccatedCoconut from "../assets/desiccatedCoconut.webp";
+import copraCup from "../assets/copraCup.webp";
+import driedGinger from "../assets/driedGinger.webp";
+import redChilli from "../assets/red-chilli.webp";
+import mangoChips from "../assets/mango-chips.webp";
+import sweetTamarind from "../assets/sweet-tamarind.webp";
+import robustaBeans from "../assets/robusta-beans.webp";
 
 const NAVY = "#0A1C2E";
 const ROYAL = "#0D47A1";
@@ -6,42 +22,42 @@ const GOLD = "#D4A857";
 
 const factoryImages = {
   cinnamon: [
-    "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&w=1400&q=80", // spice processing
-    "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1400&q=80", // cassia sticks
-    "https://images.unsplash.com/photo-1450360581253-d63c319d4c4a?auto=format&fit=crop&w=1400&q=80", // spice warehouse
+    starAnise, // spice processing
+    starAnise, // cassia sticks
+    starAnise, // spice warehouse
   ],
   pepper: [
-    "https://images.unsplash.com/photo-1498654200943-1088dd4438ae?auto=format&fit=crop&w=1400&q=80", // pepper drying
-    "https://images.unsplash.com/photo-1506809210098-6b6a041b0b4a?auto=format&fit=crop&w=1400&q=80", // sacks warehouse
-    "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1400&q=80", // peppercorn close
+    blackpepperf, // peppercorn factory 1
+    blackpepperf2, // peppercorn factory 2
+    blackpepperf3, // peppercorn factory 3
   ],
   cashew: [
-    "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=1400&q=80", // nuts processing line
-    "https://images.unsplash.com/photo-1498550744921-75f79806b8a7?auto=format&fit=crop&w=1400&q=80", // sack storage
-    "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1400&q=80", // shelling/packing vibe
+    cashewnuts, // nuts processing line
+    ww320Cashew, // sack storage
+    ww240Cashew, // shelling/packing vibe
   ],
   coconut: [
-    "https://images.unsplash.com/photo-1525253086316-d0c936c814f8?auto=format&fit=crop&w=1400&q=80", // coconut chips
-    "https://images.unsplash.com/photo-1589710752032-9cf7f8bc5d4c?auto=format&fit=crop&w=1400&q=80", // drying coconut
-    "https://images.unsplash.com/photo-1588166635300-35524e5c31c0?auto=format&fit=crop&w=1400&q=80", // coconut flakes/processing
+    desiccatedCoconut, // coconut chips
+    copraCup, // drying coconut
+    desiccatedCoconut, // coconut flakes/processing
   ],
   activities: [
-    "https://images.unsplash.com/photo-1498550744921-75f79806b8a7?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1589710752032-9cf7f8bc5d4c?auto=format&fit=crop&w=1400&q=80",
+    cashewnuts,
+    blackPepper,
+    desiccatedCoconut,
+    starAnise,
+    driedGinger,
+    mangoChips,
   ],
   certs: [
-    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1498654200943-1088dd4438ae?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1589710752032-9cf7f8bc5d4c?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
+    cashewnuts,
+    blackPepper,
+    desiccatedCoconut,
+    starAnise,
+    redChilli,
+    sweetTamarind,
+    robustaBeans,
+    whitePepper,
   ],
 };
 
@@ -134,14 +150,14 @@ export default function FactoryPage() {
 
         {/* Pepper */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          <SectionCard title="Pepper Factory" highlight="Long Khanh">
+          <SectionCard title="Pepper Processing" highlight="Vietnam">
             <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-              <strong>Address:</strong> Long Khanh, Dong Nai Province<br />
-              <strong>Total Area:</strong> 10,000 sqm<br />
-              <strong>Capacity:</strong> 15–17,000 MTS / year
+              <strong>Processing:</strong> Black Pepper, White Pepper, Brazilian Black Pepper<br />
+              <strong>Standards:</strong> FQA pepper, ASTA clean, ETO &amp; Steam Sterilization<br />
+              <strong>Export Compliance:</strong> ISO, HACCP, FDA ready
             </p>
             <p className="text-sm text-gray-600">
-              FQA pepper, ASTA clean, ETO &amp; Steam Sterilization; Export standards: ISO, HACCP, FDA.
+              We coordinate with certified processing partners for black pepper, white pepper, and specialty varieties. Products are cleaned, graded, sterilized, and packed to international standards for export markets.
             </p>
           </SectionCard>
           <ImageGrid images={factoryImages.pepper} />
@@ -175,31 +191,6 @@ export default function FactoryPage() {
             </p>
           </SectionCard>
           <ImageGrid images={factoryImages.coconut} />
-        </div>
-
-        {/* Certifications */}
-        <div className="text-center space-y-6">
-          <div className="inline-block">
-            <div style={{ width: "2px", height: "48px", background: GOLD, margin: "0 auto" }}></div>
-            <div style={{ width: "8px", height: "8px", background: GOLD, borderRadius: "9999px", margin: "-6px auto 0" }}></div>
-          </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold" style={{ color: NAVY }}>
-            Product Certification
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">
-            We align with global standards for food safety, hygiene, and documentation to ship confidently to regulated markets.
-          </p>
-        </div>
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
-          {factoryImages.certs.map((src, idx) => (
-            <img
-              key={idx}
-              src={src}
-              loading="lazy"
-              className="w-full rounded-lg shadow-sm border border-white/60"
-              alt="Certification"
-            />
-          ))}
         </div>
 
         {/* Activities */}

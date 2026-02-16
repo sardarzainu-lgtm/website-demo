@@ -10,7 +10,7 @@ import InquiryForm from "../components/InquiryForm";
 
 import logo from "../assets/logo.jpeg";
 import hero from "../assets/dryfruit.jpeg"
-import factoryVideo from "../assets/factory1.mp4";
+import factoryVideo from "../assets/factory.mp4";
 
 import ww240Cashew from "../assets/ww240Cashew.webp";
 import ww180Cashew from "../assets/ww180Cashew.webp";
@@ -22,9 +22,16 @@ import cashewnuts from "../assets/cashewnuts.webp";
 import copraCup from "../assets/copraCup.webp";
 import desiccatedCoconut from "../assets/desiccatedCoconut.webp";
 import driedGinger from "../assets/driedGinger.webp";
+import gingerWholeDry from "../assets/drygng-dry.webp";
+import gingerWholeFresh from "../assets/drygng-fresh.webp";
 import roastedSaltedCashew from "../assets/roastedSaltedCashew.webp";
 import whitePepper from "../assets/whitePepper.webp";
 import blackPepper from "../assets/blackPepper.webp";
+import mangoChips from "../assets/mango-chips.webp";
+import redChilli from "../assets/red-chilli.webp";
+import starAnise from "../assets/star-anise.webp";
+import sweetTamarind from "../assets/sweet-tamarind.webp";
+import robustaBeans from "../assets/robusta-beans.webp";
 
 const products = [
   {
@@ -45,11 +52,11 @@ const products = [
   },
   {
     id: 3,
-    name: "Copra Cup",
+    name: "Edible Copra",
     image: copraCup,
-    origin: "Vietnam",
-    moisture: "6%",
-    color: "Light Brown",
+    origin: "Indonesia",
+    moisture: "7-10%",
+    color: "White",
   },
   {
     id: 4,
@@ -69,11 +76,51 @@ const products = [
   },
   {
     id: 6,
-    name: "Dried Ginger",
+    name: "Ginger",
     image: driedGinger,
     origin: "Vietnam",
     moisture: "8%",
     color: "Yellowish Brown",
+  },
+  {
+    id: 35,
+    name: "DRY SLICE GINGER A GRADE",
+    image: driedGinger,
+    origin: "Vietnam",
+    moisture: "8%",
+    color: "Yellowish Brown",
+  },
+  {
+    id: 36,
+    name: "dry slice ginger B GRADE",
+    image: driedGinger,
+    origin: "Vietnam",
+    moisture: "8%",
+    color: "Yellowish Brown",
+  },
+  {
+    id: 37,
+    name: "dryslice ginger C GRADE",
+    image: driedGinger,
+    origin: "Vietnam",
+    moisture: "8%",
+    color: "Yellowish Brown",
+  },
+  {
+    id: 38,
+    name: "Ginger Whole Dry",
+    image: gingerWholeDry,
+    origin: "Vietnam",
+    moisture: "10%",
+    color: "Natural Brown",
+  },
+  {
+    id: 39,
+    name: "Ginger Whole Fresh",
+    image: gingerWholeFresh,
+    origin: "Vietnam",
+    moisture: "12-15%",
+    color: "Natural Yellow",
   },
   {
     id: 7,
@@ -131,12 +178,52 @@ const products = [
     moisture: "4%",
     color: "Cream White",
   },
+  {
+    id: 30,
+    name: "Soft Dried Mango",
+    image: mangoChips,
+    origin: "Vietnam",
+    moisture: "12-17%",
+    color: "Yellow",
+  },
+  {
+    id: 31,
+    name: "TEJA RED CHILLI",
+    image: redChilli,
+    origin: "India",
+    moisture: "—",
+    color: "Vibrant Red",
+  },
+  {
+    id: 32,
+    name: "Star Anise",
+    image: starAnise,
+    origin: "Vietnam",
+    moisture: "13.5%",
+    color: "Natural Brown",
+  },
+  {
+    id: 33,
+    name: "Sweet Tamarind",
+    image: sweetTamarind,
+    origin: "Vietnam",
+    moisture: "10-14%",
+    color: "Brown",
+  },
+  {
+    id: 34,
+    name: "Robusta Coffee Beans",
+    image: robustaBeans,
+    origin: "Vietnam",
+    moisture: "12.5%",
+    color: "Brown",
+  },
 ];
 
 const productCategories = [
   "Cashew Nuts",
   "Desiccated Coconut",
-  "Copra Cup",
+  "Edible Copra",
   "Black Pepper",
   "White Pepper",
   "Dried Ginger",
@@ -147,6 +234,11 @@ const productCategories = [
   "Cashew Nuts WW450",
   "Cashew Nuts SK",
   "Cashew Nuts SL",
+  "Soft Dried Mango",
+  "TEJA RED CHILLI",
+  "Star Anise",
+  "Sweet Tamarind",
+  "Robusta Coffee Beans",
 ];
 
 // Small set of rotating hero highlights shown in the top card
@@ -163,7 +255,7 @@ const heroHighlights = [
   },
   {
     id: 3,
-    name: "Copra Cup",
+    name: "Edible Copra",
     image: copraCup,
   },
   {
@@ -192,7 +284,7 @@ export default function HomePage() {
     const categoryMap = {
      "Cashew Nuts": 0,
       "Desiccated Coconut": 1,
-      "Copra Cup": 2,
+      "Edible Copra": 2,
       "Black Pepper": 3,
       "White Pepper": 4,
       "Dried Ginger": 5,
@@ -203,6 +295,11 @@ export default function HomePage() {
       "Cashew Nuts WW450": 10,
       "Cashew Nuts SK": 11,
       "Cashew Nuts SL": 12,
+      "Soft Dried Mango": 13,
+      "TEJA RED CHILLI": 14,
+      "Star Anise": 15,
+      "Sweet Tamarind": 16,
+      "Robusta Coffee Beans": 17,
     };
     setCurrentProductIndex(categoryMap[category] || 0);
   };
@@ -314,13 +411,13 @@ const handlePrevious = () => {
               </p>
 
               <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
-                <a
-                  href="#products"
+                <button
+                  onClick={() => navigate("/products")}
                   className="inline-flex justify-center items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold shadow-lg text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D47A1] transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-xl"
                   style={{ background: ROYAL }}
                 >
                   Explore Products →
-                </a>
+                </button>
 
                 <a
                   href="#contact"
@@ -724,140 +821,6 @@ const handlePrevious = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* International Trade Activities */}
-      <section id="news" className="py-16 sm:py-10 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10 sm:mb-12 -mt-4">
-            <div className="inline-block mb-4">
-              <div
-                style={{
-                  width: "2px",
-                  height: "48px",
-                  background: GOLD,
-                  margin: "0 auto",
-                }}
-              ></div>
-              <div
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  background: GOLD,
-                  borderRadius: 9999,
-                  margin: "-6px auto 0",
-                }}
-              ></div>
-            </div>
-            <h2
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-8"
-              style={{ color: NAVY }}
-            >
-              International Trade Activities
-            </h2>
-          </div>
-
-          <div className="relative pb-8 sm:pb-10" style={{ overflow: 'visible' }}>
-            <style>{`
-              .swiper-button-next,
-              .swiper-button-prev {
-                width: 25px !important;
-                height: 25px !important;
-                opacity: 0.5 !important;
-                top: 45% !important;
-                margin-top: 0 !important;
-                transform: translateY(-50%) !important;
-              }
-              .swiper-button-next::after,
-              .swiper-button-prev::after {
-                font-size: 16px !important;
-              }
-              @media (min-width: 640px) {
-                .swiper-button-next,
-                .swiper-button-prev {
-                  width: 30px !important;
-                  height: 30px !important;
-                  opacity: 0.6 !important;
-                }
-                .swiper-button-next::after,
-                .swiper-button-prev::after {
-                  font-size: 20px !important;
-                }
-              }
-              .swiper-button-prev {
-                left: 0px !important;
-              }
-              .swiper-button-next {
-                right: 0px !important;
-              }
-              @media (min-width: 640px) {
-                .swiper-button-prev {
-                  left: 0px !important;
-                }
-                .swiper-button-next {
-                  right: 0px !important;
-                }
-              }
-              .swiper-pagination {
-                bottom: -10px !important;
-              }
-              @media (min-width: 640px) {
-                .swiper-pagination {
-                  bottom: -3px !important;
-                }
-              }
-              @media (min-width: 1024px) {
-                .swiper {
-                  overflow: hidden !important;
-                }
-              }
-            `}</style>
-            <Swiper
-              modules={[Navigation, Pagination, Autoplay]}
-              navigation
-              pagination={{ clickable: true }}
-              autoplay={{ delay: 4000 }}
-              loop={false}
-              speed={650}
-              grabCursor
-              spaceBetween={20}
-              slidesPerView={1}
-              breakpoints={{
-                640: { slidesPerView: 2 },
-                1024: { 
-                  slidesPerView: 3,
-                  spaceBetween: 20,
-                },
-              }}
-              className="rounded-lg"
-              style={{ overflow: 'visible', paddingBottom: '20px' }}
-            >
-            {[1, 2, 3, 4].map((item) => (
-              <SwiperSlide key={item} className="pb-4">
-                <div className="bg-white/95 rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
-                  <div className="h-56 sm:h-64 bg-gradient-to-br from-white via-[#f4f7ff] to-[#e3efff] flex items-center justify-center">
-                    <div className="text-center p-4 sm:p-6">
-                      <div className="inline-flex items-center gap-2 mb-3 sm:mb-4">
-                        <span className="text-3xl sm:text-4xl">🌍</span>
-                        <span className="text-[10px] sm:text-xs uppercase tracking-[0.18em] text-gray-500">
-                          Trade Mission
-                        </span>
-                      </div>
-                      <p className="text-gray-800 font-semibold text-sm sm:text-base">
-                        Trade Show {item}
-                      </p>
-                      <p className="text-xs sm:text-sm text-gray-600 mt-2 max-w-xs mx-auto">
-                        Meetings with buyers, roasters and importers to develop
-                        long-term sourcing partnerships.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-            </Swiper>
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 
 const NAVY = "#0D47A1";
 const GOLD = "#C8A84E";
@@ -9,6 +9,8 @@ const ProductDetail = () => {
   const { state } = useLocation();
   const product = state?.product;
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category") || state?.category || "All";
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -19,12 +21,12 @@ const ProductDetail = () => {
       <div className="min-h-screen bg-[#f5f1e8] flex items-start justify-center p-10 pt-40">
         <div className="text-center bg-white p-10 rounded-lg shadow-lg">
           <p className="text-xl text-gray-700 mb-4">Product not found.</p>
-          <button
-            onClick={() => navigate("/products")}
-            className="bg-[#0D47A1] hover:bg-[#062d6d] text-white px-6 py-3 rounded-lg transition-colors"
-          >
-            Back to Products
-          </button>
+            <button
+              onClick={() => navigate(`/products?category=${encodeURIComponent(category)}`)}
+              className="bg-[#0D47A1] hover:bg-[#062d6d] text-white px-6 py-3 rounded-lg transition-colors"
+            >
+              Back to Products
+            </button>
         </div>
       </div>
     );
@@ -39,7 +41,7 @@ const ProductDetail = () => {
         {/* Breadcrumb / Back */}
         <div className="flex items-center gap-3 text-sm text-gray-600">
           <button
-            onClick={() => navigate(-1)}
+            onClick={() => navigate(`/products?category=${encodeURIComponent(category)}`)}
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white shadow-sm border border-gray-200 hover:shadow-md transition"
           >
             ← Back
@@ -66,11 +68,13 @@ const ProductDetail = () => {
                   {product.origin || "Origin"}
                 </span>
               </div>
-              <div className="absolute bottom-3 left-3 flex gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black/60 text-white">
-                  Moisture: {product.moisture || "—"}
-                </span>
-              </div>
+              {product.moisture && (
+                <div className="absolute bottom-3 left-3 flex gap-2">
+                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black/60 text-white">
+                    Moisture: {product.moisture}
+                  </span>
+                </div>
+              )}
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -98,10 +102,10 @@ const ProductDetail = () => {
                   Product Profile
                 </p>
                 <h1 className="text-3xl md:text-4xl font-bold text-[#0A1C2E] mt-1">
-                  {product.name}
+                  {product.fullName || product.name}
                 </h1>
                 <p className="text-gray-600 mt-2 text-sm sm:text-base">
-                  High-grade selection prepared for export clients with consistent grading, moisture control, and reliable supply programs.
+                  {product.description || "High-grade selection prepared for export clients with consistent grading, moisture control, and reliable supply programs."}
                 </p>
               </div>
               <div className="hidden sm:inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#0B3A82] text-white font-bold shadow-lg">
@@ -151,12 +155,12 @@ const ProductDetail = () => {
                 {/* Common specs */}
                 {[
                   { label: "Origin", value: product.origin || "Vietnam" },
-                  { label: "Moisture", value: product.moisture || "—" },
+                  ...(product.moisture ? [{ label: "Moisture", value: product.moisture }] : []),
                   // Black Pepper specific
                   ...(product.density ? [{ label: "Density", value: product.density }] : []),
                   ...(product.admixture ? [{ label: "Admixture", value: product.admixture }] : []),
-                  ...(product.grade ? [{ label: "Grade", value: product.grade }] : []),
-                  ...(product.size ? [{ label: "Size", value: product.size }] : []),
+                  ...(product.grade && (product.name?.includes("Black Pepper") || product.name?.includes("Pepper")) && !product.name?.includes("Ginger") ? [{ label: "Grade", value: product.grade }] : []),
+                  ...(product.size && !product.name?.includes("Star Anise") && !product.name?.includes("Sweet Tamarind") ? [{ label: "Size", value: product.size }] : []),
                   ...(product.blackSeeds ? [{ label: "Black Seeds", value: product.blackSeeds }] : []),
                   // Cashew Nuts specific
                   ...(product.standard ? [{ label: "Standard", value: product.standard }] : []),
@@ -170,6 +174,35 @@ const ProductDetail = () => {
                   ...(product.ffa ? [{ label: "FFA", value: product.ffa }] : []),
                   ...(product.fatContent ? [{ label: "Fat Content", value: product.fatContent }] : []),
                   ...(product.so2 ? [{ label: "SO2", value: product.so2 }] : []),
+                  // Soft Dried Mango specific
+                  ...(product.ingredients ? [{ label: "Ingredients", value: product.ingredients }] : []),
+                  ...(product.appearanceColor ? [{ label: "Appearance Color", value: product.appearanceColor }] : []),
+                  ...(product.cuttingType ? [{ label: "Cutting Type", value: product.cuttingType }] : []),
+                  ...(product.process ? [{ label: "Process", value: product.process }] : []),
+                  ...(product.length ? [{ label: "Length", value: product.length }] : []),
+                  ...(product.thickness ? [{ label: "Thickness", value: product.thickness }] : []),
+                  ...(product.shelfLife ? [{ label: "Shelf Life", value: product.shelfLife }] : []),
+                  // TEJA RED CHILLI specific
+                  ...(product.pungency ? [{ label: "Pungency", value: product.pungency }] : []),
+                  ...(product.capsaicinContent ? [{ label: "Capsaicin Content", value: product.capsaicinContent }] : []),
+                  ...(product.color && product.name === "TEJA RED CHILLI" ? [{ label: "Color", value: product.color }] : []),
+                  ...(product.skinThickness ? [{ label: "Skin Thickness", value: product.skinThickness }] : []),
+                  ...(product.podsWithStalks ? [{ label: "Pods with Stalks", value: product.podsWithStalks }] : []),
+                  ...(product.brokenChilies ? [{ label: "Broken Chilies", value: product.brokenChilies }] : []),
+                  ...(product.looseSeeds ? [{ label: "Loose Seeds", value: product.looseSeeds }] : []),
+                  // Star Anise specific
+                  ...(product.size && product.name === "Star Anise" ? [{ label: "Size", value: product.size }] : []),
+                  ...(product.brokenPieces ? [{ label: "Broken Pieces", value: product.brokenPieces }] : []),
+                  ...(product.notes ? [{ label: "Notes", value: product.notes }] : []),
+                  // Sweet Tamarind specific
+                  ...(product.variety ? [{ label: "Variety", value: product.variety }] : []),
+                  ...(product.size && product.name === "Sweet Tamarind" ? [{ label: "Size", value: product.size }] : []),
+                  // Robusta Coffee Beans specific
+                  ...(product.grades ? [{ label: "Grades", value: product.grades }] : []),
+                  ...(product.brokenAndBlack ? [{ label: "Broken and Black", value: product.brokenAndBlack }] : []),
+                  // Ginger Whole specific
+                  ...(product.grade && (product.name?.includes("Ginger") || product.name?.includes("ginger")) ? [{ label: "Grade", value: product.grade }] : []),
+                  ...(product.appearance ? [{ label: "Appearance", value: product.appearance }] : []),
                 ].map((item) => (
                   <div key={item.label} className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
                     <p className="text-xs text-gray-500">{item.label}</p>
@@ -215,13 +248,20 @@ const ProductDetail = () => {
                     <p className="font-semibold text-gray-800">Free from E.coli or bacteria, no foreign matter</p>
                   </div>
                 )}
+                {/* Additional notes for Soft Dried Mango */}
+                {product.ingredients && product.name === "Soft Dried Mango" && (
+                  <div className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
+                    <p className="text-xs text-gray-500">Additional Notes</p>
+                    <p className="font-semibold text-gray-800">Natural product, no preservatives added</p>
+                  </div>
+                )}
               </div>
             </div>
 
             <div>
               <p className="text-xs uppercase tracking-[0.15em] text-gray-500 font-semibold">Packaging & Shipment</p>
               <h3 className="text-2xl font-semibold text-[#0A1C2E] mt-1 mb-3">Ready for Export</h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 items-start">
                 <div className="rounded-xl border border-gray-100 bg-white px-4 py-4 shadow-sm">
                   <p className="text-xs text-gray-500">Packing</p>
                   <p className="font-semibold text-gray-800">{product.packing || "10kgs/carton"}</p>
