@@ -66,6 +66,8 @@ const Navbar = () => {
   const [mobileWholeGingerSubmenuOpen, setMobileWholeGingerSubmenuOpen] = useState(false);
   const [mobileSliceGingerSubmenuOpen, setMobileSliceGingerSubmenuOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const dropdownTimeoutRef = useRef(null);
+  const submenuTimeoutRefs = useRef({});
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 80);
@@ -81,10 +83,26 @@ const Navbar = () => {
         setCashewSubmenuOpen(false);
         setBlackPepperSubmenuOpen(false);
         setDesiccatedCoconutSubmenuOpen(false);
+        setGingerSubmenuOpen(false);
+        setWholeGingerSubmenuOpen(false);
+        setSliceGingerSubmenuOpen(false);
+        setWw320SubmenuOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Clear timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (dropdownTimeoutRef.current) {
+        clearTimeout(dropdownTimeoutRef.current);
+      }
+      Object.values(submenuTimeoutRefs.current).forEach(timeout => {
+        if (timeout) clearTimeout(timeout);
+      });
+    };
   }, []);
 
   // ✅ FULL PRODUCT LIST (REQUIRED FOR SEARCH)
@@ -686,11 +704,25 @@ const Navbar = () => {
           <div 
             ref={dropdownRef}
             className="relative"
+            onMouseEnter={() => {
+              if (dropdownTimeoutRef.current) {
+                clearTimeout(dropdownTimeoutRef.current);
+              }
+              setProductsDropdownOpen(true);
+            }}
+            onMouseLeave={() => {
+              dropdownTimeoutRef.current = setTimeout(() => {
+                setProductsDropdownOpen(false);
+                setCashewSubmenuOpen(false);
+                setBlackPepperSubmenuOpen(false);
+                setDesiccatedCoconutSubmenuOpen(false);
+                setGingerSubmenuOpen(false);
+                setWholeGingerSubmenuOpen(false);
+                setSliceGingerSubmenuOpen(false);
+                setWw320SubmenuOpen(false);
+              }, 200); // 200ms delay before closing
+            }}
           >
-            <div
-              onMouseEnter={() => setProductsDropdownOpen(true)}
-              onMouseLeave={() => setProductsDropdownOpen(false)}
-            >
               <button
                 onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
                 className={`relative flex items-center gap-1 transition-colors duration-150 ${
@@ -714,10 +746,8 @@ const Navbar = () => {
               {/* Dropdown Menu */}
               {productsDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                  className="absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
                   style={{ minWidth: "280px" }}
-                  onMouseEnter={() => setProductsDropdownOpen(true)}
-                  onMouseLeave={() => setProductsDropdownOpen(false)}
                 >
                 <Link
                   to="/products"
@@ -729,8 +759,64 @@ const Navbar = () => {
                 {productCategories.map((category) => (
                   <div key={category.id} className="relative">
                     {category.hasSubcategories ? (
-                      <div className="relative">
+                      <div 
+                        className="relative"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          if (category.name === "Cashew Nuts") {
+                            setCashewSubmenuOpen(true);
+                            setBlackPepperSubmenuOpen(false);
+                            setDesiccatedCoconutSubmenuOpen(false);
+                            setGingerSubmenuOpen(false);
+                          } else if (category.name === "Black Pepper") {
+                            setBlackPepperSubmenuOpen(true);
+                            setCashewSubmenuOpen(false);
+                            setDesiccatedCoconutSubmenuOpen(false);
+                            setGingerSubmenuOpen(false);
+                          } else if (category.name === "Desiccated Coconut") {
+                            setDesiccatedCoconutSubmenuOpen(true);
+                            setCashewSubmenuOpen(false);
+                            setBlackPepperSubmenuOpen(false);
+                            setGingerSubmenuOpen(false);
+                          } else if (category.name === "Ginger") {
+                            setGingerSubmenuOpen(true);
+                            setCashewSubmenuOpen(false);
+                            setBlackPepperSubmenuOpen(false);
+                            setDesiccatedCoconutSubmenuOpen(false);
+                          }
+                        }}
+                      >
                         <button
+                          onMouseEnter={() => {
+                            if (dropdownTimeoutRef.current) {
+                              clearTimeout(dropdownTimeoutRef.current);
+                            }
+                            setProductsDropdownOpen(true);
+                            if (category.name === "Cashew Nuts") {
+                              setCashewSubmenuOpen(true);
+                              setBlackPepperSubmenuOpen(false);
+                              setDesiccatedCoconutSubmenuOpen(false);
+                              setGingerSubmenuOpen(false);
+                            } else if (category.name === "Black Pepper") {
+                              setBlackPepperSubmenuOpen(true);
+                              setCashewSubmenuOpen(false);
+                              setDesiccatedCoconutSubmenuOpen(false);
+                              setGingerSubmenuOpen(false);
+                            } else if (category.name === "Desiccated Coconut") {
+                              setDesiccatedCoconutSubmenuOpen(true);
+                              setCashewSubmenuOpen(false);
+                              setBlackPepperSubmenuOpen(false);
+                              setGingerSubmenuOpen(false);
+                            } else if (category.name === "Ginger") {
+                              setGingerSubmenuOpen(true);
+                              setCashewSubmenuOpen(false);
+                              setBlackPepperSubmenuOpen(false);
+                              setDesiccatedCoconutSubmenuOpen(false);
+                            }
+                          }}
                           onClick={() => {
                             if (category.name === "Cashew Nuts") {
                               setCashewSubmenuOpen(!cashewSubmenuOpen);
@@ -784,11 +870,46 @@ const Navbar = () => {
                     {category.hasSubcategories && category.name === "Cashew Nuts" && cashewSubmenuOpen && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                                clearTimeout(dropdownTimeoutRef.current);
+                              }
+                              setProductsDropdownOpen(true);
+                              setCashewSubmenuOpen(true);
+                            }}
+                            onMouseLeave={() => {
+                              dropdownTimeoutRef.current = setTimeout(() => {
+                                setProductsDropdownOpen(false);
+                                setCashewSubmenuOpen(false);
+                                setWw320SubmenuOpen(false);
+                              }, 200);
+                            }}
                       >
                         {cashewSubcategories.map((subcat) => (
-                          <div key={subcat.id} className="relative">
+                          <div 
+                            key={subcat.id} 
+                            className="relative"
+                            onMouseEnter={() => {
+                              if (dropdownTimeoutRef.current) {
+                                clearTimeout(dropdownTimeoutRef.current);
+                              }
+                              setProductsDropdownOpen(true);
+                              setCashewSubmenuOpen(true);
+                              if (subcat.hasSubcategories && subcat.id === "ww320") {
+                                setWw320SubmenuOpen(true);
+                              }
+                            }}
+                          >
                             {subcat.hasSubcategories ? (
                               <button
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setCashewSubmenuOpen(true);
+                                  setWw320SubmenuOpen(true);
+                                }}
                                 onClick={() => setWw320SubmenuOpen(!ww320SubmenuOpen)}
                                 className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
                               >
@@ -810,6 +931,21 @@ const Navbar = () => {
                             {subcat.hasSubcategories && subcat.id === "ww320" && ww320SubmenuOpen && (
                               <div 
                                 className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setCashewSubmenuOpen(true);
+                                  setWw320SubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setProductsDropdownOpen(false);
+                                    setCashewSubmenuOpen(false);
+                                    setWw320SubmenuOpen(false);
+                                  }, 200);
+                                }}
                               >
                                 {ww320Subcategories.map((ww320Subcat) => (
                                   <button
@@ -830,6 +966,19 @@ const Navbar = () => {
                     {category.hasSubcategories && category.name === "Black Pepper" && blackPepperSubmenuOpen && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setBlackPepperSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setBlackPepperSubmenuOpen(false);
+                          }, 200);
+                        }}
                       >
                         {blackPepperSubcategories.map((subcat) => (
                           <button
@@ -846,6 +995,19 @@ const Navbar = () => {
                     {category.hasSubcategories && category.name === "Desiccated Coconut" && desiccatedCoconutSubmenuOpen && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setDesiccatedCoconutSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setDesiccatedCoconutSubmenuOpen(false);
+                          }, 200);
+                        }}
                       >
                         {desiccatedCoconutSubcategories.map((subcat) => (
                           <button
@@ -862,13 +1024,59 @@ const Navbar = () => {
                     {category.hasSubcategories && category.name === "Ginger" && gingerSubmenuOpen && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
-                        onMouseEnter={() => setGingerSubmenuOpen(true)}
-                        onMouseLeave={() => setGingerSubmenuOpen(false)}
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setGingerSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setGingerSubmenuOpen(false);
+                            setWholeGingerSubmenuOpen(false);
+                            setSliceGingerSubmenuOpen(false);
+                          }, 200);
+                        }}
                       >
                         {gingerSubcategories.map((subcat) => (
-                          <div key={subcat.id} className="relative">
+                          <div 
+                            key={subcat.id} 
+                            className="relative"
+                            onMouseEnter={() => {
+                              if (dropdownTimeoutRef.current) {
+                                clearTimeout(dropdownTimeoutRef.current);
+                              }
+                              setProductsDropdownOpen(true);
+                              setGingerSubmenuOpen(true);
+                              if (subcat.hasSubcategories) {
+                                if (subcat.id === "wholeGinger") {
+                                  setWholeGingerSubmenuOpen(true);
+                                  setSliceGingerSubmenuOpen(false);
+                                } else if (subcat.id === "sliceGinger") {
+                                  setSliceGingerSubmenuOpen(true);
+                                  setWholeGingerSubmenuOpen(false);
+                                }
+                              }
+                            }}
+                          >
                             {subcat.hasSubcategories ? (
                               <button
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setGingerSubmenuOpen(true);
+                                  if (subcat.id === "wholeGinger") {
+                                    setWholeGingerSubmenuOpen(true);
+                                    setSliceGingerSubmenuOpen(false);
+                                  } else if (subcat.id === "sliceGinger") {
+                                    setSliceGingerSubmenuOpen(true);
+                                    setWholeGingerSubmenuOpen(false);
+                                  }
+                                }}
                                 onClick={() => {
                                   if (subcat.id === "wholeGinger") {
                                     setWholeGingerSubmenuOpen(!wholeGingerSubmenuOpen);
@@ -902,8 +1110,21 @@ const Navbar = () => {
                             {subcat.hasSubcategories && subcat.id === "wholeGinger" && wholeGingerSubmenuOpen && (
                               <div 
                                 className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
-                                onMouseEnter={() => setWholeGingerSubmenuOpen(true)}
-                                onMouseLeave={() => setWholeGingerSubmenuOpen(false)}
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setGingerSubmenuOpen(true);
+                                  setWholeGingerSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setProductsDropdownOpen(false);
+                                    setGingerSubmenuOpen(false);
+                                    setWholeGingerSubmenuOpen(false);
+                                  }, 200);
+                                }}
                               >
                                 {wholeGingerSubcategories.map((wholeGingerSubcat) => (
                                   <button
@@ -920,8 +1141,21 @@ const Navbar = () => {
                             {subcat.hasSubcategories && subcat.id === "sliceGinger" && sliceGingerSubmenuOpen && (
                               <div 
                                 className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
-                                onMouseEnter={() => setSliceGingerSubmenuOpen(true)}
-                                onMouseLeave={() => setSliceGingerSubmenuOpen(false)}
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setGingerSubmenuOpen(true);
+                                  setSliceGingerSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setProductsDropdownOpen(false);
+                                    setGingerSubmenuOpen(false);
+                                    setSliceGingerSubmenuOpen(false);
+                                  }, 200);
+                                }}
                               >
                                 {sliceGingerSubcategories.map((sliceGingerSubcat) => (
                                   <button
@@ -942,7 +1176,6 @@ const Navbar = () => {
                 ))}
               </div>
             )}
-            </div>
           </div>
 
 
