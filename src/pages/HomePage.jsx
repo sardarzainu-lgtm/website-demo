@@ -32,6 +32,10 @@ import redChilli from "../assets/red-chilli.webp";
 import starAnise from "../assets/star-anise.webp";
 import sweetTamarind from "../assets/sweet-tamarind.webp";
 import robustaBeans from "../assets/robusta-beans.webp";
+import blackCardamom from "../assets/black-cardamom.webp";
+import turmericFinger from "../assets/termaricFinger.webp";
+import walnuts from "../assets/walnuts.webp";
+import cigaretteCassia from "../assets/cigaretteCasia.webp";
 
 const products = [
   {
@@ -75,14 +79,6 @@ const products = [
     color: "Off-White",
   },
   {
-    id: 6,
-    name: "Ginger",
-    image: driedGinger,
-    origin: "Vietnam",
-    moisture: "8%",
-    color: "Yellowish Brown",
-  },
-  {
     id: 35,
     name: "DRY SLICE GINGER A GRADE",
     image: driedGinger,
@@ -92,7 +88,7 @@ const products = [
   },
   {
     id: 36,
-    name: "dry slice ginger B GRADE",
+    name: "DRY SLICE GINGER B GRADE",
     image: driedGinger,
     origin: "Vietnam",
     moisture: "8%",
@@ -100,7 +96,7 @@ const products = [
   },
   {
     id: 37,
-    name: "dryslice ginger C GRADE",
+    name: "DRY SLICE GINGER C GRADE",
     image: driedGinger,
     origin: "Vietnam",
     moisture: "8%",
@@ -218,6 +214,38 @@ const products = [
     moisture: "12.5%",
     color: "Brown",
   },
+  {
+    id: 40,
+    name: "Black Cardamom",
+    image: blackCardamom,
+    origin: "Vietnam",
+    moisture: "13.5%",
+    color: "Dark Brown",
+  },
+  {
+    id: 42,
+    name: "TURMERIC FINGER",
+    image: turmericFinger,
+    origin: "India",
+    moisture: "10%",
+    color: "Bright Yellow",
+  },
+  {
+    id: 43,
+    name: "WALNUTS",
+    image: walnuts,
+    origin: "Chile",
+    moisture: "8%",
+    color: "Light Brown",
+  },
+  {
+    id: 44,
+    name: "Premium Cigarette Cassia",
+    image: cigaretteCassia,
+    origin: "Vietnam",
+    moisture: "13%",
+    color: "Brownish Yellow",
+  },
 ];
 
 const productCategories = [
@@ -226,7 +254,11 @@ const productCategories = [
   "Edible Copra",
   "Black Pepper",
   "White Pepper",
-  "Dried Ginger",
+  "DRY SLICE GINGER A GRADE",
+  "DRY SLICE GINGER B GRADE",
+  "DRY SLICE GINGER C GRADE",
+  "Ginger Whole Dry",
+  "Ginger Whole Fresh",
   "Roasted & Salted Cashew Nuts",
   "Cashew Nuts WW320",
   "Cashew Nuts WW240",
@@ -239,6 +271,10 @@ const productCategories = [
   "Star Anise",
   "Sweet Tamarind",
   "Robusta Coffee Beans",
+  "Black Cardamom",
+  "TURMERIC FINGER",
+  "WALNUTS",
+  "Premium Cigarette Cassia",
 ];
 
 // Small set of rotating hero highlights shown in the top card
@@ -281,27 +317,28 @@ export default function HomePage() {
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    const categoryMap = {
-     "Cashew Nuts": 0,
-      "Desiccated Coconut": 1,
-      "Edible Copra": 2,
-      "Black Pepper": 3,
-      "White Pepper": 4,
-      "Dried Ginger": 5,
-      "Roasted & Salted Cashew Nuts": 6,
-      "Cashew Nuts WW320": 7,
-      "Cashew Nuts WW240": 8,
-      "Cashew Nuts WW180": 9,
-      "Cashew Nuts WW450": 10,
-      "Cashew Nuts SK": 11,
-      "Cashew Nuts SL": 12,
-      "Soft Dried Mango": 13,
-      "TEJA RED CHILLI": 14,
-      "Star Anise": 15,
-      "Sweet Tamarind": 16,
-      "Robusta Coffee Beans": 17,
+    // Map category names to product names (handle mismatches)
+    const categoryToProductMap = {
+      "Dried Ginger": "Ginger", // Map "Dried Ginger" to "Ginger" product
     };
-    setCurrentProductIndex(categoryMap[category] || 0);
+    
+    // Find the product that matches the category name
+    const productName = categoryToProductMap[category] || category;
+    const productIndex = products.findIndex(
+      (product) => product.name === productName
+    );
+    
+    // If product found, set its index; otherwise default to 0
+    if (productIndex !== -1) {
+      setCurrentProductIndex(productIndex);
+    } else {
+      // Fallback: try to find a partial match
+      const fallbackIndex = products.findIndex(
+        (product) => product.name.toLowerCase().includes(category.toLowerCase()) ||
+                     category.toLowerCase().includes(product.name.toLowerCase())
+      );
+      setCurrentProductIndex(fallbackIndex !== -1 ? fallbackIndex : 0);
+    }
   };
 
   const currentProduct = products[currentProductIndex] || products[0];

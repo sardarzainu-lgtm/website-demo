@@ -138,13 +138,15 @@ export default function FactoryPage() {
         {/* Cinnamon */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <ImageGrid images={factoryImages.cinnamon} />
-          <SectionCard title="Cinnamon – Cassia / Star Anise" highlight="Vietnam">
+          <SectionCard title="Cinnamon – Cassia / Star Anise Processing" highlight="Vietnam">
             <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-              <strong>Address:</strong> Minh Phu, Soc Son, Hanoi &amp; Mau A, Van Yen, Yen Bai Province<br />
-              <strong>Total Area:</strong> 12,000 sqm<br />
-              <strong>Capacity:</strong> 10–15,000 MTS / year
+              <strong>Processing:</strong> Cinnamon Cassia, Star Anise<br />
+              <strong>Standards:</strong> Steam treated, graded, ASTA clean, food-safety protocols<br />
+              <strong>Export Compliance:</strong> ISO, HACCP, FDA ready
             </p>
-            <p className="text-sm text-gray-600">Steam treated, graded, and packed under food-safety protocols for export markets.</p>
+            <p className="text-sm text-gray-600">
+              We coordinate with certified processing partners for cinnamon cassia and star anise. Products are steam treated, graded, and packed under food-safety protocols for export markets.
+            </p>
           </SectionCard>
         </div>
 
@@ -166,28 +168,28 @@ export default function FactoryPage() {
         {/* Cashew */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
           <ImageGrid images={factoryImages.cashew} />
-          <SectionCard title="Cashew Nuts Factory" highlight="Binh Phuoc">
+          <SectionCard title="Cashew Nuts Processing" highlight="Vietnam">
             <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-              <strong>Address:</strong> Long Giang, Binh Phuoc Province<br />
-              <strong>Total Area:</strong> 4,000 sqm<br />
-              <strong>Capacity:</strong> 8–10,000 MTS / year
+              <strong>Processing:</strong> WW320, WW240, WW180, WW450, SK, SL, LP, WS, Roasted &amp; Salted<br />
+              <strong>Standards:</strong> AFI Standard 2012, graded, shelled, sorted<br />
+              <strong>Export Compliance:</strong> ISO, HACCP, HALAL, FDA ready
             </p>
             <p className="text-sm text-gray-600">
-              Producing WW320, WW240, LP, SPB; Certifications: HACCP, ISO, HALAL, FDA.
+              We coordinate with certified processing partners for premium cashew nuts. Products are shelled, graded, sorted, and packed to international standards for export markets.
             </p>
           </SectionCard>
         </div>
 
         {/* Coconut */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          <SectionCard title="Desiccated Coconut Factory" highlight="Ben Tre">
+          <SectionCard title="Desiccated Coconut Processing" highlight="Vietnam">
             <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
-              <strong>Address:</strong> My Thach, Ben Tre Province<br />
-              <strong>Total Area:</strong> 5,000 sqm<br />
-              <strong>Capacity:</strong> 5–7,000 MTS / year
+              <strong>Processing:</strong> High Fat Desiccated Coconut, Low Fat Desiccated Coconut, Fine Grade, Medium Grade, Edible Copra<br />
+              <strong>Standards:</strong> Moisture control, FFA standards, SO2 limits, microbiological controls<br />
+              <strong>Export Compliance:</strong> ISO, HACCP, FDA ready
             </p>
             <p className="text-sm text-gray-600">
-              Producing High Fat, Low Fat, Chips, and Flakes under strict moisture and microbiological controls.
+              We coordinate with certified processing partners for desiccated coconut and edible copra. Products are processed under strict moisture and microbiological controls, graded, and packed to international standards for export markets.
             </p>
           </SectionCard>
           <ImageGrid images={factoryImages.coconut} />

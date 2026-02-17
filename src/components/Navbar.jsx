@@ -31,6 +31,10 @@ import redChilli from "../assets/red-chilli.webp"
 import starAnise from "../assets/star-anise.webp"
 import sweetTamarind from "../assets/sweet-tamarind.webp"
 import robustaBeans from "../assets/robusta-beans.webp"
+import blackCardamom from "../assets/black-cardamom.webp"
+import turmericFinger from "../assets/termaricFinger.webp"
+import walnuts from "../assets/walnuts.webp"
+import cigaretteCassia from "../assets/cigaretteCasia.webp"
 
 
 // 🌟 Premium Colors
@@ -496,6 +500,59 @@ const Navbar = () => {
     grades: "R1-16, R1-18", 
     brokenAndBlack: "2% max" 
   },
+  { 
+    id: 41, 
+    name: "Black Cardamom", 
+    image: blackCardamom, 
+    origin: "Vietnam", 
+    moisture: "13.5%", 
+    admixture: "0.5%", 
+    shape: "Long, strong aroma", 
+    crop: "New crop 2025", 
+    description: "Bold, smoky flavor perfect for curries and soups. 100% natural, no additives or preservatives. Sourced sustainably from Vietnam's best farms." 
+  },
+  { 
+    id: 42, 
+    name: "TURMERIC FINGER", 
+    image: turmericFinger, 
+    origin: "India", 
+    moisture: "10% max", 
+    curcuminContent: "3-5% min", 
+    color: "Bright Yellow to Deep Orange", 
+    shape: "Finger-like rhizomes", 
+    size: "3-5 cm length", 
+    admixture: "1% max", 
+    extraneousMatter: "0.5% max", 
+    description: "Premium quality turmeric fingers with high curcumin content. Perfect for culinary and medicinal uses. Natural, sun-dried, and free from additives." 
+  },
+  { 
+    id: 43, 
+    name: "WALNUTS", 
+    image: walnuts, 
+    origin: "Chile", 
+    moisture: "8% max", 
+    kernelYield: "45-50% min", 
+    brokenKernels: "5% max", 
+    foreignMatter: "0.5% max", 
+    size: "Extra Large (32mm+)", 
+    color: "Light Brown to Golden", 
+    grade: "Premium Grade", 
+    description: "Premium quality walnuts with high kernel yield. Rich in omega-3 fatty acids and antioxidants. Perfect for snacking, baking, and culinary applications. Naturally dried and free from preservatives." 
+  },
+  { 
+    id: 44, 
+    name: "Premium Cigarette Cassia", 
+    image: cigaretteCassia, 
+    origin: "Vietnam", 
+    placeOfOrigin: "Yen Bai, Vietnam", 
+    roll: "50% to 100%", 
+    size: "6-20 cm", 
+    taste: "Spicy, Tasty", 
+    color: "Brownish Yellow", 
+    moisture: "13% max", 
+    packing: "Mesh bag/ PP bag", 
+    description: "Premium quality cigarette cassia from Yen Bai, Vietnam. Spicy and tasty flavor, available in various roll percentages. Perfect for culinary and commercial applications." 
+  },
 ];
 
   // Product categories for dropdown
@@ -509,6 +566,10 @@ const Navbar = () => {
     { id: 30, name: "Soft Dried Mango", hasSubcategories: false },
     { id: 31, name: "TEJA RED CHILLI", hasSubcategories: false },
     { id: 32, name: "Star Anise", hasSubcategories: false },
+    { id: 41, name: "Black Cardamom", hasSubcategories: false },
+    { id: 42, name: "TURMERIC FINGER", hasSubcategories: false },
+    { id: 44, name: "Premium Cigarette Cassia", hasSubcategories: false },
+    { id: 43, name: "WALNUTS", hasSubcategories: false },
     { id: 33, name: "Sweet Tamarind", hasSubcategories: false },
     { id: 34, name: "Robusta Coffee Beans", hasSubcategories: false },
   ];
