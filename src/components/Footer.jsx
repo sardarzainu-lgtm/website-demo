@@ -1,6 +1,6 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaWhatsapp } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.jpeg"; // ← your actual logo
+import logo from "../assets/logo.webp"; // ← your actual logo
 
 const Footer = () => {
   const NAVY = "#0D47A1";
@@ -97,31 +97,21 @@ const Footer = () => {
           <div className="flex space-x-3 text-2xl">
             <a
               href="https://www.facebook.com/share/16AUjJcHMD/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10 hover:text-[#C8A84E] transition-colors"
             >
               <FaFacebook />
             </a>
             <a
-              href="#"
-              aria-label="Twitter"
+              href="https://wa.me/66982818995"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="WhatsApp"
               className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10 hover:text-[#C8A84E] transition-colors"
             >
-              <FaTwitter />
-            </a>
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10 hover:text-[#C8A84E] transition-colors"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="w-9 h-9 rounded-full border border-white/25 flex items-center justify-center hover:bg-white/10 hover:text-[#C8A84E] transition-colors"
-            >
-              <FaLinkedin />
+              <FaWhatsapp />
             </a>
           </div>
         </div>

@@ -5,7 +5,7 @@ import { useNavigate, Link, useLocation } from "react-router-dom";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 // ✅ Import real logo
-import logo from "../assets/logo.jpeg";
+import logo from "../assets/logo.webp";
 
 // ✅ Import product images
 import ww240Cashew from "../assets/ww240Cashew.webp"
@@ -32,9 +32,28 @@ import starAnise from "../assets/star-anise.webp"
 import sweetTamarind from "../assets/sweet-tamarind.webp"
 import robustaBeans from "../assets/robusta-beans.webp"
 import blackCardamom from "../assets/black-cardamom.webp"
+import greenCardamom from "../assets/green-cardamom.webp"
+import bigCardamom from "../assets/big-cardamom.webp"
 import turmericFinger from "../assets/termaricFinger.webp"
 import walnuts from "../assets/walnuts.webp"
 import cigaretteCassia from "../assets/cigaretteCasia.webp"
+import cassiaSplit from "../assets/cassia-split.webp"
+import cassiaPressed from "../assets/cassia-pressed.webp"
+import brokenCassia from "../assets/broken-cassia.webp"
+import cassiaCigarette from "../assets/cassia-ciggarette.webp"
+import cassiaPowder from "../assets/cassia-powder.webp"
+import cassiaLeave from "../assets/cassia-leave.jpg"
+import cassiaHusk from "../assets/cassia-husk.jpg"
+import cassiaLongstick from "../assets/cassia-longstick.webp"
+import pumpkinAAA from "../assets/pumpkin-aaa.webp"
+import pumpkinAA from "../assets/pumpkin-aa.webp"
+import pumpkinA from "../assets/pumpkin-a.webp"
+import sunflowerSeeds from "../assets/sunflower-seeds.webp"
+import sunflowerKernels from "../assets/sunflower-kernels.webp"
+import nigellaSativa from "../assets/nigella-sativa.webp"
+import chinesePeanut from "../assets/chinese-peanunt.webp"
+import almond from "../assets/almond.webp"
+import cloves from "../assets/cloves.webp"
 
 
 // 🌟 Premium Colors
@@ -61,6 +80,12 @@ const Navbar = () => {
   const [gingerSubmenuOpen, setGingerSubmenuOpen] = useState(false);
   const [wholeGingerSubmenuOpen, setWholeGingerSubmenuOpen] = useState(false);
   const [sliceGingerSubmenuOpen, setSliceGingerSubmenuOpen] = useState(false);
+  const [cardamomSubmenuOpen, setCardamomSubmenuOpen] = useState(false);
+  const [cassiaSubmenuOpen, setCassiaSubmenuOpen] = useState(false);
+  const [pumpkinSeedsSubmenuOpen, setPumpkinSeedsSubmenuOpen] = useState(false);
+  const [sunflowerSeedsSubmenuOpen, setSunflowerSeedsSubmenuOpen] = useState(false);
+  const [peanutsSubmenuOpen, setPeanutsSubmenuOpen] = useState(false);
+  const [almondsSubmenuOpen, setAlmondsSubmenuOpen] = useState(false);
   const [mobileProductsDropdownOpen, setMobileProductsDropdownOpen] = useState(false);
   const [mobileCashewSubmenuOpen, setMobileCashewSubmenuOpen] = useState(false);
   const [mobileWw320SubmenuOpen, setMobileWw320SubmenuOpen] = useState(false);
@@ -69,6 +94,12 @@ const Navbar = () => {
   const [mobileGingerSubmenuOpen, setMobileGingerSubmenuOpen] = useState(false);
   const [mobileWholeGingerSubmenuOpen, setMobileWholeGingerSubmenuOpen] = useState(false);
   const [mobileSliceGingerSubmenuOpen, setMobileSliceGingerSubmenuOpen] = useState(false);
+  const [mobileCardamomSubmenuOpen, setMobileCardamomSubmenuOpen] = useState(false);
+  const [mobileCassiaSubmenuOpen, setMobileCassiaSubmenuOpen] = useState(false);
+  const [mobilePumpkinSeedsSubmenuOpen, setMobilePumpkinSeedsSubmenuOpen] = useState(false);
+  const [mobileSunflowerSeedsSubmenuOpen, setMobileSunflowerSeedsSubmenuOpen] = useState(false);
+  const [mobilePeanutsSubmenuOpen, setMobilePeanutsSubmenuOpen] = useState(false);
+  const [mobileAlmondsSubmenuOpen, setMobileAlmondsSubmenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const dropdownTimeoutRef = useRef(null);
   const submenuTimeoutRefs = useRef({});
@@ -90,6 +121,8 @@ const Navbar = () => {
         setGingerSubmenuOpen(false);
         setWholeGingerSubmenuOpen(false);
         setSliceGingerSubmenuOpen(false);
+        setCardamomSubmenuOpen(false);
+        setPumpkinSeedsSubmenuOpen(false);
         setWw320SubmenuOpen(false);
       }
     };
@@ -436,10 +469,10 @@ const Navbar = () => {
     name: "High fat Desiccated Coconut Medium Grade", 
     image: desiccatedCoconut, 
     origin: "Vietnam", 
-    moisture: "3% max", 
-    ffa: "0.3% max", 
-    fatContent: "63% min", 
-    so2: "100 ppm max" 
+    moisture: "3% max",
+    ffa: "0.3% max",
+    fatContent: "63% min",
+    so2: "100 ppm max"
   },
   { 
     id: 30, 
@@ -501,8 +534,19 @@ const Navbar = () => {
     brokenAndBlack: "2% max" 
   },
   { 
+    id: 45, 
+    name: "BIG CARDAMOM", 
+    image: bigCardamom, 
+    origin: "Nepal", 
+    moisture: "12% max", 
+    admixture: "1% max", 
+    size: "Large pods", 
+    color: "Brown to dark brown", 
+    description: "Premium quality big cardamom with strong aromatic flavor. Perfect for culinary and medicinal uses. Sourced from the finest farms." 
+  },
+  { 
     id: 41, 
-    name: "Black Cardamom", 
+    name: "BLACK CARDAMOM", 
     image: blackCardamom, 
     origin: "Vietnam", 
     moisture: "13.5%", 
@@ -510,6 +554,17 @@ const Navbar = () => {
     shape: "Long, strong aroma", 
     crop: "New crop 2025", 
     description: "Bold, smoky flavor perfect for curries and soups. 100% natural, no additives or preservatives. Sourced sustainably from Vietnam's best farms." 
+  },
+  { 
+    id: 46, 
+    name: "GREEN CARDAMOM", 
+    image: greenCardamom, 
+    origin: "Guatemala", 
+    moisture: "12% max", 
+    admixture: "0.5% max", 
+    size: "Small to medium pods", 
+    color: "Green", 
+    description: "Premium quality green cardamom with sweet, floral aroma. Perfect for desserts, teas, and savory dishes. Known as the 'Queen of Spices'." 
   },
   { 
     id: 42, 
@@ -540,9 +595,33 @@ const Navbar = () => {
     description: "Premium quality walnuts with high kernel yield. Rich in omega-3 fatty acids and antioxidants. Perfect for snacking, baking, and culinary applications. Naturally dried and free from preservatives." 
   },
   { 
-    id: 44, 
-    name: "Premium Cigarette Cassia", 
-    image: cigaretteCassia, 
+    id: 48, 
+    name: "SPLIT CASSIA", 
+    image: cassiaSplit, 
+    origin: "Vietnam", 
+    moisture: "13% max", 
+    description: "Premium quality split cassia from Vietnam. Perfect for culinary and commercial applications." 
+  },
+  { 
+    id: 49, 
+    name: "PRESSED CASSIA", 
+    image: cassiaPressed, 
+    origin: "Vietnam", 
+    moisture: "13% max", 
+    description: "Premium quality pressed cassia from Vietnam. Perfect for culinary and commercial applications." 
+  },
+  { 
+    id: 50, 
+    name: "BROKEN CASSIA", 
+    image: brokenCassia, 
+    origin: "Vietnam", 
+    moisture: "13% max", 
+    description: "Premium quality broken cassia from Vietnam. Perfect for culinary and commercial applications." 
+  },
+  { 
+    id: 51, 
+    name: "CASSIA CIGARETTE", 
+    image: cassiaCigarette, 
     origin: "Vietnam", 
     placeOfOrigin: "Yen Bai, Vietnam", 
     roll: "50% to 100%", 
@@ -553,25 +632,311 @@ const Navbar = () => {
     packing: "Mesh bag/ PP bag", 
     description: "Premium quality cigarette cassia from Yen Bai, Vietnam. Spicy and tasty flavor, available in various roll percentages. Perfect for culinary and commercial applications." 
   },
+  { 
+    id: 52, 
+    name: "CASSIA POWDER", 
+    image: cassiaPowder, 
+    origin: "Vietnam", 
+    moisture: "13% max", 
+    description: "Premium quality cassia powder from Vietnam. Perfect for culinary and commercial applications." 
+  },
+  { 
+    id: 53, 
+    name: "CASSIA LEAVE", 
+    image: cassiaLeave, 
+    origin: "Vietnam", 
+    moisture: "13% max", 
+    description: "Premium quality cassia leaves from Vietnam. Perfect for culinary and commercial applications." 
+  },
+  { 
+    id: 54, 
+    name: "CASSIA HUSK", 
+    image: cassiaHusk, 
+    origin: "Vietnam", 
+    moisture: "13% max", 
+    description: "Premium quality cassia husk from Vietnam. Perfect for culinary and commercial applications." 
+  },
+  { 
+    id: 55, 
+    name: "CASSIA LONG STICK", 
+    image: cassiaLongstick, 
+    origin: "Vietnam", 
+    moisture: "13% max", 
+    description: "Premium quality cassia long stick from Vietnam. Perfect for culinary and commercial applications." 
+  },
+  { 
+    id: 56, 
+    name: "CASSIA SPLIT", 
+    image: cassiaSplit, 
+    origin: "Vietnam", 
+    moisture: "13% max", 
+    description: "Premium quality cassia split from Vietnam. Perfect for culinary and commercial applications." 
+  },
+  { 
+    id: 58, 
+    name: "Pumpkin Seeds Grade AAA", 
+    image: pumpkinAAA, 
+    origin: "China", 
+    moisture: "8% max", 
+    grade: "AAA",
+    purity: "99% min",
+    size: "Large, uniform seeds",
+    color: "Green to dark green",
+    description: "Premium quality pumpkin seeds Grade AAA. Large, uniform seeds with excellent taste and texture. Perfect for snacking, baking, and culinary applications." 
+  },
+  { 
+    id: 59, 
+    name: "Pumpkin Seeds Grade AA", 
+    image: pumpkinAA, 
+    origin: "China", 
+    moisture: "8% max", 
+    grade: "AA",
+    purity: "98% min",
+    size: "Medium to large seeds",
+    color: "Green to dark green",
+    description: "High quality pumpkin seeds Grade AA. Medium to large seeds with good taste and texture. Perfect for snacking, baking, and culinary applications." 
+  },
+  { 
+    id: 60, 
+    name: "Pumpkin Seeds Grade A", 
+    image: pumpkinA, 
+    origin: "China", 
+    moisture: "8% max", 
+    grade: "A",
+    purity: "97% min",
+    size: "Medium seeds",
+    color: "Green to dark green",
+    description: "Quality pumpkin seeds Grade A. Medium seeds suitable for various applications. Perfect for snacking, baking, and culinary uses." 
+  },
+  { 
+    id: 61, 
+    name: "Sunflower Seeds Confectionery Grade", 
+    image: sunflowerSeeds, 
+    origin: "China", 
+    moisture: "8% max", 
+    grade: "Confectionery Grade",
+    size: "Large seeds",
+    color: "Black and white striped",
+    description: "Premium quality sunflower seeds confectionery grade. Large seeds perfect for snacking. Rich in vitamin E and healthy fats. Natural, roasted, and ready to eat." 
+  },
+  { 
+    id: 62, 
+    name: "Sunflower Seeds Bakery Grade", 
+    image: sunflowerKernels, 
+    origin: "China", 
+    moisture: "8% max", 
+    grade: "Bakery Grade",
+    size: "Smaller kernels",
+    color: "Light beige to white",
+    description: "High quality sunflower seeds bakery grade. Smaller kernels perfect for baking and cooking applications. Ideal for bread, cookies, and other baked goods." 
+  },
+  { 
+    id: 65, 
+    name: "Nigella sativa", 
+    image: nigellaSativa, 
+    origin: "India", 
+    moisture: "7% max", 
+    purity: "99%, 99.50%, 99.90%",
+    oilContents: "36%",
+    nonGMO: "Yes",
+    description: "Premium quality Nigella sativa (black seed) from India. High purity levels available (99%, 99.50%, 99.90%). Rich in oil content (36%) and certified Non-GMO. Known for its medicinal properties and culinary uses." 
+  },
+  // MAIN CATEGORY PRODUCT
+
+  // CATEGORIZED UNDER PEANUTS - LARGE SIZE
+  { 
+    id: 67, 
+    name: "Peanuts L(25/29)", 
+    image: chinesePeanut, 
+    origin: "China", 
+    moisture: "7% max", 
+    size: "Large (25-29 kernels per ounce)",
+    grade: "Large",
+    description: "Premium quality Chinese peanuts, large size (25-29 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
+  },
+  { 
+    id: 68, 
+    name: "Peanuts 29/33", 
+    image: chinesePeanut, 
+    origin: "China", 
+    moisture: "7% max", 
+    size: "Large (29-33 kernels per ounce)",
+    grade: "Large",
+    description: "Premium quality Chinese peanuts, large size (29-33 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
+  },
+  // CATEGORIZED UNDER PEANUTS - MEDIUM SIZE
+  { 
+    id: 69, 
+    name: "Peanuts M(35/39)", 
+    image: chinesePeanut, 
+    origin: "China", 
+    moisture: "7% max", 
+    size: "Medium (35-39 kernels per ounce)",
+    grade: "Medium",
+    description: "Premium quality Chinese peanuts, medium size (35-39 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
+  },
+  { 
+    id: 70, 
+    name: "Peanuts M(39/43)", 
+    image: chinesePeanut, 
+    origin: "China", 
+    moisture: "7% max", 
+    size: "Medium (39-43 kernels per ounce)",
+    grade: "Medium",
+    description: "Premium quality Chinese peanuts, medium size (39-43 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
+  },
+  // CATEGORIZED UNDER PEANUTS - SMALL SIZE
+  { 
+    id: 71, 
+    name: "Peanuts S(41/51)", 
+    image: chinesePeanut, 
+    origin: "China", 
+    moisture: "7% max", 
+    size: "Small (41-51 kernels per ounce)",
+    grade: "Small",
+    description: "Premium quality Chinese peanuts, small size (41-51 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
+  },
+  { 
+    id: 72, 
+    name: "Peanuts S(51/61)", 
+    image: chinesePeanut, 
+    origin: "China", 
+    moisture: "7% max", 
+    size: "Small (51-61 kernels per ounce)",
+    grade: "Small",
+    description: "Premium quality Chinese peanuts, small size (51-61 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
+  },
+  { 
+    id: 73, 
+    name: "Peanuts S(61/71)", 
+    image: chinesePeanut, 
+    origin: "China", 
+    moisture: "7% max", 
+    size: "Small (61-71 kernels per ounce)",
+    grade: "Small",
+    description: "Premium quality Chinese peanuts, small size (61-71 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
+  },
+  { 
+    id: 74, 
+    name: "Peanuts S(71/91)", 
+    image: chinesePeanut, 
+    origin: "China", 
+    moisture: "7% max", 
+    size: "Small (71-91 kernels per ounce)",
+    grade: "Small",
+    description: "Premium quality Chinese peanuts, small size (71-91 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
+  },
+  // MAIN CATEGORY PRODUCT
+  { 
+    id: 75, 
+    name: "Almonds", 
+    image: almond, 
+    origin: "USA", 
+    moisture: "6% max", 
+    description: "Premium quality almonds available in various sizes. Perfect for snacking, baking, and commercial applications." 
+  },
+  // CATEGORIZED UNDER ALMONDS - BY SIZE
+  { 
+    id: 76, 
+    name: "Almonds 18/20", 
+    image: almond, 
+    origin: "USA", 
+    moisture: "6% max", 
+    size: "Largest (18-20 kernels per ounce)",
+    grade: "Premium",
+    description: "Premium quality almonds, largest size (18-20 kernels per ounce). Premium size often used for chocolate coating or high-end snacking. Perfect for premium retail packs and gourmet applications." 
+  },
+  { 
+    id: 77, 
+    name: "Almonds 20/22", 
+    image: almond, 
+    origin: "USA", 
+    moisture: "6% max", 
+    size: "Second largest (20-22 kernels per ounce)",
+    grade: "Premium",
+    description: "Premium quality almonds, second largest size (20-22 kernels per ounce). Popular for premium retail packs. Perfect for snacking and high-end applications." 
+  },
+  { 
+    id: 78, 
+    name: "Almonds 23/25", 
+    image: almond, 
+    origin: "USA", 
+    moisture: "6% max", 
+    size: "Standard large (23-25 kernels per ounce)",
+    grade: "Large",
+    description: "Premium quality almonds, standard large size (23-25 kernels per ounce). Commonly used in snacking. Perfect for retail packs and commercial applications." 
+  },
+  { 
+    id: 79, 
+    name: "Almonds 25/27", 
+    image: almond, 
+    origin: "USA", 
+    moisture: "6% max", 
+    size: "Medium-large (25-27 kernels per ounce)",
+    grade: "Medium-Large",
+    description: "Premium quality almonds, medium-large size (25-27 kernels per ounce). Perfect for snacking, baking, and commercial applications." 
+  },
+  { 
+    id: 80, 
+    name: "Almonds 27/30", 
+    image: almond, 
+    origin: "USA", 
+    moisture: "6% max", 
+    size: "Medium (27-30 kernels per ounce)",
+    grade: "Medium",
+    description: "Premium quality almonds, medium size (27-30 kernels per ounce). Perfect for snacking, baking, and commercial applications." 
+  },
+  { 
+    id: 81, 
+    name: "Almonds 30/32", 
+    image: almond, 
+    origin: "USA", 
+    moisture: "6% max", 
+    size: "Medium-small (30-32 kernels per ounce)",
+    grade: "Medium-Small",
+    description: "Premium quality almonds, medium-small size (30-32 kernels per ounce). Perfect for snacking, baking, and commercial applications." 
+  },
+  // CATEGORIZED UNDER SPICES
+  { 
+    id: 82, 
+    name: "Cloves", 
+    image: cloves, 
+    origin: "Indonesia", 
+    moisture: "12% max", 
+    botanicalName: "Syzygium aromaticum",
+    appearance: "Whole dried buds, rich dark brown to reddish-brown",
+    foreignMatter: "1% max",
+    grade: "Hand-picked, sorted – multiple grades available",
+    aroma: "Strong, warm & spicy",
+    packing: "25 kg or 50 kg net weight - Polypropylene or jute bags",
+    description: "Premium quality cloves direct from Indonesia. Whole dried buds with rich dark brown to reddish-brown color. Hand-picked and sorted with multiple grades available. Strong, warm and spicy aroma. Perfect for culinary and commercial applications." 
+  },
 ];
 
   // Product categories for dropdown
   const productCategories = [
+    
     { id: 1, name: "Cashew Nuts", hasSubcategories: true },
     { id: 2, name: "Desiccated Coconut", hasSubcategories: true },
     { id: 3, name: "Edible Copra", hasSubcategories: false },
     { id: 4, name: "Black Pepper", hasSubcategories: true },
-    { id: 5, name: "White Pepper", hasSubcategories: false },
     { id: 6, name: "Ginger", hasSubcategories: true },
+    { id: 5, name: "White Pepper", hasSubcategories: false },
+    { id: 8, name: "CASSIA/CINNAMON", hasSubcategories: true },
     { id: 30, name: "Soft Dried Mango", hasSubcategories: false },
     { id: 31, name: "TEJA RED CHILLI", hasSubcategories: false },
     { id: 32, name: "Star Anise", hasSubcategories: false },
-    { id: 41, name: "Black Cardamom", hasSubcategories: false },
+    { id: 7, name: "Cardamom", hasSubcategories: true },
+    { id: 57, name: "Pumpkin Seeds", hasSubcategories: true }, 
+    { id: 58, name: "Sunflower Seeds", hasSubcategories: true },
+    { id: 66, name: "Peanuts", hasSubcategories: true },
+    { id: 75, name: "Almonds", hasSubcategories: true },
     { id: 42, name: "TURMERIC FINGER", hasSubcategories: false },
-    { id: 44, name: "Premium Cigarette Cassia", hasSubcategories: false },
     { id: 43, name: "WALNUTS", hasSubcategories: false },
     { id: 33, name: "Sweet Tamarind", hasSubcategories: false },
     { id: 34, name: "Robusta Coffee Beans", hasSubcategories: false },
+    { id: 65, name: "Nigella sativa", hasSubcategories: false },
+    { id: 82, name: "Cloves", hasSubcategories: false },
   ];
 
   // Cashew Nuts subcategories
@@ -631,6 +996,95 @@ const Navbar = () => {
       { id: 36, name: "DRY SLICE GINGER B GRADE" },
       { id: 37, name: "DRY SLICE GINGER C GRADE" },
   ];
+
+  // Cardamom subcategories
+  const cardamomSubcategories = [
+    { id: 45, name: "BIG CARDAMOM" },
+    { id: 41, name: "BLACK CARDAMOM" },
+    { id: 46, name: "GREEN CARDAMOM" },
+  ];
+
+  // Cassia/Cinnamon subcategories
+  const cassiaSubcategories = [
+    { id: 48, name: "SPLIT CASSIA" },
+    { id: 49, name: "PRESSED CASSIA" },
+    { id: 50, name: "BROKEN CASSIA" },
+    { id: 51, name: "CASSIA CIGARETTE" },
+    { id: 52, name: "CASSIA POWDER" },
+    { id: 53, name: "CASSIA LEAVE" },
+    { id: 54, name: "CASSIA HUSK" },
+    { id: 55, name: "CASSIA LONG STICK" },
+    { id: 56, name: "CASSIA SPLIT" },
+  ];
+
+  // Pumpkin Seeds subcategories
+  const pumpkinSeedsSubcategories = [
+    { id: 58, name: "Pumpkin Seeds Grade AAA" },
+    { id: 59, name: "Pumpkin Seeds Grade AA" },
+    { id: 60, name: "Pumpkin Seeds Grade A" },
+  ];
+
+  // Sunflower Seeds subcategories
+  const sunflowerSeedsSubcategories = [
+    { id: 61, name: "Sunflower Seeds Confectionery Grade" },
+    { id: 62, name: "Sunflower Seeds Bakery Grade" },
+  ];
+
+  // Peanuts subcategories
+  const peanutsSubcategories = [
+    { id: 67, name: "Peanuts L(25/29)" },
+    { id: 68, name: "Peanuts L(29/33)" },
+    { id: 69, name: "Peanuts M(35/39)" },
+    { id: 70, name: "Peanuts M(39/43)" },
+    { id: 71, name: "Peanuts S(41/51)" },
+    { id: 72, name: "Peanuts S(51/61)" },
+    { id: 73, name: "Peanuts S(61/71)" },
+    { id: 74, name: "Peanuts S(71/91)" },
+  ];
+
+  // Almonds subcategories
+  const almondsSubcategories = [
+    { id: 76, name: "Almonds 18/20" },
+    { id: 77, name: "Almonds 20/22" },
+    { id: 78, name: "Almonds 23/25" },
+    { id: 79, name: "Almonds 25/27" },
+    { id: 80, name: "Almonds 27/30" },
+    { id: 81, name: "Almonds 30/32" },
+  ];
+
+  // Helper function to close all submenus (desktop)
+  const closeAllSubmenus = () => {
+    setCashewSubmenuOpen(false);
+    setWw320SubmenuOpen(false);
+    setBlackPepperSubmenuOpen(false);
+    setDesiccatedCoconutSubmenuOpen(false);
+    setGingerSubmenuOpen(false);
+    setWholeGingerSubmenuOpen(false);
+    setSliceGingerSubmenuOpen(false);
+    setCardamomSubmenuOpen(false);
+    setCassiaSubmenuOpen(false);
+    setPumpkinSeedsSubmenuOpen(false);
+    setSunflowerSeedsSubmenuOpen(false);
+    setPeanutsSubmenuOpen(false);
+    setAlmondsSubmenuOpen(false);
+  };
+
+  // Helper function to close all mobile submenus
+  const closeAllMobileSubmenus = () => {
+    setMobileCashewSubmenuOpen(false);
+    setMobileWw320SubmenuOpen(false);
+    setMobileBlackPepperSubmenuOpen(false);
+    setMobileDesiccatedCoconutSubmenuOpen(false);
+    setMobileGingerSubmenuOpen(false);
+    setMobileWholeGingerSubmenuOpen(false);
+    setMobileSliceGingerSubmenuOpen(false);
+    setMobileCardamomSubmenuOpen(false);
+    setMobileCassiaSubmenuOpen(false);
+    setMobilePumpkinSeedsSubmenuOpen(false);
+    setMobileSunflowerSeedsSubmenuOpen(false);
+    setMobilePeanutsSubmenuOpen(false);
+    setMobileAlmondsSubmenuOpen(false);
+  };
 
   // Handle product navigation
   const handleProductClick = (productId) => {
@@ -696,7 +1150,7 @@ const Navbar = () => {
     >
       {/* Top info bar (only on top state) */}
       {!isScrolled && (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-2 text-white text-[11px] sm:text-xs font-medium sm:border-b sm:border-white/30">
+        <div className="hidden md:block max-w-7xl mx-auto px-4 sm:px-6 py-2 text-white text-[11px] sm:text-xs font-medium sm:border-b sm:border-white/30">
           <div className="hidden sm:flex flex-wrap items-center gap-2 sm:gap-3">
             <span className="flex items-center gap-1">
               ✉ <a href="mailto:info@lion-lotus.co" className="hover:text-[#FFD479]">info@lion-lotus.co</a>
@@ -724,7 +1178,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Lion & Lotus Trading Co., Ltd. logo"
-            className="h-10 w-auto object-contain drop-shadow-lg"
+            className="h-16 w-auto object-contain drop-shadow-lg"
           />
           <div className="hidden sm:flex flex-col leading-tight">
             <span
@@ -780,36 +1234,41 @@ const Navbar = () => {
                 setGingerSubmenuOpen(false);
                 setWholeGingerSubmenuOpen(false);
                 setSliceGingerSubmenuOpen(false);
+                setCardamomSubmenuOpen(false);
+                setCassiaSubmenuOpen(false);
+                setPumpkinSeedsSubmenuOpen(false);
+                setSunflowerSeedsSubmenuOpen(false);
                 setWw320SubmenuOpen(false);
               }, 200); // 200ms delay before closing
             }}
           >
-              <button
-                onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
-                className={`relative flex items-center gap-1 transition-colors duration-150 ${
-                  isActive("/products") || location.pathname.startsWith("/product/")
-                    ? "text-[#0D47A1]"
-                    : isScrolled
-                    ? "text-[#0A1C2E] hover:text-[#0D47A1]"
-                    : "text-white/90 hover:text-white"
-                }`}
-              >
-                Product
-                <ChevronDown 
-                  size={16} 
-                  className={`transition-transform duration-200 ${productsDropdownOpen ? "rotate-180" : ""}`}
-                />
-                <span
-                  className={`absolute left-0 bottom-0 h-0.5 transition-all duration-200 ${isActive("/products") || location.pathname.startsWith("/product/") ? "w-full" : "w-0"} bg-[#0D47A1]`}
-                ></span>
-              </button>
+            <button
+              onClick={() => setProductsDropdownOpen(!productsDropdownOpen)}
+              className={`relative flex items-center gap-1 transition-colors duration-150 ${
+                isActive("/products") || location.pathname.startsWith("/product/")
+                  ? "text-[#0D47A1]"
+                  : isScrolled
+                  ? "text-[#0A1C2E] hover:text-[#0D47A1]"
+                  : "text-white/90 hover:text-white"
+              }`}
+            >
+              Product
+              <ChevronDown 
+                size={16} 
+                className={`transition-transform duration-200 ${productsDropdownOpen ? "rotate-180" : ""}`}
+              />
+              <span
+                className={`absolute left-0 bottom-0 h-0.5 transition-all duration-200 ${isActive("/products") || location.pathname.startsWith("/product/") ? "w-full" : "w-0"} bg-[#0D47A1]`}
+              ></span>
+            </button>
 
-              {/* Dropdown Menu */}
-              {productsDropdownOpen && (
-                <div 
-                  className="absolute top-full left-0 mt-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
-                  style={{ minWidth: "280px" }}
-                >
+            {/* Dropdown Menu */}
+            {productsDropdownOpen && (
+              <div 
+                  ref={dropdownRef}
+                  className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                  style={{ minWidth: "520px", position: "absolute" }}
+              >
                 <Link
                   to="/products"
                   onClick={() => setProductsDropdownOpen(false)}
@@ -817,8 +1276,12 @@ const Navbar = () => {
                 >
                   All Products
                 </Link>
+                <div className="grid grid-cols-2 gap-0">
                 {productCategories.map((category) => (
-                  <div key={category.id} className="relative">
+                  <div 
+                    key={category.id} 
+                    className="relative col-span-1"
+                  >
                     {category.hasSubcategories ? (
                       <div 
                         className="relative"
@@ -827,27 +1290,6 @@ const Navbar = () => {
                             clearTimeout(dropdownTimeoutRef.current);
                           }
                           setProductsDropdownOpen(true);
-                          if (category.name === "Cashew Nuts") {
-                            setCashewSubmenuOpen(true);
-                            setBlackPepperSubmenuOpen(false);
-                            setDesiccatedCoconutSubmenuOpen(false);
-                            setGingerSubmenuOpen(false);
-                          } else if (category.name === "Black Pepper") {
-                            setBlackPepperSubmenuOpen(true);
-                            setCashewSubmenuOpen(false);
-                            setDesiccatedCoconutSubmenuOpen(false);
-                            setGingerSubmenuOpen(false);
-                          } else if (category.name === "Desiccated Coconut") {
-                            setDesiccatedCoconutSubmenuOpen(true);
-                            setCashewSubmenuOpen(false);
-                            setBlackPepperSubmenuOpen(false);
-                            setGingerSubmenuOpen(false);
-                          } else if (category.name === "Ginger") {
-                            setGingerSubmenuOpen(true);
-                            setCashewSubmenuOpen(false);
-                            setBlackPepperSubmenuOpen(false);
-                            setDesiccatedCoconutSubmenuOpen(false);
-                          }
                         }}
                       >
                         <button
@@ -856,49 +1298,58 @@ const Navbar = () => {
                               clearTimeout(dropdownTimeoutRef.current);
                             }
                             setProductsDropdownOpen(true);
-                            if (category.name === "Cashew Nuts") {
-                              setCashewSubmenuOpen(true);
-                              setBlackPepperSubmenuOpen(false);
-                              setDesiccatedCoconutSubmenuOpen(false);
-                              setGingerSubmenuOpen(false);
-                            } else if (category.name === "Black Pepper") {
-                              setBlackPepperSubmenuOpen(true);
-                              setCashewSubmenuOpen(false);
-                              setDesiccatedCoconutSubmenuOpen(false);
-                              setGingerSubmenuOpen(false);
-                            } else if (category.name === "Desiccated Coconut") {
-                              setDesiccatedCoconutSubmenuOpen(true);
-                              setCashewSubmenuOpen(false);
-                              setBlackPepperSubmenuOpen(false);
-                              setGingerSubmenuOpen(false);
-                            } else if (category.name === "Ginger") {
-                              setGingerSubmenuOpen(true);
-                              setCashewSubmenuOpen(false);
-                              setBlackPepperSubmenuOpen(false);
-                              setDesiccatedCoconutSubmenuOpen(false);
-                            }
                           }}
                           onClick={() => {
+                            // Check if the clicked category is already open
+                            let isCurrentlyOpen = false;
                             if (category.name === "Cashew Nuts") {
-                              setCashewSubmenuOpen(!cashewSubmenuOpen);
-                              setBlackPepperSubmenuOpen(false);
-                              setDesiccatedCoconutSubmenuOpen(false);
-                              setGingerSubmenuOpen(false);
+                              isCurrentlyOpen = cashewSubmenuOpen;
                             } else if (category.name === "Black Pepper") {
-                              setBlackPepperSubmenuOpen(!blackPepperSubmenuOpen);
-                              setCashewSubmenuOpen(false);
-                              setDesiccatedCoconutSubmenuOpen(false);
-                              setGingerSubmenuOpen(false);
+                              isCurrentlyOpen = blackPepperSubmenuOpen;
                             } else if (category.name === "Desiccated Coconut") {
-                              setDesiccatedCoconutSubmenuOpen(!desiccatedCoconutSubmenuOpen);
-                              setCashewSubmenuOpen(false);
-                              setBlackPepperSubmenuOpen(false);
-                              setGingerSubmenuOpen(false);
+                              isCurrentlyOpen = desiccatedCoconutSubmenuOpen;
                             } else if (category.name === "Ginger") {
-                              setGingerSubmenuOpen(!gingerSubmenuOpen);
-                              setCashewSubmenuOpen(false);
-                              setBlackPepperSubmenuOpen(false);
-                              setDesiccatedCoconutSubmenuOpen(false);
+                              isCurrentlyOpen = gingerSubmenuOpen;
+                            } else if (category.name === "Cardamom") {
+                              isCurrentlyOpen = cardamomSubmenuOpen;
+                            } else if (category.name === "CASSIA/CINNAMON") {
+                              isCurrentlyOpen = cassiaSubmenuOpen;
+                            } else if (category.name === "Pumpkin Seeds") {
+                              isCurrentlyOpen = pumpkinSeedsSubmenuOpen;
+                            } else if (category.name === "Sunflower Seeds") {
+                              isCurrentlyOpen = sunflowerSeedsSubmenuOpen;
+                            } else if (category.name === "Peanuts") {
+                              isCurrentlyOpen = peanutsSubmenuOpen;
+                            } else if (category.name === "Almonds") {
+                              isCurrentlyOpen = almondsSubmenuOpen;
+                            }
+                            
+                            // Always close all submenus first
+                            closeAllSubmenus();
+                            
+                            // Then open the clicked one only if it wasn't already open
+                            if (!isCurrentlyOpen) {
+                              if (category.name === "Cashew Nuts") {
+                                setCashewSubmenuOpen(true);
+                              } else if (category.name === "Black Pepper") {
+                                setBlackPepperSubmenuOpen(true);
+                              } else if (category.name === "Desiccated Coconut") {
+                                setDesiccatedCoconutSubmenuOpen(true);
+                              } else if (category.name === "Ginger") {
+                                setGingerSubmenuOpen(true);
+                              } else if (category.name === "Cardamom") {
+                                setCardamomSubmenuOpen(true);
+                              } else if (category.name === "CASSIA/CINNAMON") {
+                                setCassiaSubmenuOpen(true);
+                              } else if (category.name === "Pumpkin Seeds") {
+                                setPumpkinSeedsSubmenuOpen(true);
+                              } else if (category.name === "Sunflower Seeds") {
+                                setSunflowerSeedsSubmenuOpen(true);
+                              } else if (category.name === "Peanuts") {
+                                setPeanutsSubmenuOpen(true);
+                              } else if (category.name === "Almonds") {
+                                setAlmondsSubmenuOpen(true);
+                              }
                             }
                           }}
                           className="w-full px-4 py-2.5 hover:bg-gray-50 cursor-pointer flex items-center justify-between group text-left"
@@ -912,7 +1363,13 @@ const Navbar = () => {
                               (category.name === "Cashew Nuts" && cashewSubmenuOpen) ||
                               (category.name === "Black Pepper" && blackPepperSubmenuOpen) ||
                               (category.name === "Desiccated Coconut" && desiccatedCoconutSubmenuOpen) ||
-                              (category.name === "Ginger" && gingerSubmenuOpen)
+                              (category.name === "Ginger" && gingerSubmenuOpen) ||
+                              (category.name === "Cardamom" && cardamomSubmenuOpen) ||
+                              (category.name === "CASSIA/CINNAMON" && cassiaSubmenuOpen) ||
+                              (category.name === "Pumpkin Seeds" && pumpkinSeedsSubmenuOpen) ||
+                              (category.name === "Sunflower Seeds" && sunflowerSeedsSubmenuOpen) ||
+                              (category.name === "Peanuts" && peanutsSubmenuOpen) ||
+                              (category.name === "Almonds" && almondsSubmenuOpen)
                                 ? "rotate-90" : ""
                             }`}
                           />
@@ -930,7 +1387,7 @@ const Navbar = () => {
                     {/* Cashew Nuts Submenu */}
                     {category.hasSubcategories && category.name === "Cashew Nuts" && cashewSubmenuOpen && (
                       <div 
-                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
                           if (dropdownTimeoutRef.current) {
                                 clearTimeout(dropdownTimeoutRef.current);
@@ -991,7 +1448,7 @@ const Navbar = () => {
                             {/* WW320 Submenu */}
                             {subcat.hasSubcategories && subcat.id === "ww320" && ww320SubmenuOpen && (
                               <div 
-                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                                 onMouseEnter={() => {
                                   if (dropdownTimeoutRef.current) {
                                     clearTimeout(dropdownTimeoutRef.current);
@@ -1026,7 +1483,7 @@ const Navbar = () => {
                     {/* Black Pepper Submenu */}
                     {category.hasSubcategories && category.name === "Black Pepper" && blackPepperSubmenuOpen && (
                       <div 
-                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
                           if (dropdownTimeoutRef.current) {
                             clearTimeout(dropdownTimeoutRef.current);
@@ -1055,7 +1512,7 @@ const Navbar = () => {
                     {/* Desiccated Coconut Submenu */}
                     {category.hasSubcategories && category.name === "Desiccated Coconut" && desiccatedCoconutSubmenuOpen && (
                       <div 
-                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
                           if (dropdownTimeoutRef.current) {
                             clearTimeout(dropdownTimeoutRef.current);
@@ -1081,10 +1538,232 @@ const Navbar = () => {
                         ))}
                       </div>
                     )}
+                    {/* Cardamom Submenu */}
+                    {category.hasSubcategories && category.name === "Cardamom" && cardamomSubmenuOpen && (
+                      <div 
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setCardamomSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setCardamomSubmenuOpen(false);
+                          }, 200);
+                        }}
+                      >
+                        {cardamomSubcategories.map((subcat) => (
+                          <button
+                            key={subcat.id}
+                            onClick={() => handleProductClick(subcat.id)}
+                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          >
+                            {subcat.name}
+                          </button>
+                        ))}
+                  </div>
+                    )}
+                    {/* Cassia/Cinnamon Submenu */}
+                    {category.hasSubcategories && category.name === "CASSIA/CINNAMON" && cassiaSubmenuOpen && (
+                      <div 
+                        ref={(el) => {
+                          if (el && cassiaSubmenuOpen) {
+                            // Find the dropdown menu container
+                            const dropdownContainer = el.closest('.absolute.top-full');
+                            if (dropdownContainer) {
+                              const dropdownRect = dropdownContainer.getBoundingClientRect();
+                              const categoryButton = el.previousElementSibling?.querySelector('button');
+                              if (categoryButton) {
+                                const categoryRect = categoryButton.getBoundingClientRect();
+                                // Calculate offset to align submenu top with dropdown top
+                                const offsetTop = categoryRect.top - dropdownRect.top;
+                                el.style.top = `-${offsetTop-150}px`;
+                              }
+                            }
+                          }
+                        }}
+                        className="absolute left-full ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200] max-h-[80vh] overflow-y-auto"
+                        style={{ 
+                          maxHeight: 'calc(100vh - 100px)',
+                          top: '0px'
+                        }}
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setCassiaSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setCassiaSubmenuOpen(false);
+                          }, 200);
+                        }}
+                      >
+                        {cassiaSubcategories.map((subcat) => (
+                          <button
+                            key={subcat.id}
+                            onClick={() => handleProductClick(subcat.id)}
+                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          >
+                            {subcat.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    {/* Pumpkin Seeds Submenu */}
+                    {category.hasSubcategories && category.name === "Pumpkin Seeds" && pumpkinSeedsSubmenuOpen && (
+                      <div 
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setPumpkinSeedsSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setPumpkinSeedsSubmenuOpen(false);
+                          }, 200);
+                        }}
+                      >
+                        {pumpkinSeedsSubcategories.map((subcat) => (
+                          <button
+                            key={subcat.id}
+                            onClick={() => handleProductClick(subcat.id)}
+                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          >
+                            {subcat.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    {/* Sunflower Seeds Submenu */}
+                    {category.hasSubcategories && category.name === "Sunflower Seeds" && sunflowerSeedsSubmenuOpen && (
+                      <div 
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setSunflowerSeedsSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setSunflowerSeedsSubmenuOpen(false);
+                          }, 200);
+                        }}
+                      >
+                        {sunflowerSeedsSubcategories.map((subcat) => (
+                          <button
+                            key={subcat.id}
+                            onClick={() => handleProductClick(subcat.id)}
+                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          >
+                            {subcat.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    {/* Peanuts Submenu */}
+                    {category.hasSubcategories && category.name === "Peanuts" && peanutsSubmenuOpen && (
+                      <div 
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200] max-h-[80vh] overflow-y-auto"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setPeanutsSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setPeanutsSubmenuOpen(false);
+                          }, 200);
+                        }}
+                      >
+                        {peanutsSubcategories.map((subcat) => (
+                          <button
+                            key={subcat.id}
+                            onClick={() => handleProductClick(subcat.id)}
+                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          >
+                            {subcat.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    {/* Almonds Submenu */}
+                    {category.hasSubcategories && category.name === "Almonds" && almondsSubmenuOpen && (
+                      <div 
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200] max-h-[80vh] overflow-y-auto"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setAlmondsSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setAlmondsSubmenuOpen(false);
+                          }, 200);
+                        }}
+                      >
+                        {almondsSubcategories.map((subcat) => (
+                          <button
+                            key={subcat.id}
+                            onClick={() => handleProductClick(subcat.id)}
+                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          >
+                            {subcat.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    {/* Almonds Submenu */}
+                    {category.hasSubcategories && category.name === "Almonds" && almondsSubmenuOpen && (
+                      <div 
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200] max-h-[80vh] overflow-y-auto"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setAlmondsSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setAlmondsSubmenuOpen(false);
+                          }, 200);
+                        }}
+                      >
+                        {almondsSubcategories.map((subcat) => (
+                          <button
+                            key={subcat.id}
+                            onClick={() => handleProductClick(subcat.id)}
+                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          >
+                            {subcat.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
                     {/* Ginger Submenu */}
                     {category.hasSubcategories && category.name === "Ginger" && gingerSubmenuOpen && (
                       <div 
-                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
                           if (dropdownTimeoutRef.current) {
                             clearTimeout(dropdownTimeoutRef.current);
@@ -1170,7 +1849,7 @@ const Navbar = () => {
                             {/* Whole Ginger Submenu */}
                             {subcat.hasSubcategories && subcat.id === "wholeGinger" && wholeGingerSubmenuOpen && (
                               <div 
-                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                                 onMouseEnter={() => {
                                   if (dropdownTimeoutRef.current) {
                                     clearTimeout(dropdownTimeoutRef.current);
@@ -1201,7 +1880,7 @@ const Navbar = () => {
                             {/* Slice Ginger Submenu */}
                             {subcat.hasSubcategories && subcat.id === "sliceGinger" && sliceGingerSubmenuOpen && (
                               <div 
-                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                                 onMouseEnter={() => {
                                   if (dropdownTimeoutRef.current) {
                                     clearTimeout(dropdownTimeoutRef.current);
@@ -1235,6 +1914,7 @@ const Navbar = () => {
                     )}
                   </div>
                 ))}
+                </div>
               </div>
             )}
           </div>
@@ -1321,22 +2001,6 @@ const Navbar = () => {
             Get Quote
           </a>
 
-          {/* Desktop language toggle */}
-          <div className="hidden lg:flex items-center gap-1 text-xs font-semibold">
-            <span className={isScrolled ? "text-gray-700" : "text-white/90"}>EN</span>
-            <span className={isScrolled ? "text-gray-400" : "text-white/60"}>|</span>
-            <span className={isScrolled ? "text-gray-500 hover:text-[#0D47A1]" : "text-white/70 hover:text-white"}>TH</span>
-          </div>
-
-          {/* Mobile language toggle */}
-          <div className="flex items-center gap-1 text-xs font-semibold lg:hidden">
-            <span className={`${isScrolled ? "text-gray-700" : "text-white/90"}`}>EN</span>
-            <span className={`${isScrolled ? "text-gray-400" : "text-white/60"}`}>|</span>
-            <span className={`${isScrolled ? "text-gray-500" : "text-white/70"} hover:text-[#0D47A1] cursor-pointer`}>
-              TH
-            </span>
-          </div>
-
           <button
             onClick={() => setShowSearch(!showSearch)}
             className={`hover:text-[#0D47A1] ${isScrolled ? "text-gray-600" : "text-white/90"}`}
@@ -1414,11 +2078,11 @@ const Navbar = () => {
       {/* MOBILE MENU */}
       {menuOpen &&
         createPortal(
-          <div className="lg:hidden fixed inset-0 z-[1200] bg-black/60 backdrop-blur-sm" onClick={() => setMenuOpen(false)}>
-            <div
-              className="ml-auto h-full w-5/6 sm:w-1/2 bg-white/95 backdrop-blur px-4 pb-6 pt-4 flex flex-col space-y-2 text-base font-medium shadow-2xl rounded-l-2xl overflow-y-auto"
-              onClick={(e) => e.stopPropagation()}
-            >
+        <div className="lg:hidden fixed inset-0 z-[1200] bg-black/60 backdrop-blur-sm" onClick={() => setMenuOpen(false)}>
+          <div
+            className="ml-auto h-full w-5/6 sm:w-1/2 bg-white/95 backdrop-blur px-4 pb-6 pt-4 flex flex-col space-y-2 text-base font-medium shadow-2xl rounded-l-2xl overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex items-center justify-between mb-2">
               <div
                 className="flex items-center gap-3 cursor-pointer"
@@ -1499,35 +2163,59 @@ const Navbar = () => {
                       {category.hasSubcategories ? (
                         <>
                           <button
-                            onClick={() => {
+                          onClick={() => {
+                            // Check if the clicked category is already open
+                            let isCurrentlyOpen = false;
+                            if (category.name === "Cashew Nuts") {
+                              isCurrentlyOpen = mobileCashewSubmenuOpen;
+                            } else if (category.name === "Black Pepper") {
+                              isCurrentlyOpen = mobileBlackPepperSubmenuOpen;
+                            } else if (category.name === "Desiccated Coconut") {
+                              isCurrentlyOpen = mobileDesiccatedCoconutSubmenuOpen;
+                            } else if (category.name === "Ginger") {
+                              isCurrentlyOpen = mobileGingerSubmenuOpen;
+                            } else if (category.name === "Cardamom") {
+                              isCurrentlyOpen = mobileCardamomSubmenuOpen;
+                            } else if (category.name === "CASSIA/CINNAMON") {
+                              isCurrentlyOpen = mobileCassiaSubmenuOpen;
+                            } else if (category.name === "Pumpkin Seeds") {
+                              isCurrentlyOpen = mobilePumpkinSeedsSubmenuOpen;
+                            } else if (category.name === "Sunflower Seeds") {
+                              isCurrentlyOpen = mobileSunflowerSeedsSubmenuOpen;
+                            } else if (category.name === "Peanuts") {
+                              isCurrentlyOpen = mobilePeanutsSubmenuOpen;
+                            } else if (category.name === "Almonds") {
+                              isCurrentlyOpen = mobileAlmondsSubmenuOpen;
+                            }
+                            
+                            // Always close all mobile submenus first
+                            closeAllMobileSubmenus();
+                            
+                            // Then open the clicked one only if it wasn't already open
+                            if (!isCurrentlyOpen) {
                               if (category.name === "Cashew Nuts") {
-                                setMobileCashewSubmenuOpen(!mobileCashewSubmenuOpen);
-                                setMobileWw320SubmenuOpen(false);
-                                setMobileBlackPepperSubmenuOpen(false);
-                                setMobileDesiccatedCoconutSubmenuOpen(false);
-                                setMobileGingerSubmenuOpen(false);
+                                setMobileCashewSubmenuOpen(true);
                               } else if (category.name === "Black Pepper") {
-                                setMobileBlackPepperSubmenuOpen(!mobileBlackPepperSubmenuOpen);
-                                setMobileCashewSubmenuOpen(false);
-                                setMobileWw320SubmenuOpen(false);
-                                setMobileDesiccatedCoconutSubmenuOpen(false);
-                                setMobileGingerSubmenuOpen(false);
+                                setMobileBlackPepperSubmenuOpen(true);
                               } else if (category.name === "Desiccated Coconut") {
-                                setMobileDesiccatedCoconutSubmenuOpen(!mobileDesiccatedCoconutSubmenuOpen);
-                                setMobileCashewSubmenuOpen(false);
-                                setMobileWw320SubmenuOpen(false);
-                                setMobileBlackPepperSubmenuOpen(false);
-                                setMobileGingerSubmenuOpen(false);
+                                setMobileDesiccatedCoconutSubmenuOpen(true);
                               } else if (category.name === "Ginger") {
-                                setMobileGingerSubmenuOpen(!mobileGingerSubmenuOpen);
-                                setMobileCashewSubmenuOpen(false);
-                                setMobileWw320SubmenuOpen(false);
-                                setMobileBlackPepperSubmenuOpen(false);
-                                setMobileDesiccatedCoconutSubmenuOpen(false);
-                                setMobileWholeGingerSubmenuOpen(false);
-                                setMobileSliceGingerSubmenuOpen(false);
+                                setMobileGingerSubmenuOpen(true);
+                              } else if (category.name === "Cardamom") {
+                                setMobileCardamomSubmenuOpen(true);
+                              } else if (category.name === "CASSIA/CINNAMON") {
+                                setMobileCassiaSubmenuOpen(true);
+                              } else if (category.name === "Pumpkin Seeds") {
+                                setMobilePumpkinSeedsSubmenuOpen(true);
+                              } else if (category.name === "Sunflower Seeds") {
+                                setMobileSunflowerSeedsSubmenuOpen(true);
+                              } else if (category.name === "Peanuts") {
+                                setMobilePeanutsSubmenuOpen(true);
+                              } else if (category.name === "Almonds") {
+                                setMobileAlmondsSubmenuOpen(true);
                               }
-                            }}
+                            }
+                          }}
                             className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[14px] text-gray-700 hover:text-[#0D47A1] hover:bg-gray-50"
                           >
                             <span>{category.name}</span>
@@ -1537,7 +2225,13 @@ const Navbar = () => {
                                 (category.name === "Cashew Nuts" && mobileCashewSubmenuOpen) ||
                                 (category.name === "Black Pepper" && mobileBlackPepperSubmenuOpen) ||
                                 (category.name === "Desiccated Coconut" && mobileDesiccatedCoconutSubmenuOpen) ||
-                                (category.name === "Ginger" && mobileGingerSubmenuOpen)
+                                (category.name === "Ginger" && mobileGingerSubmenuOpen) ||
+                                (category.name === "Cardamom" && mobileCardamomSubmenuOpen) ||
+                                (category.name === "CASSIA/CINNAMON" && mobileCassiaSubmenuOpen) ||
+                                (category.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen) ||
+                                (category.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen) ||
+                                (category.name === "Peanuts" && mobilePeanutsSubmenuOpen) ||
+                                (category.name === "Almonds" && mobileAlmondsSubmenuOpen)
                                   ? "rotate-90" : ""
                               }`}
                             />
@@ -1714,6 +2408,114 @@ const Navbar = () => {
                                     </button>
                                   )}
                                 </div>
+                              ))}
+                            </div>
+                          )}
+                          {category.name === "Cardamom" && mobileCardamomSubmenuOpen && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {cardamomSubcategories.map((subcat) => (
+                                <button
+                                  key={subcat.id}
+                                  onClick={() => {
+                                    handleProductClick(subcat.id);
+                                    setMenuOpen(false);
+                                    setMobileProductsDropdownOpen(false);
+                                    setMobileCardamomSubmenuOpen(false);
+                                  }}
+                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                >
+                                  {subcat.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                          {category.name === "CASSIA/CINNAMON" && mobileCassiaSubmenuOpen && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {cassiaSubcategories.map((subcat) => (
+                                <button
+                                  key={subcat.id}
+                                  onClick={() => {
+                                    handleProductClick(subcat.id);
+                                    setMenuOpen(false);
+                                    setMobileProductsDropdownOpen(false);
+                                    setMobileCassiaSubmenuOpen(false);
+                                  }}
+                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                >
+                                  {subcat.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                          {category.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {pumpkinSeedsSubcategories.map((subcat) => (
+                                <button
+                                  key={subcat.id}
+                                  onClick={() => {
+                                    handleProductClick(subcat.id);
+                                    setMenuOpen(false);
+                                    setMobileProductsDropdownOpen(false);
+                                    setMobilePumpkinSeedsSubmenuOpen(false);
+                                  }}
+                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                >
+                                  {subcat.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                          {category.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {sunflowerSeedsSubcategories.map((subcat) => (
+                                <button
+                                  key={subcat.id}
+                                  onClick={() => {
+                                    handleProductClick(subcat.id);
+                                    setMenuOpen(false);
+                                    setMobileProductsDropdownOpen(false);
+                                    setMobileSunflowerSeedsSubmenuOpen(false);
+                                  }}
+                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                >
+                                  {subcat.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                          {category.name === "Peanuts" && mobilePeanutsSubmenuOpen && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {peanutsSubcategories.map((subcat) => (
+                                <button
+                                  key={subcat.id}
+                                  onClick={() => {
+                                    handleProductClick(subcat.id);
+                                    setMenuOpen(false);
+                                    setMobileProductsDropdownOpen(false);
+                                    setMobilePeanutsSubmenuOpen(false);
+                                  }}
+                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                >
+                                  {subcat.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                          {category.name === "Almonds" && mobileAlmondsSubmenuOpen && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {almondsSubcategories.map((subcat) => (
+                                <button
+                                  key={subcat.id}
+                                  onClick={() => {
+                                    handleProductClick(subcat.id);
+                                    setMenuOpen(false);
+                                    setMobileProductsDropdownOpen(false);
+                                    setMobileAlmondsSubmenuOpen(false);
+                                  }}
+                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                >
+                                  {subcat.name}
+                                </button>
                               ))}
                             </div>
                           )}

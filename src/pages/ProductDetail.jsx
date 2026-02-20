@@ -21,12 +21,12 @@ const ProductDetail = () => {
       <div className="min-h-screen bg-[#f5f1e8] flex items-start justify-center p-10 pt-40">
         <div className="text-center bg-white p-10 rounded-lg shadow-lg">
           <p className="text-xl text-gray-700 mb-4">Product not found.</p>
-            <button
+          <button
               onClick={() => navigate(`/products?category=${encodeURIComponent(category)}`)}
-              className="bg-[#0D47A1] hover:bg-[#062d6d] text-white px-6 py-3 rounded-lg transition-colors"
-            >
-              Back to Products
-            </button>
+            className="bg-[#0D47A1] hover:bg-[#062d6d] text-white px-6 py-3 rounded-lg transition-colors"
+          >
+            Back to Products
+          </button>
         </div>
       </div>
     );
@@ -69,11 +69,11 @@ const ProductDetail = () => {
                 </span>
               </div>
               {product.moisture && (
-                <div className="absolute bottom-3 left-3 flex gap-2">
-                  <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black/60 text-white">
+              <div className="absolute bottom-3 left-3 flex gap-2">
+                <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black/60 text-white">
                     Moisture: {product.moisture}
-                  </span>
-                </div>
+                </span>
+              </div>
               )}
             </div>
 

@@ -33,9 +33,28 @@ import starAnise from "../assets/star-anise.webp";
 import sweetTamarind from "../assets/sweet-tamarind.webp";
 import robustaBeans from "../assets/robusta-beans.webp";
 import blackCardamom from "../assets/black-cardamom.webp";
+import greenCardamom from "../assets/green-cardamom.webp";
+import bigCardamom from "../assets/big-cardamom.webp";
 import turmericFinger from "../assets/termaricFinger.webp";
 import walnuts from "../assets/walnuts.webp";
-import cigaretteCassia from "../assets/cigaretteCasia.webp";
+import cigaretteCassia from "../assets/cigaretteCasia.webp"
+import cassiaSplit from "../assets/cassia-split.webp"
+import cassiaPressed from "../assets/cassia-pressed.webp"
+import brokenCassia from "../assets/broken-cassia.webp"
+import cassiaCigarette from "../assets/cassia-ciggarette.webp"
+import cassiaPowder from "../assets/cassia-powder.webp"
+import cassiaLeave from "../assets/cassia-leave.jpg"
+import cassiaHusk from "../assets/cassia-husk.jpg"
+import cassiaLongstick from "../assets/cassia-longstick.webp"
+import pumpkinAAA from "../assets/pumpkin-aaa.webp"
+import pumpkinAA from "../assets/pumpkin-aa.webp"
+import pumpkinA from "../assets/pumpkin-a.webp"
+import sunflowerSeeds from "../assets/sunflower-seeds.webp"
+import sunflowerKernels from "../assets/sunflower-kernels.webp"
+import nigellaSativa from "../assets/nigella-sativa.webp"
+import chinesePeanut from "../assets/chinese-peanunt.webp"
+import almond from "../assets/almond.webp"
+import cloves from "../assets/cloves.webp"
 
 const products = [
   {
@@ -215,12 +234,28 @@ const products = [
     color: "Brown",
   },
   {
-    id: 40,
-    name: "Black Cardamom",
+    id: 45,
+    name: "BIG CARDAMOM",
+    image: bigCardamom,
+    origin: "Nepal",
+    moisture: "12%",
+    color: "Brown",
+  },
+  {
+    id: 41,
+    name: "BLACK CARDAMOM",
     image: blackCardamom,
     origin: "Vietnam",
     moisture: "13.5%",
     color: "Dark Brown",
+  },
+  {
+    id: 46,
+    name: "GREEN CARDAMOM",
+    image: greenCardamom,
+    origin: "Guatemala",
+    moisture: "12%",
+    color: "Green",
   },
   {
     id: 42,
@@ -239,12 +274,260 @@ const products = [
     color: "Light Brown",
   },
   {
-    id: 44,
-    name: "Premium Cigarette Cassia",
-    image: cigaretteCassia,
+    id: 48,
+    name: "SPLIT CASSIA",
+    image: cassiaSplit,
+    origin: "Vietnam",
+    moisture: "13%",
+    color: "Brown",
+  },
+  {
+    id: 49,
+    name: "PRESSED CASSIA",
+    image: cassiaPressed,
+    origin: "Vietnam",
+    moisture: "13%",
+    color: "Brown",
+  },
+  {
+    id: 50,
+    name: "BROKEN CASSIA",
+    image: brokenCassia,
+    origin: "Vietnam",
+    moisture: "13%",
+    color: "Brown",
+  },
+  {
+    id: 51,
+    name: "CASSIA CIGARETTE",
+    image: cassiaCigarette,
     origin: "Vietnam",
     moisture: "13%",
     color: "Brownish Yellow",
+  },
+  {
+    id: 52,
+    name: "CASSIA POWDER",
+    image: cassiaPowder,
+    origin: "Vietnam",
+    moisture: "13%",
+    color: "Brown",
+  },
+  {
+    id: 53,
+    name: "CASSIA LEAVE",
+    image: cassiaLeave,
+    origin: "Vietnam",
+    moisture: "13%",
+    color: "Green",
+  },
+  {
+    id: 54,
+    name: "CASSIA HUSK",
+    image: cassiaHusk,
+    origin: "Vietnam",
+    moisture: "13%",
+    color: "Brown",
+  },
+  {
+    id: 55,
+    name: "CASSIA LONG STICK",
+    image: cassiaLongstick,
+    origin: "Vietnam",
+    moisture: "13%",
+    color: "Brown",
+  },
+  {
+    id: 56,
+    name: "CASSIA SPLIT",
+    image: cassiaSplit,
+    origin: "Vietnam",
+    moisture: "13%",
+    color: "Brown",
+  },
+  {
+    id: 58,
+    name: "Pumpkin Seeds Grade AAA",
+    image: pumpkinAAA,
+    origin: "China",
+    moisture: "8%",
+    color: "Green",
+  },
+  {
+    id: 59,
+    name: "Pumpkin Seeds Grade AA",
+    image: pumpkinAA,
+    origin: "China",
+    moisture: "8%",
+    color: "Green",
+  },
+  {
+    id: 60,
+    name: "Pumpkin Seeds Grade A",
+    image: pumpkinA,
+    origin: "China",
+    moisture: "8%",
+    color: "Green",
+  },
+  {
+    id: 61,
+    name: "Sunflower Seeds Confectionery Grade",
+    image: sunflowerSeeds,
+    origin: "China",
+    moisture: "8%",
+    color: "Black and white",
+  },
+  {
+    id: 62,
+    name: "Sunflower Seeds Bakery Grade",
+    image: sunflowerKernels,
+    origin: "China",
+    moisture: "8%",
+    color: "Light beige",
+  },
+  {
+    id: 65,
+    name: "Nigella sativa",
+    image: nigellaSativa,
+    origin: "India",
+    moisture: "7%",
+    color: "Black",
+  },
+  {
+    id: 66,
+    name: "Peanuts",
+    image: chinesePeanut,
+    origin: "China",
+    moisture: "7%",
+    color: "Brown",
+  },
+  {
+    id: 67,
+    name: "Peanuts L(25/29)",
+    image: chinesePeanut,
+    origin: "China",
+    moisture: "7%",
+    color: "Brown",
+  },
+  {
+    id: 68,
+    name: "Peanuts L(29/33)",
+    image: chinesePeanut,
+    origin: "China",
+    moisture: "7%",
+    color: "Brown",
+  },
+  {
+    id: 69,
+    name: "Peanuts M(35/39)",
+    image: chinesePeanut,
+    origin: "China",
+    moisture: "7%",
+    color: "Brown",
+  },
+  {
+    id: 70,
+    name: "Peanuts M(39/43)",
+    image: chinesePeanut,
+    origin: "China",
+    moisture: "7%",
+    color: "Brown",
+  },
+  {
+    id: 71,
+    name: "Peanuts S(41/51)",
+    image: chinesePeanut,
+    origin: "China",
+    moisture: "7%",
+    color: "Brown",
+  },
+  {
+    id: 72,
+    name: "Peanuts S(51/61)",
+    image: chinesePeanut,
+    origin: "China",
+    moisture: "7%",
+    color: "Brown",
+  },
+  {
+    id: 73,
+    name: "Peanuts S(61/71)",
+    image: chinesePeanut,
+    origin: "China",
+    moisture: "7%",
+    color: "Brown",
+  },
+  {
+    id: 74,
+    name: "Peanuts S(71/91)",
+    image: chinesePeanut,
+    origin: "China",
+    moisture: "7%",
+    color: "Brown",
+  },
+  {
+    id: 75,
+    name: "Almonds",
+    image: almond,
+    origin: "USA",
+    moisture: "6%",
+    color: "Light Brown",
+  },
+  {
+    id: 76,
+    name: "Almonds 18/20",
+    image: almond,
+    origin: "USA",
+    moisture: "6%",
+    color: "Light Brown",
+  },
+  {
+    id: 77,
+    name: "Almonds 20/22",
+    image: almond,
+    origin: "USA",
+    moisture: "6%",
+    color: "Light Brown",
+  },
+  {
+    id: 78,
+    name: "Almonds 23/25",
+    image: almond,
+    origin: "USA",
+    moisture: "6%",
+    color: "Light Brown",
+  },
+  {
+    id: 79,
+    name: "Almonds 25/27",
+    image: almond,
+    origin: "USA",
+    moisture: "6%",
+    color: "Light Brown",
+  },
+  {
+    id: 80,
+    name: "Almonds 27/30",
+    image: almond,
+    origin: "USA",
+    moisture: "6%",
+    color: "Light Brown",
+  },
+  {
+    id: 81,
+    name: "Almonds 30/32",
+    image: almond,
+    origin: "USA",
+    moisture: "6%",
+    color: "Light Brown",
+  },
+  {
+    id: 82,
+    name: "Cloves",
+    image: cloves,
+    origin: "Indonesia",
+    moisture: "12%",
+    color: "Dark Brown",
   },
 ];
 
@@ -271,10 +554,43 @@ const productCategories = [
   "Star Anise",
   "Sweet Tamarind",
   "Robusta Coffee Beans",
-  "Black Cardamom",
+  "BIG CARDAMOM",
+  "BLACK CARDAMOM",
+  "GREEN CARDAMOM",
   "TURMERIC FINGER",
   "WALNUTS",
-  "Premium Cigarette Cassia",
+  "SPLIT CASSIA",
+  "PRESSED CASSIA",
+  "BROKEN CASSIA",
+  "CASSIA CIGARETTE",
+  "CASSIA POWDER",
+  "CASSIA LEAVE",
+  "CASSIA HUSK",
+  "CASSIA LONG STICK",
+  "CASSIA SPLIT",
+  "Pumpkin Seeds Grade AAA",
+  "Pumpkin Seeds Grade AA",
+  "Pumpkin Seeds Grade A",
+  "Sunflower Seeds Confectionery Grade",
+  "Sunflower Seeds Bakery Grade",
+  "Nigella sativa",
+  "Peanuts",
+  "Peanuts L(25/29)",
+  "Peanuts L(29/33)",
+  "Peanuts M(35/39)",
+  "Peanuts M(39/43)",
+  "Peanuts S(41/51)",
+  "Peanuts S(51/61)",
+  "Peanuts S(61/71)",
+  "Peanuts S(71/91)",
+  "Almonds",
+  "Almonds 18/20",
+  "Almonds 20/22",
+  "Almonds 23/25",
+  "Almonds 25/27",
+  "Almonds 27/30",
+  "Almonds 30/32",
+  "Cloves",
 ];
 
 // Small set of rotating hero highlights shown in the top card

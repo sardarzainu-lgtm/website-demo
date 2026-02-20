@@ -33,9 +33,28 @@ import starAnise from "../assets/star-anise.webp"
 import sweetTamarind from "../assets/sweet-tamarind.webp"
 import robustaBeans from "../assets/robusta-beans.webp"
 import blackCardamom from "../assets/black-cardamom.webp"
+import greenCardamom from "../assets/green-cardamom.webp"
+import bigCardamom from "../assets/big-cardamom.webp"
 import turmericFinger from "../assets/termaricFinger.webp"
 import walnuts from "../assets/walnuts.webp"
 import cigaretteCassia from "../assets/cigaretteCasia.webp"
+import cassiaSplit from "../assets/cassia-split.webp"
+import cassiaPressed from "../assets/cassia-pressed.webp"
+import brokenCassia from "../assets/broken-cassia.webp"
+import cassiaCigarette from "../assets/cassia-ciggarette.webp"
+import cassiaPowder from "../assets/cassia-powder.webp"
+import cassiaLeave from "../assets/cassia-leave.jpg"
+import cassiaHusk from "../assets/cassia-husk.jpg"
+import cassiaLongstick from "../assets/cassia-longstick.webp"
+import pumpkinAAA from "../assets/pumpkin-aaa.webp"
+import pumpkinAA from "../assets/pumpkin-aa.webp"
+import pumpkinA from "../assets/pumpkin-a.webp"
+import sunflowerSeeds from "../assets/sunflower-seeds.webp"
+import sunflowerKernels from "../assets/sunflower-kernels.webp"
+import nigellaSativa from "../assets/nigella-sativa.webp"
+import chinesePeanut from "../assets/chinese-peanunt.webp"
+import almond from "../assets/almond.webp"
+import cloves from "../assets/cloves.webp"
 
 
 // PRODUCT LIST
@@ -47,6 +66,8 @@ const products = [
   { id: 4, name: "Black Pepper", image: blackPepper, origin: "Vietnam", moisture: "13.5% max" },
   { id: 5, name: "White Pepper 630g/l (EU Standard)", image: whitePepper, origin: "Vietnam", moisture: "13.5% max", density: "630g/l", admixture: "0.5% max", blackSeeds: "2% max" },
   { id: 6, name: "Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
+  { id: 47, name: "CARDAMOM", image: greenCardamom, origin: "Guatemala", moisture: "12% max", admixture: "0.5% max", size: "Small to medium pods", color: "Green", description: "Premium quality green cardamom with sweet, floral aroma. Perfect for desserts, teas, and savory dishes. Known as the 'Queen of Spices'." },
+
   
   // CATEGORIZED UNDER GINGER - WHOLE GINGER
   { id: 38, name: "Ginger Whole Dry", image: gingerWholeDry, origin: "Vietnam", moisture: "10% max", grade: "Whole", appearance: "Natural color, clean, no foreign matter", packing: "10-25 kg bags" },
@@ -91,12 +112,63 @@ const products = [
   // CATEGORIZED UNDER SPICES
   { id: 31, name: "TEJA RED CHILLI", image: redChilli, origin: "India", pungency: "75,000 - 1,000,000 SHU", capsaicinContent: "1%", color: "Vibrant Red Color (ASTA 40-60)", length: "5-6 cm", skinThickness: "0.50-0.70 mm", podsWithStalks: "2%", brokenChilies: "1%", looseSeeds: "1%", description: "Perfect for adding bold spice to your curries, sauces, and snacks!" },
   { id: 32, name: "Star Anise", image: starAnise, origin: "Vietnam", moisture: "13.5%", size: "2.5 cm 80% up", brokenPieces: "10% max", notes: "No fungus, natural color" },
-  { id: 41, name: "Black Cardamom", image: blackCardamom, origin: "Vietnam", moisture: "13.5%", admixture: "0.5%", shape: "Long, strong aroma", crop: "New crop 2025", description: "Bold, smoky flavor perfect for curries and soups. 100% natural, no additives or preservatives. Sourced sustainably from Vietnam's best farms." },
+  { id: 45, name: "BIG CARDAMOM", image: bigCardamom, origin: "Nepal", moisture: "12% max", admixture: "1% max", size: "Large pods", color: "Brown to dark brown", description: "Premium quality big cardamom with strong aromatic flavor. Perfect for culinary and medicinal uses. Sourced from the finest farms." },
+  { id: 41, name: "BLACK CARDAMOM", image: blackCardamom, origin: "Vietnam", moisture: "13.5%", admixture: "0.5%", shape: "Long, strong aroma", crop: "New crop 2025", description: "Bold, smoky flavor perfect for curries and soups. 100% natural, no additives or preservatives. Sourced sustainably from Vietnam's best farms." },
+  { id: 46, name: "GREEN CARDAMOM", image: greenCardamom, origin: "Guatemala", moisture: "12% max", admixture: "0.5% max", size: "Small to medium pods", color: "Green", description: "Premium quality green cardamom with sweet, floral aroma. Perfect for desserts, teas, and savory dishes. Known as the 'Queen of Spices'." },
   { id: 42, name: "TURMERIC FINGER", image: turmericFinger, origin: "India", moisture: "10% max", curcuminContent: "3-5% min", color: "Bright Yellow to Deep Orange", shape: "Finger-like rhizomes", size: "3-5 cm length", admixture: "1% max", extraneousMatter: "0.5% max", description: "Premium quality turmeric fingers with high curcumin content. Perfect for culinary and medicinal uses. Natural, sun-dried, and free from additives." },
-  { id: 44, name: "Premium Cigarette Cassia", image: cigaretteCassia, origin: "Vietnam", placeOfOrigin: "Yen Bai, Vietnam", roll: "50% to 100%", size: "6-20 cm", taste: "Spicy, Tasty", color: "Brownish Yellow", moisture: "13% max", packing: "Mesh bag/ PP bag", description: "Premium quality cigarette cassia from Yen Bai, Vietnam. Spicy and tasty flavor, available in various roll percentages. Perfect for culinary and commercial applications." },
+  { id: 57, name: "CASSIA/CINNAMON", image: cassiaSplit, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia/cinnamon products from Vietnam. Available in various forms including split, pressed, broken, cigarette, powder, leaves, husk, long stick, and split varieties." },
+  // CATEGORIZED UNDER CASSIA/CINNAMON
+  { id: 48, name: "SPLIT CASSIA", image: cassiaSplit, origin: "Vietnam", moisture: "13% max", description: "Premium quality split cassia from Vietnam. Perfect for culinary and commercial applications." },
+  { id: 49, name: "PRESSED CASSIA", image: cassiaPressed, origin: "Vietnam", moisture: "13% max", description: "Premium quality pressed cassia from Vietnam. Perfect for culinary and commercial applications." },
+  { id: 50, name: "BROKEN CASSIA", image: brokenCassia, origin: "Vietnam", moisture: "13% max", description: "Premium quality broken cassia from Vietnam. Perfect for culinary and commercial applications." },
+  { id: 51, name: "CASSIA CIGARETTE", image: cassiaCigarette, origin: "Vietnam", placeOfOrigin: "Yen Bai, Vietnam", roll: "50% to 100%", size: "6-20 cm", taste: "Spicy, Tasty", color: "Brownish Yellow", moisture: "13% max", packing: "Mesh bag/ PP bag", description: "Premium quality cigarette cassia from Yen Bai, Vietnam. Spicy and tasty flavor, available in various roll percentages. Perfect for culinary and commercial applications." },
+  { id: 52, name: "CASSIA POWDER", image: cassiaPowder, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia powder from Vietnam. Perfect for culinary and commercial applications." },
+  { id: 53, name: "CASSIA LEAVE", image: cassiaLeave, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia leaves from Vietnam. Perfect for culinary and commercial applications." },
+  { id: 54, name: "CASSIA HUSK", image: cassiaHusk, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia husk from Vietnam. Perfect for culinary and commercial applications." },
+  { id: 55, name: "CASSIA LONG STICK", image: cassiaLongstick, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia long stick from Vietnam. Perfect for culinary and commercial applications." },
+  { id: 56, name: "CASSIA SPLIT", image: cassiaSplit, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia split from Vietnam. Perfect for culinary and commercial applications." },
   
   // CATEGORIZED UNDER DRIED FRUITS / NUTS
   { id: 43, name: "WALNUTS", image: walnuts, origin: "Chile", moisture: "8% max", kernelYield: "45-50% min", brokenKernels: "5% max", foreignMatter: "0.5% max", size: "Extra Large (32mm+)", color: "Light Brown to Golden", grade: "Premium Grade", description: "Premium quality walnuts with high kernel yield. Rich in omega-3 fatty acids and antioxidants. Perfect for snacking, baking, and culinary applications. Naturally dried and free from preservatives." },
+  
+  // MAIN CATEGORY PRODUCTS
+  { id: 63, name: "Pumpkin Seeds", image: pumpkinAAA, origin: "China", moisture: "8% max", description: "Premium quality pumpkin seeds available in various grades. Perfect for snacking, baking, and culinary applications." },
+  { id: 64, name: "Sunflower Seeds", image: sunflowerSeeds, origin: "China", moisture: "8% max", description: "Premium quality sunflower seeds available in confectionery and bakery grades. Perfect for snacking and baking applications." },
+  { id: 66, name: "Peanuts", image: chinesePeanut, origin: "China", moisture: "7% max", description: "Premium quality Chinese peanuts available in various sizes. Perfect for snacking, cooking, and commercial applications." },
+  { id: 75, name: "Almonds", image: almond, origin: "USA", moisture: "6% max", description: "Premium quality almonds available in various sizes. Perfect for snacking, baking, and commercial applications." },
+  
+  // CATEGORIZED UNDER PUMPKIN SEEDS
+  { id: 58, name: "Pumpkin Seeds Grade AAA", image: pumpkinAAA, origin: "China", moisture: "8% max", grade: "AAA", purity: "99% min", size: "Large, uniform seeds", color: "Green to dark green", description: "Premium quality pumpkin seeds Grade AAA. Large, uniform seeds with excellent taste and texture. Perfect for snacking, baking, and culinary applications." },
+  { id: 59, name: "Pumpkin Seeds Grade AA", image: pumpkinAA, origin: "China", moisture: "8% max", grade: "AA", purity: "98% min", size: "Medium to large seeds", color: "Green to dark green", description: "High quality pumpkin seeds Grade AA. Medium to large seeds with good taste and texture. Perfect for snacking, baking, and culinary applications." },
+  { id: 60, name: "Pumpkin Seeds Grade A", image: pumpkinA, origin: "China", moisture: "8% max", grade: "A", purity: "97% min", size: "Medium seeds", color: "Green to dark green", description: "Quality pumpkin seeds Grade A. Medium seeds suitable for various applications. Perfect for snacking, baking, and culinary uses." },
+  
+  // CATEGORIZED UNDER SUNFLOWER SEEDS
+  { id: 61, name: "Sunflower Seeds Confectionery Grade", image: sunflowerSeeds, origin: "China", moisture: "8% max", grade: "Confectionery Grade", size: "Large seeds", color: "Black and white striped", description: "Premium quality sunflower seeds confectionery grade. Large seeds perfect for snacking. Rich in vitamin E and healthy fats. Natural, roasted, and ready to eat." },
+  { id: 62, name: "Sunflower Seeds Bakery Grade", image: sunflowerKernels, origin: "China", moisture: "8% max", grade: "Bakery Grade", size: "Smaller kernels", color: "Light beige to white", description: "High quality sunflower seeds bakery grade. Smaller kernels perfect for baking and cooking applications. Ideal for bread, cookies, and other baked goods." },
+  
+  // CATEGORIZED UNDER PEANUTS - LARGE SIZE
+  { id: 67, name: "Peanuts L(25/29)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Large (25-29 kernels per ounce)", grade: "Large", description: "Premium quality Chinese peanuts, large size (25-29 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
+  { id: 68, name: "Peanuts L(29/33)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Large (29-33 kernels per ounce)", grade: "Large", description: "Premium quality Chinese peanuts, large size (29-33 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
+  // CATEGORIZED UNDER PEANUTS - MEDIUM SIZE
+  { id: 69, name: "Peanuts M(35/39)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Medium (35-39 kernels per ounce)", grade: "Medium", description: "Premium quality Chinese peanuts, medium size (35-39 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
+  { id: 70, name: "Peanuts M(39/43)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Medium (39-43 kernels per ounce)", grade: "Medium", description: "Premium quality Chinese peanuts, medium size (39-43 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
+  // CATEGORIZED UNDER PEANUTS - SMALL SIZE
+  { id: 71, name: "Peanuts S(41/51)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Small (41-51 kernels per ounce)", grade: "Small", description: "Premium quality Chinese peanuts, small size (41-51 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
+  { id: 72, name: "Peanuts S(51/61)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Small (51-61 kernels per ounce)", grade: "Small", description: "Premium quality Chinese peanuts, small size (51-61 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
+  { id: 73, name: "Peanuts S(61/71)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Small (61-71 kernels per ounce)", grade: "Small", description: "Premium quality Chinese peanuts, small size (61-71 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
+  { id: 74, name: "Peanuts S(71/91)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Small (71-91 kernels per ounce)", grade: "Small", description: "Premium quality Chinese peanuts, small size (71-91 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
+  
+  // CATEGORIZED UNDER ALMONDS - BY SIZE
+  { id: 76, name: "Almonds 18/20", image: almond, origin: "USA", moisture: "6% max", size: "Largest (18-20 kernels per ounce)", grade: "Premium", description: "Premium quality almonds, largest size (18-20 kernels per ounce). Premium size often used for chocolate coating or high-end snacking. Perfect for premium retail packs and gourmet applications." },
+  { id: 77, name: "Almonds 20/22", image: almond, origin: "USA", moisture: "6% max", size: "Second largest (20-22 kernels per ounce)", grade: "Premium", description: "Premium quality almonds, second largest size (20-22 kernels per ounce). Popular for premium retail packs. Perfect for snacking and high-end applications." },
+  { id: 78, name: "Almonds 23/25", image: almond, origin: "USA", moisture: "6% max", size: "Standard large (23-25 kernels per ounce)", grade: "Large", description: "Premium quality almonds, standard large size (23-25 kernels per ounce). Commonly used in snacking. Perfect for retail packs and commercial applications." },
+  { id: 79, name: "Almonds 25/27", image: almond, origin: "USA", moisture: "6% max", size: "Medium-large (25-27 kernels per ounce)", grade: "Medium-Large", description: "Premium quality almonds, medium-large size (25-27 kernels per ounce). Perfect for snacking, baking, and commercial applications." },
+  { id: 80, name: "Almonds 27/30", image: almond, origin: "USA", moisture: "6% max", size: "Medium (27-30 kernels per ounce)", grade: "Medium", description: "Premium quality almonds, medium size (27-30 kernels per ounce). Perfect for snacking, baking, and commercial applications." },
+  { id: 81, name: "Almonds 30/32", image: almond, origin: "USA", moisture: "6% max", size: "Medium-small (30-32 kernels per ounce)", grade: "Medium-Small", description: "Premium quality almonds, medium-small size (30-32 kernels per ounce). Perfect for snacking, baking, and commercial applications." },
+  
+  // CATEGORIZED UNDER SPICES
+  { id: 65, name: "Nigella sativa", image: nigellaSativa, origin: "India", moisture: "7% max", purity: "99%, 99.50%, 99.90%", oilContents: "36%", nonGMO: "Yes", description: "Premium quality Nigella sativa (black seed) from India. High purity levels available (99%, 99.50%, 99.90%). Rich in oil content (36%) and certified Non-GMO. Known for its medicinal properties and culinary uses." },
+  { id: 82, name: "Cloves", image: cloves, origin: "Indonesia", moisture: "12% max", botanicalName: "Syzygium aromaticum", appearance: "Whole dried buds, rich dark brown to reddish-brown", foreignMatter: "1% max", grade: "Hand-picked, sorted – multiple grades available", aroma: "Strong, warm & spicy", packing: "25 kg or 50 kg net weight - Polypropylene or jute bags", description: "Premium quality cloves direct from Indonesia. Whole dried buds with rich dark brown to reddish-brown color. Hand-picked and sorted with multiple grades available. Strong, warm and spicy aroma. Perfect for culinary and commercial applications." },
   
   // CATEGORIZED UNDER DRIED FRUITS
   { id: 33, name: "Sweet Tamarind", image: sweetTamarind, origin: "Vietnam", moisture: "10-14%", variety: "Sirthong", size: "6.9 - 7.5 inches", process: "Not steamed" },
@@ -111,17 +183,23 @@ const categories = [
   "All", 
   "Cashew Nuts",
   "Desiccated Coconut",
-  "Edible Copra",
-  "Black Pepper",
-  "White Pepper",
+  "CASSIA/CINNAMON",
   "Ginger",
+  "Cardamom",
+  "Black Pepper",
+  "Pumpkin Seeds",
+  "Sunflower Seeds",
+  "Peanuts",
+  "Almonds",
+  "White Pepper",
+  "Edible Copra",
   "Soft Dried Mango",
   "TEJA RED CHILLI",
   "Star Anise",
-  "Black Cardamom",
   "TURMERIC FINGER",
-  "Premium Cigarette Cassia",
   "WALNUTS",
+  "Nigella sativa",
+  "Cloves",
   "Sweet Tamarind",
   "Robusta Coffee Beans"];
 
@@ -183,6 +261,61 @@ const sliceGingerFilterList = [
 const gingerFilterList = [
   ...wholeGingerFilterList,
   ...sliceGingerFilterList
+];
+
+// FILTER GROUP FOR CASSIA/CINNAMON CATEGORY
+const cassiaFilterList = [
+  "SPLIT CASSIA",
+  "PRESSED CASSIA",
+  "BROKEN CASSIA",
+  "CASSIA CIGARETTE",
+  "CASSIA POWDER",
+  "CASSIA LEAVE",
+  "CASSIA HUSK",
+  "CASSIA LONG STICK",
+  "CASSIA SPLIT"
+];
+
+// FILTER GROUP FOR CARDAMOM CATEGORY
+const cardamomFilterList = [
+  "BIG CARDAMOM",
+  "BLACK CARDAMOM",
+  "GREEN CARDAMOM"
+];
+
+// FILTER GROUP FOR PUMPKIN SEEDS CATEGORY
+const pumpkinSeedsFilterList = [
+  "Pumpkin Seeds Grade AAA",
+  "Pumpkin Seeds Grade AA",
+  "Pumpkin Seeds Grade A"
+];
+
+// FILTER GROUP FOR SUNFLOWER SEEDS CATEGORY
+const sunflowerSeedsFilterList = [
+  "Sunflower Seeds Confectionery Grade",
+  "Sunflower Seeds Bakery Grade"
+];
+
+// FILTER GROUP FOR PEANUTS CATEGORY
+const peanutsFilterList = [
+  "Peanuts L(25/29)",
+  "Peanuts L(29/33)",
+  "Peanuts M(35/39)",
+  "Peanuts M(39/43)",
+  "Peanuts S(41/51)",
+  "Peanuts S(51/61)",
+  "Peanuts S(61/71)",
+  "Peanuts S(71/91)"
+];
+
+// FILTER GROUP FOR ALMONDS CATEGORY
+const almondsFilterList = [
+  "Almonds 18/20",
+  "Almonds 20/22",
+  "Almonds 23/25",
+  "Almonds 25/27",
+  "Almonds 27/30",
+  "Almonds 30/32"
 ];
 
 
@@ -274,7 +407,7 @@ const Products = () => {
   // FILTER LOGIC
 const filteredProducts =
   selectedCategory === "All"
-    ? products.filter((p) => !cashewFilterList.includes(p.name) && !ww320FilterList.includes(p.name) && !blackPepperFilterList.includes(p.name) && !desiccatedCoconutFilterList.includes(p.name) && !gingerFilterList.includes(p.name)) // Show main products only
+    ? products.filter((p) => !cashewFilterList.includes(p.name) && !ww320FilterList.includes(p.name) && !blackPepperFilterList.includes(p.name) && !desiccatedCoconutFilterList.includes(p.name) && !gingerFilterList.includes(p.name) && !cardamomFilterList.includes(p.name) && !cassiaFilterList.includes(p.name) && !pumpkinSeedsFilterList.includes(p.name) && !sunflowerSeedsFilterList.includes(p.name) && !peanutsFilterList.includes(p.name) && !almondsFilterList.includes(p.name)) // Show main products only
     : selectedCategory === "Cashew Nuts"
     ? products.filter(
       (p) =>
@@ -299,6 +432,18 @@ const filteredProducts =
     ? products.filter((p) => wholeGingerFilterList.includes(p.name))  // Only whole ginger items
     : selectedCategory === "Slice Ginger"
     ? products.filter((p) => sliceGingerFilterList.includes(p.name))  // Only slice ginger items
+    : selectedCategory === "Cardamom"
+    ? products.filter((p) => cardamomFilterList.includes(p.name))  // Only cardamom items
+    : selectedCategory === "CASSIA/CINNAMON"
+    ?  products.filter((p) => cassiaFilterList.includes(p.name))
+    : selectedCategory === "Pumpkin Seeds"
+    ?  products.filter((p) => pumpkinSeedsFilterList.includes(p.name))
+    : selectedCategory === "Sunflower Seeds"
+    ?  products.filter((p) => sunflowerSeedsFilterList.includes(p.name))
+    : selectedCategory === "Peanuts"
+    ?  products.filter((p) => peanutsFilterList.includes(p.name))
+    : selectedCategory === "Almonds"
+    ?  products.filter((p) => almondsFilterList.includes(p.name))
     : selectedCategory === "White Pepper"
     ? products.filter((p) => p.name.startsWith("White Pepper"))  // White Pepper products (name starts with "White Pepper")
     : products.filter((p) => p.name === selectedCategory);       // Single-item categories (exact match)
@@ -404,17 +549,38 @@ const filteredProducts =
                 <SubcategoryCard
                   name="Cashew Nuts WW320 AFI Standard"
                   image={ww320Cashew}
-                  onClick={() => handleCategoryChange("Cashew Nuts WW320 AFI Standard")}
+                  onClick={() => {
+                    const product = products.find(p => p.name === "Cashew Nuts WW320 AFI Standard");
+                    if (product) {
+                      navigate(`/product/${product.id}?category=${encodeURIComponent(selectedCategory)}`, {
+                        state: { product, category: selectedCategory },
+                      });
+                    }
+                  }}
                 />
                 <SubcategoryCard
                   name="Cashew Nuts WW320 High Quality"
                   image={ww320HighQuality}
-                  onClick={() => handleCategoryChange("Cashew Nuts WW320 High Quality")}
+                  onClick={() => {
+                    const product = products.find(p => p.name === "Cashew Nuts WW320 High Quality");
+                    if (product) {
+                      navigate(`/product/${product.id}?category=${encodeURIComponent(selectedCategory)}`, {
+                        state: { product, category: selectedCategory },
+                      });
+                    }
+                  }}
                 />
                 <SubcategoryCard
                   name="Cashew Nuts WW320 Premium"
                   image={ww320Premium}
-                  onClick={() => handleCategoryChange("Cashew Nuts WW320 Premium")}
+                  onClick={() => {
+                    const product = products.find(p => p.name === "Cashew Nuts WW320 Premium");
+                    if (product) {
+                      navigate(`/product/${product.id}?category=${encodeURIComponent(selectedCategory)}`, {
+                        state: { product, category: selectedCategory },
+                      });
+                    }
+                  }}
                 />
               </>
             ) : selectedCategory === "Ginger" ? (
@@ -437,12 +603,25 @@ const filteredProducts =
                                        product.name === "Black Pepper" || 
                                        product.name === "Desiccated Coconut" ||
                                        product.name === "Ginger" ||
-                                       product.name === "Cashew Nuts WW320";
+                                       product.name === "CARDAMOM" ||
+                                       product.name === "CASSIA/CINNAMON" ||
+                                       product.name === "Cashew Nuts WW320" ||
+                                       product.name === "Pumpkin Seeds" ||
+                                       product.name === "Sunflower Seeds"||
+                                       product.name === "Peanuts" ||
+                                       product.name === "Almonds";
                 
                 // If in "All" view and clicking a main category, navigate to that category
                 const handleClick = () => {
                   if (isMainCategory) {
-                    handleCategoryChange(product.name);
+                    // Map product name to category name
+                    let categoryName = product.name;
+                    if (product.name === "CARDAMOM") {
+                      categoryName = "Cardamom";
+                    } else if (product.name === "CASSIA/CINNAMON") {
+                      categoryName = "CASSIA/CINNAMON";
+                    }
+                    handleCategoryChange(categoryName);
                   } else {
                     navigate(`/product/${product.id}?category=${encodeURIComponent(selectedCategory)}`, {
                       state: { product, category: selectedCategory },
