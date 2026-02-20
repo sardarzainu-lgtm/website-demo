@@ -394,14 +394,6 @@ const products = [
     color: "Black",
   },
   {
-    id: 66,
-    name: "Peanuts",
-    image: chinesePeanut,
-    origin: "China",
-    moisture: "7%",
-    color: "Brown",
-  },
-  {
     id: 67,
     name: "Peanuts L(25/29)",
     image: chinesePeanut,
@@ -464,14 +456,6 @@ const products = [
     origin: "China",
     moisture: "7%",
     color: "Brown",
-  },
-  {
-    id: 75,
-    name: "Almonds",
-    image: almond,
-    origin: "USA",
-    moisture: "6%",
-    color: "Light Brown",
   },
   {
     id: 76,
@@ -574,7 +558,6 @@ const productCategories = [
   "Sunflower Seeds Confectionery Grade",
   "Sunflower Seeds Bakery Grade",
   "Nigella sativa",
-  "Peanuts",
   "Peanuts L(25/29)",
   "Peanuts L(29/33)",
   "Peanuts M(35/39)",
@@ -583,7 +566,6 @@ const productCategories = [
   "Peanuts S(51/61)",
   "Peanuts S(61/71)",
   "Peanuts S(71/91)",
-  "Almonds",
   "Almonds 18/20",
   "Almonds 20/22",
   "Almonds 23/25",
@@ -969,12 +951,12 @@ const handlePrevious = () => {
 
             {/* Category Navigation */}
             <div className="mb-8 sm:mb-12">
-              <div className="flex md:flex-wrap flex-nowrap justify-start md:justify-center gap-2 sm:gap-4 text-xs sm:text-sm md:text-base overflow-x-auto md:overflow-visible px-1 -mx-1 md:mx-0 md:px-0 scrollbar-hide">
+              <div className="flex flex-nowrap justify-start md:justify-start gap-2 sm:gap-4 text-xs sm:text-sm md:text-base overflow-x-auto md:overflow-x-auto px-1 -mx-1 md:mx-0 md:px-0 scrollbar-hide">
               {productCategories.map((category) => (
                 <button
                   key={category}
                   onClick={() => handleCategoryClick(category)}
-                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition-colors shrink-0"
+                    className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition-colors shrink-0 whitespace-nowrap"
                   style={{
                     borderBottom:
                       selectedCategory === category

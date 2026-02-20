@@ -826,15 +826,6 @@ const Navbar = () => {
     grade: "Small",
     description: "Premium quality Chinese peanuts, small size (71-91 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
   },
-  // MAIN CATEGORY PRODUCT
-  { 
-    id: 75, 
-    name: "Almonds", 
-    image: almond, 
-    origin: "USA", 
-    moisture: "6% max", 
-    description: "Premium quality almonds available in various sizes. Perfect for snacking, baking, and commercial applications." 
-  },
   // CATEGORIZED UNDER ALMONDS - BY SIZE
   { 
     id: 76, 
