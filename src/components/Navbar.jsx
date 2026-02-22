@@ -1345,7 +1345,7 @@ const Navbar = () => {
           <img
             src={logo}
             alt="Lion & Lotus Trading Co., Ltd. logo"
-            className="h-16 w-auto object-contain drop-shadow-lg"
+            className="h-14 w-auto object-contain drop-shadow-lg"
           />
           <div className="hidden sm:flex flex-col leading-tight">
             <span
