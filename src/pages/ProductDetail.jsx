@@ -197,9 +197,10 @@ const ProductDetail = () => {
                   // Sweet Tamarind specific
                   ...(product.variety ? [{ label: "Variety", value: product.variety }] : []),
                   ...(product.size && product.name === "Sweet Tamarind" ? [{ label: "Size", value: product.size }] : []),
-                  // Robusta Coffee Beans specific
+                  // Coffee Beans specific
                   ...(product.grades ? [{ label: "Grades", value: product.grades }] : []),
                   ...(product.brokenAndBlack ? [{ label: "Broken and Black", value: product.brokenAndBlack }] : []),
+                  ...(product.grade && (product.name?.includes("Coffee") || product.name?.includes("coffee")) ? [{ label: "Grade", value: product.grade }] : []),
                   // Ginger Whole specific
                   ...(product.grade && (product.name?.includes("Ginger") || product.name?.includes("ginger")) ? [{ label: "Grade", value: product.grade }] : []),
                   ...(product.appearance ? [{ label: "Appearance", value: product.appearance }] : []),
@@ -268,11 +269,11 @@ const ProductDetail = () => {
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-white px-4 py-4 shadow-sm">
                   <p className="text-xs text-gray-500">Container Capacity</p>
-                  <p className="font-semibold text-gray-800">8 MTs/20FT; 19 MTs/40HC</p>
+                  <p className="font-semibold text-gray-800">{product.containerCapacity || "8 MTs/20FT; 19 MTs/40HC"}</p>
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-white px-4 py-4 shadow-sm">
                   <p className="text-xs text-gray-500">Port of Loading</p>
-                  <p className="font-semibold text-gray-800">{product.origin === "Brazil" ? "Brazil Port" : "Vietnam Port"}</p>
+                  <p className="font-semibold text-gray-800">{ "Vietnam Port"}</p>
                 </div>
               </div>
             </div>

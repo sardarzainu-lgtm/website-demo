@@ -32,6 +32,10 @@ import redChilli from "../assets/red-chilli.webp";
 import starAnise from "../assets/star-anise.webp";
 import sweetTamarind from "../assets/sweet-tamarind.webp";
 import robustaBeans from "../assets/robusta-beans.webp";
+import robustaS16Clean from "../assets/robustas16-clean-welpolished.webp";
+import robustaS18Clean from "../assets/robusta-s18-clean.webp";
+import robustaS13 from "../assets/robusta-s13.webp";
+import arabicaS16S18 from "../assets/arabic-s16-s18.webp";
 import blackCardamom from "../assets/black-cardamom.webp";
 import greenCardamom from "../assets/green-cardamom.webp";
 import bigCardamom from "../assets/big-cardamom.webp";
@@ -62,8 +66,10 @@ const products = [
     name: "Cashew Nuts",
     image: cashewnuts,
     origin: "Vietnam",
-    moisture: "5%",
+    moisture: "5% max",
     color: "Cream White",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft",
   },
   {
     id: 2,
@@ -144,38 +150,48 @@ const products = [
     origin: "Vietnam",
     moisture: "4%",
     color: "Light Golden",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft",
   },
   {
     id: 8,
     name: "Cashew Nuts WW320",
     image: ww320Cashew,
     origin: "Vietnam",
-    moisture: "5%",
+    moisture: "5% max",
     color: "Classic White",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft",
   },
   {
     id: 9,
     name: "Cashew Nuts WW240",
     image: ww240Cashew,
     origin: "Vietnam",
-    moisture: "5%",
+    moisture: "5% max",
     color: "Cream White",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft",
   },
   {
     id: 10,
     name: "Cashew Nuts WW180",
     image: ww180Cashew,
     origin: "Vietnam",
-    moisture: "5%",
+    moisture: "5% max",
     color: "Ivory White",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft",
   },
   {
     id: 11,
     name: "Cashew Nuts WW450",
     image: ww450Cashew,
     origin: "Vietnam",
-    moisture: "5%",
+    moisture: "5% max",
     color: "Off-White",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft",
   },
   {
     id: 12,
@@ -184,6 +200,8 @@ const products = [
     origin: "Vietnam",
     moisture: "4%",
     color: "Light Cream",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft",
   },
   {
     id: 13,
@@ -192,6 +210,8 @@ const products = [
     origin: "Vietnam",
     moisture: "4%",
     color: "Cream White",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft",
   },
   {
     id: 30,
@@ -218,6 +238,46 @@ const products = [
     color: "Natural Brown",
   },
   {
+    id: 83,
+    name: "Spring Star Anise",
+    image: starAnise,
+    origin: "Vietnam",
+    moisture: "13.5%",
+    color: "Natural Brown",
+  },
+  {
+    id: 84,
+    name: "Autumn Star Anise",
+    image: starAnise,
+    origin: "Vietnam",
+    moisture: "13.5%",
+    color: "Natural Brown",
+  },
+  {
+    id: 85,
+    name: "Canh Dan Star Anise",
+    image: starAnise,
+    origin: "Vietnam",
+    moisture: "13.5%",
+    color: "Natural Brown",
+  },
+  {
+    id: 86,
+    name: "Broken Star Anise",
+    image: starAnise,
+    origin: "Vietnam",
+    moisture: "13.5%",
+    color: "Natural Brown",
+  },
+  {
+    id: 87,
+    name: "Dyed Star Anise",
+    image: starAnise,
+    origin: "Vietnam",
+    moisture: "13.5%",
+    color: "Natural Brown",
+  },
+  {
     id: 33,
     name: "Sweet Tamarind",
     image: sweetTamarind,
@@ -227,8 +287,40 @@ const products = [
   },
   {
     id: 34,
-    name: "Robusta Coffee Beans",
+    name: "Green Coffee Beans",
     image: robustaBeans,
+    origin: "Vietnam",
+    moisture: "12.5%",
+    color: "Brown",
+  },
+  {
+    id: 88,
+    name: "Robusta Coffee Beans S16 Clean/Wet Polished",
+    image: robustaS16Clean,
+    origin: "Vietnam",
+    moisture: "12.5%",
+    color: "Brown",
+  },
+  {
+    id: 89,
+    name: "Robusta Coffee Beans S18 Clean/Wet Polished",
+    image: robustaS18Clean,
+    origin: "Vietnam",
+    moisture: "12.5%",
+    color: "Brown",
+  },
+  {
+    id: 90,
+    name: "Robusta Coffee Beans S13",
+    image: robustaS13,
+    origin: "Vietnam",
+    moisture: "12.5%",
+    color: "Brown",
+  },
+  {
+    id: 91,
+    name: "Arabica Coffee Beans S16/S18",
+    image: arabicaS16S18,
     origin: "Vietnam",
     moisture: "12.5%",
     color: "Brown",
@@ -333,14 +425,6 @@ const products = [
     id: 55,
     name: "CASSIA LONG STICK",
     image: cassiaLongstick,
-    origin: "Vietnam",
-    moisture: "13%",
-    color: "Brown",
-  },
-  {
-    id: 56,
-    name: "CASSIA SPLIT",
-    image: cassiaSplit,
     origin: "Vietnam",
     moisture: "13%",
     color: "Brown",
@@ -536,8 +620,17 @@ const productCategories = [
   "Soft Dried Mango",
   "TEJA RED CHILLI",
   "Star Anise",
+  "Spring Star Anise",
+  "Autumn Star Anise",
+  "Canh Dan Star Anise",
+  "Broken Star Anise",
+  "Dyed Star Anise",
   "Sweet Tamarind",
-  "Robusta Coffee Beans",
+  "Green Coffee Beans",
+  "Robusta Coffee Beans S16 Clean/Wet Polished",
+  "Robusta Coffee Beans S18 Clean/Wet Polished",
+  "Robusta Coffee Beans S13",
+  "Arabica Coffee Beans S16/S18",
   "BIG CARDAMOM",
   "BLACK CARDAMOM",
   "GREEN CARDAMOM",
@@ -551,7 +644,6 @@ const productCategories = [
   "CASSIA LEAVE",
   "CASSIA HUSK",
   "CASSIA LONG STICK",
-  "CASSIA SPLIT",
   "Pumpkin Seeds Grade AAA",
   "Pumpkin Seeds Grade AA",
   "Pumpkin Seeds Grade A",
@@ -1447,28 +1539,32 @@ const handlePrevious = () => {
             </div>
 
             {/* CTA Button */}
-            <div className="mt-8 sm:mt-12 text-center px-2 sm:px-0">
+            <div className="mt-8 sm:mt-12 text-center">
               <a
                 href="https://wa.me/66982818995"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-8 md:px-10 py-2.5 sm:py-3.5 md:py-4 rounded-full text-xs sm:text-sm md:text-lg font-semibold shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:shadow-2xl cta-whatsapp-button border border-white/30 w-full sm:w-auto max-w-sm sm:max-w-none mx-auto"
+                className="inline-flex items-center gap-2.5 sm:gap-3 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl active:scale-[0.98]"
                 style={{
-                  background: "linear-gradient(90deg, #0B3A82, #128C7E)",
+                  background: "linear-gradient(135deg, #0B3A82 0%, #128C7E 100%)",
                   color: "white",
+                  boxShadow: "0 4px 14px rgba(11, 58, 130, 0.25), 0 2px 6px rgba(18, 140, 126, 0.2)",
                 }}
               >
-                <span className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/12 flex-shrink-0">
+                <span 
+                  className="flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full flex-shrink-0"
+                  style={{ background: "rgba(255,255,255,0.15)" }}
+                >
                   <img
                     src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
                     alt="WhatsApp"
-                    className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
+                    className="w-5 h-5 sm:w-5.5 sm:h-5.5"
                   />
                 </span>
-                <div className="flex flex-col items-start text-left min-w-0 flex-1">
-                  <span className="text-xs sm:text-sm md:text-base lg:text-lg leading-tight">Message Us on WhatsApp</span>
-                  <span className="text-[10px] sm:text-[11px] md:text-xs font-normal text-white/80 leading-tight mt-0.5">
-                    Preferred channel for quick coordination
+                <div className="flex flex-col items-start text-left">
+                  <span className="text-[13px] sm:text-sm font-semibold leading-tight">Message Us on WhatsApp</span>
+                  <span className="text-[10px] sm:text-[11px] font-normal text-white/70 leading-tight">
+                    Quick response guaranteed
                   </span>
                 </div>
               </a>

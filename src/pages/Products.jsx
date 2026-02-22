@@ -32,6 +32,10 @@ import redChilli from "../assets/red-chilli.webp"
 import starAnise from "../assets/star-anise.webp"
 import sweetTamarind from "../assets/sweet-tamarind.webp"
 import robustaBeans from "../assets/robusta-beans.webp"
+import robustaS16Clean from "../assets/robustas16-clean-welpolished.webp"
+import robustaS18Clean from "../assets/robusta-s18-clean.webp"
+import robustaS13 from "../assets/robusta-s13.webp"
+import arabicaS16S18 from "../assets/arabic-s16-s18.webp"
 import blackCardamom from "../assets/black-cardamom.webp"
 import greenCardamom from "../assets/green-cardamom.webp"
 import bigCardamom from "../assets/big-cardamom.webp"
@@ -59,19 +63,19 @@ import cloves from "../assets/cloves.webp"
 
 // PRODUCT LIST
 const products = [
-  { id: 1, name: "Cashew Nuts", image: cashewnuts, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012" },
-  { id: 29, name: "Cashew Nuts WW320", image: ww320Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", seedsPerLb: "300-320", broken: "5% max", lowerSize: "7-8% max" },
+  { id: 1, name: "Cashew Nuts", image: cashewnuts, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 29, name: "Cashew Nuts WW320", image: ww320Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", seedsPerLb: "300-320", broken: "5% max", lowerSize: "7-8% max", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
   { id: 2, name: "Desiccated Coconut", image: desiccatedCoconut, origin: "Vietnam", moisture: "3% max" },
   { id: 3, name: "Edible Copra", image: copraCup, origin: "Indonesia", moisture: "7-10%", packing: "40 Kg Net in Mesh Bags", description: "Looking for premium quality copra? Our Edible Copra is the perfect choice for various food applications and international trade!", fullName: "Edible Copra (White Copra Sundry - Split)" },
-  { id: 4, name: "Black Pepper", image: blackPepper, origin: "Vietnam", moisture: "13.5% max" },
-  { id: 5, name: "White Pepper 630g/l (EU Standard)", image: whitePepper, origin: "Vietnam", moisture: "13.5% max", density: "630g/l", admixture: "0.5% max", blackSeeds: "2% max" },
-  { id: 6, name: "Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
+  { id: 4, name: "Black Pepper", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
+  { id: 5, name: "White Pepper 630g/l (EU Standard)", image: whitePepper, origin: "Vietnam", moisture: "13.5% max", density: "630g/l", admixture: "0.5% max", blackSeeds: "2% max", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
+  { id: 6, name: "Fresh Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
   { id: 47, name: "CARDAMOM", image: greenCardamom, origin: "Guatemala", moisture: "12% max", admixture: "0.5% max", size: "Small to medium pods", color: "Green", description: "Premium quality green cardamom with sweet, floral aroma. Perfect for desserts, teas, and savory dishes. Known as the 'Queen of Spices'." },
 
   
   // CATEGORIZED UNDER GINGER - WHOLE GINGER
-  { id: 38, name: "Ginger Whole Dry", image: gingerWholeDry, origin: "Vietnam", moisture: "10% max", grade: "Whole", appearance: "Natural color, clean, no foreign matter", packing: "10-25 kg bags" },
-  { id: 39, name: "Ginger Whole Fresh", image: gingerWholeFresh, origin: "Vietnam", moisture: "12-15%", grade: "Whole Fresh", appearance: "Fresh appearance, natural color, clean", packing: "10-25 kg bags" },
+  { id: 38, name: "Dried Ginger Whole Dry", image: gingerWholeDry, origin: "Vietnam", moisture: "10% max", grade: "Whole", appearance: "Natural color, clean, no foreign matter", packing: "10-25 kg bags" },
+  { id: 39, name: "Dried Ginger Whole Fresh", image: gingerWholeFresh, origin: "Vietnam", moisture: "12-15%", grade: "Whole Fresh", appearance: "Fresh appearance, natural color, clean", packing: "10-25 kg bags" },
   
   // CATEGORIZED UNDER GINGER - SLICE GINGER
   { id: 35, name: "DRY SLICE GINGER A GRADE", image: driedGinger, origin: "Vietnam", moisture: "8%" },
@@ -79,32 +83,32 @@ const products = [
   { id: 37, name: "DRY SLICE GINGER C GRADE", image: driedGinger, origin: "Vietnam", moisture: "8%" },
 
   // CATEGORIZED UNDER CASHEW NUTS
-  { id: 7, name: "Roasted & Salted Cashew Nuts", image: roastedSaltedCashew, origin: "Vietnam", moisture: "4%" },
-  { id: 28, name: "Cashew Nuts WW320 AFI Standard", image: ww320Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", seedsPerLb: "300-320", broken: "5% max", lowerSize: "7-8% max" },
-  { id: 8, name: "Cashew Nuts WW320 High Quality", image: ww320HighQuality, origin: "Vietnam", moisture: "5% max", standard: "High Quality", seedsPerLb: "300-320", broken: "5% max", lowerSize: "7-8% max" },
-  { id: 27, name: "Cashew Nuts WW320 Premium", image: ww320Premium, origin: "Vietnam", moisture: "5% max", standard: "Standard Premium", seedsPerLb: "300-320", broken: "5% max", lowerSize: "7-8% max" },
-  { id: 9, name: "Cashew Nuts WW240", image: ww240Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", seedsPerLb: "220-240", broken: "5% max", lowerSize: "7-8% max" },
-  { id: 10, name: "Cashew Nuts WW180", image: ww180Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", seedsPerLb: "160-180", broken: "7-8% max", lowerSize: "7-8% max" },
-  { id: 11, name: "Cashew Nuts WW450", image: ww450Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012" },
-  { id: 12, name: "Cashew Nuts SK", image: cashewSK, origin: "Vietnam", moisture: "4%" },
-  { id: 13, name: "Cashew Nuts SL", image: cashewSL, origin: "Vietnam", moisture: "4%" },
-  { id: 21, name: "Cashew Nuts LP", image: cashewnuts, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", sieve: "6.3 mm", crop: "New crop" },
-  { id: 22, name: "Cashew Nuts WS", image: cashewnuts, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", nutSize: "Small pieces, on sieve 5mm - 7.2mm", broken: "10% max" },
+  { id: 7, name: "Roasted & Salted Cashew Nuts", image: roastedSaltedCashew, origin: "Vietnam", moisture: "4%", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 28, name: "Cashew Nuts WW320 AFI Standard", image: ww320Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", seedsPerLb: "300-320", broken: "5% max", lowerSize: "7-8% max", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 8, name: "Cashew Nuts WW320 High Quality", image: ww320HighQuality, origin: "Vietnam", moisture: "5% max", standard: "High Quality", seedsPerLb: "300-320", broken: "5% max", lowerSize: "7-8% max", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 27, name: "Cashew Nuts WW320 Premium", image: ww320Premium, origin: "Vietnam", moisture: "5% max", standard: "Standard Premium", seedsPerLb: "300-320", broken: "5% max", lowerSize: "7-8% max", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 9, name: "Cashew Nuts WW240", image: ww240Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", seedsPerLb: "220-240", broken: "5% max", lowerSize: "7-8% max", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 10, name: "Cashew Nuts WW180", image: ww180Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", seedsPerLb: "160-180", broken: "7-8% max", lowerSize: "7-8% max", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 11, name: "Cashew Nuts WW450", image: ww450Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 12, name: "Cashew Nuts SK", image: cashewSK, origin: "Vietnam", moisture: "4%", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 13, name: "Cashew Nuts SL", image: cashewSL, origin: "Vietnam", moisture: "4%", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 21, name: "Cashew Nuts LP", image: cashewnuts, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", sieve: "6.3 mm", crop: "New crop", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
+  { id: 22, name: "Cashew Nuts WS", image: cashewnuts, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", nutSize: "Small pieces, on sieve 5mm - 7.2mm", broken: "10% max", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
 
   // CATEGORIZED UNDER BLACK PEPPER
-  { id: 14, name: "Black Pepper 450g/l FAQ", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", density: "450g/l", admixture: "1% max", grade: "FAQ" },
-  { id: 15, name: "Black Pepper 500g/l FAQ", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", density: "500g/l", admixture: "1% max", grade: "FAQ" },
-  { id: 16, name: "Black Pepper 550g/l FAQ", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", density: "550g/l", admixture: "1% max", grade: "FAQ" },
-  { id: 17, name: "Black Pepper 500g/l MC/ASTA", image: blackPepper, origin: "Vietnam", moisture: "12.5% max", density: "500g/l", admixture: "0.5% max", grade: "MC/ASTA" },
-  { id: 18, name: "Black Pepper 550g/l MC/ASTA", image: blackPepper, origin: "Vietnam", moisture: "12.5% max", density: "550g/l", admixture: "0.5% max", grade: "MC/ASTA" },
-  { id: 19, name: "Black Pepper 570g/l MC/ASTA", image: blackPepper, origin: "Vietnam", moisture: "12.5% max", density: "570g/l", admixture: "0.5% max", grade: "MC/ASTA" },
-  { id: 20, name: "Black Pepper 5mm Bold", image: blackPepper, origin: "Vietnam", moisture: "12.5% max", density: "570g/l - 580g/l , 80% on screen", admixture: "0.5% max", grade: "5mm Bold", size: "5mm (80% Min. on sieve)" },
-  { id: 26, name: "Brazilian Black Pepper", image: brazilianBlackPepper, origin: "Brazil", moisture: "13.5% max", appearance: "Small, dark brown to black, wrinkled berries (~4-5 mm)", aroma: "Strong, pungent, citrusy, slightly woody, and spicy", benefits: "Aids digestion, anti-inflammatory, weight loss", packing: "Mesh bags, jute sacks, or plastic bags" },
+  { id: 14, name: "Black Pepper 450g/l FAQ", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", density: "450g/l", admixture: "1% max", grade: "FAQ", packing: "25kg/bag", containerCapacity: "6MT/20ft, 15MT/40ft" },
+  { id: 15, name: "Black Pepper 500g/l FAQ", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", density: "500g/l", admixture: "1% max", grade: "FAQ", packing: "25kg/bag", containerCapacity: "12MT/20ft, 25MT/40ft" },
+  { id: 16, name: "Black Pepper 550g/l FAQ", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", density: "550g/l", admixture: "1% max", grade: "FAQ", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
+  { id: 17, name: "Black Pepper 500g/l MC/ASTA", image: blackPepper, origin: "Vietnam", moisture: "12.5% max", density: "500g/l", admixture: "0.5% max", grade: "MC/ASTA", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
+  { id: 18, name: "Black Pepper 550g/l MC/ASTA", image: blackPepper, origin: "Vietnam", moisture: "12.5% max", density: "550g/l", admixture: "0.5% max", grade: "MC/ASTA", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
+  { id: 19, name: "Black Pepper 570g/l MC/ASTA", image: blackPepper, origin: "Vietnam", moisture: "12.5% max", density: "570g/l", admixture: "0.5% max", grade: "MC/ASTA", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
+  { id: 20, name: "Black Pepper 5mm Bold", image: blackPepper, origin: "Vietnam", moisture: "12.5% max", density: "570g/l - 580g/l , 80% on screen", admixture: "0.5% max", grade: "5mm Bold", size: "5mm (80% Min. on sieve)", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
+  { id: 26, name: "Brazilian Black Pepper", image: brazilianBlackPepper, origin: "Brazil", moisture: "13.5% max", appearance: "Small, dark brown to black, wrinkled berries (~4-5 mm)", aroma: "Strong, pungent, citrusy, slightly woody, and spicy", benefits: "Aids digestion, anti-inflammatory, weight loss", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
 
   // CATEGORIZED UNDER DESICCATED COCONUT
-  { id: 23, name: "Low fat Desiccated Coconut Fine Grade", image: desiccatedCoconut, origin: "Vietnam", moisture: "4% max", ffa: "0.3% max", fatContent: "30-35% min", so2: "100 ppm max" },
-  { id: 24, name: "High fat Desiccated Coconut Fine Grade", image: desiccatedCoconut, origin: "Vietnam", moisture: "3% max", ffa: "0.3% max", fatContent: "63% min", so2: "100 ppm max" },
-  { id: 25, name: "High fat Desiccated Coconut Medium Grade", image: desiccatedCoconut, origin: "Vietnam", moisture: "3% max", ffa: "0.3% max", fatContent: "63% min", so2: "100 ppm max" },
+  { id: 23, name: "Low fat Desiccated Coconut Fine Grade", image: desiccatedCoconut, origin: "Vietnam", moisture: "4% max", ffa: "0.3% max", fatContent: "30-35% min", so2: "100 ppm max", packing: "25kg/bag or custom", containerCapacity: "7MT/20ft, 18MT/40ft" },
+  { id: 24, name: "High fat Desiccated Coconut Fine Grade", image: desiccatedCoconut, origin: "Vietnam", moisture: "3% max", ffa: "0.3% max", fatContent: "63% min", so2: "100 ppm max", packing: "25kg/bag or custom", containerCapacity: "13MT/20ft, 27MT/40ft" },
+  { id: 25, name: "High fat Desiccated Coconut Medium Grade", image: desiccatedCoconut, origin: "Vietnam", moisture: "3% max", ffa: "0.3% max", fatContent: "63% min", so2: "100 ppm max", packing: "25kg/bag or custom", containerCapacity: "13MT/20ft, 27MT/40ft" },
   
   // CATEGORIZED UNDER DRIED FRUITS
   { id: 30, name: "Soft Dried Mango", image: mangoChips, origin: "Vietnam", moisture: "12-17% max", ingredients: "100% Mango", appearanceColor: "Yellow color", cuttingType: "Slice", process: "5-10% Sugar Added / without sugar-coated", length: "8cm - 10cm", thickness: "0.1cm - 0.2cm", shelfLife: "12 Months", packing: "Zip bags, craft paper, bulk packing depends on customer request from 100g - 10kg / pack" },
@@ -112,6 +116,12 @@ const products = [
   // CATEGORIZED UNDER SPICES
   { id: 31, name: "TEJA RED CHILLI", image: redChilli, origin: "India", pungency: "75,000 - 1,000,000 SHU", capsaicinContent: "1%", color: "Vibrant Red Color (ASTA 40-60)", length: "5-6 cm", skinThickness: "0.50-0.70 mm", podsWithStalks: "2%", brokenChilies: "1%", looseSeeds: "1%", description: "Perfect for adding bold spice to your curries, sauces, and snacks!" },
   { id: 32, name: "Star Anise", image: starAnise, origin: "Vietnam", moisture: "13.5%", size: "2.5 cm 80% up", brokenPieces: "10% max", notes: "No fungus, natural color" },
+  // CATEGORIZED UNDER STAR ANISE
+  { id: 83, name: "Spring Star Anise", image: starAnise, origin: "Vietnam", moisture: "13.5%", size: "2.5 cm 80% up", brokenPieces: "10% max", notes: "No fungus, natural color", description: "Premium quality spring harvest star anise from Vietnam. Harvested during spring season for optimal flavor and aroma." },
+  { id: 84, name: "Autumn Star Anise", image: starAnise, origin: "Vietnam", moisture: "13.5%", size: "2.5 cm 80% up", brokenPieces: "10% max", notes: "No fungus, natural color", description: "Premium quality autumn harvest star anise from Vietnam. Harvested during autumn season for rich, full-bodied flavor." },
+  { id: 85, name: "Canh Dan Star Anise", image: starAnise, origin: "Vietnam", moisture: "13.5%", size: "2.5 cm 80% up", brokenPieces: "10% max", notes: "No fungus, natural color", description: "Premium quality Canh Dan variety star anise from Vietnam. Known for its distinctive aroma and superior quality." },
+  { id: 86, name: "Broken Star Anise", image: starAnise, origin: "Vietnam", moisture: "13.5%", brokenPieces: "High percentage", notes: "No fungus, natural color", description: "Cost-effective broken star anise pieces from Vietnam. Ideal for grinding and commercial food processing applications." },
+  { id: 87, name: "Dyed Star Anise", image: starAnise, origin: "Vietnam", moisture: "13.5%", size: "2.5 cm 80% up", notes: "Enhanced color, natural flavor", description: "Color-enhanced star anise from Vietnam. Ideal for decorative and culinary applications where visual appeal is important." },
   { id: 45, name: "BIG CARDAMOM", image: bigCardamom, origin: "Nepal", moisture: "12% max", admixture: "1% max", size: "Large pods", color: "Brown to dark brown", description: "Premium quality big cardamom with strong aromatic flavor. Perfect for culinary and medicinal uses. Sourced from the finest farms." },
   { id: 41, name: "BLACK CARDAMOM", image: blackCardamom, origin: "Vietnam", moisture: "13.5%", admixture: "0.5%", shape: "Long, strong aroma", crop: "New crop 2025", description: "Bold, smoky flavor perfect for curries and soups. 100% natural, no additives or preservatives. Sourced sustainably from Vietnam's best farms." },
   { id: 46, name: "GREEN CARDAMOM", image: greenCardamom, origin: "Guatemala", moisture: "12% max", admixture: "0.5% max", size: "Small to medium pods", color: "Green", description: "Premium quality green cardamom with sweet, floral aroma. Perfect for desserts, teas, and savory dishes. Known as the 'Queen of Spices'." },
@@ -126,7 +136,6 @@ const products = [
   { id: 53, name: "CASSIA LEAVE", image: cassiaLeave, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia leaves from Vietnam. Perfect for culinary and commercial applications." },
   { id: 54, name: "CASSIA HUSK", image: cassiaHusk, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia husk from Vietnam. Perfect for culinary and commercial applications." },
   { id: 55, name: "CASSIA LONG STICK", image: cassiaLongstick, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia long stick from Vietnam. Perfect for culinary and commercial applications." },
-  { id: 56, name: "CASSIA SPLIT", image: cassiaSplit, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia split from Vietnam. Perfect for culinary and commercial applications." },
   
   // CATEGORIZED UNDER DRIED FRUITS / NUTS
   { id: 43, name: "WALNUTS", image: walnuts, origin: "Chile", moisture: "8% max", kernelYield: "45-50% min", brokenKernels: "5% max", foreignMatter: "0.5% max", size: "Extra Large (32mm+)", color: "Light Brown to Golden", grade: "Premium Grade", description: "Premium quality walnuts with high kernel yield. Rich in omega-3 fatty acids and antioxidants. Perfect for snacking, baking, and culinary applications. Naturally dried and free from preservatives." },
@@ -174,7 +183,12 @@ const products = [
   { id: 33, name: "Sweet Tamarind", image: sweetTamarind, origin: "Vietnam", moisture: "10-14%", variety: "Sirthong", size: "6.9 - 7.5 inches", process: "Not steamed" },
   
   // CATEGORIZED UNDER COFFEE
-  { id: 34, name: "Robusta Coffee Beans", image: robustaBeans, origin: "Vietnam", moisture: "12.5%", grades: "R1-16, R1-18", brokenAndBlack: "2% max" },
+  { id: 34, name: "Green Coffee Beans", image: robustaBeans, origin: "Vietnam", moisture: "12.5%", description: "Premium quality green coffee beans from Vietnam. Available in Robusta and Arabica varieties." },
+  // CATEGORIZED UNDER GREEN COFFEE BEANS
+  { id: 88, name: "Robusta Coffee Beans S16 Clean/Wet Polished", image: robustaS16Clean, origin: "Vietnam", moisture: "12.5%", grade: "S16 Clean/Wet Polished", packing: "60kg/Jute bag", containerCapacity: "19.2MT/20ft, 28MT/40ft", description: "Premium quality Robusta coffee beans S16 grade, clean and wet polished. Perfect for commercial roasting and blending." },
+  { id: 89, name: "Robusta Coffee Beans S18 Clean/Wet Polished", image: robustaS18Clean, origin: "Vietnam", moisture: "12.5%", grade: "S18 Clean/Wet Polished", packing: "60kg/Jute bag", containerCapacity: "19.2MT/20ft, 28MT/40ft", description: "Premium quality Robusta coffee beans S18 grade, clean and wet polished. Larger bean size for premium applications." },
+  { id: 90, name: "Robusta Coffee Beans S13", image: robustaS13, origin: "Vietnam", moisture: "12.5%", grade: "S13", packing: "60kg/Jute bag", containerCapacity: "19.2MT/20ft, 28MT/40ft", description: "Quality Robusta coffee beans S13 grade. Cost-effective option for commercial use." },
+  { id: 91, name: "Arabica Coffee Beans S16/S18", image: arabicaS16S18, origin: "Vietnam", moisture: "12.5%", grade: "S16/S18", packing: "60kg/Jute bag", containerCapacity: "19.2MT/20ft, 28MT/40ft", description: "Premium Arabica coffee beans S16/S18 grade. Known for smooth, aromatic flavor profile." },
 ];
 
 
@@ -184,24 +198,23 @@ const categories = [
   "Cashew Nuts",
   "Desiccated Coconut",
   "CASSIA/CINNAMON",
-  "Ginger",
+  "Fresh Ginger",
   "Cardamom",
   "Black Pepper",
   "Pumpkin Seeds",
   "Sunflower Seeds",
   "Peanuts",
   "Almonds",
-  "White Pepper",
+  "Star Anise",
   "Edible Copra",
   "Soft Dried Mango",
   "TEJA RED CHILLI",
-  "Star Anise",
   "TURMERIC FINGER",
   "WALNUTS",
   "Nigella sativa",
   "Cloves",
   "Sweet Tamarind",
-  "Robusta Coffee Beans"];
+  "Green Coffee Beans"];
 
 
 // FILTER GROUP FOR CASHEW CATEGORY
@@ -227,13 +240,14 @@ const ww320FilterList = [
 // FILTER GROUP FOR BLACK PEPPER CATEGORY
 const blackPepperFilterList = [
   "Brazilian Black Pepper",
+  "White Pepper 630g/l (EU Standard)",
   "Black Pepper 450g/l FAQ",
   "Black Pepper 500g/l FAQ",
   "Black Pepper 550g/l FAQ",
   "Black Pepper 500g/l MC/ASTA",
   "Black Pepper 550g/l MC/ASTA",
   "Black Pepper 570g/l MC/ASTA",
-  "Black Pepper 5mm Bold"
+  "Black Pepper 5mm Bold",
   
 ];
 
@@ -246,8 +260,8 @@ const desiccatedCoconutFilterList = [
 
 // FILTER GROUP FOR WHOLE GINGER SUB-CATEGORY
 const wholeGingerFilterList = [
-  "Ginger Whole Dry",
-  "Ginger Whole Fresh"
+  "Dried Ginger Whole Dry",
+  "Dried Ginger Whole Fresh"
 ];
 
 // FILTER GROUP FOR SLICE GINGER SUB-CATEGORY
@@ -272,8 +286,7 @@ const cassiaFilterList = [
   "CASSIA POWDER",
   "CASSIA LEAVE",
   "CASSIA HUSK",
-  "CASSIA LONG STICK",
-  "CASSIA SPLIT"
+  "CASSIA LONG STICK"
 ];
 
 // FILTER GROUP FOR CARDAMOM CATEGORY
@@ -316,6 +329,23 @@ const almondsFilterList = [
   "Almonds 25/27",
   "Almonds 27/30",
   "Almonds 30/32"
+];
+
+// FILTER GROUP FOR STAR ANISE CATEGORY
+const starAniseFilterList = [
+  "Spring Star Anise",
+  "Autumn Star Anise",
+  "Canh Dan Star Anise",
+  "Broken Star Anise",
+  "Dyed Star Anise"
+];
+
+// FILTER GROUP FOR GREEN COFFEE BEANS CATEGORY
+const greenCoffeeFilterList = [
+  "Robusta Coffee Beans S16 Clean/Wet Polished",
+  "Robusta Coffee Beans S18 Clean/Wet Polished",
+  "Robusta Coffee Beans S13",
+  "Arabica Coffee Beans S16/S18"
 ];
 
 
@@ -387,10 +417,23 @@ const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryFromUrl = searchParams.get("category") || "All";
   const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  // Prevent body scroll when filter is open
+  useEffect(() => {
+    if (isFilterOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isFilterOpen]);
 
   // Sync category with URL when URL changes (e.g., when navigating back)
   useEffect(() => {
@@ -407,7 +450,7 @@ const Products = () => {
   // FILTER LOGIC
 const filteredProducts =
   selectedCategory === "All"
-    ? products.filter((p) => !cashewFilterList.includes(p.name) && !ww320FilterList.includes(p.name) && !blackPepperFilterList.includes(p.name) && !desiccatedCoconutFilterList.includes(p.name) && !gingerFilterList.includes(p.name) && !cardamomFilterList.includes(p.name) && !cassiaFilterList.includes(p.name) && !pumpkinSeedsFilterList.includes(p.name) && !sunflowerSeedsFilterList.includes(p.name) && !peanutsFilterList.includes(p.name) && !almondsFilterList.includes(p.name)) // Show main products only
+    ? products.filter((p) => !cashewFilterList.includes(p.name) && !ww320FilterList.includes(p.name) && !blackPepperFilterList.includes(p.name) && !desiccatedCoconutFilterList.includes(p.name) && !gingerFilterList.includes(p.name) && !cardamomFilterList.includes(p.name) && !cassiaFilterList.includes(p.name) && !pumpkinSeedsFilterList.includes(p.name) && !sunflowerSeedsFilterList.includes(p.name) && !peanutsFilterList.includes(p.name) && !almondsFilterList.includes(p.name) && !starAniseFilterList.includes(p.name) && !greenCoffeeFilterList.includes(p.name)) // Show main products only
     : selectedCategory === "Cashew Nuts"
     ? products.filter(
       (p) =>
@@ -426,11 +469,11 @@ const filteredProducts =
     ? products.filter((p) => blackPepperFilterList.includes(p.name))  // Only sub-black pepper items
     : selectedCategory === "Desiccated Coconut"
     ? products.filter((p) => desiccatedCoconutFilterList.includes(p.name))  // Only sub-desiccated coconut items
-    : selectedCategory === "Ginger"
+    : selectedCategory === "Fresh Ginger"
     ? []  // Show subcategory cards instead of products
-    : selectedCategory === "Whole Ginger"
+    : selectedCategory === "Dried Whole Ginger"
     ? products.filter((p) => wholeGingerFilterList.includes(p.name))  // Only whole ginger items
-    : selectedCategory === "Slice Ginger"
+    : selectedCategory === "Dried Slice Ginger"
     ? products.filter((p) => sliceGingerFilterList.includes(p.name))  // Only slice ginger items
     : selectedCategory === "Cardamom"
     ? products.filter((p) => cardamomFilterList.includes(p.name))  // Only cardamom items
@@ -444,6 +487,10 @@ const filteredProducts =
     ?  products.filter((p) => peanutsFilterList.includes(p.name))
     : selectedCategory === "Almonds"
     ?  products.filter((p) => almondsFilterList.includes(p.name))
+    : selectedCategory === "Star Anise"
+    ?  products.filter((p) => starAniseFilterList.includes(p.name))  // Only star anise subcategories
+    : selectedCategory === "Green Coffee Beans"
+    ?  products.filter((p) => greenCoffeeFilterList.includes(p.name))  // Only green coffee beans subcategories
     : selectedCategory === "White Pepper"
     ? products.filter((p) => p.name.startsWith("White Pepper"))  // White Pepper products (name starts with "White Pepper")
     : products.filter((p) => p.name === selectedCategory);       // Single-item categories (exact match)
@@ -474,13 +521,59 @@ const filteredProducts =
 
       {/* LAYOUT */}
       <div className="flex flex-col lg:flex-row gap-8 items-start">
-        {/* SIDEBAR */}
-        <div className="w-full lg:w-72 rounded-2xl shadow-lg p-4 h-fit sticky top-24 bg-white/90 backdrop-blur border-t border-l border-b border-gray-200 space-y-2" style={{ borderRight: "none" }}>
-          <p className="text-xs uppercase tracking-[0.18em] text-gray-500 font-semibold px-2">Filter</p>
+        {/* MOBILE FILTER OVERLAY */}
+        <div 
+          className={`lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] transition-opacity duration-300 ${isFilterOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          onClick={() => setIsFilterOpen(false)}
+        />
+        
+        {/* SIDEBAR - Hidden on mobile, shown in drawer when filter is open */}
+        <div className={`
+          fixed lg:relative inset-x-0 bottom-0 lg:inset-auto
+          w-full lg:w-72 
+          max-h-[75vh] lg:max-h-none
+          rounded-t-3xl lg:rounded-2xl 
+          shadow-2xl lg:shadow-lg 
+          p-4 lg:p-4 
+          bg-white lg:bg-white/90 
+          backdrop-blur 
+          border-t border-l border-r lg:border-r-0 border-gray-200 lg:border-b
+          space-y-2
+          z-[101] lg:z-auto
+          lg:sticky lg:top-24 lg:h-fit
+          transform transition-transform duration-300 ease-out
+          ${isFilterOpen ? 'translate-y-0' : 'translate-y-full lg:translate-y-0'}
+          overflow-y-auto
+        `}>
+          {/* Mobile drawer handle */}
+          <div className="lg:hidden flex justify-center mb-2">
+            <div className="w-12 h-1.5 bg-gray-300 rounded-full"></div>
+          </div>
+          
+          {/* Mobile header with close button */}
+          <div className="lg:hidden flex items-center justify-between px-2 pb-2 border-b border-gray-100">
+            <p className="text-sm font-bold text-[#0A1C2E]">Filter Categories</p>
+            <button 
+              onClick={() => setIsFilterOpen(false)}
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          
+          <p className="hidden lg:block text-xs uppercase tracking-[0.18em] text-gray-500 font-semibold px-2">Filter</p>
           {categories.map((cat) => (
             <div key={cat}>
               <button
-                onClick={() => handleCategoryChange(cat)}
+                onClick={() => {
+                  handleCategoryChange(cat);
+                  // Don't close on category with subcategories
+                  if (cat !== "Cashew Nuts" && cat !== "Fresh Ginger") {
+                    setIsFilterOpen(false);
+                  }
+                }}
                 className={`w-full flex justify-between items-center px-4 py-3 rounded-xl text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 ${
                   selectedCategory === cat ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-50 text-[#0A1C2E]"
                 }`}
@@ -503,7 +596,9 @@ const filteredProducts =
               {cat === "Cashew Nuts" && (selectedCategory === "Cashew Nuts" || selectedCategory === "Cashew Nuts WW320" || selectedCategory === "Cashew Nuts WW320 AFI Standard" || selectedCategory === "Cashew Nuts WW320 High Quality" || selectedCategory === "Cashew Nuts WW320 Premium") && (
                 <div className="ml-4 mt-1 space-y-1">
                   <button
-                    onClick={() => handleCategoryChange("Cashew Nuts WW320")}
+                    onClick={() => {
+                      handleCategoryChange("Cashew Nuts WW320");
+                    }}
                     className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${
                       selectedCategory === "Cashew Nuts WW320" || selectedCategory === "Cashew Nuts WW320 AFI Standard" || selectedCategory === "Cashew Nuts WW320 High Quality" || selectedCategory === "Cashew Nuts WW320 Premium" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"
                     }`}
@@ -514,35 +609,44 @@ const filteredProducts =
                 </div>
               )}
               {/* Show subcategories for Ginger */}
-              {cat === "Ginger" && (selectedCategory === "Ginger" || selectedCategory === "Whole Ginger" || selectedCategory === "Slice Ginger") && (
+              {cat === "Fresh Ginger" && (selectedCategory === "Fresh Ginger" || selectedCategory === "Dried Whole Ginger" || selectedCategory === "Dried Slice Ginger") && (
                 <div className="ml-4 mt-1 space-y-1">
                   <button
-                    onClick={() => handleCategoryChange("Whole Ginger")}
+                    onClick={() => {
+                      handleCategoryChange("Dried Whole Ginger");
+                      setIsFilterOpen(false);
+                    }}
                     className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${
-                      selectedCategory === "Whole Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"
+                      selectedCategory === "Dried Whole Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"
                     }`}
                   >
-                    <span className="font-medium">Whole Ginger</span>
-                    <span className="text-xs">{selectedCategory === "Whole Ginger" ? "•" : "›"}</span>
+                    <span className="font-medium">Dried Whole Ginger</span>
+                    <span className="text-xs">{selectedCategory === "Dried Whole Ginger" ? "•" : "›"}</span>
                   </button>
                   <button
-                    onClick={() => handleCategoryChange("Slice Ginger")}
+                    onClick={() => {
+                      handleCategoryChange("Dried Slice Ginger");
+                      setIsFilterOpen(false);
+                    }}
                     className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${
-                      selectedCategory === "Slice Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"
+                      selectedCategory === "Dried Slice Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"
                     }`}
                   >
-                    <span className="font-medium">Slice Ginger</span>
-                    <span className="text-xs">{selectedCategory === "Slice Ginger" ? "•" : "›"}</span>
+                    <span className="font-medium">Dried Slice Ginger</span>
+                    <span className="text-xs">{selectedCategory === "Dried Slice Ginger" ? "•" : "›"}</span>
                   </button>
                 </div>
               )}
             </div>
           ))}
+          
+          {/* Mobile bottom padding for safe area */}
+          <div className="lg:hidden h-4"></div>
         </div>
 
         {/* PRODUCT GRID */}
-        <div className="flex-1">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6" style={{ gridAutoRows: '1fr', alignItems: 'stretch' }}>
+        <div className="flex-1 pb-20 lg:pb-0">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6" style={{ gridAutoRows: '1fr', alignItems: 'stretch' }}>
             {/* Show subcategory cards for Cashew Nuts WW320 category */}
             {selectedCategory === "Cashew Nuts WW320" ? (
               <>
@@ -583,17 +687,17 @@ const filteredProducts =
                   }}
                 />
               </>
-            ) : selectedCategory === "Ginger" ? (
+            ) : selectedCategory === "Fresh Ginger" ? (
               <>
                 <SubcategoryCard
-                  name="Whole Ginger"
+                  name="Dried Whole Ginger"
                   image={gingerWholeDry}
-                  onClick={() => handleCategoryChange("Whole Ginger")}
+                  onClick={() => handleCategoryChange("Dried Whole Ginger")}
                 />
                 <SubcategoryCard
-                  name="Slice Ginger"
+                  name="Dried Slice Ginger"
                   image={driedGinger}
-                  onClick={() => handleCategoryChange("Slice Ginger")}
+                  onClick={() => handleCategoryChange("Dried Slice Ginger")}
                 />
               </>
             ) : (
@@ -602,14 +706,15 @@ const filteredProducts =
                 const isMainCategory = product.name === "Cashew Nuts" || 
                                        product.name === "Black Pepper" || 
                                        product.name === "Desiccated Coconut" ||
-                                       product.name === "Ginger" ||
+                                       product.name === "Fresh Ginger" ||
                                        product.name === "CARDAMOM" ||
                                        product.name === "CASSIA/CINNAMON" ||
                                        product.name === "Cashew Nuts WW320" ||
                                        product.name === "Pumpkin Seeds" ||
                                        product.name === "Sunflower Seeds"||
                                        product.name === "Peanuts" ||
-                                       product.name === "Almonds";
+                                       product.name === "Almonds" ||
+                                       product.name === "Star Anise";
                 
                 // If in "All" view and clicking a main category, navigate to that category
                 const handleClick = () => {
@@ -643,15 +748,30 @@ const filteredProducts =
       </div>
     </div>
 
+    {/* MOBILE FILTER BUTTON - Fixed at bottom */}
+    <button
+      onClick={() => setIsFilterOpen(true)}
+      className="lg:hidden fixed left-1/2 -translate-x-1/2 bottom-6 z-[99] flex items-center gap-2.5 px-6 py-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95"
+      style={{
+        background: "linear-gradient(135deg, #0B3A82 0%, #128C7E 100%)",
+        boxShadow: "0 8px 32px rgba(11, 58, 130, 0.35), 0 4px 16px rgba(18, 140, 126, 0.25), inset 0 1px 0 rgba(255,255,255,0.2)",
+      }}
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+      </svg>
+      <span className="text-white font-semibold text-sm tracking-wide">
+        {selectedCategory === "All" ? "Filter Products" : selectedCategory}
+      </span>
+      <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse"></div>
+    </button>
+
     <a
       href="https://wa.me/66982818995"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed"
+      className="fixed right-6 bottom-[100px] lg:bottom-[30px] z-[9999]"
       style={{
-        right: "24px",
-        bottom: "30px",
-        zIndex: 9999,
         animation: "floatS 1s ease-in-out infinite",
       }}
     >

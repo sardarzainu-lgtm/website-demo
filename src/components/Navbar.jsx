@@ -31,6 +31,10 @@ import redChilli from "../assets/red-chilli.webp"
 import starAnise from "../assets/star-anise.webp"
 import sweetTamarind from "../assets/sweet-tamarind.webp"
 import robustaBeans from "../assets/robusta-beans.webp"
+import robustaS16Clean from "../assets/robustas16-clean-welpolished.webp"
+import robustaS18Clean from "../assets/robusta-s18-clean.webp"
+import robustaS13 from "../assets/robusta-s13.webp"
+import arabicaS16S18 from "../assets/arabic-s16-s18.webp"
 import blackCardamom from "../assets/black-cardamom.webp"
 import greenCardamom from "../assets/green-cardamom.webp"
 import bigCardamom from "../assets/big-cardamom.webp"
@@ -86,6 +90,8 @@ const Navbar = () => {
   const [sunflowerSeedsSubmenuOpen, setSunflowerSeedsSubmenuOpen] = useState(false);
   const [peanutsSubmenuOpen, setPeanutsSubmenuOpen] = useState(false);
   const [almondsSubmenuOpen, setAlmondsSubmenuOpen] = useState(false);
+  const [starAniseSubmenuOpen, setStarAniseSubmenuOpen] = useState(false);
+  const [greenCoffeeSubmenuOpen, setGreenCoffeeSubmenuOpen] = useState(false);
   const [mobileProductsDropdownOpen, setMobileProductsDropdownOpen] = useState(false);
   const [mobileCashewSubmenuOpen, setMobileCashewSubmenuOpen] = useState(false);
   const [mobileWw320SubmenuOpen, setMobileWw320SubmenuOpen] = useState(false);
@@ -100,6 +106,8 @@ const Navbar = () => {
   const [mobileSunflowerSeedsSubmenuOpen, setMobileSunflowerSeedsSubmenuOpen] = useState(false);
   const [mobilePeanutsSubmenuOpen, setMobilePeanutsSubmenuOpen] = useState(false);
   const [mobileAlmondsSubmenuOpen, setMobileAlmondsSubmenuOpen] = useState(false);
+  const [mobileStarAniseSubmenuOpen, setMobileStarAniseSubmenuOpen] = useState(false);
+  const [mobileGreenCoffeeSubmenuOpen, setMobileGreenCoffeeSubmenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const dropdownTimeoutRef = useRef(null);
   const submenuTimeoutRefs = useRef({});
@@ -150,7 +158,9 @@ const Navbar = () => {
     image: cashewnuts, 
     origin: "Vietnam", 
     moisture: "5% max", 
-    standard: "AFI Standard 2012"
+    standard: "AFI Standard 2012",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
 
   { 
@@ -177,7 +187,9 @@ const Navbar = () => {
     name: "Black Pepper", 
     image: blackPepper, 
     origin: "Vietnam", 
-    moisture: "13.5% max"
+    moisture: "13.5% max",
+    packing: "25kg/bag",
+    containerCapacity: "15MT/20ft, 28MT/40ft"
   },
 
   { 
@@ -188,7 +200,9 @@ const Navbar = () => {
     moisture: "13.5% max",
     density: "630g/l",
     admixture: "0.5% max",
-    blackSeeds: "2% max"
+    blackSeeds: "2% max",
+    packing: "25kg/bag",
+    containerCapacity: "15MT/20ft, 28MT/40ft"
   },
 
   { 
@@ -244,7 +258,9 @@ const Navbar = () => {
     name: "Roasted & Salted Cashew Nuts", 
     image: roastedSaltedCashew, 
     origin: "Vietnam", 
-    moisture: "4%"
+    moisture: "4%",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
 
   // Cashew Nuts WW320 AFI Standard
@@ -257,7 +273,9 @@ const Navbar = () => {
     standard: "AFI Standard 2012",
     seedsPerLb: "300-320",
     broken: "5% max",
-    lowerSize: "7-8% max"
+    lowerSize: "7-8% max",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
   // Cashew Nuts WW320 High Quality
   { 
@@ -269,7 +287,9 @@ const Navbar = () => {
     standard: "High Quality",
     seedsPerLb: "300-320",
     broken: "5% max",
-    lowerSize: "7-8% max"
+    lowerSize: "7-8% max",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
   // Cashew Nuts WW320 Premium
   { 
@@ -281,7 +301,9 @@ const Navbar = () => {
     standard: "Standard Premium",
     seedsPerLb: "300-320",
     broken: "5% max",
-    lowerSize: "7-8% max"
+    lowerSize: "7-8% max",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
 
   // Cashew Nuts WW240
@@ -294,7 +316,9 @@ const Navbar = () => {
     standard: "AFI Standard 2012",
     seedsPerLb: "220-240",
     broken: "5% max",
-    lowerSize: "7-8% max"
+    lowerSize: "7-8% max",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
 
   // Cashew Nuts WW180
@@ -307,7 +331,9 @@ const Navbar = () => {
     standard: "AFI Standard 2012",
     seedsPerLb: "160-180",
     broken: "7-8% max",
-    lowerSize: "7-8% max"
+    lowerSize: "7-8% max",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
 
   // Cashew Nuts WW450
@@ -317,7 +343,9 @@ const Navbar = () => {
     image: ww450Cashew, 
     origin: "Vietnam", 
     moisture: "5% max",
-    standard: "AFI Standard 2012"
+    standard: "AFI Standard 2012",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
 
   // Cashew Nuts SK
@@ -326,7 +354,9 @@ const Navbar = () => {
     name: "Cashew Nuts SK", 
     image: cashewSK, 
     origin: "Vietnam", 
-    moisture: "4%"
+    moisture: "4%",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
 
   // Cashew Nuts SL
@@ -335,7 +365,9 @@ const Navbar = () => {
     name: "Cashew Nuts SL", 
     image: cashewSL, 
     origin: "Vietnam", 
-    moisture: "4%"
+    moisture: "4%",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
 
   // Black Pepper subcategories
@@ -347,7 +379,9 @@ const Navbar = () => {
     moisture: "13.5% max",
     density: "450g/l",
     admixture: "1% max",
-    grade: "FAQ"
+    grade: "FAQ",
+    packing: "25kg/bag",
+    containerCapacity: "6MT/20ft, 15MT/40ft"
   },
   { 
     id: 15, 
@@ -357,7 +391,9 @@ const Navbar = () => {
     moisture: "13.5% max",
     density: "500g/l",
     admixture: "1% max",
-    grade: "FAQ"
+    grade: "FAQ",
+    packing: "25kg/bag",
+    containerCapacity: "12MT/20ft, 25MT/40ft"
   },
   { 
     id: 16, 
@@ -367,7 +403,9 @@ const Navbar = () => {
     moisture: "13.5% max",
     density: "550g/l",
     admixture: "1% max",
-    grade: "FAQ"
+    grade: "FAQ",
+    packing: "25kg/bag",
+    containerCapacity: "15MT/20ft, 28MT/40ft"
   },
   { 
     id: 17, 
@@ -377,7 +415,9 @@ const Navbar = () => {
     moisture: "12.5% max",
     density: "500g/l",
     admixture: "0.5% max",
-    grade: "MC/ASTA"
+    grade: "MC/ASTA",
+    packing: "25kg/bag",
+    containerCapacity: "15MT/20ft, 28MT/40ft"
   },
   { 
     id: 18, 
@@ -387,7 +427,9 @@ const Navbar = () => {
     moisture: "12.5% max",
     density: "550g/l",
     admixture: "0.5% max",
-    grade: "MC/ASTA"
+    grade: "MC/ASTA",
+    packing: "25kg/bag",
+    containerCapacity: "15MT/20ft, 28MT/40ft"
   },
   { 
     id: 19, 
@@ -397,7 +439,9 @@ const Navbar = () => {
     moisture: "12.5% max",
     density: "570g/l",
     admixture: "0.5% max",
-    grade: "MC/ASTA"
+    grade: "MC/ASTA",
+    packing: "25kg/bag",
+    containerCapacity: "15MT/20ft, 28MT/40ft"
   },
   { 
     id: 20, 
@@ -408,7 +452,9 @@ const Navbar = () => {
     density: "570g/l - 580g/l",
     admixture: "0.5% max",
     grade: "5mm Bold",
-    size: "5mm (80% Min. on sieve)"
+    size: "5mm (80% Min. on sieve)",
+    packing: "25kg/bag",
+    containerCapacity: "15MT/20ft, 28MT/40ft"
   },
   { 
     id: 26, 
@@ -419,7 +465,8 @@ const Navbar = () => {
     appearance: "Small, dark brown to black, wrinkled berries (~4-5 mm)",
     aroma: "Strong, pungent, citrusy, slightly woody, and spicy",
     benefits: "Aids digestion, anti-inflammatory, weight loss",
-    packing: "Mesh bags, jute sacks, or plastic bags"
+    packing: "25kg/bag",
+    containerCapacity: "15MT/20ft, 28MT/40ft"
   },
 
   { 
@@ -430,7 +477,9 @@ const Navbar = () => {
     moisture: "5% max",
     standard: "AFI Standard 2012",
     sieve: "6.3 mm",
-    crop: "New crop"
+    crop: "New crop",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
   { 
     id: 22, 
@@ -440,7 +489,9 @@ const Navbar = () => {
     moisture: "5% max",
     standard: "AFI Standard 2012",
     nutSize: "Small pieces, on sieve 5mm - 7.2mm",
-    broken: "10% max"
+    broken: "10% max",
+    packing: "10kg/vacuum bag or tin packing",
+    containerCapacity: "15MT/20ft, 26.5MT/40ft"
   },
 
   // Updated Desiccated Coconut
@@ -452,7 +503,9 @@ const Navbar = () => {
     moisture: "4% max",
     ffa: "0.3% max",
     fatContent: "30-35% min",
-    so2: "100 ppm max"
+    so2: "100 ppm max",
+    packing: "25kg/bag or custom",
+    containerCapacity: "7MT/20ft, 18MT/40ft"
   },
   { 
     id: 24, 
@@ -462,7 +515,9 @@ const Navbar = () => {
     moisture: "3% max",
     ffa: "0.3% max",
     fatContent: "63% min",
-    so2: "100 ppm max"
+    so2: "100 ppm max",
+    packing: "25kg/bag or custom",
+    containerCapacity: "13MT/20ft, 27MT/40ft"
   },
   { 
     id: 25, 
@@ -472,7 +527,9 @@ const Navbar = () => {
     moisture: "3% max",
     ffa: "0.3% max",
     fatContent: "63% min",
-    so2: "100 ppm max"
+    so2: "100 ppm max",
+    packing: "25kg/bag or custom",
+    containerCapacity: "13MT/20ft, 27MT/40ft"
   },
   { 
     id: 30, 
@@ -514,6 +571,60 @@ const Navbar = () => {
     brokenPieces: "10% max", 
     notes: "No fungus, natural color" 
   },
+  // CATEGORIZED UNDER STAR ANISE
+  { 
+    id: 83, 
+    name: "Spring Star Anise", 
+    image: starAnise, 
+    origin: "Vietnam", 
+    moisture: "13.5%", 
+    size: "2.5 cm 80% up", 
+    brokenPieces: "10% max", 
+    notes: "No fungus, natural color",
+    description: "Premium quality spring harvest star anise from Vietnam. Harvested during spring season for optimal flavor and aroma."
+  },
+  { 
+    id: 84, 
+    name: "Autumn Star Anise", 
+    image: starAnise, 
+    origin: "Vietnam", 
+    moisture: "13.5%", 
+    size: "2.5 cm 80% up", 
+    brokenPieces: "10% max", 
+    notes: "No fungus, natural color",
+    description: "Premium quality autumn harvest star anise from Vietnam. Harvested during autumn season for rich, full-bodied flavor."
+  },
+  { 
+    id: 85, 
+    name: "Canh Dan Star Anise", 
+    image: starAnise, 
+    origin: "Vietnam", 
+    moisture: "13.5%", 
+    size: "2.5 cm 80% up", 
+    brokenPieces: "10% max", 
+    notes: "No fungus, natural color",
+    description: "Premium quality Canh Dan variety star anise from Vietnam. Known for its distinctive aroma and superior quality."
+  },
+  { 
+    id: 86, 
+    name: "Broken Star Anise", 
+    image: starAnise, 
+    origin: "Vietnam", 
+    moisture: "13.5%", 
+    brokenPieces: "High percentage", 
+    notes: "No fungus, natural color",
+    description: "Cost-effective broken star anise pieces from Vietnam. Ideal for grinding and commercial food processing applications."
+  },
+  { 
+    id: 87, 
+    name: "Dyed Star Anise", 
+    image: starAnise, 
+    origin: "Vietnam", 
+    moisture: "13.5%", 
+    size: "2.5 cm 80% up", 
+    notes: "Enhanced color, natural flavor",
+    description: "Color-enhanced star anise from Vietnam. Ideal for decorative and culinary applications where visual appeal is important."
+  },
   { 
     id: 33, 
     name: "Sweet Tamarind", 
@@ -526,12 +637,56 @@ const Navbar = () => {
   },
   { 
     id: 34, 
-    name: "Robusta Coffee Beans", 
+    name: "Green Coffee Beans", 
     image: robustaBeans, 
     origin: "Vietnam", 
+    moisture: "12.5%",
+    description: "Premium quality green coffee beans from Vietnam. Available in Robusta and Arabica varieties."
+  },
+  // CATEGORIZED UNDER GREEN COFFEE BEANS
+  { 
+    id: 88, 
+    name: "Robusta Coffee Beans S16 Clean/Wet Polished", 
+    image: robustaS16Clean, 
+    origin: "Vietnam", 
     moisture: "12.5%", 
-    grades: "R1-16, R1-18", 
-    brokenAndBlack: "2% max" 
+    grade: "S16 Clean/Wet Polished",
+    packing: "60kg/Jute bag",
+    containerCapacity: "19.2MT/20ft, 28MT/40ft",
+    description: "Premium quality Robusta coffee beans S16 grade, clean and wet polished. Perfect for commercial roasting and blending."
+  },
+  { 
+    id: 89, 
+    name: "Robusta Coffee Beans S18 Clean/Wet Polished", 
+    image: robustaS18Clean, 
+    origin: "Vietnam", 
+    moisture: "12.5%", 
+    grade: "S18 Clean/Wet Polished",
+    packing: "60kg/Jute bag",
+    containerCapacity: "19.2MT/20ft, 28MT/40ft",
+    description: "Premium quality Robusta coffee beans S18 grade, clean and wet polished. Larger bean size for premium applications."
+  },
+  { 
+    id: 90, 
+    name: "Robusta Coffee Beans S13", 
+    image: robustaS13, 
+    origin: "Vietnam", 
+    moisture: "12.5%", 
+    grade: "S13",
+    packing: "60kg/Jute bag",
+    containerCapacity: "19.2MT/20ft, 28MT/40ft",
+    description: "Quality Robusta coffee beans S13 grade. Cost-effective option for commercial use."
+  },
+  { 
+    id: 91, 
+    name: "Arabica Coffee Beans S16/S18", 
+    image: arabicaS16S18, 
+    origin: "Vietnam", 
+    moisture: "12.5%", 
+    grade: "S16/S18",
+    packing: "60kg/Jute bag",
+    containerCapacity: "19.2MT/20ft, 28MT/40ft",
+    description: "Premium Arabica coffee beans S16/S18 grade. Known for smooth, aromatic flavor profile."
   },
   { 
     id: 45, 
@@ -663,14 +818,6 @@ const Navbar = () => {
     origin: "Vietnam", 
     moisture: "13% max", 
     description: "Premium quality cassia long stick from Vietnam. Perfect for culinary and commercial applications." 
-  },
-  { 
-    id: 56, 
-    name: "CASSIA SPLIT", 
-    image: cassiaSplit, 
-    origin: "Vietnam", 
-    moisture: "13% max", 
-    description: "Premium quality cassia split from Vietnam. Perfect for culinary and commercial applications." 
   },
   { 
     id: 58, 
@@ -912,11 +1059,10 @@ const Navbar = () => {
     { id: 3, name: "Edible Copra", hasSubcategories: false },
     { id: 4, name: "Black Pepper", hasSubcategories: true },
     { id: 6, name: "Ginger", hasSubcategories: true },
-    { id: 5, name: "White Pepper", hasSubcategories: false },
     { id: 8, name: "CASSIA/CINNAMON", hasSubcategories: true },
     { id: 30, name: "Soft Dried Mango", hasSubcategories: false },
     { id: 31, name: "TEJA RED CHILLI", hasSubcategories: false },
-    { id: 32, name: "Star Anise", hasSubcategories: false },
+    { id: 32, name: "Star Anise", hasSubcategories: true },
     { id: 7, name: "Cardamom", hasSubcategories: true },
     { id: 57, name: "Pumpkin Seeds", hasSubcategories: true }, 
     { id: 58, name: "Sunflower Seeds", hasSubcategories: true },
@@ -925,7 +1071,7 @@ const Navbar = () => {
     { id: 42, name: "TURMERIC FINGER", hasSubcategories: false },
     { id: 43, name: "WALNUTS", hasSubcategories: false },
     { id: 33, name: "Sweet Tamarind", hasSubcategories: false },
-    { id: 34, name: "Robusta Coffee Beans", hasSubcategories: false },
+    { id: 34, name: "Green Coffee Beans", hasSubcategories: true },
     { id: 65, name: "Nigella sativa", hasSubcategories: false },
     { id: 82, name: "Cloves", hasSubcategories: false },
   ];
@@ -960,6 +1106,7 @@ const Navbar = () => {
     { id: 19, name: "Black Pepper 570g/l MC/ASTA" },
     { id: 20, name: "Black Pepper 5mm Bold" },
     { id: 26, name: "Brazilian Black Pepper" },
+    { id: 5, name: "White Pepper"},
   ];
 
   // Desiccated Coconut subcategories
@@ -1005,7 +1152,6 @@ const Navbar = () => {
     { id: 53, name: "CASSIA LEAVE" },
     { id: 54, name: "CASSIA HUSK" },
     { id: 55, name: "CASSIA LONG STICK" },
-    { id: 56, name: "CASSIA SPLIT" },
   ];
 
   // Pumpkin Seeds subcategories
@@ -1043,6 +1189,23 @@ const Navbar = () => {
     { id: 81, name: "Almonds 30/32" },
   ];
 
+  // Star Anise subcategories
+  const starAniseSubcategories = [
+    { id: 83, name: "Spring Star Anise" },
+    { id: 84, name: "Autumn Star Anise" },
+    { id: 85, name: "Canh Dan Star Anise" },
+    { id: 86, name: "Broken Star Anise" },
+    { id: 87, name: "Dyed Star Anise" },
+  ];
+
+  // Green Coffee Beans subcategories
+  const greenCoffeeSubcategories = [
+    { id: 88, name: "Robusta Coffee Beans S16 Clean/Wet Polished" },
+    { id: 89, name: "Robusta Coffee Beans S18 Clean/Wet Polished" },
+    { id: 90, name: "Robusta Coffee Beans S13" },
+    { id: 91, name: "Arabica Coffee Beans S16/S18" },
+  ];
+
   // Helper function to close all submenus (desktop)
   const closeAllSubmenus = () => {
     setCashewSubmenuOpen(false);
@@ -1058,6 +1221,8 @@ const Navbar = () => {
     setSunflowerSeedsSubmenuOpen(false);
     setPeanutsSubmenuOpen(false);
     setAlmondsSubmenuOpen(false);
+    setStarAniseSubmenuOpen(false);
+    setGreenCoffeeSubmenuOpen(false);
   };
 
   // Helper function to close all mobile submenus
@@ -1075,6 +1240,8 @@ const Navbar = () => {
     setMobileSunflowerSeedsSubmenuOpen(false);
     setMobilePeanutsSubmenuOpen(false);
     setMobileAlmondsSubmenuOpen(false);
+    setMobileStarAniseSubmenuOpen(false);
+    setMobileGreenCoffeeSubmenuOpen(false);
   };
 
   // Handle product navigation
@@ -1313,6 +1480,10 @@ const Navbar = () => {
                               isCurrentlyOpen = peanutsSubmenuOpen;
                             } else if (category.name === "Almonds") {
                               isCurrentlyOpen = almondsSubmenuOpen;
+                            } else if (category.name === "Star Anise") {
+                              isCurrentlyOpen = starAniseSubmenuOpen;
+                            } else if (category.name === "Green Coffee Beans") {
+                              isCurrentlyOpen = greenCoffeeSubmenuOpen;
                             }
                             
                             // Always close all submenus first
@@ -1340,6 +1511,10 @@ const Navbar = () => {
                                 setPeanutsSubmenuOpen(true);
                               } else if (category.name === "Almonds") {
                                 setAlmondsSubmenuOpen(true);
+                              } else if (category.name === "Star Anise") {
+                                setStarAniseSubmenuOpen(true);
+                              } else if (category.name === "Green Coffee Beans") {
+                                setGreenCoffeeSubmenuOpen(true);
                               }
                             }
                           }}
@@ -1360,7 +1535,9 @@ const Navbar = () => {
                               (category.name === "Pumpkin Seeds" && pumpkinSeedsSubmenuOpen) ||
                               (category.name === "Sunflower Seeds" && sunflowerSeedsSubmenuOpen) ||
                               (category.name === "Peanuts" && peanutsSubmenuOpen) ||
-                              (category.name === "Almonds" && almondsSubmenuOpen)
+                              (category.name === "Almonds" && almondsSubmenuOpen) ||
+                              (category.name === "Star Anise" && starAniseSubmenuOpen) ||
+                              (category.name === "Green Coffee Beans" && greenCoffeeSubmenuOpen)
                                 ? "rotate-90" : ""
                             }`}
                           />
@@ -1741,6 +1918,64 @@ const Navbar = () => {
                         }}
                       >
                         {almondsSubcategories.map((subcat) => (
+                          <button
+                            key={subcat.id}
+                            onClick={() => handleProductClick(subcat.id)}
+                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          >
+                            {subcat.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    {/* Star Anise Submenu */}
+                    {category.hasSubcategories && category.name === "Star Anise" && starAniseSubmenuOpen && (
+                      <div 
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200] max-h-[80vh] overflow-y-auto"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setStarAniseSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setStarAniseSubmenuOpen(false);
+                          }, 200);
+                        }}
+                      >
+                        {starAniseSubcategories.map((subcat) => (
+                          <button
+                            key={subcat.id}
+                            onClick={() => handleProductClick(subcat.id)}
+                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          >
+                            {subcat.name}
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                    {/* Green Coffee Beans Submenu */}
+                    {category.hasSubcategories && category.name === "Green Coffee Beans" && greenCoffeeSubmenuOpen && (
+                      <div 
+                        className="absolute left-full top-0 ml-1 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200] max-h-[80vh] overflow-y-auto"
+                        onMouseEnter={() => {
+                          if (dropdownTimeoutRef.current) {
+                            clearTimeout(dropdownTimeoutRef.current);
+                          }
+                          setProductsDropdownOpen(true);
+                          setGreenCoffeeSubmenuOpen(true);
+                        }}
+                        onMouseLeave={() => {
+                          dropdownTimeoutRef.current = setTimeout(() => {
+                            setProductsDropdownOpen(false);
+                            setGreenCoffeeSubmenuOpen(false);
+                          }, 200);
+                        }}
+                      >
+                        {greenCoffeeSubcategories.map((subcat) => (
                           <button
                             key={subcat.id}
                             onClick={() => handleProductClick(subcat.id)}
@@ -2177,6 +2412,10 @@ const Navbar = () => {
                               isCurrentlyOpen = mobilePeanutsSubmenuOpen;
                             } else if (category.name === "Almonds") {
                               isCurrentlyOpen = mobileAlmondsSubmenuOpen;
+                            } else if (category.name === "Star Anise") {
+                              isCurrentlyOpen = mobileStarAniseSubmenuOpen;
+                            } else if (category.name === "Green Coffee Beans") {
+                              isCurrentlyOpen = mobileGreenCoffeeSubmenuOpen;
                             }
                             
                             // Always close all mobile submenus first
@@ -2204,6 +2443,10 @@ const Navbar = () => {
                                 setMobilePeanutsSubmenuOpen(true);
                               } else if (category.name === "Almonds") {
                                 setMobileAlmondsSubmenuOpen(true);
+                              } else if (category.name === "Star Anise") {
+                                setMobileStarAniseSubmenuOpen(true);
+                              } else if (category.name === "Green Coffee Beans") {
+                                setMobileGreenCoffeeSubmenuOpen(true);
                               }
                             }
                           }}
@@ -2222,7 +2465,9 @@ const Navbar = () => {
                                 (category.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen) ||
                                 (category.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen) ||
                                 (category.name === "Peanuts" && mobilePeanutsSubmenuOpen) ||
-                                (category.name === "Almonds" && mobileAlmondsSubmenuOpen)
+                                (category.name === "Almonds" && mobileAlmondsSubmenuOpen) ||
+                                (category.name === "Star Anise" && mobileStarAniseSubmenuOpen) ||
+                                (category.name === "Green Coffee Beans" && mobileGreenCoffeeSubmenuOpen)
                                   ? "rotate-90" : ""
                               }`}
                             />
@@ -2502,6 +2747,42 @@ const Navbar = () => {
                                     setMenuOpen(false);
                                     setMobileProductsDropdownOpen(false);
                                     setMobileAlmondsSubmenuOpen(false);
+                                  }}
+                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                >
+                                  {subcat.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                          {category.name === "Star Anise" && mobileStarAniseSubmenuOpen && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {starAniseSubcategories.map((subcat) => (
+                                <button
+                                  key={subcat.id}
+                                  onClick={() => {
+                                    handleProductClick(subcat.id);
+                                    setMenuOpen(false);
+                                    setMobileProductsDropdownOpen(false);
+                                    setMobileStarAniseSubmenuOpen(false);
+                                  }}
+                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                >
+                                  {subcat.name}
+                                </button>
+                              ))}
+                            </div>
+                          )}
+                          {category.name === "Green Coffee Beans" && mobileGreenCoffeeSubmenuOpen && (
+                            <div className="pl-4 mt-1 space-y-1">
+                              {greenCoffeeSubcategories.map((subcat) => (
+                                <button
+                                  key={subcat.id}
+                                  onClick={() => {
+                                    handleProductClick(subcat.id);
+                                    setMenuOpen(false);
+                                    setMobileProductsDropdownOpen(false);
+                                    setMobileGreenCoffeeSubmenuOpen(false);
                                   }}
                                   className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
                                 >
