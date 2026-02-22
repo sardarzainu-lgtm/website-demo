@@ -86,6 +86,7 @@ const Navbar = () => {
   const [sliceGingerSubmenuOpen, setSliceGingerSubmenuOpen] = useState(false);
   const [cardamomSubmenuOpen, setCardamomSubmenuOpen] = useState(false);
   const [cassiaSubmenuOpen, setCassiaSubmenuOpen] = useState(false);
+  const [seedsSubmenuOpen, setSeedsSubmenuOpen] = useState(false);
   const [pumpkinSeedsSubmenuOpen, setPumpkinSeedsSubmenuOpen] = useState(false);
   const [sunflowerSeedsSubmenuOpen, setSunflowerSeedsSubmenuOpen] = useState(false);
   const [peanutsSubmenuOpen, setPeanutsSubmenuOpen] = useState(false);
@@ -102,6 +103,7 @@ const Navbar = () => {
   const [mobileSliceGingerSubmenuOpen, setMobileSliceGingerSubmenuOpen] = useState(false);
   const [mobileCardamomSubmenuOpen, setMobileCardamomSubmenuOpen] = useState(false);
   const [mobileCassiaSubmenuOpen, setMobileCassiaSubmenuOpen] = useState(false);
+  const [mobileSeedsSubmenuOpen, setMobileSeedsSubmenuOpen] = useState(false);
   const [mobilePumpkinSeedsSubmenuOpen, setMobilePumpkinSeedsSubmenuOpen] = useState(false);
   const [mobileSunflowerSeedsSubmenuOpen, setMobileSunflowerSeedsSubmenuOpen] = useState(false);
   const [mobilePeanutsSubmenuOpen, setMobilePeanutsSubmenuOpen] = useState(false);
@@ -130,7 +132,7 @@ const Navbar = () => {
         setWholeGingerSubmenuOpen(false);
         setSliceGingerSubmenuOpen(false);
         setCardamomSubmenuOpen(false);
-        setPumpkinSeedsSubmenuOpen(false);
+        setSeedsSubmenuOpen(false);
         setWw320SubmenuOpen(false);
       }
     };
@@ -207,7 +209,7 @@ const Navbar = () => {
 
   { 
     id: 6, 
-    name: "Dried Ginger", 
+    name: "Fresh Ginger", 
     image: driedGinger, 
     origin: "Vietnam", 
     moisture: "8%"
@@ -1058,14 +1060,13 @@ const Navbar = () => {
     { id: 2, name: "Desiccated Coconut", hasSubcategories: true },
     { id: 3, name: "Edible Copra", hasSubcategories: false },
     { id: 4, name: "Black Pepper", hasSubcategories: true },
-    { id: 6, name: "Ginger", hasSubcategories: true },
+    { id: 6, name: "Fresh Ginger", hasSubcategories: true },
     { id: 8, name: "CASSIA/CINNAMON", hasSubcategories: true },
     { id: 30, name: "Soft Dried Mango", hasSubcategories: false },
     { id: 31, name: "TEJA RED CHILLI", hasSubcategories: false },
     { id: 32, name: "Star Anise", hasSubcategories: true },
     { id: 7, name: "Cardamom", hasSubcategories: true },
-    { id: 57, name: "Pumpkin Seeds", hasSubcategories: true }, 
-    { id: 58, name: "Sunflower Seeds", hasSubcategories: true },
+    { id: 92, name: "Seeds", hasSubcategories: true },
     { id: 66, name: "Peanuts", hasSubcategories: true },
     { id: 75, name: "Almonds", hasSubcategories: true },
     { id: 42, name: "TURMERIC FINGER", hasSubcategories: false },
@@ -1118,8 +1119,8 @@ const Navbar = () => {
 
   // Ginger subcategories
   const gingerSubcategories = [
-    { id: "wholeGinger", name: "Whole Ginger", hasSubcategories: true },
-    { id: "sliceGinger", name: "Slice Ginger", hasSubcategories: true },
+    { id: "wholeGinger", name: "Dried Whole Ginger", hasSubcategories: true },
+    { id: "sliceGinger", name: "Dried Slice Ginger", hasSubcategories: true },
   ];
 
   // Whole Ginger sub-subcategories
@@ -1152,6 +1153,12 @@ const Navbar = () => {
     { id: 53, name: "CASSIA LEAVE" },
     { id: 54, name: "CASSIA HUSK" },
     { id: 55, name: "CASSIA LONG STICK" },
+  ];
+
+  // Seeds subcategories (Pumpkin Seeds and Sunflower Seeds)
+  const seedsSubcategories = [
+    { id: 63, name: "Pumpkin Seeds" ,hasSubcategories: true},
+    { id: 64, name: "Sunflower Seeds", hasSubcategories: true},
   ];
 
   // Pumpkin Seeds subcategories
@@ -1217,6 +1224,7 @@ const Navbar = () => {
     setSliceGingerSubmenuOpen(false);
     setCardamomSubmenuOpen(false);
     setCassiaSubmenuOpen(false);
+    setSeedsSubmenuOpen(false);
     setPumpkinSeedsSubmenuOpen(false);
     setSunflowerSeedsSubmenuOpen(false);
     setPeanutsSubmenuOpen(false);
@@ -1236,6 +1244,7 @@ const Navbar = () => {
     setMobileSliceGingerSubmenuOpen(false);
     setMobileCardamomSubmenuOpen(false);
     setMobileCassiaSubmenuOpen(false);
+    setMobileSeedsSubmenuOpen(false);
     setMobilePumpkinSeedsSubmenuOpen(false);
     setMobileSunflowerSeedsSubmenuOpen(false);
     setMobilePeanutsSubmenuOpen(false);
@@ -1394,8 +1403,7 @@ const Navbar = () => {
                 setSliceGingerSubmenuOpen(false);
                 setCardamomSubmenuOpen(false);
                 setCassiaSubmenuOpen(false);
-                setPumpkinSeedsSubmenuOpen(false);
-                setSunflowerSeedsSubmenuOpen(false);
+                setSeedsSubmenuOpen(false);
                 setWw320SubmenuOpen(false);
               }, 200); // 200ms delay before closing
             }}
@@ -1466,16 +1474,14 @@ const Navbar = () => {
                               isCurrentlyOpen = blackPepperSubmenuOpen;
                             } else if (category.name === "Desiccated Coconut") {
                               isCurrentlyOpen = desiccatedCoconutSubmenuOpen;
-                            } else if (category.name === "Ginger") {
+                            } else if (category.name === "Fresh Ginger") {
                               isCurrentlyOpen = gingerSubmenuOpen;
                             } else if (category.name === "Cardamom") {
                               isCurrentlyOpen = cardamomSubmenuOpen;
                             } else if (category.name === "CASSIA/CINNAMON") {
                               isCurrentlyOpen = cassiaSubmenuOpen;
-                            } else if (category.name === "Pumpkin Seeds") {
-                              isCurrentlyOpen = pumpkinSeedsSubmenuOpen;
-                            } else if (category.name === "Sunflower Seeds") {
-                              isCurrentlyOpen = sunflowerSeedsSubmenuOpen;
+                            } else if (category.name === "Seeds") {
+                              isCurrentlyOpen = seedsSubmenuOpen;
                             } else if (category.name === "Peanuts") {
                               isCurrentlyOpen = peanutsSubmenuOpen;
                             } else if (category.name === "Almonds") {
@@ -1497,16 +1503,14 @@ const Navbar = () => {
                                 setBlackPepperSubmenuOpen(true);
                               } else if (category.name === "Desiccated Coconut") {
                                 setDesiccatedCoconutSubmenuOpen(true);
-                              } else if (category.name === "Ginger") {
+                              } else if (category.name === "Fresh Ginger") {
                                 setGingerSubmenuOpen(true);
                               } else if (category.name === "Cardamom") {
                                 setCardamomSubmenuOpen(true);
                               } else if (category.name === "CASSIA/CINNAMON") {
                                 setCassiaSubmenuOpen(true);
-                              } else if (category.name === "Pumpkin Seeds") {
-                                setPumpkinSeedsSubmenuOpen(true);
-                              } else if (category.name === "Sunflower Seeds") {
-                                setSunflowerSeedsSubmenuOpen(true);
+                              } else if (category.name === "Seeds") {
+                                setSeedsSubmenuOpen(true);
                               } else if (category.name === "Peanuts") {
                                 setPeanutsSubmenuOpen(true);
                               } else if (category.name === "Almonds") {
@@ -1529,11 +1533,10 @@ const Navbar = () => {
                               (category.name === "Cashew Nuts" && cashewSubmenuOpen) ||
                               (category.name === "Black Pepper" && blackPepperSubmenuOpen) ||
                               (category.name === "Desiccated Coconut" && desiccatedCoconutSubmenuOpen) ||
-                              (category.name === "Ginger" && gingerSubmenuOpen) ||
+                              (category.name === "Fresh Ginger" && gingerSubmenuOpen) ||
                               (category.name === "Cardamom" && cardamomSubmenuOpen) ||
                               (category.name === "CASSIA/CINNAMON" && cassiaSubmenuOpen) ||
-                              (category.name === "Pumpkin Seeds" && pumpkinSeedsSubmenuOpen) ||
-                              (category.name === "Sunflower Seeds" && sunflowerSeedsSubmenuOpen) ||
+                              (category.name === "Seeds" && seedsSubmenuOpen) ||
                               (category.name === "Peanuts" && peanutsSubmenuOpen) ||
                               (category.name === "Almonds" && almondsSubmenuOpen) ||
                               (category.name === "Star Anise" && starAniseSubmenuOpen) ||
@@ -1783,8 +1786,8 @@ const Navbar = () => {
                         ))}
                       </div>
                     )}
-                    {/* Pumpkin Seeds Submenu */}
-                    {category.hasSubcategories && category.name === "Pumpkin Seeds" && pumpkinSeedsSubmenuOpen && (
+                    {/* Seeds Submenu */}
+                    {category.hasSubcategories && category.name === "Seeds" && seedsSubmenuOpen && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
@@ -1792,52 +1795,83 @@ const Navbar = () => {
                             clearTimeout(dropdownTimeoutRef.current);
                           }
                           setProductsDropdownOpen(true);
-                          setPumpkinSeedsSubmenuOpen(true);
+                          setSeedsSubmenuOpen(true);
                         }}
                         onMouseLeave={() => {
                           dropdownTimeoutRef.current = setTimeout(() => {
                             setProductsDropdownOpen(false);
+                            setSeedsSubmenuOpen(false);
                             setPumpkinSeedsSubmenuOpen(false);
-                          }, 200);
-                        }}
-                      >
-                        {pumpkinSeedsSubcategories.map((subcat) => (
-                          <button
-                            key={subcat.id}
-                            onClick={() => handleProductClick(subcat.id)}
-                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
-                          >
-                            {subcat.name}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                    {/* Sunflower Seeds Submenu */}
-                    {category.hasSubcategories && category.name === "Sunflower Seeds" && sunflowerSeedsSubmenuOpen && (
-                      <div 
-                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
-                        onMouseEnter={() => {
-                          if (dropdownTimeoutRef.current) {
-                            clearTimeout(dropdownTimeoutRef.current);
-                          }
-                          setProductsDropdownOpen(true);
-                          setSunflowerSeedsSubmenuOpen(true);
-                        }}
-                        onMouseLeave={() => {
-                          dropdownTimeoutRef.current = setTimeout(() => {
-                            setProductsDropdownOpen(false);
                             setSunflowerSeedsSubmenuOpen(false);
                           }, 200);
                         }}
                       >
-                        {sunflowerSeedsSubcategories.map((subcat) => (
-                          <button
-                            key={subcat.id}
-                            onClick={() => handleProductClick(subcat.id)}
-                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
-                          >
-                            {subcat.name}
-                          </button>
+                        {seedsSubcategories.map((subcat) => (
+                          <div key={subcat.id} className="relative">
+                            <button
+                              onMouseEnter={() => {
+                                if (subcat.name === "Pumpkin Seeds") {
+                                  setPumpkinSeedsSubmenuOpen(true);
+                                  setSunflowerSeedsSubmenuOpen(false);
+                                } else if (subcat.name === "Sunflower Seeds") {
+                                  setSunflowerSeedsSubmenuOpen(true);
+                                  setPumpkinSeedsSubmenuOpen(false);
+                                }
+                              }}
+                              className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
+                            >
+                              {subcat.name}
+                              <ChevronRight size={14} className="text-gray-400" />
+                            </button>
+                            {/* Pumpkin Seeds Sub-submenu */}
+                            {subcat.name === "Pumpkin Seeds" && pumpkinSeedsSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1300]"
+                                onMouseEnter={() => {
+                                  setPumpkinSeedsSubmenuOpen(true);
+                                  setSeedsSubmenuOpen(true);
+                                  setProductsDropdownOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  setPumpkinSeedsSubmenuOpen(false);
+                                }}
+                              >
+                                {pumpkinSeedsSubcategories.map((pumpkinSubcat) => (
+                                  <button
+                                    key={pumpkinSubcat.id}
+                                    onClick={() => handleProductClick(pumpkinSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {pumpkinSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                            {/* Sunflower Seeds Sub-submenu */}
+                            {subcat.name === "Sunflower Seeds" && sunflowerSeedsSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1300]"
+                                onMouseEnter={() => {
+                                  setSunflowerSeedsSubmenuOpen(true);
+                                  setSeedsSubmenuOpen(true);
+                                  setProductsDropdownOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  setSunflowerSeedsSubmenuOpen(false);
+                                }}
+                              >
+                                {sunflowerSeedsSubcategories.map((sunflowerSubcat) => (
+                                  <button
+                                    key={sunflowerSubcat.id}
+                                    onClick={() => handleProductClick(sunflowerSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {sunflowerSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -1987,7 +2021,7 @@ const Navbar = () => {
                       </div>
                     )}
                     {/* Ginger Submenu */}
-                    {category.hasSubcategories && category.name === "Ginger" && gingerSubmenuOpen && (
+                    {category.hasSubcategories && category.name === "Fresh Ginger" && gingerSubmenuOpen && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
@@ -2398,16 +2432,14 @@ const Navbar = () => {
                               isCurrentlyOpen = mobileBlackPepperSubmenuOpen;
                             } else if (category.name === "Desiccated Coconut") {
                               isCurrentlyOpen = mobileDesiccatedCoconutSubmenuOpen;
-                            } else if (category.name === "Ginger") {
+                            } else if (category.name === "Fresh Ginger") {
                               isCurrentlyOpen = mobileGingerSubmenuOpen;
                             } else if (category.name === "Cardamom") {
                               isCurrentlyOpen = mobileCardamomSubmenuOpen;
                             } else if (category.name === "CASSIA/CINNAMON") {
                               isCurrentlyOpen = mobileCassiaSubmenuOpen;
-                            } else if (category.name === "Pumpkin Seeds") {
-                              isCurrentlyOpen = mobilePumpkinSeedsSubmenuOpen;
-                            } else if (category.name === "Sunflower Seeds") {
-                              isCurrentlyOpen = mobileSunflowerSeedsSubmenuOpen;
+                            } else if (category.name === "Seeds") {
+                              isCurrentlyOpen = mobileSeedsSubmenuOpen;
                             } else if (category.name === "Peanuts") {
                               isCurrentlyOpen = mobilePeanutsSubmenuOpen;
                             } else if (category.name === "Almonds") {
@@ -2429,16 +2461,14 @@ const Navbar = () => {
                                 setMobileBlackPepperSubmenuOpen(true);
                               } else if (category.name === "Desiccated Coconut") {
                                 setMobileDesiccatedCoconutSubmenuOpen(true);
-                              } else if (category.name === "Ginger") {
+                              } else if (category.name === "Fresh Ginger") {
                                 setMobileGingerSubmenuOpen(true);
                               } else if (category.name === "Cardamom") {
                                 setMobileCardamomSubmenuOpen(true);
                               } else if (category.name === "CASSIA/CINNAMON") {
                                 setMobileCassiaSubmenuOpen(true);
-                              } else if (category.name === "Pumpkin Seeds") {
-                                setMobilePumpkinSeedsSubmenuOpen(true);
-                              } else if (category.name === "Sunflower Seeds") {
-                                setMobileSunflowerSeedsSubmenuOpen(true);
+                              } else if (category.name === "Seeds") {
+                                setMobileSeedsSubmenuOpen(true);
                               } else if (category.name === "Peanuts") {
                                 setMobilePeanutsSubmenuOpen(true);
                               } else if (category.name === "Almonds") {
@@ -2459,11 +2489,10 @@ const Navbar = () => {
                                 (category.name === "Cashew Nuts" && mobileCashewSubmenuOpen) ||
                                 (category.name === "Black Pepper" && mobileBlackPepperSubmenuOpen) ||
                                 (category.name === "Desiccated Coconut" && mobileDesiccatedCoconutSubmenuOpen) ||
-                                (category.name === "Ginger" && mobileGingerSubmenuOpen) ||
+                                (category.name === "Fresh Ginger" && mobileGingerSubmenuOpen) ||
                                 (category.name === "Cardamom" && mobileCardamomSubmenuOpen) ||
                                 (category.name === "CASSIA/CINNAMON" && mobileCassiaSubmenuOpen) ||
-                                (category.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen) ||
-                                (category.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen) ||
+                                (category.name === "Seeds" && mobileSeedsSubmenuOpen) ||
                                 (category.name === "Peanuts" && mobilePeanutsSubmenuOpen) ||
                                 (category.name === "Almonds" && mobileAlmondsSubmenuOpen) ||
                                 (category.name === "Star Anise" && mobileStarAniseSubmenuOpen) ||
@@ -2563,7 +2592,7 @@ const Navbar = () => {
                               ))}
                             </div>
                           )}
-                          {category.name === "Ginger" && mobileGingerSubmenuOpen && (
+                          {category.name === "Fresh Ginger" && mobileGingerSubmenuOpen && (
                             <div className="pl-4 mt-1 space-y-1">
                               {gingerSubcategories.map((subcat) => (
                                 <div key={subcat.id}>
@@ -2683,39 +2712,73 @@ const Navbar = () => {
                               ))}
                             </div>
                           )}
-                          {category.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen && (
+                          {category.name === "Seeds" && mobileSeedsSubmenuOpen && (
                             <div className="pl-4 mt-1 space-y-1">
-                              {pumpkinSeedsSubcategories.map((subcat) => (
-                                <button
-                                  key={subcat.id}
-                                  onClick={() => {
-                                    handleProductClick(subcat.id);
-                                    setMenuOpen(false);
-                                    setMobileProductsDropdownOpen(false);
-                                    setMobilePumpkinSeedsSubmenuOpen(false);
-                                  }}
-                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
-                                >
-                                  {subcat.name}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-                          {category.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen && (
-                            <div className="pl-4 mt-1 space-y-1">
-                              {sunflowerSeedsSubcategories.map((subcat) => (
-                                <button
-                                  key={subcat.id}
-                                  onClick={() => {
-                                    handleProductClick(subcat.id);
-                                    setMenuOpen(false);
-                                    setMobileProductsDropdownOpen(false);
-                                    setMobileSunflowerSeedsSubmenuOpen(false);
-                                  }}
-                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
-                                >
-                                  {subcat.name}
-                                </button>
+                              {seedsSubcategories.map((subcat) => (
+                                <div key={subcat.id}>
+                                  <button
+                                    onClick={() => {
+                                      if (subcat.name === "Pumpkin Seeds") {
+                                        setMobilePumpkinSeedsSubmenuOpen(!mobilePumpkinSeedsSubmenuOpen);
+                                        setMobileSunflowerSeedsSubmenuOpen(false);
+                                      } else if (subcat.name === "Sunflower Seeds") {
+                                        setMobileSunflowerSeedsSubmenuOpen(!mobileSunflowerSeedsSubmenuOpen);
+                                        setMobilePumpkinSeedsSubmenuOpen(false);
+                                      }
+                                    }}
+                                    className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                  >
+                                    <span>{subcat.name}</span>
+                                    <ChevronRight 
+                                      size={12} 
+                                      className={`transition-transform duration-200 ${
+                                        (subcat.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen) ||
+                                        (subcat.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen)
+                                          ? "rotate-90" : ""
+                                      }`}
+                                    />
+                                  </button>
+                                  {/* Pumpkin Seeds sub-submenu */}
+                                  {subcat.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen && (
+                                    <div className="pl-4 mt-1 space-y-1">
+                                      {pumpkinSeedsSubcategories.map((pumpkinSubcat) => (
+                                        <button
+                                          key={pumpkinSubcat.id}
+                                          onClick={() => {
+                                            handleProductClick(pumpkinSubcat.id);
+                                            setMenuOpen(false);
+                                            setMobileProductsDropdownOpen(false);
+                                            setMobileSeedsSubmenuOpen(false);
+                                            setMobilePumpkinSeedsSubmenuOpen(false);
+                                          }}
+                                          className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-500 hover:text-[#0D47A1] hover:bg-gray-50"
+                                        >
+                                          {pumpkinSubcat.name}
+                                        </button>
+                                      ))}
+                                    </div>
+                                  )}
+                                  {/* Sunflower Seeds sub-submenu */}
+                                  {subcat.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen && (
+                                    <div className="pl-4 mt-1 space-y-1">
+                                      {sunflowerSeedsSubcategories.map((sunflowerSubcat) => (
+                                        <button
+                                          key={sunflowerSubcat.id}
+                                          onClick={() => {
+                                            handleProductClick(sunflowerSubcat.id);
+                                            setMenuOpen(false);
+                                            setMobileProductsDropdownOpen(false);
+                                            setMobileSeedsSubmenuOpen(false);
+                                            setMobileSunflowerSeedsSubmenuOpen(false);
+                                          }}
+                                          className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-500 hover:text-[#0D47A1] hover:bg-gray-50"
+                                        >
+                                          {sunflowerSubcat.name}
+                                        </button>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
                               ))}
                             </div>
                           )}

@@ -201,8 +201,7 @@ const categories = [
   "Fresh Ginger",
   "Cardamom",
   "Black Pepper",
-  "Pumpkin Seeds",
-  "Sunflower Seeds",
+  "Seeds",
   "Peanuts",
   "Almonds",
   "Star Anise",
@@ -307,6 +306,12 @@ const pumpkinSeedsFilterList = [
 const sunflowerSeedsFilterList = [
   "Sunflower Seeds Confectionery Grade",
   "Sunflower Seeds Bakery Grade"
+];
+
+// FILTER GROUP FOR SEEDS CATEGORY (includes both Pumpkin Seeds and Sunflower Seeds)
+const seedsFilterList = [
+  "Pumpkin Seeds",
+  "Sunflower Seeds"
 ];
 
 // FILTER GROUP FOR PEANUTS CATEGORY
@@ -450,7 +455,7 @@ const Products = () => {
   // FILTER LOGIC
 const filteredProducts =
   selectedCategory === "All"
-    ? products.filter((p) => !cashewFilterList.includes(p.name) && !ww320FilterList.includes(p.name) && !blackPepperFilterList.includes(p.name) && !desiccatedCoconutFilterList.includes(p.name) && !gingerFilterList.includes(p.name) && !cardamomFilterList.includes(p.name) && !cassiaFilterList.includes(p.name) && !pumpkinSeedsFilterList.includes(p.name) && !sunflowerSeedsFilterList.includes(p.name) && !peanutsFilterList.includes(p.name) && !almondsFilterList.includes(p.name) && !starAniseFilterList.includes(p.name) && !greenCoffeeFilterList.includes(p.name)) // Show main products only
+    ? products.filter((p) => !cashewFilterList.includes(p.name) && !ww320FilterList.includes(p.name) && !blackPepperFilterList.includes(p.name) && !desiccatedCoconutFilterList.includes(p.name) && !gingerFilterList.includes(p.name) && !cardamomFilterList.includes(p.name) && !cassiaFilterList.includes(p.name) && !pumpkinSeedsFilterList.includes(p.name) && !sunflowerSeedsFilterList.includes(p.name) && !peanutsFilterList.includes(p.name) && !almondsFilterList.includes(p.name) && !starAniseFilterList.includes(p.name) && !greenCoffeeFilterList.includes(p.name) && !seedsFilterList.includes(p.name)) // Show main products only
     : selectedCategory === "Cashew Nuts"
     ? products.filter(
       (p) =>
@@ -479,6 +484,8 @@ const filteredProducts =
     ? products.filter((p) => cardamomFilterList.includes(p.name))  // Only cardamom items
     : selectedCategory === "CASSIA/CINNAMON"
     ?  products.filter((p) => cassiaFilterList.includes(p.name))
+    : selectedCategory === "Seeds"
+    ?  products.filter((p) => seedsFilterList.includes(p.name))  // Show Pumpkin Seeds and Sunflower Seeds
     : selectedCategory === "Pumpkin Seeds"
     ?  products.filter((p) => pumpkinSeedsFilterList.includes(p.name))
     : selectedCategory === "Sunflower Seeds"
@@ -714,7 +721,8 @@ const filteredProducts =
                                        product.name === "Sunflower Seeds"||
                                        product.name === "Peanuts" ||
                                        product.name === "Almonds" ||
-                                       product.name === "Star Anise";
+                                       product.name === "Star Anise" ||
+                                       product.name === "Green Coffee Beans";
                 
                 // If in "All" view and clicking a main category, navigate to that category
                 const handleClick = () => {

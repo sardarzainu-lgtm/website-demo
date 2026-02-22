@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -283,14 +283,6 @@ const products = [
     image: sweetTamarind,
     origin: "Vietnam",
     moisture: "10-14%",
-    color: "Brown",
-  },
-  {
-    id: 34,
-    name: "Green Coffee Beans",
-    image: robustaBeans,
-    origin: "Vietnam",
-    moisture: "12.5%",
     color: "Brown",
   },
   {
@@ -626,7 +618,6 @@ const productCategories = [
   "Broken Star Anise",
   "Dyed Star Anise",
   "Sweet Tamarind",
-  "Green Coffee Beans",
   "Robusta Coffee Beans S16 Clean/Wet Polished",
   "Robusta Coffee Beans S18 Clean/Wet Polished",
   "Robusta Coffee Beans S13",
@@ -701,9 +692,31 @@ export default function HomePage() {
   const [selectedCategory, setSelectedCategory] = useState("Cashew Nuts");
   const [currentProductIndex, setCurrentProductIndex] = useState(0);
   const [tradeSlideIndex, setTradeSlideIndex] = useState(0);
+  const categoryScrollRef = useRef(null);
+  const categoryButtonRefs = useRef({});
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  // Auto-scroll to the selected category button
+  useEffect(() => {
+    const scrollContainer = categoryScrollRef.current;
+    const activeButton = categoryButtonRefs.current[selectedCategory];
+    
+    if (scrollContainer && activeButton) {
+      const containerRect = scrollContainer.getBoundingClientRect();
+      const buttonRect = activeButton.getBoundingClientRect();
+      
+      // Calculate the scroll position to center the button
+      const scrollLeft = activeButton.offsetLeft - (containerRect.width / 2) + (buttonRect.width / 2);
+      
+      scrollContainer.scrollTo({
+        left: Math.max(0, scrollLeft),
+        behavior: "smooth"
+      });
+    }
+  }, [selectedCategory]);
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -1043,10 +1056,14 @@ const handlePrevious = () => {
 
             {/* Category Navigation */}
             <div className="mb-8 sm:mb-12">
-              <div className="flex flex-nowrap justify-start md:justify-start gap-2 sm:gap-4 text-xs sm:text-sm md:text-base overflow-x-auto md:overflow-x-auto px-1 -mx-1 md:mx-0 md:px-0 scrollbar-hide">
+              <div 
+                ref={categoryScrollRef}
+                className="flex flex-nowrap justify-start md:justify-start gap-2 sm:gap-4 text-xs sm:text-sm md:text-base overflow-x-auto md:overflow-x-auto px-1 -mx-1 md:mx-0 md:px-0 scrollbar-hide"
+              >
               {productCategories.map((category) => (
                 <button
                   key={category}
+                  ref={(el) => (categoryButtonRefs.current[category] = el)}
                   onClick={() => handleCategoryClick(category)}
                     className="px-3 sm:px-4 py-1.5 sm:py-2 rounded-md transition-colors shrink-0 whitespace-nowrap"
                   style={{
