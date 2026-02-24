@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
+import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -671,9 +672,9 @@ const heroHighlights = [
     image: desiccatedCoconut,
   },
   {
-    id: 3,
-    name: "Edible Copra",
-    image: copraCup,
+    id: 32,
+    name: "Star Anise",
+    image: starAnise,
   },
   {
     id: 4,
@@ -1473,25 +1474,21 @@ const handlePrevious = () => {
                 </h3>
 
                 <div className="space-y-4 text-gray-700 text-sm sm:text-base">
-                  <div className="flex items-start gap-3">
-                    <span className="text-lg sm:text-xl" style={{ color: GOLD }}>
-                      📧
-                    </span>
+                  <div className="flex items-center gap-3">
+                    <MdEmail className="text-lg sm:text-xl" style={{ color: GOLD }} />
                     <div>
                       <p className="font-semibold">Email:</p>
                         <a
-                          href="mailto:info@lion-lotus.co"
+                          href="mailto:kashif@lion-lotus.co"
                           className="text-[#0D47A1] hover:underline break-all"
                         >
-                          info@lion-lotus.co
+                          kashif@lion-lotus.co
                         </a>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <span className="text-lg sm:text-xl" style={{ color: GOLD }}>
-                      📞
-                    </span>
+                  <div className="flex items-center gap-3">
+                    <MdPhone className="text-lg sm:text-xl" style={{ color: GOLD }} />
                     <div>
                       <p className="font-semibold">Hotline:</p>
                         <p>
@@ -1507,10 +1504,8 @@ const handlePrevious = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-3">
-                    <span className="text-lg sm:text-xl" style={{ color: GOLD }}>
-                      📍
-                    </span>
+                  <div className="flex items-center gap-3">
+                    <MdLocationOn className="text-lg sm:text-xl" style={{ color: GOLD }} />
                     <div>
                       <p className="font-semibold">Head Office:</p>
                       <p>

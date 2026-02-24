@@ -50,8 +50,8 @@ export default function ContactPage() {
             <div className="space-y-3 text-sm text-gray-700">
               <div>
                 <p className="font-semibold text-[#0A1C2E]">Email</p>
-                <a href="mailto:info@lion-lotus.co" className="text-[#0B3A82] hover:underline">
-                  info@lion-lotus.co
+                <a href="mailto:kashif@lion-lotus.co" className="text-[#0B3A82] hover:underline">
+                  kashif@lion-lotus.co
                 </a>
               </div>
               <div>

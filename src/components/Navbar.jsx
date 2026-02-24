@@ -19,6 +19,9 @@ import cashewSL from "../assets/cashewSL.webp"
 import cashewnuts from "../assets/cashewnuts.webp";
 import copraCup from "../assets/copraCup.webp"
 import desiccatedCoconut from "../assets/desiccatedCoconut.webp"
+import lowFatDesiccatedCoconut from "../assets/low-fat-desiccated-coconut.webp"
+import highFatDesiccatedCoconut from "../assets/high-fat-desiccated-coconut.webp"
+import mediumFatDesiccatedCoconut from "../assets/medium-fat-desiccated-cocunut.webp"
 import driedGinger from "../assets/driedGinger.webp"
 import gingerWholeDry from "../assets/drygng-dry.webp"
 import gingerWholeFresh from "../assets/drygng-fresh.webp"
@@ -54,6 +57,7 @@ import pumpkinAA from "../assets/pumpkin-aa.webp"
 import pumpkinA from "../assets/pumpkin-a.webp"
 import sunflowerSeeds from "../assets/sunflower-seeds.webp"
 import sunflowerKernels from "../assets/sunflower-kernels.webp"
+import watermelonSeeds from "../assets/watermelon-seed.webp"
 import nigellaSativa from "../assets/nigella-sativa.webp"
 import chinesePeanut from "../assets/chinese-peanunt.webp"
 import almond from "../assets/almond.webp"
@@ -79,6 +83,7 @@ const Navbar = () => {
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const [cashewSubmenuOpen, setCashewSubmenuOpen] = useState(false);
   const [ww320SubmenuOpen, setWw320SubmenuOpen] = useState(false);
+  const [pepperSubmenuOpen, setPepperSubmenuOpen] = useState(false);
   const [blackPepperSubmenuOpen, setBlackPepperSubmenuOpen] = useState(false);
   const [desiccatedCoconutSubmenuOpen, setDesiccatedCoconutSubmenuOpen] = useState(false);
   const [gingerSubmenuOpen, setGingerSubmenuOpen] = useState(false);
@@ -96,6 +101,7 @@ const Navbar = () => {
   const [mobileProductsDropdownOpen, setMobileProductsDropdownOpen] = useState(false);
   const [mobileCashewSubmenuOpen, setMobileCashewSubmenuOpen] = useState(false);
   const [mobileWw320SubmenuOpen, setMobileWw320SubmenuOpen] = useState(false);
+  const [mobilePepperSubmenuOpen, setMobilePepperSubmenuOpen] = useState(false);
   const [mobileBlackPepperSubmenuOpen, setMobileBlackPepperSubmenuOpen] = useState(false);
   const [mobileDesiccatedCoconutSubmenuOpen, setMobileDesiccatedCoconutSubmenuOpen] = useState(false);
   const [mobileGingerSubmenuOpen, setMobileGingerSubmenuOpen] = useState(false);
@@ -126,6 +132,7 @@ const Navbar = () => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setProductsDropdownOpen(false);
         setCashewSubmenuOpen(false);
+        setPepperSubmenuOpen(false);
         setBlackPepperSubmenuOpen(false);
         setDesiccatedCoconutSubmenuOpen(false);
         setGingerSubmenuOpen(false);
@@ -500,7 +507,7 @@ const Navbar = () => {
   { 
     id: 23, 
     name: "Low fat Desiccated Coconut Fine Grade", 
-    image: desiccatedCoconut, 
+    image: lowFatDesiccatedCoconut, 
     origin: "Vietnam", 
     moisture: "4% max",
     ffa: "0.3% max",
@@ -512,7 +519,7 @@ const Navbar = () => {
   { 
     id: 24, 
     name: "High fat Desiccated Coconut Fine Grade", 
-    image: desiccatedCoconut, 
+    image: highFatDesiccatedCoconut, 
     origin: "Vietnam", 
     moisture: "3% max",
     ffa: "0.3% max",
@@ -524,7 +531,7 @@ const Navbar = () => {
   { 
     id: 25, 
     name: "High fat Desiccated Coconut Medium Grade", 
-    image: desiccatedCoconut, 
+    image: mediumFatDesiccatedCoconut, 
     origin: "Vietnam", 
     moisture: "3% max",
     ffa: "0.3% max",
@@ -880,6 +887,16 @@ const Navbar = () => {
     description: "High quality sunflower seeds bakery grade. Smaller kernels perfect for baking and cooking applications. Ideal for bread, cookies, and other baked goods." 
   },
   { 
+    id: 93, 
+    name: "Watermelon Seeds", 
+    image: watermelonSeeds, 
+    origin: "China", 
+    moisture: "8% max", 
+    purity: "99% min",
+    color: "Black with white edges",
+    description: "Premium quality watermelon seeds. Rich in protein, healthy fats, and essential minerals. Perfect for snacking, roasting, and culinary applications." 
+  },
+  { 
     id: 65, 
     name: "Nigella sativa", 
     image: nigellaSativa, 
@@ -1058,8 +1075,8 @@ const Navbar = () => {
     
     { id: 1, name: "Cashew Nuts", hasSubcategories: true },
     { id: 2, name: "Desiccated Coconut", hasSubcategories: true },
+    { id: 4, name: "Pepper", hasSubcategories: true },
     { id: 3, name: "Edible Copra", hasSubcategories: false },
-    { id: 4, name: "Black Pepper", hasSubcategories: true },
     { id: 6, name: "Fresh Ginger", hasSubcategories: true },
     { id: 8, name: "CASSIA/CINNAMON", hasSubcategories: true },
     { id: 30, name: "Soft Dried Mango", hasSubcategories: false },
@@ -1097,6 +1114,12 @@ const Navbar = () => {
     { id: 27, name: "Cashew Nuts WW320 Premium" },
   ];
 
+  // Pepper subcategories
+  const pepperSubcategories = [
+    { id: "blackPepper", name: "Black Pepper", hasSubcategories: true },
+    { id: 5, name: "White Pepper 630g/l (EU Standard)" },
+  ];
+
   // Black Pepper subcategories
   const blackPepperSubcategories = [
     { id: 14, name: "Black Pepper 450g/l FAQ" },
@@ -1107,7 +1130,6 @@ const Navbar = () => {
     { id: 19, name: "Black Pepper 570g/l MC/ASTA" },
     { id: 20, name: "Black Pepper 5mm Bold" },
     { id: 26, name: "Brazilian Black Pepper" },
-    { id: 5, name: "White Pepper"},
   ];
 
   // Desiccated Coconut subcategories
@@ -1155,10 +1177,11 @@ const Navbar = () => {
     { id: 55, name: "CASSIA LONG STICK" },
   ];
 
-  // Seeds subcategories (Pumpkin Seeds and Sunflower Seeds)
+  // Seeds subcategories (Pumpkin Seeds, Sunflower Seeds, Watermelon Seeds)
   const seedsSubcategories = [
-    { id: 63, name: "Pumpkin Seeds" ,hasSubcategories: true},
-    { id: 64, name: "Sunflower Seeds", hasSubcategories: true},
+    { id: 63, name: "Pumpkin Seeds", hasSubcategories: true },
+    { id: 64, name: "Sunflower Seeds", hasSubcategories: true },
+    { id: 93, name: "Watermelon Seeds", hasSubcategories: false },
   ];
 
   // Pumpkin Seeds subcategories
@@ -1217,6 +1240,7 @@ const Navbar = () => {
   const closeAllSubmenus = () => {
     setCashewSubmenuOpen(false);
     setWw320SubmenuOpen(false);
+    setPepperSubmenuOpen(false);
     setBlackPepperSubmenuOpen(false);
     setDesiccatedCoconutSubmenuOpen(false);
     setGingerSubmenuOpen(false);
@@ -1237,6 +1261,7 @@ const Navbar = () => {
   const closeAllMobileSubmenus = () => {
     setMobileCashewSubmenuOpen(false);
     setMobileWw320SubmenuOpen(false);
+    setMobilePepperSubmenuOpen(false);
     setMobileBlackPepperSubmenuOpen(false);
     setMobileDesiccatedCoconutSubmenuOpen(false);
     setMobileGingerSubmenuOpen(false);
@@ -1320,7 +1345,7 @@ const Navbar = () => {
         <div className="hidden md:block max-w-7xl mx-auto px-4 sm:px-6 py-2 text-white text-[11px] sm:text-xs font-medium sm:border-b sm:border-white/30">
           <div className="hidden sm:flex flex-wrap items-center gap-2 sm:gap-3">
             <span className="flex items-center gap-1">
-              ✉ <a href="mailto:info@lion-lotus.co" className="hover:text-[#FFD479]">info@lion-lotus.co</a>
+              ✉ <a href="mailto:kashif@lion-lotus.co" className="hover:text-[#FFD479]">kashif@lion-lotus.co</a>
             </span>
             <span className="hidden sm:inline text-white/70">|</span>
             <span className="flex items-center gap-1">
@@ -1396,6 +1421,7 @@ const Navbar = () => {
               dropdownTimeoutRef.current = setTimeout(() => {
                 setProductsDropdownOpen(false);
                 setCashewSubmenuOpen(false);
+                setPepperSubmenuOpen(false);
                 setBlackPepperSubmenuOpen(false);
                 setDesiccatedCoconutSubmenuOpen(false);
                 setGingerSubmenuOpen(false);
@@ -1470,8 +1496,8 @@ const Navbar = () => {
                             let isCurrentlyOpen = false;
                             if (category.name === "Cashew Nuts") {
                               isCurrentlyOpen = cashewSubmenuOpen;
-                            } else if (category.name === "Black Pepper") {
-                              isCurrentlyOpen = blackPepperSubmenuOpen;
+                            } else if (category.name === "Pepper") {
+                              isCurrentlyOpen = pepperSubmenuOpen;
                             } else if (category.name === "Desiccated Coconut") {
                               isCurrentlyOpen = desiccatedCoconutSubmenuOpen;
                             } else if (category.name === "Fresh Ginger") {
@@ -1499,8 +1525,8 @@ const Navbar = () => {
                             if (!isCurrentlyOpen) {
                               if (category.name === "Cashew Nuts") {
                                 setCashewSubmenuOpen(true);
-                              } else if (category.name === "Black Pepper") {
-                                setBlackPepperSubmenuOpen(true);
+                              } else if (category.name === "Pepper") {
+                                setPepperSubmenuOpen(true);
                               } else if (category.name === "Desiccated Coconut") {
                                 setDesiccatedCoconutSubmenuOpen(true);
                               } else if (category.name === "Fresh Ginger") {
@@ -1531,7 +1557,7 @@ const Navbar = () => {
                             size={16} 
                             className={`text-gray-400 transition-transform duration-200 ${
                               (category.name === "Cashew Nuts" && cashewSubmenuOpen) ||
-                              (category.name === "Black Pepper" && blackPepperSubmenuOpen) ||
+                              (category.name === "Pepper" && pepperSubmenuOpen) ||
                               (category.name === "Desiccated Coconut" && desiccatedCoconutSubmenuOpen) ||
                               (category.name === "Fresh Ginger" && gingerSubmenuOpen) ||
                               (category.name === "Cardamom" && cardamomSubmenuOpen) ||
@@ -1651,8 +1677,8 @@ const Navbar = () => {
                         ))}
                       </div>
                     )}
-                    {/* Black Pepper Submenu */}
-                    {category.hasSubcategories && category.name === "Black Pepper" && blackPepperSubmenuOpen && (
+                    {/* Pepper Submenu */}
+                    {category.hasSubcategories && category.name === "Pepper" && pepperSubmenuOpen && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
@@ -1660,23 +1686,90 @@ const Navbar = () => {
                             clearTimeout(dropdownTimeoutRef.current);
                           }
                           setProductsDropdownOpen(true);
-                          setBlackPepperSubmenuOpen(true);
+                          setPepperSubmenuOpen(true);
                         }}
                         onMouseLeave={() => {
                           dropdownTimeoutRef.current = setTimeout(() => {
                             setProductsDropdownOpen(false);
+                            setPepperSubmenuOpen(false);
                             setBlackPepperSubmenuOpen(false);
                           }, 200);
                         }}
                       >
-                        {blackPepperSubcategories.map((subcat) => (
-                          <button
-                            key={subcat.id}
-                            onClick={() => handleProductClick(subcat.id)}
-                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                        {pepperSubcategories.map((subcat) => (
+                          <div 
+                            key={subcat.id} 
+                            className="relative"
+                            onMouseEnter={() => {
+                              if (dropdownTimeoutRef.current) {
+                                clearTimeout(dropdownTimeoutRef.current);
+                              }
+                              setProductsDropdownOpen(true);
+                              setPepperSubmenuOpen(true);
+                              if (subcat.hasSubcategories && subcat.id === "blackPepper") {
+                                setBlackPepperSubmenuOpen(true);
+                              }
+                            }}
                           >
-                            {subcat.name}
-                          </button>
+                            {subcat.hasSubcategories ? (
+                              <button
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setPepperSubmenuOpen(true);
+                                  setBlackPepperSubmenuOpen(true);
+                                }}
+                                onClick={() => setBlackPepperSubmenuOpen(!blackPepperSubmenuOpen)}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
+                              >
+                                <span>{subcat.name}</span>
+                                <ChevronRight 
+                                  size={14} 
+                                  className={`text-gray-400 transition-transform duration-200 ${blackPepperSubmenuOpen ? "rotate-90" : ""}`}
+                                />
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => handleProductClick(subcat.id)}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                              >
+                                {subcat.name}
+                              </button>
+                            )}
+                            {/* Black Pepper Submenu */}
+                            {subcat.hasSubcategories && subcat.id === "blackPepper" && blackPepperSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setPepperSubmenuOpen(true);
+                                  setBlackPepperSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setProductsDropdownOpen(false);
+                                    setPepperSubmenuOpen(false);
+                                    setBlackPepperSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {blackPepperSubcategories.map((bpSubcat) => (
+                                  <button
+                                    key={bpSubcat.id}
+                                    onClick={() => handleProductClick(bpSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {bpSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -1808,21 +1901,30 @@ const Navbar = () => {
                       >
                         {seedsSubcategories.map((subcat) => (
                           <div key={subcat.id} className="relative">
-                            <button
-                              onMouseEnter={() => {
-                                if (subcat.name === "Pumpkin Seeds") {
-                                  setPumpkinSeedsSubmenuOpen(true);
-                                  setSunflowerSeedsSubmenuOpen(false);
-                                } else if (subcat.name === "Sunflower Seeds") {
-                                  setSunflowerSeedsSubmenuOpen(true);
-                                  setPumpkinSeedsSubmenuOpen(false);
-                                }
-                              }}
-                              className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
-                            >
-                              {subcat.name}
-                              <ChevronRight size={14} className="text-gray-400" />
-                            </button>
+                            {subcat.hasSubcategories ? (
+                              <button
+                                onMouseEnter={() => {
+                                  if (subcat.name === "Pumpkin Seeds") {
+                                    setPumpkinSeedsSubmenuOpen(true);
+                                    setSunflowerSeedsSubmenuOpen(false);
+                                  } else if (subcat.name === "Sunflower Seeds") {
+                                    setSunflowerSeedsSubmenuOpen(true);
+                                    setPumpkinSeedsSubmenuOpen(false);
+                                  }
+                                }}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
+                              >
+                                {subcat.name}
+                                <ChevronRight size={14} className="text-gray-400" />
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => handleProductClick(subcat.id)}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                              >
+                                {subcat.name}
+                              </button>
+                            )}
                             {/* Pumpkin Seeds Sub-submenu */}
                             {subcat.name === "Pumpkin Seeds" && pumpkinSeedsSubmenuOpen && (
                               <div 
@@ -2428,8 +2530,8 @@ const Navbar = () => {
                             let isCurrentlyOpen = false;
                             if (category.name === "Cashew Nuts") {
                               isCurrentlyOpen = mobileCashewSubmenuOpen;
-                            } else if (category.name === "Black Pepper") {
-                              isCurrentlyOpen = mobileBlackPepperSubmenuOpen;
+                            } else if (category.name === "Pepper") {
+                              isCurrentlyOpen = mobilePepperSubmenuOpen;
                             } else if (category.name === "Desiccated Coconut") {
                               isCurrentlyOpen = mobileDesiccatedCoconutSubmenuOpen;
                             } else if (category.name === "Fresh Ginger") {
@@ -2457,8 +2559,8 @@ const Navbar = () => {
                             if (!isCurrentlyOpen) {
                               if (category.name === "Cashew Nuts") {
                                 setMobileCashewSubmenuOpen(true);
-                              } else if (category.name === "Black Pepper") {
-                                setMobileBlackPepperSubmenuOpen(true);
+                              } else if (category.name === "Pepper") {
+                                setMobilePepperSubmenuOpen(true);
                               } else if (category.name === "Desiccated Coconut") {
                                 setMobileDesiccatedCoconutSubmenuOpen(true);
                               } else if (category.name === "Fresh Ginger") {
@@ -2487,7 +2589,7 @@ const Navbar = () => {
                               size={14} 
                               className={`transition-transform duration-200 ${
                                 (category.name === "Cashew Nuts" && mobileCashewSubmenuOpen) ||
-                                (category.name === "Black Pepper" && mobileBlackPepperSubmenuOpen) ||
+                                (category.name === "Pepper" && mobilePepperSubmenuOpen) ||
                                 (category.name === "Desiccated Coconut" && mobileDesiccatedCoconutSubmenuOpen) ||
                                 (category.name === "Fresh Ginger" && mobileGingerSubmenuOpen) ||
                                 (category.name === "Cardamom" && mobileCardamomSubmenuOpen) ||
@@ -2556,21 +2658,58 @@ const Navbar = () => {
                               ))}
                             </div>
                           )}
-                          {category.name === "Black Pepper" && mobileBlackPepperSubmenuOpen && (
+                          {category.name === "Pepper" && mobilePepperSubmenuOpen && (
                             <div className="pl-4 mt-1 space-y-1">
-                              {blackPepperSubcategories.map((subcat) => (
-                                <button
-                                  key={subcat.id}
-                                  onClick={() => {
-                                    handleProductClick(subcat.id);
-                                    setMenuOpen(false);
-                                    setMobileProductsDropdownOpen(false);
-                                    setMobileBlackPepperSubmenuOpen(false);
-                                  }}
-                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
-                                >
-                                  {subcat.name}
-                                </button>
+                              {pepperSubcategories.map((subcat) => (
+                                <div key={subcat.id}>
+                                  {subcat.hasSubcategories ? (
+                                    <>
+                                      <button
+                                        onClick={() => {
+                                          setMobileBlackPepperSubmenuOpen(!mobileBlackPepperSubmenuOpen);
+                                        }}
+                                        className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                      >
+                                        <span>{subcat.name}</span>
+                                        <ChevronRight 
+                                          size={12} 
+                                          className={`transition-transform duration-200 ${mobileBlackPepperSubmenuOpen ? "rotate-90" : ""}`}
+                                        />
+                                      </button>
+                                      {subcat.id === "blackPepper" && mobileBlackPepperSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {blackPepperSubcategories.map((bpSubcat) => (
+                                            <button
+                                              key={bpSubcat.id}
+                                              onClick={() => {
+                                                handleProductClick(bpSubcat.id);
+                                                setMenuOpen(false);
+                                                setMobileProductsDropdownOpen(false);
+                                                setMobilePepperSubmenuOpen(false);
+                                                setMobileBlackPepperSubmenuOpen(false);
+                                              }}
+                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-500 hover:text-[#0D47A1] hover:bg-gray-50"
+                                            >
+                                              {bpSubcat.name}
+                                            </button>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <button
+                                      onClick={() => {
+                                        handleProductClick(subcat.id);
+                                        setMenuOpen(false);
+                                        setMobileProductsDropdownOpen(false);
+                                        setMobilePepperSubmenuOpen(false);
+                                      }}
+                                      className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                    >
+                                      {subcat.name}
+                                    </button>
+                                  )}
+                                </div>
                               ))}
                             </div>
                           )}
@@ -2716,67 +2855,83 @@ const Navbar = () => {
                             <div className="pl-4 mt-1 space-y-1">
                               {seedsSubcategories.map((subcat) => (
                                 <div key={subcat.id}>
-                                  <button
-                                    onClick={() => {
-                                      if (subcat.name === "Pumpkin Seeds") {
-                                        setMobilePumpkinSeedsSubmenuOpen(!mobilePumpkinSeedsSubmenuOpen);
-                                        setMobileSunflowerSeedsSubmenuOpen(false);
-                                      } else if (subcat.name === "Sunflower Seeds") {
-                                        setMobileSunflowerSeedsSubmenuOpen(!mobileSunflowerSeedsSubmenuOpen);
-                                        setMobilePumpkinSeedsSubmenuOpen(false);
-                                      }
-                                    }}
-                                    className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
-                                  >
-                                    <span>{subcat.name}</span>
-                                    <ChevronRight 
-                                      size={12} 
-                                      className={`transition-transform duration-200 ${
-                                        (subcat.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen) ||
-                                        (subcat.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen)
-                                          ? "rotate-90" : ""
-                                      }`}
-                                    />
-                                  </button>
-                                  {/* Pumpkin Seeds sub-submenu */}
-                                  {subcat.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen && (
-                                    <div className="pl-4 mt-1 space-y-1">
-                                      {pumpkinSeedsSubcategories.map((pumpkinSubcat) => (
-                                        <button
-                                          key={pumpkinSubcat.id}
-                                          onClick={() => {
-                                            handleProductClick(pumpkinSubcat.id);
-                                            setMenuOpen(false);
-                                            setMobileProductsDropdownOpen(false);
-                                            setMobileSeedsSubmenuOpen(false);
-                                            setMobilePumpkinSeedsSubmenuOpen(false);
-                                          }}
-                                          className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-500 hover:text-[#0D47A1] hover:bg-gray-50"
-                                        >
-                                          {pumpkinSubcat.name}
-                                        </button>
-                                      ))}
-                                    </div>
-                                  )}
-                                  {/* Sunflower Seeds sub-submenu */}
-                                  {subcat.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen && (
-                                    <div className="pl-4 mt-1 space-y-1">
-                                      {sunflowerSeedsSubcategories.map((sunflowerSubcat) => (
-                                        <button
-                                          key={sunflowerSubcat.id}
-                                          onClick={() => {
-                                            handleProductClick(sunflowerSubcat.id);
-                                            setMenuOpen(false);
-                                            setMobileProductsDropdownOpen(false);
-                                            setMobileSeedsSubmenuOpen(false);
+                                  {subcat.hasSubcategories ? (
+                                    <>
+                                      <button
+                                        onClick={() => {
+                                          if (subcat.name === "Pumpkin Seeds") {
+                                            setMobilePumpkinSeedsSubmenuOpen(!mobilePumpkinSeedsSubmenuOpen);
                                             setMobileSunflowerSeedsSubmenuOpen(false);
-                                          }}
-                                          className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-500 hover:text-[#0D47A1] hover:bg-gray-50"
-                                        >
-                                          {sunflowerSubcat.name}
-                                        </button>
-                                      ))}
-                                    </div>
+                                          } else if (subcat.name === "Sunflower Seeds") {
+                                            setMobileSunflowerSeedsSubmenuOpen(!mobileSunflowerSeedsSubmenuOpen);
+                                            setMobilePumpkinSeedsSubmenuOpen(false);
+                                          }
+                                        }}
+                                        className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                      >
+                                        <span>{subcat.name}</span>
+                                        <ChevronRight 
+                                          size={12} 
+                                          className={`transition-transform duration-200 ${
+                                            (subcat.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen) ||
+                                            (subcat.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen)
+                                              ? "rotate-90" : ""
+                                          }`}
+                                        />
+                                      </button>
+                                      {/* Pumpkin Seeds sub-submenu */}
+                                      {subcat.name === "Pumpkin Seeds" && mobilePumpkinSeedsSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {pumpkinSeedsSubcategories.map((pumpkinSubcat) => (
+                                            <button
+                                              key={pumpkinSubcat.id}
+                                              onClick={() => {
+                                                handleProductClick(pumpkinSubcat.id);
+                                                setMenuOpen(false);
+                                                setMobileProductsDropdownOpen(false);
+                                                setMobileSeedsSubmenuOpen(false);
+                                                setMobilePumpkinSeedsSubmenuOpen(false);
+                                              }}
+                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-500 hover:text-[#0D47A1] hover:bg-gray-50"
+                                            >
+                                              {pumpkinSubcat.name}
+                                            </button>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {/* Sunflower Seeds sub-submenu */}
+                                      {subcat.name === "Sunflower Seeds" && mobileSunflowerSeedsSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {sunflowerSeedsSubcategories.map((sunflowerSubcat) => (
+                                            <button
+                                              key={sunflowerSubcat.id}
+                                              onClick={() => {
+                                                handleProductClick(sunflowerSubcat.id);
+                                                setMenuOpen(false);
+                                                setMobileProductsDropdownOpen(false);
+                                                setMobileSeedsSubmenuOpen(false);
+                                                setMobileSunflowerSeedsSubmenuOpen(false);
+                                              }}
+                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-500 hover:text-[#0D47A1] hover:bg-gray-50"
+                                            >
+                                              {sunflowerSubcat.name}
+                                            </button>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <button
+                                      onClick={() => {
+                                        handleProductClick(subcat.id);
+                                        setMenuOpen(false);
+                                        setMobileProductsDropdownOpen(false);
+                                        setMobileSeedsSubmenuOpen(false);
+                                      }}
+                                      className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                    >
+                                      {subcat.name}
+                                    </button>
                                   )}
                                 </div>
                               ))}

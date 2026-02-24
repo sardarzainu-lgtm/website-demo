@@ -9,6 +9,9 @@ import cashewnuts from "../assets/cashewnuts.webp";
 import ww320Cashew from "../assets/ww320Cashew.webp";
 import ww240Cashew from "../assets/ww240Cashew.webp";
 import desiccatedCoconut from "../assets/desiccatedCoconut.webp";
+import lowFatDesiccatedCoconut from "../assets/low-fat-desiccated-coconut.webp";
+import highFatDesiccatedCoconut from "../assets/high-fat-desiccated-coconut.webp";
+import mediumFatDesiccatedCoconut from "../assets/medium-fat-desiccated-cocunut.webp";
 import copraCup from "../assets/copraCup.webp";
 import driedGinger from "../assets/driedGinger.webp";
 import redChilli from "../assets/red-chilli.webp";
@@ -37,9 +40,9 @@ const factoryImages = {
     ww240Cashew, // shelling/packing vibe
   ],
   coconut: [
-    desiccatedCoconut, // coconut chips
-    copraCup, // drying coconut
-    desiccatedCoconut, // coconut flakes/processing
+    lowFatDesiccatedCoconut, // low fat desiccated coconut
+    highFatDesiccatedCoconut, // high fat desiccated coconut
+    mediumFatDesiccatedCoconut, // medium fat desiccated coconut
   ],
   activities: [
     cashewnuts,

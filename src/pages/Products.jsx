@@ -20,6 +20,9 @@ import cashewSL from "../assets/cashewSL.webp"
 import cashewnuts from "../assets/cashewnuts.webp";
 import copraCup from "../assets/copraCup.webp"
 import desiccatedCoconut from "../assets/desiccatedCoconut.webp"
+import lowFatDesiccatedCoconut from "../assets/low-fat-desiccated-coconut.webp"
+import highFatDesiccatedCoconut from "../assets/high-fat-desiccated-coconut.webp"
+import mediumFatDesiccatedCoconut from "../assets/medium-fat-desiccated-cocunut.webp"
 import driedGinger from "../assets/driedGinger.webp"
 import gingerWholeDry from "../assets/drygng-dry.webp"
 import gingerWholeFresh from "../assets/drygng-fresh.webp"
@@ -55,6 +58,7 @@ import pumpkinAA from "../assets/pumpkin-aa.webp"
 import pumpkinA from "../assets/pumpkin-a.webp"
 import sunflowerSeeds from "../assets/sunflower-seeds.webp"
 import sunflowerKernels from "../assets/sunflower-kernels.webp"
+import watermelonSeeds from "../assets/watermelon-seed.webp"
 import nigellaSativa from "../assets/nigella-sativa.webp"
 import chinesePeanut from "../assets/chinese-peanunt.webp"
 import almond from "../assets/almond.webp"
@@ -67,6 +71,7 @@ const products = [
   { id: 29, name: "Cashew Nuts WW320", image: ww320Cashew, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", seedsPerLb: "300-320", broken: "5% max", lowerSize: "7-8% max", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
   { id: 2, name: "Desiccated Coconut", image: desiccatedCoconut, origin: "Vietnam", moisture: "3% max" },
   { id: 3, name: "Edible Copra", image: copraCup, origin: "Indonesia", moisture: "7-10%", packing: "40 Kg Net in Mesh Bags", description: "Looking for premium quality copra? Our Edible Copra is the perfect choice for various food applications and international trade!", fullName: "Edible Copra (White Copra Sundry - Split)" },
+  { id: "pepper", name: "Pepper", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
   { id: 4, name: "Black Pepper", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
   { id: 5, name: "White Pepper 630g/l (EU Standard)", image: whitePepper, origin: "Vietnam", moisture: "13.5% max", density: "630g/l", admixture: "0.5% max", blackSeeds: "2% max", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
   { id: 6, name: "Fresh Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
@@ -106,9 +111,9 @@ const products = [
   { id: 26, name: "Brazilian Black Pepper", image: brazilianBlackPepper, origin: "Brazil", moisture: "13.5% max", appearance: "Small, dark brown to black, wrinkled berries (~4-5 mm)", aroma: "Strong, pungent, citrusy, slightly woody, and spicy", benefits: "Aids digestion, anti-inflammatory, weight loss", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
 
   // CATEGORIZED UNDER DESICCATED COCONUT
-  { id: 23, name: "Low fat Desiccated Coconut Fine Grade", image: desiccatedCoconut, origin: "Vietnam", moisture: "4% max", ffa: "0.3% max", fatContent: "30-35% min", so2: "100 ppm max", packing: "25kg/bag or custom", containerCapacity: "7MT/20ft, 18MT/40ft" },
-  { id: 24, name: "High fat Desiccated Coconut Fine Grade", image: desiccatedCoconut, origin: "Vietnam", moisture: "3% max", ffa: "0.3% max", fatContent: "63% min", so2: "100 ppm max", packing: "25kg/bag or custom", containerCapacity: "13MT/20ft, 27MT/40ft" },
-  { id: 25, name: "High fat Desiccated Coconut Medium Grade", image: desiccatedCoconut, origin: "Vietnam", moisture: "3% max", ffa: "0.3% max", fatContent: "63% min", so2: "100 ppm max", packing: "25kg/bag or custom", containerCapacity: "13MT/20ft, 27MT/40ft" },
+  { id: 23, name: "Low fat Desiccated Coconut Fine Grade", image: lowFatDesiccatedCoconut, origin: "Vietnam", moisture: "4% max", ffa: "0.3% max", fatContent: "30-35% min", so2: "100 ppm max", packing: "25kg/bag or custom", containerCapacity: "7MT/20ft, 18MT/40ft" },
+  { id: 24, name: "High fat Desiccated Coconut Fine Grade", image: highFatDesiccatedCoconut, origin: "Vietnam", moisture: "3% max", ffa: "0.3% max", fatContent: "63% min", so2: "100 ppm max", packing: "25kg/bag or custom", containerCapacity: "13MT/20ft, 27MT/40ft" },
+  { id: 25, name: "High fat Desiccated Coconut Medium Grade", image: mediumFatDesiccatedCoconut, origin: "Vietnam", moisture: "3% max", ffa: "0.3% max", fatContent: "63% min", so2: "100 ppm max", packing: "25kg/bag or custom", containerCapacity: "13MT/20ft, 27MT/40ft" },
   
   // CATEGORIZED UNDER DRIED FRUITS
   { id: 30, name: "Soft Dried Mango", image: mangoChips, origin: "Vietnam", moisture: "12-17% max", ingredients: "100% Mango", appearanceColor: "Yellow color", cuttingType: "Slice", process: "5-10% Sugar Added / without sugar-coated", length: "8cm - 10cm", thickness: "0.1cm - 0.2cm", shelfLife: "12 Months", packing: "Zip bags, craft paper, bulk packing depends on customer request from 100g - 10kg / pack" },
@@ -141,6 +146,7 @@ const products = [
   { id: 43, name: "WALNUTS", image: walnuts, origin: "Chile", moisture: "8% max", kernelYield: "45-50% min", brokenKernels: "5% max", foreignMatter: "0.5% max", size: "Extra Large (32mm+)", color: "Light Brown to Golden", grade: "Premium Grade", description: "Premium quality walnuts with high kernel yield. Rich in omega-3 fatty acids and antioxidants. Perfect for snacking, baking, and culinary applications. Naturally dried and free from preservatives." },
   
   // MAIN CATEGORY PRODUCTS
+  { id: 92, name: "Seeds", image: pumpkinAAA, origin: "Various", moisture: "8% max", description: "Premium quality seeds including pumpkin seeds, sunflower seeds, and watermelon seeds. Perfect for snacking, baking, and culinary applications." },
   { id: 63, name: "Pumpkin Seeds", image: pumpkinAAA, origin: "China", moisture: "8% max", description: "Premium quality pumpkin seeds available in various grades. Perfect for snacking, baking, and culinary applications." },
   { id: 64, name: "Sunflower Seeds", image: sunflowerSeeds, origin: "China", moisture: "8% max", description: "Premium quality sunflower seeds available in confectionery and bakery grades. Perfect for snacking and baking applications." },
   { id: 66, name: "Peanuts", image: chinesePeanut, origin: "China", moisture: "7% max", description: "Premium quality Chinese peanuts available in various sizes. Perfect for snacking, cooking, and commercial applications." },
@@ -155,6 +161,9 @@ const products = [
   { id: 61, name: "Sunflower Seeds Confectionery Grade", image: sunflowerSeeds, origin: "China", moisture: "8% max", grade: "Confectionery Grade", size: "Large seeds", color: "Black and white striped", description: "Premium quality sunflower seeds confectionery grade. Large seeds perfect for snacking. Rich in vitamin E and healthy fats. Natural, roasted, and ready to eat." },
   { id: 62, name: "Sunflower Seeds Bakery Grade", image: sunflowerKernels, origin: "China", moisture: "8% max", grade: "Bakery Grade", size: "Smaller kernels", color: "Light beige to white", description: "High quality sunflower seeds bakery grade. Smaller kernels perfect for baking and cooking applications. Ideal for bread, cookies, and other baked goods." },
   
+  // WATERMELON SEEDS
+  { id: 93, name: "Watermelon Seeds", image: watermelonSeeds, origin: "China", moisture: "8% max", purity: "99% min", color: "Black with white edges", description: "Premium quality watermelon seeds. Rich in protein, healthy fats, and essential minerals. Perfect for snacking, roasting, and culinary applications." },
+
   // CATEGORIZED UNDER PEANUTS - LARGE SIZE
   { id: 67, name: "Peanuts L(25/29)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Large (25-29 kernels per ounce)", grade: "Large", description: "Premium quality Chinese peanuts, large size (25-29 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
   { id: 68, name: "Peanuts L(29/33)", image: chinesePeanut, origin: "China", moisture: "7% max", size: "Large (29-33 kernels per ounce)", grade: "Large", description: "Premium quality Chinese peanuts, large size (29-33 kernels per ounce). Perfect for snacking, cooking, and commercial applications." },
@@ -200,7 +209,7 @@ const categories = [
   "CASSIA/CINNAMON",
   "Fresh Ginger",
   "Cardamom",
-  "Black Pepper",
+  "Pepper",
   "Seeds",
   "Peanuts",
   "Almonds",
@@ -236,10 +245,11 @@ const ww320FilterList = [
   "Cashew Nuts WW320 Premium"
 ];
 
-// FILTER GROUP FOR BLACK PEPPER CATEGORY
-const blackPepperFilterList = [
-  "Brazilian Black Pepper",
+// FILTER GROUP FOR PEPPER CATEGORY (includes Black Pepper and White Pepper)
+const pepperFilterList = [
+  "Black Pepper",
   "White Pepper 630g/l (EU Standard)",
+  "Brazilian Black Pepper",
   "Black Pepper 450g/l FAQ",
   "Black Pepper 500g/l FAQ",
   "Black Pepper 550g/l FAQ",
@@ -247,7 +257,18 @@ const blackPepperFilterList = [
   "Black Pepper 550g/l MC/ASTA",
   "Black Pepper 570g/l MC/ASTA",
   "Black Pepper 5mm Bold",
-  
+];
+
+// FILTER GROUP FOR BLACK PEPPER SUB-CATEGORY
+const blackPepperFilterList = [
+  "Brazilian Black Pepper",
+  "Black Pepper 450g/l FAQ",
+  "Black Pepper 500g/l FAQ",
+  "Black Pepper 550g/l FAQ",
+  "Black Pepper 500g/l MC/ASTA",
+  "Black Pepper 550g/l MC/ASTA",
+  "Black Pepper 570g/l MC/ASTA",
+  "Black Pepper 5mm Bold",
 ];
 
 // FILTER GROUP FOR DESICCATED COCONUT CATEGORY
@@ -308,10 +329,11 @@ const sunflowerSeedsFilterList = [
   "Sunflower Seeds Bakery Grade"
 ];
 
-// FILTER GROUP FOR SEEDS CATEGORY (includes both Pumpkin Seeds and Sunflower Seeds)
+// FILTER GROUP FOR SEEDS CATEGORY (includes Pumpkin Seeds, Sunflower Seeds, and Watermelon Seeds)
 const seedsFilterList = [
   "Pumpkin Seeds",
-  "Sunflower Seeds"
+  "Sunflower Seeds",
+  "Watermelon Seeds"
 ];
 
 // FILTER GROUP FOR PEANUTS CATEGORY
@@ -450,17 +472,19 @@ const Products = () => {
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
     setSearchParams({ category });
+    // Scroll to top of page when category changes
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // FILTER LOGIC
 const filteredProducts =
   selectedCategory === "All"
-    ? products.filter((p) => !cashewFilterList.includes(p.name) && !ww320FilterList.includes(p.name) && !blackPepperFilterList.includes(p.name) && !desiccatedCoconutFilterList.includes(p.name) && !gingerFilterList.includes(p.name) && !cardamomFilterList.includes(p.name) && !cassiaFilterList.includes(p.name) && !pumpkinSeedsFilterList.includes(p.name) && !sunflowerSeedsFilterList.includes(p.name) && !peanutsFilterList.includes(p.name) && !almondsFilterList.includes(p.name) && !starAniseFilterList.includes(p.name) && !greenCoffeeFilterList.includes(p.name) && !seedsFilterList.includes(p.name)) // Show main products only
+    ? products.filter((p) => !cashewFilterList.includes(p.name) && !ww320FilterList.includes(p.name) && !pepperFilterList.includes(p.name) && !desiccatedCoconutFilterList.includes(p.name) && !gingerFilterList.includes(p.name) && !cardamomFilterList.includes(p.name) && !cassiaFilterList.includes(p.name) && !pumpkinSeedsFilterList.includes(p.name) && !sunflowerSeedsFilterList.includes(p.name) && !peanutsFilterList.includes(p.name) && !almondsFilterList.includes(p.name) && !starAniseFilterList.includes(p.name) && !greenCoffeeFilterList.includes(p.name) && !seedsFilterList.includes(p.name)) // Show main products only
     : selectedCategory === "Cashew Nuts"
     ? products.filter(
       (p) =>
         cashewFilterList.includes(p.name) &&
-        !ww320FilterList.includes(p.name) // ❌ exclude sub-ww320
+        !ww320FilterList.includes(p.name)
     )  // Only sub-cashew items (excluding WW320)
     : selectedCategory === "Cashew Nuts WW320"
     ? []  // Show subcategory cards instead of products
@@ -470,8 +494,12 @@ const filteredProducts =
     ? products.filter((p) => p.name === "Cashew Nuts WW320 High Quality")  // Only High Quality
     : selectedCategory === "Cashew Nuts WW320 Premium"
     ? products.filter((p) => p.name === "Cashew Nuts WW320 Premium")  // Only Premium
+    : selectedCategory === "Pepper"
+    ? []  // Show subcategory cards (Black Pepper, White Pepper) instead of products
     : selectedCategory === "Black Pepper"
     ? products.filter((p) => blackPepperFilterList.includes(p.name))  // Only sub-black pepper items
+    : selectedCategory === "White Pepper"
+    ? products.filter((p) => p.name === "White Pepper 630g/l (EU Standard)")  // White Pepper product
     : selectedCategory === "Desiccated Coconut"
     ? products.filter((p) => desiccatedCoconutFilterList.includes(p.name))  // Only sub-desiccated coconut items
     : selectedCategory === "Fresh Ginger"
@@ -498,8 +526,6 @@ const filteredProducts =
     ?  products.filter((p) => starAniseFilterList.includes(p.name))  // Only star anise subcategories
     : selectedCategory === "Green Coffee Beans"
     ?  products.filter((p) => greenCoffeeFilterList.includes(p.name))  // Only green coffee beans subcategories
-    : selectedCategory === "White Pepper"
-    ? products.filter((p) => p.name.startsWith("White Pepper"))  // White Pepper products (name starts with "White Pepper")
     : products.filter((p) => p.name === selectedCategory);       // Single-item categories (exact match)
 
   return (
@@ -644,6 +670,35 @@ const filteredProducts =
                   </button>
                 </div>
               )}
+              {/* Show subcategories for Pepper */}
+              {cat === "Pepper" && (selectedCategory === "Pepper" || selectedCategory === "Black Pepper" || selectedCategory === "White Pepper") && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <button
+                    onClick={() => {
+                      handleCategoryChange("Black Pepper");
+                      setIsFilterOpen(false);
+                    }}
+                    className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${
+                      selectedCategory === "Black Pepper" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"
+                    }`}
+                  >
+                    <span className="font-medium">Black Pepper</span>
+                    <span className="text-xs">{selectedCategory === "Black Pepper" ? "•" : "›"}</span>
+                  </button>
+                  <button
+                    onClick={() => {
+                      handleCategoryChange("White Pepper");
+                      setIsFilterOpen(false);
+                    }}
+                    className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${
+                      selectedCategory === "White Pepper" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"
+                    }`}
+                  >
+                    <span className="font-medium">White Pepper</span>
+                    <span className="text-xs">{selectedCategory === "White Pepper" ? "•" : "›"}</span>
+                  </button>
+                </div>
+              )}
             </div>
           ))}
           
@@ -694,6 +749,26 @@ const filteredProducts =
                   }}
                 />
               </>
+            ) : selectedCategory === "Pepper" ? (
+              <>
+                <SubcategoryCard
+                  name="Black Pepper"
+                  image={blackPepper}
+                  onClick={() => handleCategoryChange("Black Pepper")}
+                />
+                <SubcategoryCard
+                  name="White Pepper"
+                  image={whitePepper}
+                  onClick={() => {
+                    const product = products.find(p => p.name === "White Pepper 630g/l (EU Standard)");
+                    if (product) {
+                      navigate(`/product/${product.id}?category=${encodeURIComponent(selectedCategory)}`, {
+                        state: { product, category: selectedCategory },
+                      });
+                    }
+                  }}
+                />
+              </>
             ) : selectedCategory === "Fresh Ginger" ? (
               <>
                 <SubcategoryCard
@@ -711,12 +786,13 @@ const filteredProducts =
               filteredProducts.map((product) => {
                 // Check if this is a main category product (has subcategories)
                 const isMainCategory = product.name === "Cashew Nuts" || 
-                                       product.name === "Black Pepper" || 
+                                       product.name === "Pepper" || 
                                        product.name === "Desiccated Coconut" ||
                                        product.name === "Fresh Ginger" ||
                                        product.name === "CARDAMOM" ||
                                        product.name === "CASSIA/CINNAMON" ||
                                        product.name === "Cashew Nuts WW320" ||
+                                       product.name === "Seeds" ||
                                        product.name === "Pumpkin Seeds" ||
                                        product.name === "Sunflower Seeds"||
                                        product.name === "Peanuts" ||
