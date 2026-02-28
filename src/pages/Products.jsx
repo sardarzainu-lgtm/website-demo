@@ -65,7 +65,7 @@ import almond from "../assets/almond.webp"
 import cloves from "../assets/cloves.webp"
 
 
-import { products, getDesiccatedCoconutFineProducts, getDesiccatedCoconutMediumProducts } from "../data/products";
+import { products, getDesiccatedCoconutFineProducts, getDesiccatedCoconutMediumProducts, getDesiccatedCoconutLowFatProducts } from "../data/products";
 import { MAIN_CATEGORIES } from "../data/categories";
 
 // Categories: "All" plus main categories that have at least one product (in display order)
@@ -231,12 +231,14 @@ const Products = () => {
             p.category === "Desiccated Coconut" &&
             p.subcategory !== "High fat Fine" &&
             p.subcategory !== "High fat Medium" &&
-            !(p.subcategory === "Low fat" && (p.name.includes("Fine") || p.name.includes("Extra Fine")))
+            p.subcategory !== "Low fat"
         )
       : selectedCategory === "Desiccated Coconut Fine"
       ? getDesiccatedCoconutFineProducts(products)
       : selectedCategory === "Desiccated Coconut Medium"
       ? getDesiccatedCoconutMediumProducts(products)
+      : selectedCategory === "Desiccated Coconut Low Fat"
+      ? getDesiccatedCoconutLowFatProducts(products)
       : selectedCategory === "Seeds"
       ? products.filter(
           (p) => p.category === "Seeds" && p.subcategory !== "Pumpkin Seeds" && p.subcategory !== "Sunflower Seeds"
@@ -345,10 +347,10 @@ const Products = () => {
                   }
                 }}
                 className={`w-full flex justify-between items-center px-4 py-3 rounded-xl text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 ${
-                  selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds")) ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-50 text-[#0A1C2E]"
+                  selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds")) ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-50 text-[#0A1C2E]"
                 }`}
                 style={{
-                  ...(selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds"))
+                  ...(selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds"))
                     ? { border: "none" }
                     : {
                         borderTop: "1px solid #e5e7eb",
@@ -360,7 +362,7 @@ const Products = () => {
                 }}
               >
                 <span className="font-semibold text-sm">{cat}</span>
-                <span className="text-base">{selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds")) ? "•" : "›"}</span>
+                <span className="text-base">{selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds")) ? "•" : "›"}</span>
               </button>
               {/* Show subcategories for Seeds */}
               {cat === "Seeds" && (selectedCategory === "Seeds" || selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds") && (
@@ -376,7 +378,7 @@ const Products = () => {
                 </div>
               )}
               {/* Show subcategories for Desiccated Coconut */}
-              {cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut" || selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium") && (
+              {cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut" || selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat") && (
                 <div className="ml-4 mt-1 space-y-1">
                   <button onClick={() => { handleCategoryChange("Desiccated Coconut Fine"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Desiccated Coconut Fine" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
                     <span className="font-medium">High Desiccated Fine Grade</span>
@@ -385,6 +387,10 @@ const Products = () => {
                   <button onClick={() => { handleCategoryChange("Desiccated Coconut Medium"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Desiccated Coconut Medium" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
                     <span className="font-medium">High Desiccated Medium Grade</span>
                     <span className="text-xs">{selectedCategory === "Desiccated Coconut Medium" ? "•" : "›"}</span>
+                  </button>
+                  <button onClick={() => { handleCategoryChange("Desiccated Coconut Low Fat"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Desiccated Coconut Low Fat" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
+                    <span className="font-medium">Low fat Desiccated Coconut</span>
+                    <span className="text-xs">{selectedCategory === "Desiccated Coconut Low Fat" ? "•" : "›"}</span>
                   </button>
                 </div>
               )}
@@ -711,7 +717,7 @@ const Products = () => {
                 <SubcategoryCard name="Tu Quy" image={starAnise} onClick={() => handleCategoryChange("Star Anise Tu Quy")} />
                 <SubcategoryCard name="Canh Dan" image={starAnise} onClick={() => handleCategoryChange("Star Anise Canh Dan")} />
               </>
-            ) : selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" ? (
+            ) : selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat" ? (
               filteredProducts.map((product) => (
                 <ProductCard
                   key={product.id}
@@ -738,6 +744,7 @@ const Products = () => {
                 ))}
                 <SubcategoryCard name="High Desiccated Fine Grade" image={highFatDesiccatedCoconut} onClick={() => handleCategoryChange("Desiccated Coconut Fine")} />
                 <SubcategoryCard name="High Desiccated Medium Grade" image={highFatDesiccatedCoconut} onClick={() => handleCategoryChange("Desiccated Coconut Medium")} />
+                <SubcategoryCard name="Low fat Desiccated Coconut" image={highFatDesiccatedCoconut} onClick={() => handleCategoryChange("Desiccated Coconut Low Fat")} />
               </>
             ) : selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds" ? (
               filteredProducts.map((product) => (
@@ -825,7 +832,7 @@ const Products = () => {
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
       </svg>
       <span className="text-white font-semibold text-sm tracking-wide">
-        {selectedCategory === "All" ? "Filter Products" : selectedCategory === "Cashew Nuts Roasted" ? "Salted and Roasted Cashew Nuts" : selectedCategory === "CASSIA/CINNAMON Pressed" ? "Cassia Pressed" : selectedCategory === "CASSIA/CINNAMON Long Stick" ? "Cassia Long Stick" : selectedCategory === "CASSIA/CINNAMON Stick" ? "Cassia Stick" : selectedCategory === "CASSIA/CINNAMON Powder" ? "Cassia Powder" : selectedCategory === "Star Anise Autumn" ? "Star Anise Autumn" : selectedCategory === "Star Anise Tu Quy" ? "Star Anise Tu Quy" : selectedCategory === "Star Anise Canh Dan" ? "Star Anise Canh Dan" : selectedCategory === "Desiccated Coconut Fine" ? "High Desiccated Fine Grade" : selectedCategory === "Desiccated Coconut Medium" ? "High Desiccated Medium Grade" : selectedCategory}
+        {selectedCategory === "All" ? "Filter Products" : selectedCategory === "Cashew Nuts Roasted" ? "Salted and Roasted Cashew Nuts" : selectedCategory === "CASSIA/CINNAMON Pressed" ? "Cassia Pressed" : selectedCategory === "CASSIA/CINNAMON Long Stick" ? "Cassia Long Stick" : selectedCategory === "CASSIA/CINNAMON Stick" ? "Cassia Stick" : selectedCategory === "CASSIA/CINNAMON Powder" ? "Cassia Powder" : selectedCategory === "Star Anise Autumn" ? "Star Anise Autumn" : selectedCategory === "Star Anise Tu Quy" ? "Star Anise Tu Quy" : selectedCategory === "Star Anise Canh Dan" ? "Star Anise Canh Dan" : selectedCategory === "Desiccated Coconut Fine" ? "High Desiccated Fine Grade" : selectedCategory === "Desiccated Coconut Medium" ? "High Desiccated Medium Grade" : selectedCategory === "Desiccated Coconut Low Fat" ? "Low fat Desiccated Coconut" : selectedCategory}
       </span>
       <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse"></div>
     </button>

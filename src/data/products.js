@@ -1220,16 +1220,18 @@ export const products = [
   },
 ];
 
-// Shared filters for Desiccated Coconut Fine/Medium (used by Products page and Navbar)
+// Shared filters for Desiccated Coconut (used by Products page and Navbar)
+// High fat Fine only (Low fat is separate)
 export function getDesiccatedCoconutFineProducts(productsList) {
   return productsList.filter(
-    (p) =>
-      p.category === "Desiccated Coconut" &&
-      (p.subcategory === "High fat Fine" || (p.subcategory === "Low fat" && (p.name.includes("Fine") || p.name.includes("Extra Fine"))))
+    (p) => p.category === "Desiccated Coconut" && p.subcategory === "High fat Fine"
   );
 }
 export function getDesiccatedCoconutMediumProducts(productsList) {
   return productsList.filter((p) => p.category === "Desiccated Coconut" && p.subcategory === "High fat Medium");
+}
+export function getDesiccatedCoconutLowFatProducts(productsList) {
+  return productsList.filter((p) => p.category === "Desiccated Coconut" && p.subcategory === "Low fat");
 }
 
 

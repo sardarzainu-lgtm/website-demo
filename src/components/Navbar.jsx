@@ -7,7 +7,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 // ✅ Import real logo
 import logo from "../assets/logo.webp";
 
-import { products as sharedProducts, getDesiccatedCoconutFineProducts, getDesiccatedCoconutMediumProducts } from "../data/products";
+import { products as sharedProducts, getDesiccatedCoconutFineProducts, getDesiccatedCoconutMediumProducts, getDesiccatedCoconutLowFatProducts } from "../data/products";
 
 
 // 🌟 Premium Colors
@@ -35,6 +35,7 @@ const Navbar = () => {
   const [desiccatedCoconutSubmenuOpen, setDesiccatedCoconutSubmenuOpen] = useState(false);
   const [desiccatedCoconutFineSubmenuOpen, setDesiccatedCoconutFineSubmenuOpen] = useState(false);
   const [desiccatedCoconutMediumSubmenuOpen, setDesiccatedCoconutMediumSubmenuOpen] = useState(false);
+  const [desiccatedCoconutLowFatSubmenuOpen, setDesiccatedCoconutLowFatSubmenuOpen] = useState(false);
   const [gingerSubmenuOpen, setGingerSubmenuOpen] = useState(false);
   const [wholeGingerSubmenuOpen, setWholeGingerSubmenuOpen] = useState(false);
   const [sliceGingerSubmenuOpen, setSliceGingerSubmenuOpen] = useState(false);
@@ -63,6 +64,7 @@ const Navbar = () => {
   const [mobileDesiccatedCoconutSubmenuOpen, setMobileDesiccatedCoconutSubmenuOpen] = useState(false);
   const [mobileDesiccatedCoconutFineSubmenuOpen, setMobileDesiccatedCoconutFineSubmenuOpen] = useState(false);
   const [mobileDesiccatedCoconutMediumSubmenuOpen, setMobileDesiccatedCoconutMediumSubmenuOpen] = useState(false);
+  const [mobileDesiccatedCoconutLowFatSubmenuOpen, setMobileDesiccatedCoconutLowFatSubmenuOpen] = useState(false);
   const [mobileGingerSubmenuOpen, setMobileGingerSubmenuOpen] = useState(false);
   const [mobileWholeGingerSubmenuOpen, setMobileWholeGingerSubmenuOpen] = useState(false);
   const [mobileSliceGingerSubmenuOpen, setMobileSliceGingerSubmenuOpen] = useState(false);
@@ -180,18 +182,21 @@ const Navbar = () => {
     .filter((p) => p.category === "Pepper" && p.subcategory === "Black Pepper")
     .map((p) => ({ id: p.id, name: p.name }));
 
-  // Desiccated Coconut: Fine and Medium (same product list as Products page)
+  // Desiccated Coconut: High fat Fine, High fat Medium, Low fat (separate), then other
   const desiccatedCoconutFineSubcategories = getDesiccatedCoconutFineProducts(products).map((p) => ({ id: p.id, name: p.name }));
   const desiccatedCoconutMediumSubcategories = getDesiccatedCoconutMediumProducts(products).map((p) => ({ id: p.id, name: p.name }));
-  const DESICCATED_COCONUT_FINE_MEDIUM_IDS = [
+  const desiccatedCoconutLowFatSubcategories = getDesiccatedCoconutLowFatProducts(products).map((p) => ({ id: p.id, name: p.name }));
+  const DESICCATED_COCONUT_GROUPED_IDS = [
     ...desiccatedCoconutFineSubcategories.map((x) => x.id),
     ...desiccatedCoconutMediumSubcategories.map((x) => x.id),
+    ...desiccatedCoconutLowFatSubcategories.map((x) => x.id),
   ];
   const desiccatedCoconutSubcategories = [
     { id: "dc-fine", name: "High Desiccated Fine Grade", hasSubcategories: true },
     { id: "dc-medium", name: "High Desiccated Medium Grade", hasSubcategories: true },
+    { id: "dc-lowfat", name: "Low fat Desiccated Coconut", hasSubcategories: true },
     ...products
-      .filter((p) => p.category === "Desiccated Coconut" && !DESICCATED_COCONUT_FINE_MEDIUM_IDS.includes(p.id))
+      .filter((p) => p.category === "Desiccated Coconut" && !DESICCATED_COCONUT_GROUPED_IDS.includes(p.id))
       .map((p) => ({ id: p.id, name: p.name })),
   ];
 
@@ -302,6 +307,7 @@ const Navbar = () => {
     setDesiccatedCoconutSubmenuOpen(false);
     setDesiccatedCoconutFineSubmenuOpen(false);
     setDesiccatedCoconutMediumSubmenuOpen(false);
+    setDesiccatedCoconutLowFatSubmenuOpen(false);
     setGingerSubmenuOpen(false);
     setWholeGingerSubmenuOpen(false);
     setSliceGingerSubmenuOpen(false);
@@ -333,6 +339,7 @@ const Navbar = () => {
     setMobileDesiccatedCoconutSubmenuOpen(false);
     setMobileDesiccatedCoconutFineSubmenuOpen(false);
     setMobileDesiccatedCoconutMediumSubmenuOpen(false);
+    setMobileDesiccatedCoconutLowFatSubmenuOpen(false);
     setMobileGingerSubmenuOpen(false);
     setMobileWholeGingerSubmenuOpen(false);
     setMobileSliceGingerSubmenuOpen(false);
@@ -928,6 +935,7 @@ const Navbar = () => {
                             setDesiccatedCoconutSubmenuOpen(false);
                             setDesiccatedCoconutFineSubmenuOpen(false);
                             setDesiccatedCoconutMediumSubmenuOpen(false);
+                            setDesiccatedCoconutLowFatSubmenuOpen(false);
                           }, 200);
                         }}
                       >
@@ -944,6 +952,7 @@ const Navbar = () => {
                               if (subcat.hasSubcategories) {
                                 setDesiccatedCoconutFineSubmenuOpen(subcat.id === "dc-fine");
                                 setDesiccatedCoconutMediumSubmenuOpen(subcat.id === "dc-medium");
+                                setDesiccatedCoconutLowFatSubmenuOpen(subcat.id === "dc-lowfat");
                               }
                             }}
                           >
@@ -957,14 +966,21 @@ const Navbar = () => {
                                   setDesiccatedCoconutSubmenuOpen(true);
                                   setDesiccatedCoconutFineSubmenuOpen(subcat.id === "dc-fine");
                                   setDesiccatedCoconutMediumSubmenuOpen(subcat.id === "dc-medium");
+                                  setDesiccatedCoconutLowFatSubmenuOpen(subcat.id === "dc-lowfat");
                                 }}
                                 onClick={() => {
                                   if (subcat.id === "dc-fine") {
                                     setDesiccatedCoconutFineSubmenuOpen(!desiccatedCoconutFineSubmenuOpen);
                                     setDesiccatedCoconutMediumSubmenuOpen(false);
+                                    setDesiccatedCoconutLowFatSubmenuOpen(false);
                                   } else if (subcat.id === "dc-medium") {
                                     setDesiccatedCoconutMediumSubmenuOpen(!desiccatedCoconutMediumSubmenuOpen);
                                     setDesiccatedCoconutFineSubmenuOpen(false);
+                                    setDesiccatedCoconutLowFatSubmenuOpen(false);
+                                  } else if (subcat.id === "dc-lowfat") {
+                                    setDesiccatedCoconutLowFatSubmenuOpen(!desiccatedCoconutLowFatSubmenuOpen);
+                                    setDesiccatedCoconutFineSubmenuOpen(false);
+                                    setDesiccatedCoconutMediumSubmenuOpen(false);
                                   }
                                 }}
                                 className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
@@ -972,7 +988,7 @@ const Navbar = () => {
                                 <span>{subcat.name}</span>
                                 <ChevronRight 
                                   size={14} 
-                                  className={`text-gray-400 transition-transform duration-200 ${(subcat.id === "dc-fine" && desiccatedCoconutFineSubmenuOpen) || (subcat.id === "dc-medium" && desiccatedCoconutMediumSubmenuOpen) ? "rotate-90" : ""}`}
+                                  className={`text-gray-400 transition-transform duration-200 ${(subcat.id === "dc-fine" && desiccatedCoconutFineSubmenuOpen) || (subcat.id === "dc-medium" && desiccatedCoconutMediumSubmenuOpen) || (subcat.id === "dc-lowfat" && desiccatedCoconutLowFatSubmenuOpen) ? "rotate-90" : ""}`}
                                 />
                               </button>
                             ) : (
@@ -1021,6 +1037,27 @@ const Navbar = () => {
                                 }}
                               >
                                 {desiccatedCoconutMediumSubcategories.map((item) => (
+                                  <button key={item.id} onClick={() => handleProductClick(item.id)} className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors">{item.name}</button>
+                                ))}
+                              </div>
+                            )}
+                            {subcat.hasSubcategories && subcat.id === "dc-lowfat" && desiccatedCoconutLowFatSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+                                  setProductsDropdownOpen(true);
+                                  setDesiccatedCoconutSubmenuOpen(true);
+                                  setDesiccatedCoconutLowFatSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setDesiccatedCoconutSubmenuOpen(false);
+                                    setDesiccatedCoconutLowFatSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {desiccatedCoconutLowFatSubcategories.map((item) => (
                                   <button key={item.id} onClick={() => handleProductClick(item.id)} className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors">{item.name}</button>
                                 ))}
                               </div>
@@ -2266,9 +2303,15 @@ const Navbar = () => {
                                           if (subcat.id === "dc-fine") {
                                             setMobileDesiccatedCoconutFineSubmenuOpen(!mobileDesiccatedCoconutFineSubmenuOpen);
                                             setMobileDesiccatedCoconutMediumSubmenuOpen(false);
+                                            setMobileDesiccatedCoconutLowFatSubmenuOpen(false);
                                           } else if (subcat.id === "dc-medium") {
                                             setMobileDesiccatedCoconutMediumSubmenuOpen(!mobileDesiccatedCoconutMediumSubmenuOpen);
                                             setMobileDesiccatedCoconutFineSubmenuOpen(false);
+                                            setMobileDesiccatedCoconutLowFatSubmenuOpen(false);
+                                          } else if (subcat.id === "dc-lowfat") {
+                                            setMobileDesiccatedCoconutLowFatSubmenuOpen(!mobileDesiccatedCoconutLowFatSubmenuOpen);
+                                            setMobileDesiccatedCoconutFineSubmenuOpen(false);
+                                            setMobileDesiccatedCoconutMediumSubmenuOpen(false);
                                           }
                                         }}
                                         className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
@@ -2278,7 +2321,8 @@ const Navbar = () => {
                                           size={12} 
                                           className={`transition-transform duration-200 ${
                                             (subcat.id === "dc-fine" && mobileDesiccatedCoconutFineSubmenuOpen) ||
-                                            (subcat.id === "dc-medium" && mobileDesiccatedCoconutMediumSubmenuOpen)
+                                            (subcat.id === "dc-medium" && mobileDesiccatedCoconutMediumSubmenuOpen) ||
+                                            (subcat.id === "dc-lowfat" && mobileDesiccatedCoconutLowFatSubmenuOpen)
                                               ? "rotate-90" : ""
                                           }`}
                                         />
@@ -2313,6 +2357,25 @@ const Navbar = () => {
                                                 setMobileProductsDropdownOpen(false);
                                                 setMobileDesiccatedCoconutSubmenuOpen(false);
                                                 setMobileDesiccatedCoconutMediumSubmenuOpen(false);
+                                              }}
+                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                            >
+                                              {item.name}
+                                            </button>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {subcat.id === "dc-lowfat" && mobileDesiccatedCoconutLowFatSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {desiccatedCoconutLowFatSubcategories.map((item) => (
+                                            <button
+                                              key={item.id}
+                                              onClick={() => {
+                                                handleProductClick(item.id);
+                                                setMenuOpen(false);
+                                                setMobileProductsDropdownOpen(false);
+                                                setMobileDesiccatedCoconutSubmenuOpen(false);
+                                                setMobileDesiccatedCoconutLowFatSubmenuOpen(false);
                                               }}
                                               className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
                                             >
