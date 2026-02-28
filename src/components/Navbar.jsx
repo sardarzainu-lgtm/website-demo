@@ -7,61 +7,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 // ✅ Import real logo
 import logo from "../assets/logo.webp";
 
-// ✅ Import product images
-import ww240Cashew from "../assets/ww240Cashew.webp"
-import ww180Cashew from "../assets/ww180Cashew.webp"
-import ww320Cashew from "../assets/ww320Cashew.webp"
-import ww320HighQuality from "../assets/ww320HighQuality.webp"
-import ww320Premium from "../assets/ww320Premium.webp"
-import ww450Cashew from "../assets/ww450Cashew.webp"
-import cashewSK from "../assets/cashewSK.webp"
-import cashewSL from "../assets/cashewSL.webp"
-import cashewnuts from "../assets/cashewnuts.webp";
-import copraCup from "../assets/copraCup.webp"
-import desiccatedCoconut from "../assets/desiccatedCoconut.webp"
-import lowFatDesiccatedCoconut from "../assets/low-fat-desiccated-coconut.webp"
-import highFatDesiccatedCoconut from "../assets/high-fat-desiccated-coconut.webp"
-import mediumFatDesiccatedCoconut from "../assets/medium-fat-desiccated-cocunut.webp"
-import driedGinger from "../assets/driedGinger.webp"
-import gingerWholeDry from "../assets/drygng-dry.webp"
-import gingerWholeFresh from "../assets/drygng-fresh.webp"
-import roastedSaltedCashew from "../assets/roastedSaltedCashew.webp"
-import whitePepper from "../assets/whitePepper.webp"
-import blackPepper from "../assets/blackPepper.webp"
-import brazilianBlackPepper from "../assets/brazilianBlackPepper.webp"
-import mangoChips from "../assets/mango-chips.webp"
-import redChilli from "../assets/red-chilli.webp"
-import starAnise from "../assets/star-anise.webp"
-import sweetTamarind from "../assets/sweet-tamarind.webp"
-import robustaBeans from "../assets/robusta-beans.webp"
-import robustaS16Clean from "../assets/robustas16-clean-welpolished.webp"
-import robustaS18Clean from "../assets/robusta-s18-clean.webp"
-import robustaS13 from "../assets/robusta-s13.webp"
-import arabicaS16S18 from "../assets/arabic-s16-s18.webp"
-import blackCardamom from "../assets/black-cardamom.webp"
-import greenCardamom from "../assets/green-cardamom.webp"
-import bigCardamom from "../assets/big-cardamom.webp"
-import turmericFinger from "../assets/termaricFinger.webp"
-import walnuts from "../assets/walnuts.webp"
-import cigaretteCassia from "../assets/cigaretteCasia.webp"
-import cassiaSplit from "../assets/cassia-split.webp"
-import cassiaPressed from "../assets/cassia-pressed.webp"
-import brokenCassia from "../assets/broken-cassia.webp"
-import cassiaCigarette from "../assets/cassia-ciggarette.webp"
-import cassiaPowder from "../assets/cassia-powder.webp"
-import cassiaLeave from "../assets/cassia-leave.jpg"
-import cassiaHusk from "../assets/cassia-husk.jpg"
-import cassiaLongstick from "../assets/cassia-longstick.webp"
-import pumpkinAAA from "../assets/pumpkin-aaa.webp"
-import pumpkinAA from "../assets/pumpkin-aa.webp"
-import pumpkinA from "../assets/pumpkin-a.webp"
-import sunflowerSeeds from "../assets/sunflower-seeds.webp"
-import sunflowerKernels from "../assets/sunflower-kernels.webp"
-import watermelonSeeds from "../assets/watermelon-seed.webp"
-import nigellaSativa from "../assets/nigella-sativa.webp"
-import chinesePeanut from "../assets/chinese-peanunt.webp"
-import almond from "../assets/almond.webp"
-import cloves from "../assets/cloves.webp"
+import { products as sharedProducts, getDesiccatedCoconutFineProducts, getDesiccatedCoconutMediumProducts } from "../data/products";
 
 
 // 🌟 Premium Colors
@@ -82,39 +28,59 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const [cashewSubmenuOpen, setCashewSubmenuOpen] = useState(false);
+  const [roastedSubmenuOpen, setRoastedSubmenuOpen] = useState(false);
   const [ww320SubmenuOpen, setWw320SubmenuOpen] = useState(false);
   const [pepperSubmenuOpen, setPepperSubmenuOpen] = useState(false);
   const [blackPepperSubmenuOpen, setBlackPepperSubmenuOpen] = useState(false);
   const [desiccatedCoconutSubmenuOpen, setDesiccatedCoconutSubmenuOpen] = useState(false);
+  const [desiccatedCoconutFineSubmenuOpen, setDesiccatedCoconutFineSubmenuOpen] = useState(false);
+  const [desiccatedCoconutMediumSubmenuOpen, setDesiccatedCoconutMediumSubmenuOpen] = useState(false);
   const [gingerSubmenuOpen, setGingerSubmenuOpen] = useState(false);
   const [wholeGingerSubmenuOpen, setWholeGingerSubmenuOpen] = useState(false);
   const [sliceGingerSubmenuOpen, setSliceGingerSubmenuOpen] = useState(false);
   const [cardamomSubmenuOpen, setCardamomSubmenuOpen] = useState(false);
   const [cassiaSubmenuOpen, setCassiaSubmenuOpen] = useState(false);
+  const [cassiaPressedSubmenuOpen, setCassiaPressedSubmenuOpen] = useState(false);
+  const [cassiaLongStickSubmenuOpen, setCassiaLongStickSubmenuOpen] = useState(false);
+  const [cassiaStickSubmenuOpen, setCassiaStickSubmenuOpen] = useState(false);
+  const [cassiaPowderSubmenuOpen, setCassiaPowderSubmenuOpen] = useState(false);
   const [seedsSubmenuOpen, setSeedsSubmenuOpen] = useState(false);
   const [pumpkinSeedsSubmenuOpen, setPumpkinSeedsSubmenuOpen] = useState(false);
   const [sunflowerSeedsSubmenuOpen, setSunflowerSeedsSubmenuOpen] = useState(false);
   const [peanutsSubmenuOpen, setPeanutsSubmenuOpen] = useState(false);
   const [almondsSubmenuOpen, setAlmondsSubmenuOpen] = useState(false);
   const [starAniseSubmenuOpen, setStarAniseSubmenuOpen] = useState(false);
+  const [starAniseAutumnSubmenuOpen, setStarAniseAutumnSubmenuOpen] = useState(false);
+  const [starAniseTuquySubmenuOpen, setStarAniseTuquySubmenuOpen] = useState(false);
+  const [starAniseCandhanSubmenuOpen, setStarAniseCandhanSubmenuOpen] = useState(false);
   const [greenCoffeeSubmenuOpen, setGreenCoffeeSubmenuOpen] = useState(false);
   const [mobileProductsDropdownOpen, setMobileProductsDropdownOpen] = useState(false);
   const [mobileCashewSubmenuOpen, setMobileCashewSubmenuOpen] = useState(false);
+  const [mobileRoastedSubmenuOpen, setMobileRoastedSubmenuOpen] = useState(false);
   const [mobileWw320SubmenuOpen, setMobileWw320SubmenuOpen] = useState(false);
   const [mobilePepperSubmenuOpen, setMobilePepperSubmenuOpen] = useState(false);
   const [mobileBlackPepperSubmenuOpen, setMobileBlackPepperSubmenuOpen] = useState(false);
   const [mobileDesiccatedCoconutSubmenuOpen, setMobileDesiccatedCoconutSubmenuOpen] = useState(false);
+  const [mobileDesiccatedCoconutFineSubmenuOpen, setMobileDesiccatedCoconutFineSubmenuOpen] = useState(false);
+  const [mobileDesiccatedCoconutMediumSubmenuOpen, setMobileDesiccatedCoconutMediumSubmenuOpen] = useState(false);
   const [mobileGingerSubmenuOpen, setMobileGingerSubmenuOpen] = useState(false);
   const [mobileWholeGingerSubmenuOpen, setMobileWholeGingerSubmenuOpen] = useState(false);
   const [mobileSliceGingerSubmenuOpen, setMobileSliceGingerSubmenuOpen] = useState(false);
   const [mobileCardamomSubmenuOpen, setMobileCardamomSubmenuOpen] = useState(false);
   const [mobileCassiaSubmenuOpen, setMobileCassiaSubmenuOpen] = useState(false);
+  const [mobileCassiaPressedSubmenuOpen, setMobileCassiaPressedSubmenuOpen] = useState(false);
+  const [mobileCassiaLongStickSubmenuOpen, setMobileCassiaLongStickSubmenuOpen] = useState(false);
+  const [mobileCassiaStickSubmenuOpen, setMobileCassiaStickSubmenuOpen] = useState(false);
+  const [mobileCassiaPowderSubmenuOpen, setMobileCassiaPowderSubmenuOpen] = useState(false);
   const [mobileSeedsSubmenuOpen, setMobileSeedsSubmenuOpen] = useState(false);
   const [mobilePumpkinSeedsSubmenuOpen, setMobilePumpkinSeedsSubmenuOpen] = useState(false);
   const [mobileSunflowerSeedsSubmenuOpen, setMobileSunflowerSeedsSubmenuOpen] = useState(false);
   const [mobilePeanutsSubmenuOpen, setMobilePeanutsSubmenuOpen] = useState(false);
   const [mobileAlmondsSubmenuOpen, setMobileAlmondsSubmenuOpen] = useState(false);
   const [mobileStarAniseSubmenuOpen, setMobileStarAniseSubmenuOpen] = useState(false);
+  const [mobileStarAniseAutumnSubmenuOpen, setMobileStarAniseAutumnSubmenuOpen] = useState(false);
+  const [mobileStarAniseTuquySubmenuOpen, setMobileStarAniseTuquySubmenuOpen] = useState(false);
+  const [mobileStarAniseCandhanSubmenuOpen, setMobileStarAniseCandhanSubmenuOpen] = useState(false);
   const [mobileGreenCoffeeSubmenuOpen, setMobileGreenCoffeeSubmenuOpen] = useState(false);
   const dropdownRef = useRef(null);
   const dropdownTimeoutRef = useRef(null);
@@ -159,1122 +125,232 @@ const Navbar = () => {
     };
   }, []);
 
-  // ✅ FULL PRODUCT LIST (REQUIRED FOR SEARCH)
-  const products = [
-   { 
-    id: 1, 
-    name: "Cashew Nuts", 
-    image: cashewnuts, 
-    origin: "Vietnam", 
-    moisture: "5% max", 
-    standard: "AFI Standard 2012",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
+  const products = sharedProducts;
 
-  { 
-    id: 2, 
-    name: "Desiccated Coconut", 
-    image: desiccatedCoconut, 
-    origin: "Vietnam", 
-    moisture: "3% max"
-  },
-
-  { 
-    id: 3, 
-    name: "Edible Copra", 
-    image: copraCup, 
-    origin: "Indonesia", 
-    moisture: "7-10%",
-    packing: "40 Kg Net in Mesh Bags",
-    description: "Looking for premium quality copra? Our Edible Copra is the perfect choice for various food applications and international trade!",
-    fullName: "Edible Copra (White Copra Sundry - Split)"
-  },
-
-  { 
-    id: 4, 
-    name: "Black Pepper", 
-    image: blackPepper, 
-    origin: "Vietnam", 
-    moisture: "13.5% max",
-    packing: "25kg/bag",
-    containerCapacity: "15MT/20ft, 28MT/40ft"
-  },
-
-  { 
-    id: 5, 
-    name: "White Pepper 630g/l (EU Standard)", 
-    image: whitePepper, 
-    origin: "Vietnam", 
-    moisture: "13.5% max",
-    density: "630g/l",
-    admixture: "0.5% max",
-    blackSeeds: "2% max",
-    packing: "25kg/bag",
-    containerCapacity: "15MT/20ft, 28MT/40ft"
-  },
-
-  { 
-    id: 6, 
-    name: "Fresh Ginger", 
-    image: driedGinger, 
-    origin: "Vietnam", 
-    moisture: "8%"
-  },
-  { 
-    id: 35, 
-    name: "DRY SLICE GINGER A GRADE", 
-    image: driedGinger, 
-    origin: "Vietnam", 
-    moisture: "8%" 
-  },
-  { 
-    id: 36, 
-    name: "DRY SLICE GINGER B GRADE", 
-    image: driedGinger, 
-    origin: "Vietnam", 
-    moisture: "8%" 
-  },
-  { 
-    id: 37, 
-    name: "DRY SLICE GINGER C GRADE", 
-    image: driedGinger, 
-    origin: "Vietnam", 
-    moisture: "8%" 
-  },
-  { 
-    id: 38, 
-    name: "Ginger Whole Dry", 
-    image: gingerWholeDry, 
-    origin: "Vietnam", 
-    moisture: "10% max", 
-    grade: "Whole", 
-    appearance: "Natural color, clean, no foreign matter", 
-    packing: "10-25 kg bags" 
-  },
-  { 
-    id: 39, 
-    name: "Ginger Whole Fresh", 
-    image: gingerWholeFresh, 
-    origin: "Vietnam", 
-    moisture: "12-15%", 
-    grade: "Whole Fresh", 
-    appearance: "Fresh appearance, natural color, clean", 
-    packing: "10-25 kg bags" 
-  },
- { 
-    id: 7, 
-    name: "Roasted & Salted Cashew Nuts", 
-    image: roastedSaltedCashew, 
-    origin: "Vietnam", 
-    moisture: "4%",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-
-  // Cashew Nuts WW320 AFI Standard
-  { 
-    id: 28, 
-    name: "Cashew Nuts WW320 AFI Standard", 
-    image: ww320Cashew, 
-    origin: "Vietnam", 
-    moisture: "5% max",
-    standard: "AFI Standard 2012",
-    seedsPerLb: "300-320",
-    broken: "5% max",
-    lowerSize: "7-8% max",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-  // Cashew Nuts WW320 High Quality
-  { 
-    id: 8, 
-    name: "Cashew Nuts WW320 High Quality", 
-    image: ww320HighQuality, 
-    origin: "Vietnam", 
-    moisture: "5% max",
-    standard: "High Quality",
-    seedsPerLb: "300-320",
-    broken: "5% max",
-    lowerSize: "7-8% max",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-  // Cashew Nuts WW320 Premium
-  { 
-    id: 27, 
-    name: "Cashew Nuts WW320 Premium", 
-    image: ww320Premium, 
-    origin: "Vietnam", 
-    moisture: "5% max",
-    standard: "Standard Premium",
-    seedsPerLb: "300-320",
-    broken: "5% max",
-    lowerSize: "7-8% max",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-
-  // Cashew Nuts WW240
-  { 
-    id: 9, 
-    name: "Cashew Nuts WW240", 
-    image: ww240Cashew, 
-    origin: "Vietnam", 
-    moisture: "5% max",
-    standard: "AFI Standard 2012",
-    seedsPerLb: "220-240",
-    broken: "5% max",
-    lowerSize: "7-8% max",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-
-  // Cashew Nuts WW180
-  { 
-    id: 10, 
-    name: "Cashew Nuts WW180", 
-    image: ww180Cashew, 
-    origin: "Vietnam", 
-    moisture: "5% max",
-    standard: "AFI Standard 2012",
-    seedsPerLb: "160-180",
-    broken: "7-8% max",
-    lowerSize: "7-8% max",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-
-  // Cashew Nuts WW450
-  { 
-    id: 11, 
-    name: "Cashew Nuts WW450", 
-    image: ww450Cashew, 
-    origin: "Vietnam", 
-    moisture: "5% max",
-    standard: "AFI Standard 2012",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-
-  // Cashew Nuts SK
-  { 
-    id: 12, 
-    name: "Cashew Nuts SK", 
-    image: cashewSK, 
-    origin: "Vietnam", 
-    moisture: "4%",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-
-  // Cashew Nuts SL
-  { 
-    id: 13, 
-    name: "Cashew Nuts SL", 
-    image: cashewSL, 
-    origin: "Vietnam", 
-    moisture: "4%",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-
-  // Black Pepper subcategories
-  { 
-    id: 14, 
-    name: "Black Pepper 450g/l FAQ", 
-    image: blackPepper, 
-    origin: "Vietnam", 
-    moisture: "13.5% max",
-    density: "450g/l",
-    admixture: "1% max",
-    grade: "FAQ",
-    packing: "25kg/bag",
-    containerCapacity: "6MT/20ft, 15MT/40ft"
-  },
-  { 
-    id: 15, 
-    name: "Black Pepper 500g/l FAQ", 
-    image: blackPepper, 
-    origin: "Vietnam", 
-    moisture: "13.5% max",
-    density: "500g/l",
-    admixture: "1% max",
-    grade: "FAQ",
-    packing: "25kg/bag",
-    containerCapacity: "12MT/20ft, 25MT/40ft"
-  },
-  { 
-    id: 16, 
-    name: "Black Pepper 550g/l FAQ", 
-    image: blackPepper, 
-    origin: "Vietnam", 
-    moisture: "13.5% max",
-    density: "550g/l",
-    admixture: "1% max",
-    grade: "FAQ",
-    packing: "25kg/bag",
-    containerCapacity: "15MT/20ft, 28MT/40ft"
-  },
-  { 
-    id: 17, 
-    name: "Black Pepper 500g/l MC/ASTA", 
-    image: blackPepper, 
-    origin: "Vietnam", 
-    moisture: "12.5% max",
-    density: "500g/l",
-    admixture: "0.5% max",
-    grade: "MC/ASTA",
-    packing: "25kg/bag",
-    containerCapacity: "15MT/20ft, 28MT/40ft"
-  },
-  { 
-    id: 18, 
-    name: "Black Pepper 550g/l MC/ASTA", 
-    image: blackPepper, 
-    origin: "Vietnam", 
-    moisture: "12.5% max",
-    density: "550g/l",
-    admixture: "0.5% max",
-    grade: "MC/ASTA",
-    packing: "25kg/bag",
-    containerCapacity: "15MT/20ft, 28MT/40ft"
-  },
-  { 
-    id: 19, 
-    name: "Black Pepper 570g/l MC/ASTA", 
-    image: blackPepper, 
-    origin: "Vietnam", 
-    moisture: "12.5% max",
-    density: "570g/l",
-    admixture: "0.5% max",
-    grade: "MC/ASTA",
-    packing: "25kg/bag",
-    containerCapacity: "15MT/20ft, 28MT/40ft"
-  },
-  { 
-    id: 20, 
-    name: "Black Pepper 5mm Bold", 
-    image: blackPepper, 
-    origin: "Vietnam", 
-    moisture: "12.5% max",
-    density: "570g/l - 580g/l",
-    admixture: "0.5% max",
-    grade: "5mm Bold",
-    size: "5mm (80% Min. on sieve)",
-    packing: "25kg/bag",
-    containerCapacity: "15MT/20ft, 28MT/40ft"
-  },
-  { 
-    id: 26, 
-    name: "Brazilian Black Pepper", 
-    image: brazilianBlackPepper, 
-    origin: "Brazil", 
-    moisture: "13.5% max",
-    appearance: "Small, dark brown to black, wrinkled berries (~4-5 mm)",
-    aroma: "Strong, pungent, citrusy, slightly woody, and spicy",
-    benefits: "Aids digestion, anti-inflammatory, weight loss",
-    packing: "25kg/bag",
-    containerCapacity: "15MT/20ft, 28MT/40ft"
-  },
-
-  { 
-    id: 21, 
-    name: "Cashew Nuts LP", 
-    image: cashewnuts, 
-    origin: "Vietnam", 
-    moisture: "5% max",
-    standard: "AFI Standard 2012",
-    sieve: "6.3 mm",
-    crop: "New crop",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-  { 
-    id: 22, 
-    name: "Cashew Nuts WS", 
-    image: cashewnuts, 
-    origin: "Vietnam", 
-    moisture: "5% max",
-    standard: "AFI Standard 2012",
-    nutSize: "Small pieces, on sieve 5mm - 7.2mm",
-    broken: "10% max",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft"
-  },
-
-  // Updated Desiccated Coconut
-  { 
-    id: 23, 
-    name: "Low fat Desiccated Coconut Fine Grade", 
-    image: lowFatDesiccatedCoconut, 
-    origin: "Vietnam", 
-    moisture: "4% max",
-    ffa: "0.3% max",
-    fatContent: "30-35% min",
-    so2: "100 ppm max",
-    packing: "25kg/bag or custom",
-    containerCapacity: "7MT/20ft, 18MT/40ft"
-  },
-  { 
-    id: 24, 
-    name: "High fat Desiccated Coconut Fine Grade", 
-    image: highFatDesiccatedCoconut, 
-    origin: "Vietnam", 
-    moisture: "3% max",
-    ffa: "0.3% max",
-    fatContent: "63% min",
-    so2: "100 ppm max",
-    packing: "25kg/bag or custom",
-    containerCapacity: "13MT/20ft, 27MT/40ft"
-  },
-  { 
-    id: 25, 
-    name: "High fat Desiccated Coconut Medium Grade", 
-    image: mediumFatDesiccatedCoconut, 
-    origin: "Vietnam", 
-    moisture: "3% max",
-    ffa: "0.3% max",
-    fatContent: "63% min",
-    so2: "100 ppm max",
-    packing: "25kg/bag or custom",
-    containerCapacity: "13MT/20ft, 27MT/40ft"
-  },
-  { 
-    id: 30, 
-    name: "Soft Dried Mango", 
-    image: mangoChips, 
-    origin: "Vietnam", 
-    moisture: "12-17% max", 
-    ingredients: "100% Mango", 
-    appearanceColor: "Yellow color", 
-    cuttingType: "Slice", 
-    process: "5-10% Sugar Added / without sugar-coated", 
-    length: "8cm - 10cm", 
-    thickness: "0.1cm - 0.2cm", 
-    shelfLife: "12 Months", 
-    packing: "Zip bags, craft paper, bulk packing depends on customer request from 100g - 10kg / pack" 
-  },
-  { 
-    id: 31, 
-    name: "TEJA RED CHILLI", 
-    image: redChilli, 
-    origin: "India", 
-    pungency: "75,000 - 1,000,000 SHU", 
-    capsaicinContent: "1%", 
-    color: "Vibrant Red Color (ASTA 40-60)", 
-    length: "5-6 cm", 
-    skinThickness: "0.50-0.70 mm", 
-    podsWithStalks: "2%", 
-    brokenChilies: "1%", 
-    looseSeeds: "1%", 
-    description: "Perfect for adding bold spice to your curries, sauces, and snacks!" 
-  },
-  { 
-    id: 32, 
-    name: "Star Anise", 
-    image: starAnise, 
-    origin: "Vietnam", 
-    moisture: "13.5%", 
-    size: "2.5 cm 80% up", 
-    brokenPieces: "10% max", 
-    notes: "No fungus, natural color" 
-  },
-  // CATEGORIZED UNDER STAR ANISE
-  { 
-    id: 83, 
-    name: "Spring Star Anise", 
-    image: starAnise, 
-    origin: "Vietnam", 
-    moisture: "13.5%", 
-    size: "2.5 cm 80% up", 
-    brokenPieces: "10% max", 
-    notes: "No fungus, natural color",
-    description: "Premium quality spring harvest star anise from Vietnam. Harvested during spring season for optimal flavor and aroma."
-  },
-  { 
-    id: 84, 
-    name: "Autumn Star Anise", 
-    image: starAnise, 
-    origin: "Vietnam", 
-    moisture: "13.5%", 
-    size: "2.5 cm 80% up", 
-    brokenPieces: "10% max", 
-    notes: "No fungus, natural color",
-    description: "Premium quality autumn harvest star anise from Vietnam. Harvested during autumn season for rich, full-bodied flavor."
-  },
-  { 
-    id: 85, 
-    name: "Canh Dan Star Anise", 
-    image: starAnise, 
-    origin: "Vietnam", 
-    moisture: "13.5%", 
-    size: "2.5 cm 80% up", 
-    brokenPieces: "10% max", 
-    notes: "No fungus, natural color",
-    description: "Premium quality Canh Dan variety star anise from Vietnam. Known for its distinctive aroma and superior quality."
-  },
-  { 
-    id: 86, 
-    name: "Broken Star Anise", 
-    image: starAnise, 
-    origin: "Vietnam", 
-    moisture: "13.5%", 
-    brokenPieces: "High percentage", 
-    notes: "No fungus, natural color",
-    description: "Cost-effective broken star anise pieces from Vietnam. Ideal for grinding and commercial food processing applications."
-  },
-  { 
-    id: 87, 
-    name: "Dyed Star Anise", 
-    image: starAnise, 
-    origin: "Vietnam", 
-    moisture: "13.5%", 
-    size: "2.5 cm 80% up", 
-    notes: "Enhanced color, natural flavor",
-    description: "Color-enhanced star anise from Vietnam. Ideal for decorative and culinary applications where visual appeal is important."
-  },
-  { 
-    id: 33, 
-    name: "Sweet Tamarind", 
-    image: sweetTamarind, 
-    origin: "Vietnam", 
-    moisture: "10-14%", 
-    variety: "Sirthong", 
-    size: "6.9 - 7.5 inches", 
-    process: "Not steamed" 
-  },
-  { 
-    id: 34, 
-    name: "Green Coffee Beans", 
-    image: robustaBeans, 
-    origin: "Vietnam", 
-    moisture: "12.5%",
-    description: "Premium quality green coffee beans from Vietnam. Available in Robusta and Arabica varieties."
-  },
-  // CATEGORIZED UNDER GREEN COFFEE BEANS
-  { 
-    id: 88, 
-    name: "Robusta Coffee Beans S16 Clean/Wet Polished", 
-    image: robustaS16Clean, 
-    origin: "Vietnam", 
-    moisture: "12.5%", 
-    grade: "S16 Clean/Wet Polished",
-    packing: "60kg/Jute bag",
-    containerCapacity: "19.2MT/20ft, 28MT/40ft",
-    description: "Premium quality Robusta coffee beans S16 grade, clean and wet polished. Perfect for commercial roasting and blending."
-  },
-  { 
-    id: 89, 
-    name: "Robusta Coffee Beans S18 Clean/Wet Polished", 
-    image: robustaS18Clean, 
-    origin: "Vietnam", 
-    moisture: "12.5%", 
-    grade: "S18 Clean/Wet Polished",
-    packing: "60kg/Jute bag",
-    containerCapacity: "19.2MT/20ft, 28MT/40ft",
-    description: "Premium quality Robusta coffee beans S18 grade, clean and wet polished. Larger bean size for premium applications."
-  },
-  { 
-    id: 90, 
-    name: "Robusta Coffee Beans S13", 
-    image: robustaS13, 
-    origin: "Vietnam", 
-    moisture: "12.5%", 
-    grade: "S13",
-    packing: "60kg/Jute bag",
-    containerCapacity: "19.2MT/20ft, 28MT/40ft",
-    description: "Quality Robusta coffee beans S13 grade. Cost-effective option for commercial use."
-  },
-  { 
-    id: 91, 
-    name: "Arabica Coffee Beans S16/S18", 
-    image: arabicaS16S18, 
-    origin: "Vietnam", 
-    moisture: "12.5%", 
-    grade: "S16/S18",
-    packing: "60kg/Jute bag",
-    containerCapacity: "19.2MT/20ft, 28MT/40ft",
-    description: "Premium Arabica coffee beans S16/S18 grade. Known for smooth, aromatic flavor profile."
-  },
-  { 
-    id: 45, 
-    name: "BIG CARDAMOM", 
-    image: bigCardamom, 
-    origin: "Nepal", 
-    moisture: "12% max", 
-    admixture: "1% max", 
-    size: "Large pods", 
-    color: "Brown to dark brown", 
-    description: "Premium quality big cardamom with strong aromatic flavor. Perfect for culinary and medicinal uses. Sourced from the finest farms." 
-  },
-  { 
-    id: 41, 
-    name: "BLACK CARDAMOM", 
-    image: blackCardamom, 
-    origin: "Vietnam", 
-    moisture: "13.5%", 
-    admixture: "0.5%", 
-    shape: "Long, strong aroma", 
-    crop: "New crop 2025", 
-    description: "Bold, smoky flavor perfect for curries and soups. 100% natural, no additives or preservatives. Sourced sustainably from Vietnam's best farms." 
-  },
-  { 
-    id: 46, 
-    name: "GREEN CARDAMOM", 
-    image: greenCardamom, 
-    origin: "Guatemala", 
-    moisture: "12% max", 
-    admixture: "0.5% max", 
-    size: "Small to medium pods", 
-    color: "Green", 
-    description: "Premium quality green cardamom with sweet, floral aroma. Perfect for desserts, teas, and savory dishes. Known as the 'Queen of Spices'." 
-  },
-  { 
-    id: 42, 
-    name: "TURMERIC FINGER", 
-    image: turmericFinger, 
-    origin: "India", 
-    moisture: "10% max", 
-    curcuminContent: "3-5% min", 
-    color: "Bright Yellow to Deep Orange", 
-    shape: "Finger-like rhizomes", 
-    size: "3-5 cm length", 
-    admixture: "1% max", 
-    extraneousMatter: "0.5% max", 
-    description: "Premium quality turmeric fingers with high curcumin content. Perfect for culinary and medicinal uses. Natural, sun-dried, and free from additives." 
-  },
-  { 
-    id: 43, 
-    name: "WALNUTS", 
-    image: walnuts, 
-    origin: "Chile", 
-    moisture: "8% max", 
-    kernelYield: "45-50% min", 
-    brokenKernels: "5% max", 
-    foreignMatter: "0.5% max", 
-    size: "Extra Large (32mm+)", 
-    color: "Light Brown to Golden", 
-    grade: "Premium Grade", 
-    description: "Premium quality walnuts with high kernel yield. Rich in omega-3 fatty acids and antioxidants. Perfect for snacking, baking, and culinary applications. Naturally dried and free from preservatives." 
-  },
-  { 
-    id: 48, 
-    name: "SPLIT CASSIA", 
-    image: cassiaSplit, 
-    origin: "Vietnam", 
-    moisture: "13% max", 
-    description: "Premium quality split cassia from Vietnam. Perfect for culinary and commercial applications." 
-  },
-  { 
-    id: 49, 
-    name: "PRESSED CASSIA", 
-    image: cassiaPressed, 
-    origin: "Vietnam", 
-    moisture: "13% max", 
-    description: "Premium quality pressed cassia from Vietnam. Perfect for culinary and commercial applications." 
-  },
-  { 
-    id: 50, 
-    name: "BROKEN CASSIA", 
-    image: brokenCassia, 
-    origin: "Vietnam", 
-    moisture: "13% max", 
-    description: "Premium quality broken cassia from Vietnam. Perfect for culinary and commercial applications." 
-  },
-  { 
-    id: 51, 
-    name: "CASSIA CIGARETTE", 
-    image: cassiaCigarette, 
-    origin: "Vietnam", 
-    placeOfOrigin: "Yen Bai, Vietnam", 
-    roll: "50% to 100%", 
-    size: "6-20 cm", 
-    taste: "Spicy, Tasty", 
-    color: "Brownish Yellow", 
-    moisture: "13% max", 
-    packing: "Mesh bag/ PP bag", 
-    description: "Premium quality cigarette cassia from Yen Bai, Vietnam. Spicy and tasty flavor, available in various roll percentages. Perfect for culinary and commercial applications." 
-  },
-  { 
-    id: 52, 
-    name: "CASSIA POWDER", 
-    image: cassiaPowder, 
-    origin: "Vietnam", 
-    moisture: "13% max", 
-    description: "Premium quality cassia powder from Vietnam. Perfect for culinary and commercial applications." 
-  },
-  { 
-    id: 53, 
-    name: "CASSIA LEAVE", 
-    image: cassiaLeave, 
-    origin: "Vietnam", 
-    moisture: "13% max", 
-    description: "Premium quality cassia leaves from Vietnam. Perfect for culinary and commercial applications." 
-  },
-  { 
-    id: 54, 
-    name: "CASSIA HUSK", 
-    image: cassiaHusk, 
-    origin: "Vietnam", 
-    moisture: "13% max", 
-    description: "Premium quality cassia husk from Vietnam. Perfect for culinary and commercial applications." 
-  },
-  { 
-    id: 55, 
-    name: "CASSIA LONG STICK", 
-    image: cassiaLongstick, 
-    origin: "Vietnam", 
-    moisture: "13% max", 
-    description: "Premium quality cassia long stick from Vietnam. Perfect for culinary and commercial applications." 
-  },
-  { 
-    id: 58, 
-    name: "Pumpkin Seeds Grade AAA", 
-    image: pumpkinAAA, 
-    origin: "China", 
-    moisture: "8% max", 
-    grade: "AAA",
-    purity: "99% min",
-    size: "Large, uniform seeds",
-    color: "Green to dark green",
-    description: "Premium quality pumpkin seeds Grade AAA. Large, uniform seeds with excellent taste and texture. Perfect for snacking, baking, and culinary applications." 
-  },
-  { 
-    id: 59, 
-    name: "Pumpkin Seeds Grade AA", 
-    image: pumpkinAA, 
-    origin: "China", 
-    moisture: "8% max", 
-    grade: "AA",
-    purity: "98% min",
-    size: "Medium to large seeds",
-    color: "Green to dark green",
-    description: "High quality pumpkin seeds Grade AA. Medium to large seeds with good taste and texture. Perfect for snacking, baking, and culinary applications." 
-  },
-  { 
-    id: 60, 
-    name: "Pumpkin Seeds Grade A", 
-    image: pumpkinA, 
-    origin: "China", 
-    moisture: "8% max", 
-    grade: "A",
-    purity: "97% min",
-    size: "Medium seeds",
-    color: "Green to dark green",
-    description: "Quality pumpkin seeds Grade A. Medium seeds suitable for various applications. Perfect for snacking, baking, and culinary uses." 
-  },
-  { 
-    id: 61, 
-    name: "Sunflower Seeds Confectionery Grade", 
-    image: sunflowerSeeds, 
-    origin: "China", 
-    moisture: "8% max", 
-    grade: "Confectionery Grade",
-    size: "Large seeds",
-    color: "Black and white striped",
-    description: "Premium quality sunflower seeds confectionery grade. Large seeds perfect for snacking. Rich in vitamin E and healthy fats. Natural, roasted, and ready to eat." 
-  },
-  { 
-    id: 62, 
-    name: "Sunflower Seeds Bakery Grade", 
-    image: sunflowerKernels, 
-    origin: "China", 
-    moisture: "8% max", 
-    grade: "Bakery Grade",
-    size: "Smaller kernels",
-    color: "Light beige to white",
-    description: "High quality sunflower seeds bakery grade. Smaller kernels perfect for baking and cooking applications. Ideal for bread, cookies, and other baked goods." 
-  },
-  { 
-    id: 93, 
-    name: "Watermelon Seeds", 
-    image: watermelonSeeds, 
-    origin: "China", 
-    moisture: "8% max", 
-    purity: "99% min",
-    color: "Black with white edges",
-    description: "Premium quality watermelon seeds. Rich in protein, healthy fats, and essential minerals. Perfect for snacking, roasting, and culinary applications." 
-  },
-  { 
-    id: 65, 
-    name: "Nigella sativa", 
-    image: nigellaSativa, 
-    origin: "India", 
-    moisture: "7% max", 
-    purity: "99%, 99.50%, 99.90%",
-    oilContents: "36%",
-    nonGMO: "Yes",
-    description: "Premium quality Nigella sativa (black seed) from India. High purity levels available (99%, 99.50%, 99.90%). Rich in oil content (36%) and certified Non-GMO. Known for its medicinal properties and culinary uses." 
-  },
-  // MAIN CATEGORY PRODUCT
-
-  // CATEGORIZED UNDER PEANUTS - LARGE SIZE
-  { 
-    id: 67, 
-    name: "Peanuts L(25/29)", 
-    image: chinesePeanut, 
-    origin: "China", 
-    moisture: "7% max", 
-    size: "Large (25-29 kernels per ounce)",
-    grade: "Large",
-    description: "Premium quality Chinese peanuts, large size (25-29 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
-  },
-  { 
-    id: 68, 
-    name: "Peanuts 29/33", 
-    image: chinesePeanut, 
-    origin: "China", 
-    moisture: "7% max", 
-    size: "Large (29-33 kernels per ounce)",
-    grade: "Large",
-    description: "Premium quality Chinese peanuts, large size (29-33 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
-  },
-  // CATEGORIZED UNDER PEANUTS - MEDIUM SIZE
-  { 
-    id: 69, 
-    name: "Peanuts M(35/39)", 
-    image: chinesePeanut, 
-    origin: "China", 
-    moisture: "7% max", 
-    size: "Medium (35-39 kernels per ounce)",
-    grade: "Medium",
-    description: "Premium quality Chinese peanuts, medium size (35-39 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
-  },
-  { 
-    id: 70, 
-    name: "Peanuts M(39/43)", 
-    image: chinesePeanut, 
-    origin: "China", 
-    moisture: "7% max", 
-    size: "Medium (39-43 kernels per ounce)",
-    grade: "Medium",
-    description: "Premium quality Chinese peanuts, medium size (39-43 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
-  },
-  // CATEGORIZED UNDER PEANUTS - SMALL SIZE
-  { 
-    id: 71, 
-    name: "Peanuts S(41/51)", 
-    image: chinesePeanut, 
-    origin: "China", 
-    moisture: "7% max", 
-    size: "Small (41-51 kernels per ounce)",
-    grade: "Small",
-    description: "Premium quality Chinese peanuts, small size (41-51 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
-  },
-  { 
-    id: 72, 
-    name: "Peanuts S(51/61)", 
-    image: chinesePeanut, 
-    origin: "China", 
-    moisture: "7% max", 
-    size: "Small (51-61 kernels per ounce)",
-    grade: "Small",
-    description: "Premium quality Chinese peanuts, small size (51-61 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
-  },
-  { 
-    id: 73, 
-    name: "Peanuts S(61/71)", 
-    image: chinesePeanut, 
-    origin: "China", 
-    moisture: "7% max", 
-    size: "Small (61-71 kernels per ounce)",
-    grade: "Small",
-    description: "Premium quality Chinese peanuts, small size (61-71 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
-  },
-  { 
-    id: 74, 
-    name: "Peanuts S(71/91)", 
-    image: chinesePeanut, 
-    origin: "China", 
-    moisture: "7% max", 
-    size: "Small (71-91 kernels per ounce)",
-    grade: "Small",
-    description: "Premium quality Chinese peanuts, small size (71-91 kernels per ounce). Perfect for snacking, cooking, and commercial applications." 
-  },
-  // CATEGORIZED UNDER ALMONDS - BY SIZE
-  { 
-    id: 76, 
-    name: "Almonds 18/20", 
-    image: almond, 
-    origin: "USA", 
-    moisture: "6% max", 
-    size: "Largest (18-20 kernels per ounce)",
-    grade: "Premium",
-    description: "Premium quality almonds, largest size (18-20 kernels per ounce). Premium size often used for chocolate coating or high-end snacking. Perfect for premium retail packs and gourmet applications." 
-  },
-  { 
-    id: 77, 
-    name: "Almonds 20/22", 
-    image: almond, 
-    origin: "USA", 
-    moisture: "6% max", 
-    size: "Second largest (20-22 kernels per ounce)",
-    grade: "Premium",
-    description: "Premium quality almonds, second largest size (20-22 kernels per ounce). Popular for premium retail packs. Perfect for snacking and high-end applications." 
-  },
-  { 
-    id: 78, 
-    name: "Almonds 23/25", 
-    image: almond, 
-    origin: "USA", 
-    moisture: "6% max", 
-    size: "Standard large (23-25 kernels per ounce)",
-    grade: "Large",
-    description: "Premium quality almonds, standard large size (23-25 kernels per ounce). Commonly used in snacking. Perfect for retail packs and commercial applications." 
-  },
-  { 
-    id: 79, 
-    name: "Almonds 25/27", 
-    image: almond, 
-    origin: "USA", 
-    moisture: "6% max", 
-    size: "Medium-large (25-27 kernels per ounce)",
-    grade: "Medium-Large",
-    description: "Premium quality almonds, medium-large size (25-27 kernels per ounce). Perfect for snacking, baking, and commercial applications." 
-  },
-  { 
-    id: 80, 
-    name: "Almonds 27/30", 
-    image: almond, 
-    origin: "USA", 
-    moisture: "6% max", 
-    size: "Medium (27-30 kernels per ounce)",
-    grade: "Medium",
-    description: "Premium quality almonds, medium size (27-30 kernels per ounce). Perfect for snacking, baking, and commercial applications." 
-  },
-  { 
-    id: 81, 
-    name: "Almonds 30/32", 
-    image: almond, 
-    origin: "USA", 
-    moisture: "6% max", 
-    size: "Medium-small (30-32 kernels per ounce)",
-    grade: "Medium-Small",
-    description: "Premium quality almonds, medium-small size (30-32 kernels per ounce). Perfect for snacking, baking, and commercial applications." 
-  },
-  // CATEGORIZED UNDER SPICES
-  { 
-    id: 82, 
-    name: "Cloves", 
-    image: cloves, 
-    origin: "Indonesia", 
-    moisture: "12% max", 
-    botanicalName: "Syzygium aromaticum",
-    appearance: "Whole dried buds, rich dark brown to reddish-brown",
-    foreignMatter: "1% max",
-    grade: "Hand-picked, sorted – multiple grades available",
-    aroma: "Strong, warm & spicy",
-    packing: "25 kg or 50 kg net weight - Polypropylene or jute bags",
-    description: "Premium quality cloves direct from Indonesia. Whole dried buds with rich dark brown to reddish-brown color. Hand-picked and sorted with multiple grades available. Strong, warm and spicy aroma. Perfect for culinary and commercial applications." 
-  },
-];
-
-  // Product categories for dropdown
-  const productCategories = [
-    
-    { id: 1, name: "Cashew Nuts", hasSubcategories: true },
-    { id: 2, name: "Desiccated Coconut", hasSubcategories: true },
-    { id: 4, name: "Pepper", hasSubcategories: true },
-    { id: 3, name: "Edible Copra", hasSubcategories: false },
-    { id: 6, name: "Fresh Ginger", hasSubcategories: true },
-    { id: 8, name: "CASSIA/CINNAMON", hasSubcategories: true },
-    { id: 30, name: "Soft Dried Mango", hasSubcategories: false },
-    { id: 31, name: "TEJA RED CHILLI", hasSubcategories: false },
-    { id: 32, name: "Star Anise", hasSubcategories: true },
-    { id: 7, name: "Cardamom", hasSubcategories: true },
-    { id: 92, name: "Seeds", hasSubcategories: true },
-    { id: 66, name: "Peanuts", hasSubcategories: true },
-    { id: 75, name: "Almonds", hasSubcategories: true },
-    { id: 42, name: "TURMERIC FINGER", hasSubcategories: false },
-    { id: 43, name: "WALNUTS", hasSubcategories: false },
-    { id: 33, name: "Sweet Tamarind", hasSubcategories: false },
-    { id: 34, name: "Green Coffee Beans", hasSubcategories: true },
-    { id: 65, name: "Nigella sativa", hasSubcategories: false },
-    { id: 82, name: "Cloves", hasSubcategories: false },
+  // Product categories for dropdown (from data, in display order)
+  const MAIN_CATEGORY_ORDER = [
+    "Cashew Nuts", "WALNUTS", "Desiccated Coconut","Edible Copra", "Pepper", "TEJA RED CHILLI",
+    "CASSIA/CINNAMON",  "Soft Dried Mango","Fresh Ginger", "TURMERIC FINGER",
+     "Star Anise", "Cardamom",
+    "Seeds", "Peanuts", "Almonds", "Sweet Tamarind",
+    "Green Coffee Beans", "Nigella sativa", "Cloves",
   ];
+  const productCategories = MAIN_CATEGORY_ORDER
+    .filter((name) => products.some((p) => p.category === name))
+    .map((name, i) => ({
+      id: i + 1,
+      name,
+      hasSubcategories: products.filter((p) => p.category === name).length > 1 || products.some((p) => p.category === name && p.subcategory),
+    }));
 
-  // Cashew Nuts subcategories
-  const cashewSubcategories = [
-    { id: 7, name: "Roasted & Salted Cashew Nuts" },
-    { id: "ww320", name: "Cashew Nuts WW320", hasSubcategories: true },
-    { id: 9, name: "Cashew Nuts WW240" },
-    { id: 10, name: "Cashew Nuts WW180" },
-    { id: 11, name: "Cashew Nuts WW450" },
-    { id: 12, name: "Cashew Nuts SK" },
-    { id: 13, name: "Cashew Nuts SL" },
-    { id: 21, name: "Cashew Nuts LP" },
-    { id: 22, name: "Cashew Nuts WS" },
-  ];
+  // Cashew Nuts: group by subcategory; WW320 as expandable, others as direct links
+  const cashewBySub = {};
+  products.filter((p) => p.category === "Cashew Nuts").forEach((p) => {
+    const s = p.subcategory || p.name;
+    if (!cashewBySub[s]) cashewBySub[s] = [];
+    cashewBySub[s].push(p);
+  });
+  const CASHEW_SUB_ORDER = ["Roasted", "WW320", "WW240", "WW210", "WW180", "WW450", "SK", "SL", "LP", "WS"];
+  const cashewSubcategories = [];
+  CASHEW_SUB_ORDER.forEach((sub) => {
+    if (!cashewBySub[sub]) return;
+    if (sub === "Roasted") {
+      cashewSubcategories.push({ id: "roasted", name: "Salted and Roasted Cashew Nuts", hasSubcategories: true });
+      return;
+    }
+    if (sub === "WW320") {
+      cashewSubcategories.push({ id: "ww320", name: "Cashew Nuts WW320", hasSubcategories: true });
+      return;
+    }
+    cashewBySub[sub].forEach((p) => cashewSubcategories.push({ id: p.id, name: p.name }));
+  });
+  Object.keys(cashewBySub).forEach((sub) => {
+    if (CASHEW_SUB_ORDER.includes(sub)) return;
+    cashewBySub[sub].forEach((p) => cashewSubcategories.push({ id: p.id, name: p.name }));
+  });
 
-  // WW320 subcategories
-  const ww320Subcategories = [
-    { id: 28, name: "Cashew Nuts WW320 AFI Standard" },
-    { id: 8, name: "Cashew Nuts WW320 High Quality" },
-    { id: 27, name: "Cashew Nuts WW320 Premium" },
-  ];
+  const roastedSubcategories = (cashewBySub["Roasted"] || []).map((p) => ({ id: p.id, name: p.name }));
+  const ww320Subcategories = (cashewBySub["WW320"] || []).map((p) => ({ id: p.id, name: p.name }));
 
-  // Pepper subcategories
   const pepperSubcategories = [
     { id: "blackPepper", name: "Black Pepper", hasSubcategories: true },
-    { id: 5, name: "White Pepper 630g/l (EU Standard)" },
+    ...products.filter((p) => p.category === "Pepper" && (p.subcategory === "White Pepper" || p.name.includes("White Pepper"))).map((p) => ({ id: p.id, name: p.name })),
   ];
+  const blackPepperSubcategories = products
+    .filter((p) => p.category === "Pepper" && p.subcategory === "Black Pepper")
+    .map((p) => ({ id: p.id, name: p.name }));
 
-  // Black Pepper subcategories
-  const blackPepperSubcategories = [
-    { id: 14, name: "Black Pepper 450g/l FAQ" },
-    { id: 15, name: "Black Pepper 500g/l FAQ" },
-    { id: 16, name: "Black Pepper 550g/l FAQ" },
-    { id: 17, name: "Black Pepper 500g/l MC/ASTA" },
-    { id: 18, name: "Black Pepper 550g/l MC/ASTA" },
-    { id: 19, name: "Black Pepper 570g/l MC/ASTA" },
-    { id: 20, name: "Black Pepper 5mm Bold" },
-    { id: 26, name: "Brazilian Black Pepper" },
+  // Desiccated Coconut: Fine and Medium (same product list as Products page)
+  const desiccatedCoconutFineSubcategories = getDesiccatedCoconutFineProducts(products).map((p) => ({ id: p.id, name: p.name }));
+  const desiccatedCoconutMediumSubcategories = getDesiccatedCoconutMediumProducts(products).map((p) => ({ id: p.id, name: p.name }));
+  const DESICCATED_COCONUT_FINE_MEDIUM_IDS = [
+    ...desiccatedCoconutFineSubcategories.map((x) => x.id),
+    ...desiccatedCoconutMediumSubcategories.map((x) => x.id),
   ];
-
-  // Desiccated Coconut subcategories
   const desiccatedCoconutSubcategories = [
-    { id: 23, name: "Low fat Desiccated Coconut Fine Grade" },
-    { id: 24, name: "High fat Desiccated Coconut Fine Grade" },
-    { id: 25, name: "High fat Desiccated Coconut Medium Grade" },
+    { id: "dc-fine", name: "High Desiccated Fine Grade", hasSubcategories: true },
+    { id: "dc-medium", name: "High Desiccated Medium Grade", hasSubcategories: true },
+    ...products
+      .filter((p) => p.category === "Desiccated Coconut" && !DESICCATED_COCONUT_FINE_MEDIUM_IDS.includes(p.id))
+      .map((p) => ({ id: p.id, name: p.name })),
   ];
 
-  // Ginger subcategories
   const gingerSubcategories = [
     { id: "wholeGinger", name: "Dried Whole Ginger", hasSubcategories: true },
     { id: "sliceGinger", name: "Dried Slice Ginger", hasSubcategories: true },
   ];
+  const wholeGingerSubcategories = products
+    .filter((p) => p.category === "Fresh Ginger" && p.subcategory === "Whole Ginger")
+    .map((p) => ({ id: p.id, name: p.name }));
+  const sliceGingerSubcategories = products
+    .filter((p) => p.category === "Fresh Ginger" && p.subcategory === "Slice Ginger")
+    .map((p) => ({ id: p.id, name: p.name }));
 
-  // Whole Ginger sub-subcategories
-  const wholeGingerSubcategories = [
-    { id: 38, name: "Ginger Whole Dry" },
-    { id: 39, name: "Ginger Whole Fresh" },
-  ];
+  const cardamomSubcategories = products.filter((p) => p.category === "Cardamom").map((p) => ({ id: p.id, name: p.name }));
 
-  // Slice Ginger sub-subcategories
-  const sliceGingerSubcategories = [
-    { id: 35, name: "DRY SLICE GINGER A GRADE" },
-      { id: 36, name: "DRY SLICE GINGER B GRADE" },
-      { id: 37, name: "DRY SLICE GINGER C GRADE" },
-  ];
+  // Cassia: group by subcategory; Pressed (10/12 kg), Long Stick, Stick (Cigarette), Powder as expandable
+  const cassiaBySub = {};
+  products.filter((p) => p.category === "CASSIA/CINNAMON").forEach((p) => {
+    const s = p.subcategory || p.name;
+    if (!cassiaBySub[s]) cassiaBySub[s] = [];
+    cassiaBySub[s].push(p);
+  });
+  const CASSIA_SUB_ORDER = ["Pressed", "Long Stick", "Cigarette", "Powder", "Split", "Broken", "Leaves", "Husk"];
+  const cassiaSubcategories = [];
+  CASSIA_SUB_ORDER.forEach((sub) => {
+    if (!cassiaBySub[sub]) return;
+    if (sub === "Pressed") {
+      cassiaSubcategories.push({ id: "cassia-pressed", name: "Cassia Pressed", hasSubcategories: true });
+      return;
+    }
+    if (sub === "Long Stick") {
+      cassiaSubcategories.push({ id: "cassia-long-stick", name: "Cassia Long Stick", hasSubcategories: true });
+      return;
+    }
+    if (sub === "Cigarette") {
+      cassiaSubcategories.push({ id: "cassia-stick", name: "Cassia Stick", hasSubcategories: true });
+      return;
+    }
+    if (sub === "Powder") {
+      cassiaSubcategories.push({ id: "cassia-powder", name: "Cassia Powder", hasSubcategories: true });
+      return;
+    }
+    cassiaBySub[sub].forEach((p) => cassiaSubcategories.push({ id: p.id, name: p.name }));
+  });
+  Object.keys(cassiaBySub).forEach((sub) => {
+    if (CASSIA_SUB_ORDER.includes(sub)) return;
+    cassiaBySub[sub].forEach((p) => cassiaSubcategories.push({ id: p.id, name: p.name }));
+  });
 
-  // Cardamom subcategories
-  const cardamomSubcategories = [
-    { id: 45, name: "BIG CARDAMOM" },
-    { id: 41, name: "BLACK CARDAMOM" },
-    { id: 46, name: "GREEN CARDAMOM" },
-  ];
+  // Cassia Pressed: only Whole Premium 10 kg and 12 kg (display names), 10 kg first
+  const cassiaPressedSubcategories = products
+    .filter((p) => p.category === "CASSIA/CINNAMON" && p.subcategory === "Pressed" && (p.name.includes("10kg") || p.name.includes("12kg")))
+    .sort((a, b) => a.id - b.id)
+    .map((p) => ({ id: p.id, name: p.name.includes("10kg") ? "Whole Premium 10 kg" : "Whole Premium 12 kg" }));
+  const cassiaLongStickSubcategories = (cassiaBySub["Long Stick"] || []).map((p) => ({ id: p.id, name: p.name }));
+  const cassiaStickSubcategories = (cassiaBySub["Cigarette"] || []).map((p) => ({ id: p.id, name: p.name }));
+  const cassiaPowderSubcategories = (cassiaBySub["Powder"] || []).map((p) => ({ id: p.id, name: p.name }));
 
-  // Cassia/Cinnamon subcategories
-  const cassiaSubcategories = [
-    { id: 48, name: "SPLIT CASSIA" },
-    { id: 49, name: "PRESSED CASSIA" },
-    { id: 50, name: "BROKEN CASSIA" },
-    { id: 51, name: "CASSIA CIGARETTE" },
-    { id: 52, name: "CASSIA POWDER" },
-    { id: 53, name: "CASSIA LEAVE" },
-    { id: 54, name: "CASSIA HUSK" },
-    { id: 55, name: "CASSIA LONG STICK" },
-  ];
-
-  // Seeds subcategories (Pumpkin Seeds, Sunflower Seeds, Watermelon Seeds)
+  const pumpkinSeedMain = products.find((p) => p.category === "Seeds" && p.name === "Pumpkin Seeds");
+  const sunflowerSeedMain = products.find((p) => p.category === "Seeds" && p.name === "Sunflower Seeds");
+  const watermelonSeedMain = products.find((p) => p.category === "Seeds" && p.name === "Watermelon Seeds");
   const seedsSubcategories = [
-    { id: 63, name: "Pumpkin Seeds", hasSubcategories: true },
-    { id: 64, name: "Sunflower Seeds", hasSubcategories: true },
-    { id: 93, name: "Watermelon Seeds", hasSubcategories: false },
+    ...(pumpkinSeedMain ? [{ id: pumpkinSeedMain.id, name: "Pumpkin Seeds", hasSubcategories: true }] : []),
+    ...(sunflowerSeedMain ? [{ id: sunflowerSeedMain.id, name: "Sunflower Seeds", hasSubcategories: true }] : []),
+    ...(watermelonSeedMain ? [{ id: watermelonSeedMain.id, name: "Watermelon Seeds", hasSubcategories: false }] : []),
   ];
 
-  // Pumpkin Seeds subcategories
-  const pumpkinSeedsSubcategories = [
-    { id: 58, name: "Pumpkin Seeds Grade AAA" },
-    { id: 59, name: "Pumpkin Seeds Grade AA" },
-    { id: 60, name: "Pumpkin Seeds Grade A" },
-  ];
+  const pumpkinSeedsSubcategories = products
+    .filter((p) => p.category === "Seeds" && p.subcategory === "Pumpkin Seeds")
+    .map((p) => ({ id: p.id, name: p.name }));
+  const sunflowerSeedsSubcategories = products
+    .filter((p) => p.category === "Seeds" && p.subcategory === "Sunflower Seeds")
+    .map((p) => ({ id: p.id, name: p.name }));
 
-  // Sunflower Seeds subcategories
-  const sunflowerSeedsSubcategories = [
-    { id: 61, name: "Sunflower Seeds Confectionery Grade" },
-    { id: 62, name: "Sunflower Seeds Bakery Grade" },
-  ];
-
-  // Peanuts subcategories
-  const peanutsSubcategories = [
-    { id: 67, name: "Peanuts L(25/29)" },
-    { id: 68, name: "Peanuts L(29/33)" },
-    { id: 69, name: "Peanuts M(35/39)" },
-    { id: 70, name: "Peanuts M(39/43)" },
-    { id: 71, name: "Peanuts S(41/51)" },
-    { id: 72, name: "Peanuts S(51/61)" },
-    { id: 73, name: "Peanuts S(61/71)" },
-    { id: 74, name: "Peanuts S(71/91)" },
-  ];
-
-  // Almonds subcategories
-  const almondsSubcategories = [
-    { id: 76, name: "Almonds 18/20" },
-    { id: 77, name: "Almonds 20/22" },
-    { id: 78, name: "Almonds 23/25" },
-    { id: 79, name: "Almonds 25/27" },
-    { id: 80, name: "Almonds 27/30" },
-    { id: 81, name: "Almonds 30/32" },
-  ];
-
-  // Star Anise subcategories
+  const peanutsSubcategories = products.filter((p) => p.category === "Peanuts").map((p) => ({ id: p.id, name: p.name }));
+  const almondsSubcategories = products.filter((p) => p.category === "Almonds").map((p) => ({ id: p.id, name: p.name }));
+  // Star Anise: Autumn, Tu Quy, Canh Dan (Candhan) as expandable with Premium/Good; rest as direct links
+  const starAniseAutumnSubcategories = products
+    .filter((p) => p.category === "Star Anise" && p.subcategory === "Autumn" && (p.name.includes("Premium") || p.name.includes("Good")))
+    .map((p) => ({ id: p.id, name: p.name }));
+  const starAniseTuquySubcategories = products
+    .filter((p) => p.category === "Star Anise" && p.name.includes("Tu Quy"))
+    .map((p) => ({ id: p.id, name: p.name }));
+  const starAniseCandhanSubcategories = products
+    .filter((p) => p.category === "Star Anise" && p.subcategory === "Canh Dan" && (p.name.includes("Premium") || p.name.includes("Good")))
+    .map((p) => ({ id: p.id, name: p.name }));
+  const STAR_ANISE_EXPANDABLE_IDS = [116, 117, 118, 119, 120, 121]; // Autumn/Tu Quy/Canh Dan Premium & Good
   const starAniseSubcategories = [
-    { id: 83, name: "Spring Star Anise" },
-    { id: 84, name: "Autumn Star Anise" },
-    { id: 85, name: "Canh Dan Star Anise" },
-    { id: 86, name: "Broken Star Anise" },
-    { id: 87, name: "Dyed Star Anise" },
+    { id: "star-anise-autumn", name: "Autumn", hasSubcategories: true },
+    { id: "star-anise-tuquy", name: "Tu Quy", hasSubcategories: true },
+    { id: "star-anise-candhan", name: "Canh Dan", hasSubcategories: true },
+    ...products
+      .filter((p) => p.category === "Star Anise" && !STAR_ANISE_EXPANDABLE_IDS.includes(p.id))
+      .map((p) => ({ id: p.id, name: p.name })),
   ];
-
-  // Green Coffee Beans subcategories
-  const greenCoffeeSubcategories = [
-    { id: 88, name: "Robusta Coffee Beans S16 Clean/Wet Polished" },
-    { id: 89, name: "Robusta Coffee Beans S18 Clean/Wet Polished" },
-    { id: 90, name: "Robusta Coffee Beans S13" },
-    { id: 91, name: "Arabica Coffee Beans S16/S18" },
-  ];
+  const greenCoffeeSubcategories = products
+    .filter((p) => p.category === "Green Coffee Beans")
+    .map((p) => ({ id: p.id, name: p.name }));
 
   // Helper function to close all submenus (desktop)
   const closeAllSubmenus = () => {
     setCashewSubmenuOpen(false);
+    setRoastedSubmenuOpen(false);
     setWw320SubmenuOpen(false);
     setPepperSubmenuOpen(false);
     setBlackPepperSubmenuOpen(false);
     setDesiccatedCoconutSubmenuOpen(false);
+    setDesiccatedCoconutFineSubmenuOpen(false);
+    setDesiccatedCoconutMediumSubmenuOpen(false);
     setGingerSubmenuOpen(false);
     setWholeGingerSubmenuOpen(false);
     setSliceGingerSubmenuOpen(false);
     setCardamomSubmenuOpen(false);
     setCassiaSubmenuOpen(false);
+    setCassiaPressedSubmenuOpen(false);
+    setCassiaLongStickSubmenuOpen(false);
+    setCassiaStickSubmenuOpen(false);
+    setCassiaPowderSubmenuOpen(false);
     setSeedsSubmenuOpen(false);
     setPumpkinSeedsSubmenuOpen(false);
     setSunflowerSeedsSubmenuOpen(false);
     setPeanutsSubmenuOpen(false);
     setAlmondsSubmenuOpen(false);
     setStarAniseSubmenuOpen(false);
+    setStarAniseAutumnSubmenuOpen(false);
+    setStarAniseTuquySubmenuOpen(false);
+    setStarAniseCandhanSubmenuOpen(false);
     setGreenCoffeeSubmenuOpen(false);
   };
 
   // Helper function to close all mobile submenus
   const closeAllMobileSubmenus = () => {
     setMobileCashewSubmenuOpen(false);
+    setMobileRoastedSubmenuOpen(false);
     setMobileWw320SubmenuOpen(false);
     setMobilePepperSubmenuOpen(false);
     setMobileBlackPepperSubmenuOpen(false);
     setMobileDesiccatedCoconutSubmenuOpen(false);
+    setMobileDesiccatedCoconutFineSubmenuOpen(false);
+    setMobileDesiccatedCoconutMediumSubmenuOpen(false);
     setMobileGingerSubmenuOpen(false);
     setMobileWholeGingerSubmenuOpen(false);
     setMobileSliceGingerSubmenuOpen(false);
     setMobileCardamomSubmenuOpen(false);
     setMobileCassiaSubmenuOpen(false);
+    setMobileCassiaPressedSubmenuOpen(false);
+    setMobileCassiaLongStickSubmenuOpen(false);
+    setMobileCassiaStickSubmenuOpen(false);
+    setMobileCassiaPowderSubmenuOpen(false);
     setMobileSeedsSubmenuOpen(false);
     setMobilePumpkinSeedsSubmenuOpen(false);
     setMobileSunflowerSeedsSubmenuOpen(false);
     setMobilePeanutsSubmenuOpen(false);
     setMobileAlmondsSubmenuOpen(false);
     setMobileStarAniseSubmenuOpen(false);
+    setMobileStarAniseAutumnSubmenuOpen(false);
+    setMobileStarAniseTuquySubmenuOpen(false);
+    setMobileStarAniseCandhanSubmenuOpen(false);
     setMobileGreenCoffeeSubmenuOpen(false);
   };
 
@@ -1429,8 +505,17 @@ const Navbar = () => {
                 setSliceGingerSubmenuOpen(false);
                 setCardamomSubmenuOpen(false);
                 setCassiaSubmenuOpen(false);
+                setCassiaPressedSubmenuOpen(false);
+                setCassiaLongStickSubmenuOpen(false);
+                setCassiaStickSubmenuOpen(false);
+                setCassiaPowderSubmenuOpen(false);
                 setSeedsSubmenuOpen(false);
+                setRoastedSubmenuOpen(false);
                 setWw320SubmenuOpen(false);
+                setStarAniseSubmenuOpen(false);
+                setStarAniseAutumnSubmenuOpen(false);
+                setStarAniseTuquySubmenuOpen(false);
+                setStarAniseCandhanSubmenuOpen(false);
               }, 200); // 200ms delay before closing
             }}
           >
@@ -1596,6 +681,7 @@ const Navbar = () => {
                               dropdownTimeoutRef.current = setTimeout(() => {
                                 setProductsDropdownOpen(false);
                                 setCashewSubmenuOpen(false);
+                                setRoastedSubmenuOpen(false);
                                 setWw320SubmenuOpen(false);
                               }, 200);
                             }}
@@ -1610,8 +696,13 @@ const Navbar = () => {
                               }
                               setProductsDropdownOpen(true);
                               setCashewSubmenuOpen(true);
+                              if (subcat.hasSubcategories && subcat.id === "roasted") {
+                                setRoastedSubmenuOpen(true);
+                                setWw320SubmenuOpen(false);
+                              }
                               if (subcat.hasSubcategories && subcat.id === "ww320") {
                                 setWw320SubmenuOpen(true);
+                                setRoastedSubmenuOpen(false);
                               }
                             }}
                           >
@@ -1623,15 +714,31 @@ const Navbar = () => {
                                   }
                                   setProductsDropdownOpen(true);
                                   setCashewSubmenuOpen(true);
-                                  setWw320SubmenuOpen(true);
+                                  if (subcat.id === "roasted") {
+                                    setRoastedSubmenuOpen(true);
+                                    setWw320SubmenuOpen(false);
+                                  }
+                                  if (subcat.id === "ww320") {
+                                    setWw320SubmenuOpen(true);
+                                    setRoastedSubmenuOpen(false);
+                                  }
                                 }}
-                                onClick={() => setWw320SubmenuOpen(!ww320SubmenuOpen)}
+                                onClick={() => {
+                                  if (subcat.id === "roasted") {
+                                    setRoastedSubmenuOpen(!roastedSubmenuOpen);
+                                    setWw320SubmenuOpen(false);
+                                  }
+                                  if (subcat.id === "ww320") {
+                                    setWw320SubmenuOpen(!ww320SubmenuOpen);
+                                    setRoastedSubmenuOpen(false);
+                                  }
+                                }}
                                 className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
                               >
                                 <span>{subcat.name}</span>
                                 <ChevronRight 
                                   size={14} 
-                                  className={`text-gray-400 transition-transform duration-200 ${ww320SubmenuOpen ? "rotate-90" : ""}`}
+                                  className={`text-gray-400 transition-transform duration-200 ${(subcat.id === "roasted" && roastedSubmenuOpen) || (subcat.id === "ww320" && ww320SubmenuOpen) ? "rotate-90" : ""}`}
                                 />
                               </button>
                             ) : (
@@ -1641,6 +748,37 @@ const Navbar = () => {
                               >
                                 {subcat.name}
                               </button>
+                            )}
+                            {/* Roasted Submenu */}
+                            {subcat.hasSubcategories && subcat.id === "roasted" && roastedSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setCashewSubmenuOpen(true);
+                                  setRoastedSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setProductsDropdownOpen(false);
+                                    setCashewSubmenuOpen(false);
+                                    setRoastedSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {roastedSubcategories.map((roastedSubcat) => (
+                                  <button
+                                    key={roastedSubcat.id}
+                                    onClick={() => handleProductClick(roastedSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {roastedSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
                             )}
                             {/* WW320 Submenu */}
                             {subcat.hasSubcategories && subcat.id === "ww320" && ww320SubmenuOpen && (
@@ -1773,7 +911,7 @@ const Navbar = () => {
                         ))}
                       </div>
                     )}
-                    {/* Desiccated Coconut Submenu */}
+                    {/* Desiccated Coconut Submenu - Fine & Medium expandable */}
                     {category.hasSubcategories && category.name === "Desiccated Coconut" && desiccatedCoconutSubmenuOpen && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
@@ -1788,17 +926,106 @@ const Navbar = () => {
                           dropdownTimeoutRef.current = setTimeout(() => {
                             setProductsDropdownOpen(false);
                             setDesiccatedCoconutSubmenuOpen(false);
+                            setDesiccatedCoconutFineSubmenuOpen(false);
+                            setDesiccatedCoconutMediumSubmenuOpen(false);
                           }, 200);
                         }}
                       >
                         {desiccatedCoconutSubcategories.map((subcat) => (
-                          <button
-                            key={subcat.id}
-                            onClick={() => handleProductClick(subcat.id)}
-                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          <div 
+                            key={subcat.id} 
+                            className="relative"
+                            onMouseEnter={() => {
+                              if (dropdownTimeoutRef.current) {
+                                clearTimeout(dropdownTimeoutRef.current);
+                              }
+                              setProductsDropdownOpen(true);
+                              setDesiccatedCoconutSubmenuOpen(true);
+                              if (subcat.hasSubcategories) {
+                                setDesiccatedCoconutFineSubmenuOpen(subcat.id === "dc-fine");
+                                setDesiccatedCoconutMediumSubmenuOpen(subcat.id === "dc-medium");
+                              }
+                            }}
                           >
-                            {subcat.name}
-                          </button>
+                            {subcat.hasSubcategories ? (
+                              <button
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setDesiccatedCoconutSubmenuOpen(true);
+                                  setDesiccatedCoconutFineSubmenuOpen(subcat.id === "dc-fine");
+                                  setDesiccatedCoconutMediumSubmenuOpen(subcat.id === "dc-medium");
+                                }}
+                                onClick={() => {
+                                  if (subcat.id === "dc-fine") {
+                                    setDesiccatedCoconutFineSubmenuOpen(!desiccatedCoconutFineSubmenuOpen);
+                                    setDesiccatedCoconutMediumSubmenuOpen(false);
+                                  } else if (subcat.id === "dc-medium") {
+                                    setDesiccatedCoconutMediumSubmenuOpen(!desiccatedCoconutMediumSubmenuOpen);
+                                    setDesiccatedCoconutFineSubmenuOpen(false);
+                                  }
+                                }}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
+                              >
+                                <span>{subcat.name}</span>
+                                <ChevronRight 
+                                  size={14} 
+                                  className={`text-gray-400 transition-transform duration-200 ${(subcat.id === "dc-fine" && desiccatedCoconutFineSubmenuOpen) || (subcat.id === "dc-medium" && desiccatedCoconutMediumSubmenuOpen) ? "rotate-90" : ""}`}
+                                />
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => handleProductClick(subcat.id)}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                              >
+                                {subcat.name}
+                              </button>
+                            )}
+                            {subcat.hasSubcategories && subcat.id === "dc-fine" && desiccatedCoconutFineSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+                                  setProductsDropdownOpen(true);
+                                  setDesiccatedCoconutSubmenuOpen(true);
+                                  setDesiccatedCoconutFineSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setDesiccatedCoconutSubmenuOpen(false);
+                                    setDesiccatedCoconutFineSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {desiccatedCoconutFineSubcategories.map((item) => (
+                                  <button key={item.id} onClick={() => handleProductClick(item.id)} className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors">{item.name}</button>
+                                ))}
+                              </div>
+                            )}
+                            {subcat.hasSubcategories && subcat.id === "dc-medium" && desiccatedCoconutMediumSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+                                  setProductsDropdownOpen(true);
+                                  setDesiccatedCoconutSubmenuOpen(true);
+                                  setDesiccatedCoconutMediumSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setDesiccatedCoconutSubmenuOpen(false);
+                                    setDesiccatedCoconutMediumSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {desiccatedCoconutMediumSubcategories.map((item) => (
+                                  <button key={item.id} onClick={() => handleProductClick(item.id)} className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors">{item.name}</button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -1831,30 +1058,10 @@ const Navbar = () => {
                         ))}
                   </div>
                     )}
-                    {/* Cassia/Cinnamon Submenu */}
+                    {/* Cassia/Cinnamon Submenu - same pattern as Cashew Nuts */}
                     {category.hasSubcategories && category.name === "CASSIA/CINNAMON" && cassiaSubmenuOpen && (
                       <div 
-                        ref={(el) => {
-                          if (el && cassiaSubmenuOpen) {
-                            // Find the dropdown menu container
-                            const dropdownContainer = el.closest('.absolute.top-full');
-                            if (dropdownContainer) {
-                              const dropdownRect = dropdownContainer.getBoundingClientRect();
-                              const categoryButton = el.previousElementSibling?.querySelector('button');
-                              if (categoryButton) {
-                                const categoryRect = categoryButton.getBoundingClientRect();
-                                // Calculate offset to align submenu top with dropdown top
-                                const offsetTop = categoryRect.top - dropdownRect.top;
-                                el.style.top = `-${offsetTop-150}px`;
-                              }
-                            }
-                          }
-                        }}
-                        className="absolute left-full ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200] max-h-[80vh] overflow-y-auto"
-                        style={{ 
-                          maxHeight: 'calc(100vh - 100px)',
-                          top: '0px'
-                        }}
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
                           if (dropdownTimeoutRef.current) {
                             clearTimeout(dropdownTimeoutRef.current);
@@ -1865,17 +1072,204 @@ const Navbar = () => {
                         onMouseLeave={() => {
                           dropdownTimeoutRef.current = setTimeout(() => {
                             setCassiaSubmenuOpen(false);
+                            setCassiaPressedSubmenuOpen(false);
+                            setCassiaLongStickSubmenuOpen(false);
+                            setCassiaStickSubmenuOpen(false);
+                            setCassiaPowderSubmenuOpen(false);
                           }, 200);
                         }}
                       >
                         {cassiaSubcategories.map((subcat) => (
-                          <button
-                            key={subcat.id}
-                            onClick={() => handleProductClick(subcat.id)}
-                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          <div 
+                            key={subcat.id} 
+                            className="relative"
+                            onMouseEnter={() => {
+                              if (dropdownTimeoutRef.current) {
+                                clearTimeout(dropdownTimeoutRef.current);
+                              }
+                              setProductsDropdownOpen(true);
+                              setCassiaSubmenuOpen(true);
+                              if (subcat.hasSubcategories) {
+                                setCassiaPressedSubmenuOpen(subcat.id === "cassia-pressed");
+                                setCassiaLongStickSubmenuOpen(subcat.id === "cassia-long-stick");
+                                setCassiaStickSubmenuOpen(subcat.id === "cassia-stick");
+                                setCassiaPowderSubmenuOpen(subcat.id === "cassia-powder");
+                              }
+                            }}
                           >
-                            {subcat.name}
-                          </button>
+                            {subcat.hasSubcategories ? (
+                              <button
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setCassiaSubmenuOpen(true);
+                                  setCassiaPressedSubmenuOpen(subcat.id === "cassia-pressed");
+                                  setCassiaLongStickSubmenuOpen(subcat.id === "cassia-long-stick");
+                                  setCassiaStickSubmenuOpen(subcat.id === "cassia-stick");
+                                  setCassiaPowderSubmenuOpen(subcat.id === "cassia-powder");
+                                }}
+                                onClick={() => {
+                                  if (subcat.id === "cassia-pressed") {
+                                    setCassiaPressedSubmenuOpen(!cassiaPressedSubmenuOpen);
+                                    setCassiaLongStickSubmenuOpen(false);
+                                    setCassiaStickSubmenuOpen(false);
+                                    setCassiaPowderSubmenuOpen(false);
+                                  } else if (subcat.id === "cassia-long-stick") {
+                                    setCassiaLongStickSubmenuOpen(!cassiaLongStickSubmenuOpen);
+                                    setCassiaPressedSubmenuOpen(false);
+                                    setCassiaStickSubmenuOpen(false);
+                                    setCassiaPowderSubmenuOpen(false);
+                                  } else if (subcat.id === "cassia-stick") {
+                                    setCassiaStickSubmenuOpen(!cassiaStickSubmenuOpen);
+                                    setCassiaPressedSubmenuOpen(false);
+                                    setCassiaLongStickSubmenuOpen(false);
+                                    setCassiaPowderSubmenuOpen(false);
+                                  } else if (subcat.id === "cassia-powder") {
+                                    setCassiaPowderSubmenuOpen(!cassiaPowderSubmenuOpen);
+                                    setCassiaPressedSubmenuOpen(false);
+                                    setCassiaLongStickSubmenuOpen(false);
+                                    setCassiaStickSubmenuOpen(false);
+                                  }
+                                }}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
+                              >
+                                <span>{subcat.name}</span>
+                                <ChevronRight 
+                                  size={14} 
+                                  className={`text-gray-400 transition-transform duration-200 ${(subcat.id === "cassia-pressed" && cassiaPressedSubmenuOpen) || (subcat.id === "cassia-long-stick" && cassiaLongStickSubmenuOpen) || (subcat.id === "cassia-stick" && cassiaStickSubmenuOpen) || (subcat.id === "cassia-powder" && cassiaPowderSubmenuOpen) ? "rotate-90" : ""}`}
+                                />
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => handleProductClick(subcat.id)}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                              >
+                                {subcat.name}
+                              </button>
+                            )}
+                            {/* Cassia Pressed flyout */}
+                            {subcat.hasSubcategories && subcat.id === "cassia-pressed" && cassiaPressedSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setCassiaSubmenuOpen(true);
+                                  setCassiaPressedSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setCassiaSubmenuOpen(false);
+                                    setCassiaPressedSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {cassiaPressedSubcategories.map((cassiaPressedSubcat) => (
+                                  <button
+                                    key={cassiaPressedSubcat.id}
+                                    onClick={() => handleProductClick(cassiaPressedSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {cassiaPressedSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                            {/* Cassia Long Stick flyout */}
+                            {subcat.hasSubcategories && subcat.id === "cassia-long-stick" && cassiaLongStickSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setCassiaSubmenuOpen(true);
+                                  setCassiaLongStickSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setCassiaSubmenuOpen(false);
+                                    setCassiaLongStickSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {cassiaLongStickSubcategories.map((cassiaLongStickSubcat) => (
+                                  <button
+                                    key={cassiaLongStickSubcat.id}
+                                    onClick={() => handleProductClick(cassiaLongStickSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {cassiaLongStickSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                            {/* Cassia Stick flyout */}
+                            {subcat.hasSubcategories && subcat.id === "cassia-stick" && cassiaStickSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setCassiaSubmenuOpen(true);
+                                  setCassiaStickSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setCassiaSubmenuOpen(false);
+                                    setCassiaStickSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {cassiaStickSubcategories.map((cassiaStickSubcat) => (
+                                  <button
+                                    key={cassiaStickSubcat.id}
+                                    onClick={() => handleProductClick(cassiaStickSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {cassiaStickSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                            {/* Cassia Powder flyout */}
+                            {subcat.hasSubcategories && subcat.id === "cassia-powder" && cassiaPowderSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setCassiaSubmenuOpen(true);
+                                  setCassiaPowderSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setCassiaSubmenuOpen(false);
+                                    setCassiaPowderSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {cassiaPowderSubcategories.map((cassiaPowderSubcat) => (
+                                  <button
+                                    key={cassiaPowderSubcat.id}
+                                    onClick={() => handleProductClick(cassiaPowderSubcat.id)}
+                                    className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                                  >
+                                    {cassiaPowderSubcat.name}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -2064,10 +1458,10 @@ const Navbar = () => {
                         ))}
                       </div>
                     )}
-                    {/* Star Anise Submenu */}
+                    {/* Star Anise Submenu - Autumn, Tu Quy, Canh Dan expandable with Premium/Good */}
                     {category.hasSubcategories && category.name === "Star Anise" && starAniseSubmenuOpen && (
                       <div 
-                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200] max-h-[80vh] overflow-y-auto"
+                        className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
                           if (dropdownTimeoutRef.current) {
                             clearTimeout(dropdownTimeoutRef.current);
@@ -2079,17 +1473,139 @@ const Navbar = () => {
                           dropdownTimeoutRef.current = setTimeout(() => {
                             setProductsDropdownOpen(false);
                             setStarAniseSubmenuOpen(false);
+                            setStarAniseAutumnSubmenuOpen(false);
+                            setStarAniseTuquySubmenuOpen(false);
+                            setStarAniseCandhanSubmenuOpen(false);
                           }, 200);
                         }}
                       >
                         {starAniseSubcategories.map((subcat) => (
-                          <button
-                            key={subcat.id}
-                            onClick={() => handleProductClick(subcat.id)}
-                            className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                          <div 
+                            key={subcat.id} 
+                            className="relative"
+                            onMouseEnter={() => {
+                              if (dropdownTimeoutRef.current) {
+                                clearTimeout(dropdownTimeoutRef.current);
+                              }
+                              setProductsDropdownOpen(true);
+                              setStarAniseSubmenuOpen(true);
+                              if (subcat.hasSubcategories) {
+                                setStarAniseAutumnSubmenuOpen(subcat.id === "star-anise-autumn");
+                                setStarAniseTuquySubmenuOpen(subcat.id === "star-anise-tuquy");
+                                setStarAniseCandhanSubmenuOpen(subcat.id === "star-anise-candhan");
+                              }
+                            }}
                           >
-                            {subcat.name}
-                          </button>
+                            {subcat.hasSubcategories ? (
+                              <button
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) {
+                                    clearTimeout(dropdownTimeoutRef.current);
+                                  }
+                                  setProductsDropdownOpen(true);
+                                  setStarAniseSubmenuOpen(true);
+                                  setStarAniseAutumnSubmenuOpen(subcat.id === "star-anise-autumn");
+                                  setStarAniseTuquySubmenuOpen(subcat.id === "star-anise-tuquy");
+                                  setStarAniseCandhanSubmenuOpen(subcat.id === "star-anise-candhan");
+                                }}
+                                onClick={() => {
+                                  if (subcat.id === "star-anise-autumn") {
+                                    setStarAniseAutumnSubmenuOpen(!starAniseAutumnSubmenuOpen);
+                                    setStarAniseTuquySubmenuOpen(false);
+                                    setStarAniseCandhanSubmenuOpen(false);
+                                  } else if (subcat.id === "star-anise-tuquy") {
+                                    setStarAniseTuquySubmenuOpen(!starAniseTuquySubmenuOpen);
+                                    setStarAniseAutumnSubmenuOpen(false);
+                                    setStarAniseCandhanSubmenuOpen(false);
+                                  } else if (subcat.id === "star-anise-candhan") {
+                                    setStarAniseCandhanSubmenuOpen(!starAniseCandhanSubmenuOpen);
+                                    setStarAniseAutumnSubmenuOpen(false);
+                                    setStarAniseTuquySubmenuOpen(false);
+                                  }
+                                }}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
+                              >
+                                <span>{subcat.name}</span>
+                                <ChevronRight 
+                                  size={14} 
+                                  className={`text-gray-400 transition-transform duration-200 ${(subcat.id === "star-anise-autumn" && starAniseAutumnSubmenuOpen) || (subcat.id === "star-anise-tuquy" && starAniseTuquySubmenuOpen) || (subcat.id === "star-anise-candhan" && starAniseCandhanSubmenuOpen) ? "rotate-90" : ""}`}
+                                />
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => handleProductClick(subcat.id)}
+                                className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors"
+                              >
+                                {subcat.name}
+                              </button>
+                            )}
+                            {/* Autumn flyout: Premium, Good */}
+                            {subcat.hasSubcategories && subcat.id === "star-anise-autumn" && starAniseAutumnSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+                                  setProductsDropdownOpen(true);
+                                  setStarAniseSubmenuOpen(true);
+                                  setStarAniseAutumnSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setStarAniseSubmenuOpen(false);
+                                    setStarAniseAutumnSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {starAniseAutumnSubcategories.map((item) => (
+                                  <button key={item.id} onClick={() => handleProductClick(item.id)} className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors">{item.name}</button>
+                                ))}
+                              </div>
+                            )}
+                            {/* Tu Quy flyout: Premium, Good */}
+                            {subcat.hasSubcategories && subcat.id === "star-anise-tuquy" && starAniseTuquySubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+                                  setProductsDropdownOpen(true);
+                                  setStarAniseSubmenuOpen(true);
+                                  setStarAniseTuquySubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setStarAniseSubmenuOpen(false);
+                                    setStarAniseTuquySubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {starAniseTuquySubcategories.map((item) => (
+                                  <button key={item.id} onClick={() => handleProductClick(item.id)} className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors">{item.name}</button>
+                                ))}
+                              </div>
+                            )}
+                            {/* Canh Dan flyout: Premium, Good */}
+                            {subcat.hasSubcategories && subcat.id === "star-anise-candhan" && starAniseCandhanSubmenuOpen && (
+                              <div 
+                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
+                                onMouseEnter={() => {
+                                  if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
+                                  setProductsDropdownOpen(true);
+                                  setStarAniseSubmenuOpen(true);
+                                  setStarAniseCandhanSubmenuOpen(true);
+                                }}
+                                onMouseLeave={() => {
+                                  dropdownTimeoutRef.current = setTimeout(() => {
+                                    setStarAniseSubmenuOpen(false);
+                                    setStarAniseCandhanSubmenuOpen(false);
+                                  }, 200);
+                                }}
+                              >
+                                {starAniseCandhanSubcategories.map((item) => (
+                                  <button key={item.id} onClick={() => handleProductClick(item.id)} className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors">{item.name}</button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -2611,16 +2127,42 @@ const Navbar = () => {
                                     <>
                                       <button
                                         onClick={() => {
-                                          setMobileWw320SubmenuOpen(!mobileWw320SubmenuOpen);
+                                          if (subcat.id === "roasted") {
+                                            setMobileRoastedSubmenuOpen(!mobileRoastedSubmenuOpen);
+                                            setMobileWw320SubmenuOpen(false);
+                                          }
+                                          if (subcat.id === "ww320") {
+                                            setMobileWw320SubmenuOpen(!mobileWw320SubmenuOpen);
+                                            setMobileRoastedSubmenuOpen(false);
+                                          }
                                         }}
                                         className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
                                       >
                                         <span>{subcat.name}</span>
                                         <ChevronRight 
                                           size={12} 
-                                          className={`transition-transform duration-200 ${mobileWw320SubmenuOpen ? "rotate-90" : ""}`}
+                                          className={`transition-transform duration-200 ${(subcat.id === "roasted" && mobileRoastedSubmenuOpen) || (subcat.id === "ww320" && mobileWw320SubmenuOpen) ? "rotate-90" : ""}`}
                                         />
                                       </button>
+                                      {subcat.id === "roasted" && mobileRoastedSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {roastedSubcategories.map((roastedSubcat) => (
+                                            <button
+                                              key={roastedSubcat.id}
+                                              onClick={() => {
+                                                handleProductClick(roastedSubcat.id);
+                                                setMenuOpen(false);
+                                                setMobileProductsDropdownOpen(false);
+                                                setMobileCashewSubmenuOpen(false);
+                                                setMobileRoastedSubmenuOpen(false);
+                                              }}
+                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                            >
+                                              {roastedSubcat.name}
+                                            </button>
+                                          ))}
+                                        </div>
+                                      )}
                                       {subcat.id === "ww320" && mobileWw320SubmenuOpen && (
                                         <div className="pl-4 mt-1 space-y-1">
                                           {ww320Subcategories.map((ww320Subcat) => (
@@ -2716,18 +2258,84 @@ const Navbar = () => {
                           {category.name === "Desiccated Coconut" && mobileDesiccatedCoconutSubmenuOpen && (
                             <div className="pl-4 mt-1 space-y-1">
                               {desiccatedCoconutSubcategories.map((subcat) => (
-                                <button
-                                  key={subcat.id}
-                                  onClick={() => {
-                                    handleProductClick(subcat.id);
-                                    setMenuOpen(false);
-                                    setMobileProductsDropdownOpen(false);
-                                    setMobileDesiccatedCoconutSubmenuOpen(false);
-                                  }}
-                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
-                                >
-                                  {subcat.name}
-                                </button>
+                                <div key={subcat.id}>
+                                  {subcat.hasSubcategories ? (
+                                    <>
+                                      <button
+                                        onClick={() => {
+                                          if (subcat.id === "dc-fine") {
+                                            setMobileDesiccatedCoconutFineSubmenuOpen(!mobileDesiccatedCoconutFineSubmenuOpen);
+                                            setMobileDesiccatedCoconutMediumSubmenuOpen(false);
+                                          } else if (subcat.id === "dc-medium") {
+                                            setMobileDesiccatedCoconutMediumSubmenuOpen(!mobileDesiccatedCoconutMediumSubmenuOpen);
+                                            setMobileDesiccatedCoconutFineSubmenuOpen(false);
+                                          }
+                                        }}
+                                        className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                      >
+                                        <span>{subcat.name}</span>
+                                        <ChevronRight 
+                                          size={12} 
+                                          className={`transition-transform duration-200 ${
+                                            (subcat.id === "dc-fine" && mobileDesiccatedCoconutFineSubmenuOpen) ||
+                                            (subcat.id === "dc-medium" && mobileDesiccatedCoconutMediumSubmenuOpen)
+                                              ? "rotate-90" : ""
+                                          }`}
+                                        />
+                                      </button>
+                                      {subcat.id === "dc-fine" && mobileDesiccatedCoconutFineSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {desiccatedCoconutFineSubcategories.map((item) => (
+                                            <button
+                                              key={item.id}
+                                              onClick={() => {
+                                                handleProductClick(item.id);
+                                                setMenuOpen(false);
+                                                setMobileProductsDropdownOpen(false);
+                                                setMobileDesiccatedCoconutSubmenuOpen(false);
+                                                setMobileDesiccatedCoconutFineSubmenuOpen(false);
+                                              }}
+                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                            >
+                                              {item.name}
+                                            </button>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {subcat.id === "dc-medium" && mobileDesiccatedCoconutMediumSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {desiccatedCoconutMediumSubcategories.map((item) => (
+                                            <button
+                                              key={item.id}
+                                              onClick={() => {
+                                                handleProductClick(item.id);
+                                                setMenuOpen(false);
+                                                setMobileProductsDropdownOpen(false);
+                                                setMobileDesiccatedCoconutSubmenuOpen(false);
+                                                setMobileDesiccatedCoconutMediumSubmenuOpen(false);
+                                              }}
+                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                            >
+                                              {item.name}
+                                            </button>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <button
+                                      onClick={() => {
+                                        handleProductClick(subcat.id);
+                                        setMenuOpen(false);
+                                        setMobileProductsDropdownOpen(false);
+                                        setMobileDesiccatedCoconutSubmenuOpen(false);
+                                      }}
+                                      className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                    >
+                                      {subcat.name}
+                                    </button>
+                                  )}
+                                </div>
                               ))}
                             </div>
                           )}
@@ -2836,18 +2444,76 @@ const Navbar = () => {
                           {category.name === "CASSIA/CINNAMON" && mobileCassiaSubmenuOpen && (
                             <div className="pl-4 mt-1 space-y-1">
                               {cassiaSubcategories.map((subcat) => (
-                                <button
-                                  key={subcat.id}
-                                  onClick={() => {
-                                    handleProductClick(subcat.id);
-                                    setMenuOpen(false);
-                                    setMobileProductsDropdownOpen(false);
-                                    setMobileCassiaSubmenuOpen(false);
-                                  }}
-                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
-                                >
-                                  {subcat.name}
-                                </button>
+                                <div key={subcat.id}>
+                                  {subcat.hasSubcategories ? (
+                                    <>
+                                      <button
+                                        onClick={() => {
+                                          if (subcat.id === "cassia-pressed") {
+                                            setMobileCassiaPressedSubmenuOpen(!mobileCassiaPressedSubmenuOpen);
+                                            setMobileCassiaLongStickSubmenuOpen(false);
+                                            setMobileCassiaStickSubmenuOpen(false);
+                                            setMobileCassiaPowderSubmenuOpen(false);
+                                          } else if (subcat.id === "cassia-long-stick") {
+                                            setMobileCassiaLongStickSubmenuOpen(!mobileCassiaLongStickSubmenuOpen);
+                                            setMobileCassiaPressedSubmenuOpen(false);
+                                            setMobileCassiaStickSubmenuOpen(false);
+                                            setMobileCassiaPowderSubmenuOpen(false);
+                                          } else if (subcat.id === "cassia-stick") {
+                                            setMobileCassiaStickSubmenuOpen(!mobileCassiaStickSubmenuOpen);
+                                            setMobileCassiaPressedSubmenuOpen(false);
+                                            setMobileCassiaLongStickSubmenuOpen(false);
+                                            setMobileCassiaPowderSubmenuOpen(false);
+                                          } else if (subcat.id === "cassia-powder") {
+                                            setMobileCassiaPowderSubmenuOpen(!mobileCassiaPowderSubmenuOpen);
+                                            setMobileCassiaPressedSubmenuOpen(false);
+                                            setMobileCassiaLongStickSubmenuOpen(false);
+                                            setMobileCassiaStickSubmenuOpen(false);
+                                          }
+                                        }}
+                                        className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                      >
+                                        <span>{subcat.name}</span>
+                                        <ChevronRight size={12} className={`transition-transform duration-200 ${(subcat.id === "cassia-pressed" && mobileCassiaPressedSubmenuOpen) || (subcat.id === "cassia-long-stick" && mobileCassiaLongStickSubmenuOpen) || (subcat.id === "cassia-stick" && mobileCassiaStickSubmenuOpen) || (subcat.id === "cassia-powder" && mobileCassiaPowderSubmenuOpen) ? "rotate-90" : ""}`} />
+                                      </button>
+                                      {subcat.id === "cassia-pressed" && mobileCassiaPressedSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {cassiaPressedSubcategories.map((item) => (
+                                            <button key={item.id} onClick={() => { handleProductClick(item.id); setMenuOpen(false); setMobileProductsDropdownOpen(false); setMobileCassiaSubmenuOpen(false); setMobileCassiaPressedSubmenuOpen(false); }} className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50">{item.name}</button>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {subcat.id === "cassia-long-stick" && mobileCassiaLongStickSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {cassiaLongStickSubcategories.map((item) => (
+                                            <button key={item.id} onClick={() => { handleProductClick(item.id); setMenuOpen(false); setMobileProductsDropdownOpen(false); setMobileCassiaSubmenuOpen(false); setMobileCassiaLongStickSubmenuOpen(false); }} className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50">{item.name}</button>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {subcat.id === "cassia-stick" && mobileCassiaStickSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {cassiaStickSubcategories.map((item) => (
+                                            <button key={item.id} onClick={() => { handleProductClick(item.id); setMenuOpen(false); setMobileProductsDropdownOpen(false); setMobileCassiaSubmenuOpen(false); setMobileCassiaStickSubmenuOpen(false); }} className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50">{item.name}</button>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {subcat.id === "cassia-powder" && mobileCassiaPowderSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {cassiaPowderSubcategories.map((item) => (
+                                            <button key={item.id} onClick={() => { handleProductClick(item.id); setMenuOpen(false); setMobileProductsDropdownOpen(false); setMobileCassiaSubmenuOpen(false); setMobileCassiaPowderSubmenuOpen(false); }} className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50">{item.name}</button>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <button
+                                      onClick={() => { handleProductClick(subcat.id); setMenuOpen(false); setMobileProductsDropdownOpen(false); setMobileCassiaSubmenuOpen(false); }}
+                                      className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                    >
+                                      {subcat.name}
+                                    </button>
+                                  )}
+                                </div>
                               ))}
                             </div>
                           )}
@@ -2976,18 +2642,61 @@ const Navbar = () => {
                           {category.name === "Star Anise" && mobileStarAniseSubmenuOpen && (
                             <div className="pl-4 mt-1 space-y-1">
                               {starAniseSubcategories.map((subcat) => (
-                                <button
-                                  key={subcat.id}
-                                  onClick={() => {
-                                    handleProductClick(subcat.id);
-                                    setMenuOpen(false);
-                                    setMobileProductsDropdownOpen(false);
-                                    setMobileStarAniseSubmenuOpen(false);
-                                  }}
-                                  className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
-                                >
-                                  {subcat.name}
-                                </button>
+                                <div key={subcat.id}>
+                                  {subcat.hasSubcategories ? (
+                                    <>
+                                      <button
+                                        onClick={() => {
+                                          if (subcat.id === "star-anise-autumn") {
+                                            setMobileStarAniseAutumnSubmenuOpen(!mobileStarAniseAutumnSubmenuOpen);
+                                            setMobileStarAniseTuquySubmenuOpen(false);
+                                            setMobileStarAniseCandhanSubmenuOpen(false);
+                                          } else if (subcat.id === "star-anise-tuquy") {
+                                            setMobileStarAniseTuquySubmenuOpen(!mobileStarAniseTuquySubmenuOpen);
+                                            setMobileStarAniseAutumnSubmenuOpen(false);
+                                            setMobileStarAniseCandhanSubmenuOpen(false);
+                                          } else if (subcat.id === "star-anise-candhan") {
+                                            setMobileStarAniseCandhanSubmenuOpen(!mobileStarAniseCandhanSubmenuOpen);
+                                            setMobileStarAniseAutumnSubmenuOpen(false);
+                                            setMobileStarAniseTuquySubmenuOpen(false);
+                                          }
+                                        }}
+                                        className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                      >
+                                        <span>{subcat.name}</span>
+                                        <ChevronRight size={12} className={`transition-transform duration-200 ${(subcat.id === "star-anise-autumn" && mobileStarAniseAutumnSubmenuOpen) || (subcat.id === "star-anise-tuquy" && mobileStarAniseTuquySubmenuOpen) || (subcat.id === "star-anise-candhan" && mobileStarAniseCandhanSubmenuOpen) ? "rotate-90" : ""}`} />
+                                      </button>
+                                      {subcat.id === "star-anise-autumn" && mobileStarAniseAutumnSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {starAniseAutumnSubcategories.map((item) => (
+                                            <button key={item.id} onClick={() => { handleProductClick(item.id); setMenuOpen(false); setMobileProductsDropdownOpen(false); setMobileStarAniseSubmenuOpen(false); setMobileStarAniseAutumnSubmenuOpen(false); }} className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50">{item.name}</button>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {subcat.id === "star-anise-tuquy" && mobileStarAniseTuquySubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {starAniseTuquySubcategories.map((item) => (
+                                            <button key={item.id} onClick={() => { handleProductClick(item.id); setMenuOpen(false); setMobileProductsDropdownOpen(false); setMobileStarAniseSubmenuOpen(false); setMobileStarAniseTuquySubmenuOpen(false); }} className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50">{item.name}</button>
+                                          ))}
+                                        </div>
+                                      )}
+                                      {subcat.id === "star-anise-candhan" && mobileStarAniseCandhanSubmenuOpen && (
+                                        <div className="pl-4 mt-1 space-y-1">
+                                          {starAniseCandhanSubcategories.map((item) => (
+                                            <button key={item.id} onClick={() => { handleProductClick(item.id); setMenuOpen(false); setMobileProductsDropdownOpen(false); setMobileStarAniseSubmenuOpen(false); setMobileStarAniseCandhanSubmenuOpen(false); }} className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50">{item.name}</button>
+                                          ))}
+                                        </div>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <button
+                                      onClick={() => { handleProductClick(subcat.id); setMenuOpen(false); setMobileProductsDropdownOpen(false); setMobileStarAniseSubmenuOpen(false); }}
+                                      className="w-full text-left px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
+                                    >
+                                      {subcat.name}
+                                    </button>
+                                  )}
+                                </div>
                               ))}
                             </div>
                           )}
@@ -3087,7 +2796,7 @@ const Navbar = () => {
           <div className="pt-3 text-sm text-gray-700 space-y-1">
             <p className="font-semibold">Email</p>
             <a href="mailto:info@lion-lotus.co" className="text-[#0D47A1] hover:underline break-all">
-              info@lion-lotus.co
+              kashif@lion-lotus.co
             </a>
             <p className="font-semibold pt-2">Phone</p>
             <a href="tel:+6580350461" className="text-[#0D47A1] hover:underline">+65 8035 0461</a>

@@ -13,651 +13,22 @@ import logo from "../assets/logo.jpeg";
 import hero from "../assets/dryfruit.jpeg"
 import factoryVideo from "../assets/factory.mp4";
 
-import ww240Cashew from "../assets/ww240Cashew.webp";
-import ww180Cashew from "../assets/ww180Cashew.webp";
-import ww320Cashew from "../assets/ww320Cashew.webp";
-import ww450Cashew from "../assets/ww450Cashew.webp";
-import cashewSK from "../assets/cashewSK.webp";
-import cashewSL from "../assets/cashewSL.webp";
+
 import cashewnuts from "../assets/cashewnuts.webp";
-import copraCup from "../assets/copraCup.webp";
 import desiccatedCoconut from "../assets/desiccatedCoconut.webp";
-import driedGinger from "../assets/driedGinger.webp";
-import gingerWholeDry from "../assets/drygng-dry.webp";
-import gingerWholeFresh from "../assets/drygng-fresh.webp";
 import roastedSaltedCashew from "../assets/roastedSaltedCashew.webp";
 import whitePepper from "../assets/whitePepper.webp";
 import blackPepper from "../assets/blackPepper.webp";
-import mangoChips from "../assets/mango-chips.webp";
-import redChilli from "../assets/red-chilli.webp";
 import starAnise from "../assets/star-anise.webp";
-import sweetTamarind from "../assets/sweet-tamarind.webp";
-import robustaBeans from "../assets/robusta-beans.webp";
-import robustaS16Clean from "../assets/robustas16-clean-welpolished.webp";
-import robustaS18Clean from "../assets/robusta-s18-clean.webp";
-import robustaS13 from "../assets/robusta-s13.webp";
-import arabicaS16S18 from "../assets/arabic-s16-s18.webp";
-import blackCardamom from "../assets/black-cardamom.webp";
-import greenCardamom from "../assets/green-cardamom.webp";
-import bigCardamom from "../assets/big-cardamom.webp";
-import turmericFinger from "../assets/termaricFinger.webp";
-import walnuts from "../assets/walnuts.webp";
-import cigaretteCassia from "../assets/cigaretteCasia.webp"
-import cassiaSplit from "../assets/cassia-split.webp"
-import cassiaPressed from "../assets/cassia-pressed.webp"
-import brokenCassia from "../assets/broken-cassia.webp"
-import cassiaCigarette from "../assets/cassia-ciggarette.webp"
-import cassiaPowder from "../assets/cassia-powder.webp"
-import cassiaLeave from "../assets/cassia-leave.jpg"
-import cassiaHusk from "../assets/cassia-husk.jpg"
-import cassiaLongstick from "../assets/cassia-longstick.webp"
-import pumpkinAAA from "../assets/pumpkin-aaa.webp"
-import pumpkinAA from "../assets/pumpkin-aa.webp"
-import pumpkinA from "../assets/pumpkin-a.webp"
-import sunflowerSeeds from "../assets/sunflower-seeds.webp"
-import sunflowerKernels from "../assets/sunflower-kernels.webp"
-import nigellaSativa from "../assets/nigella-sativa.webp"
-import chinesePeanut from "../assets/chinese-peanunt.webp"
-import almond from "../assets/almond.webp"
-import cloves from "../assets/cloves.webp"
+import { products as sharedProducts } from "../data/products";
+import { MAIN_CATEGORIES } from "../data/categories";
 
-const products = [
-  {
-    id: 1,
-    name: "Cashew Nuts",
-    image: cashewnuts,
-    origin: "Vietnam",
-    moisture: "5% max",
-    color: "Cream White",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft",
-  },
-  {
-    id: 2,
-    name: "Desiccated Coconut",
-    image: desiccatedCoconut,
-    origin: "Vietnam",
-    moisture: "3%",
-    color: "Pure White",
-  },
-  {
-    id: 3,
-    name: "Edible Copra",
-    image: copraCup,
-    origin: "Indonesia",
-    moisture: "7-10%",
-    color: "White",
-  },
-  {
-    id: 4,
-    name: "Black Pepper",
-    image: blackPepper,
-    origin: "Vietnam",
-    moisture: "12%",
-    color: "Dark Black",
-  },
-  {
-    id: 5,
-    name: "White Pepper",
-    image: whitePepper,
-    origin: "Vietnam",
-    moisture: "12%",
-    color: "Off-White",
-  },
-  {
-    id: 35,
-    name: "DRY SLICE GINGER A GRADE",
-    image: driedGinger,
-    origin: "Vietnam",
-    moisture: "8%",
-    color: "Yellowish Brown",
-  },
-  {
-    id: 36,
-    name: "DRY SLICE GINGER B GRADE",
-    image: driedGinger,
-    origin: "Vietnam",
-    moisture: "8%",
-    color: "Yellowish Brown",
-  },
-  {
-    id: 37,
-    name: "DRY SLICE GINGER C GRADE",
-    image: driedGinger,
-    origin: "Vietnam",
-    moisture: "8%",
-    color: "Yellowish Brown",
-  },
-  {
-    id: 38,
-    name: "Ginger Whole Dry",
-    image: gingerWholeDry,
-    origin: "Vietnam",
-    moisture: "10%",
-    color: "Natural Brown",
-  },
-  {
-    id: 39,
-    name: "Ginger Whole Fresh",
-    image: gingerWholeFresh,
-    origin: "Vietnam",
-    moisture: "12-15%",
-    color: "Natural Yellow",
-  },
-  {
-    id: 7,
-    name: "Roasted & Salted Cashew Nuts",
-    image: roastedSaltedCashew,
-    origin: "Vietnam",
-    moisture: "4%",
-    color: "Light Golden",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft",
-  },
-  {
-    id: 8,
-    name: "Cashew Nuts WW320",
-    image: ww320Cashew,
-    origin: "Vietnam",
-    moisture: "5% max",
-    color: "Classic White",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft",
-  },
-  {
-    id: 9,
-    name: "Cashew Nuts WW240",
-    image: ww240Cashew,
-    origin: "Vietnam",
-    moisture: "5% max",
-    color: "Cream White",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft",
-  },
-  {
-    id: 10,
-    name: "Cashew Nuts WW180",
-    image: ww180Cashew,
-    origin: "Vietnam",
-    moisture: "5% max",
-    color: "Ivory White",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft",
-  },
-  {
-    id: 11,
-    name: "Cashew Nuts WW450",
-    image: ww450Cashew,
-    origin: "Vietnam",
-    moisture: "5% max",
-    color: "Off-White",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft",
-  },
-  {
-    id: 12,
-    name: "Cashew Nuts SK",
-    image: cashewSK,
-    origin: "Vietnam",
-    moisture: "4%",
-    color: "Light Cream",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft",
-  },
-  {
-    id: 13,
-    name: "Cashew Nuts SL",
-    image: cashewSL,
-    origin: "Vietnam",
-    moisture: "4%",
-    color: "Cream White",
-    packing: "10kg/vacuum bag or tin packing",
-    containerCapacity: "15MT/20ft, 26.5MT/40ft",
-  },
-  {
-    id: 30,
-    name: "Soft Dried Mango",
-    image: mangoChips,
-    origin: "Vietnam",
-    moisture: "12-17%",
-    color: "Yellow",
-  },
-  {
-    id: 31,
-    name: "TEJA RED CHILLI",
-    image: redChilli,
-    origin: "India",
-    moisture: "—",
-    color: "Vibrant Red",
-  },
-  {
-    id: 32,
-    name: "Star Anise",
-    image: starAnise,
-    origin: "Vietnam",
-    moisture: "13.5%",
-    color: "Natural Brown",
-  },
-  {
-    id: 83,
-    name: "Spring Star Anise",
-    image: starAnise,
-    origin: "Vietnam",
-    moisture: "13.5%",
-    color: "Natural Brown",
-  },
-  {
-    id: 84,
-    name: "Autumn Star Anise",
-    image: starAnise,
-    origin: "Vietnam",
-    moisture: "13.5%",
-    color: "Natural Brown",
-  },
-  {
-    id: 85,
-    name: "Canh Dan Star Anise",
-    image: starAnise,
-    origin: "Vietnam",
-    moisture: "13.5%",
-    color: "Natural Brown",
-  },
-  {
-    id: 86,
-    name: "Broken Star Anise",
-    image: starAnise,
-    origin: "Vietnam",
-    moisture: "13.5%",
-    color: "Natural Brown",
-  },
-  {
-    id: 87,
-    name: "Dyed Star Anise",
-    image: starAnise,
-    origin: "Vietnam",
-    moisture: "13.5%",
-    color: "Natural Brown",
-  },
-  {
-    id: 33,
-    name: "Sweet Tamarind",
-    image: sweetTamarind,
-    origin: "Vietnam",
-    moisture: "10-14%",
-    color: "Brown",
-  },
-  {
-    id: 88,
-    name: "Robusta Coffee Beans S16 Clean/Wet Polished",
-    image: robustaS16Clean,
-    origin: "Vietnam",
-    moisture: "12.5%",
-    color: "Brown",
-  },
-  {
-    id: 89,
-    name: "Robusta Coffee Beans S18 Clean/Wet Polished",
-    image: robustaS18Clean,
-    origin: "Vietnam",
-    moisture: "12.5%",
-    color: "Brown",
-  },
-  {
-    id: 90,
-    name: "Robusta Coffee Beans S13",
-    image: robustaS13,
-    origin: "Vietnam",
-    moisture: "12.5%",
-    color: "Brown",
-  },
-  {
-    id: 91,
-    name: "Arabica Coffee Beans S16/S18",
-    image: arabicaS16S18,
-    origin: "Vietnam",
-    moisture: "12.5%",
-    color: "Brown",
-  },
-  {
-    id: 45,
-    name: "BIG CARDAMOM",
-    image: bigCardamom,
-    origin: "Nepal",
-    moisture: "12%",
-    color: "Brown",
-  },
-  {
-    id: 41,
-    name: "BLACK CARDAMOM",
-    image: blackCardamom,
-    origin: "Vietnam",
-    moisture: "13.5%",
-    color: "Dark Brown",
-  },
-  {
-    id: 46,
-    name: "GREEN CARDAMOM",
-    image: greenCardamom,
-    origin: "Guatemala",
-    moisture: "12%",
-    color: "Green",
-  },
-  {
-    id: 42,
-    name: "TURMERIC FINGER",
-    image: turmericFinger,
-    origin: "India",
-    moisture: "10%",
-    color: "Bright Yellow",
-  },
-  {
-    id: 43,
-    name: "WALNUTS",
-    image: walnuts,
-    origin: "Chile",
-    moisture: "8%",
-    color: "Light Brown",
-  },
-  {
-    id: 48,
-    name: "SPLIT CASSIA",
-    image: cassiaSplit,
-    origin: "Vietnam",
-    moisture: "13%",
-    color: "Brown",
-  },
-  {
-    id: 49,
-    name: "PRESSED CASSIA",
-    image: cassiaPressed,
-    origin: "Vietnam",
-    moisture: "13%",
-    color: "Brown",
-  },
-  {
-    id: 50,
-    name: "BROKEN CASSIA",
-    image: brokenCassia,
-    origin: "Vietnam",
-    moisture: "13%",
-    color: "Brown",
-  },
-  {
-    id: 51,
-    name: "CASSIA CIGARETTE",
-    image: cassiaCigarette,
-    origin: "Vietnam",
-    moisture: "13%",
-    color: "Brownish Yellow",
-  },
-  {
-    id: 52,
-    name: "CASSIA POWDER",
-    image: cassiaPowder,
-    origin: "Vietnam",
-    moisture: "13%",
-    color: "Brown",
-  },
-  {
-    id: 53,
-    name: "CASSIA LEAVE",
-    image: cassiaLeave,
-    origin: "Vietnam",
-    moisture: "13%",
-    color: "Green",
-  },
-  {
-    id: 54,
-    name: "CASSIA HUSK",
-    image: cassiaHusk,
-    origin: "Vietnam",
-    moisture: "13%",
-    color: "Brown",
-  },
-  {
-    id: 55,
-    name: "CASSIA LONG STICK",
-    image: cassiaLongstick,
-    origin: "Vietnam",
-    moisture: "13%",
-    color: "Brown",
-  },
-  {
-    id: 58,
-    name: "Pumpkin Seeds Grade AAA",
-    image: pumpkinAAA,
-    origin: "China",
-    moisture: "8%",
-    color: "Green",
-  },
-  {
-    id: 59,
-    name: "Pumpkin Seeds Grade AA",
-    image: pumpkinAA,
-    origin: "China",
-    moisture: "8%",
-    color: "Green",
-  },
-  {
-    id: 60,
-    name: "Pumpkin Seeds Grade A",
-    image: pumpkinA,
-    origin: "China",
-    moisture: "8%",
-    color: "Green",
-  },
-  {
-    id: 61,
-    name: "Sunflower Seeds Confectionery Grade",
-    image: sunflowerSeeds,
-    origin: "China",
-    moisture: "8%",
-    color: "Black and white",
-  },
-  {
-    id: 62,
-    name: "Sunflower Seeds Bakery Grade",
-    image: sunflowerKernels,
-    origin: "China",
-    moisture: "8%",
-    color: "Light beige",
-  },
-  {
-    id: 65,
-    name: "Nigella sativa",
-    image: nigellaSativa,
-    origin: "India",
-    moisture: "7%",
-    color: "Black",
-  },
-  {
-    id: 67,
-    name: "Peanuts L(25/29)",
-    image: chinesePeanut,
-    origin: "China",
-    moisture: "7%",
-    color: "Brown",
-  },
-  {
-    id: 68,
-    name: "Peanuts L(29/33)",
-    image: chinesePeanut,
-    origin: "China",
-    moisture: "7%",
-    color: "Brown",
-  },
-  {
-    id: 69,
-    name: "Peanuts M(35/39)",
-    image: chinesePeanut,
-    origin: "China",
-    moisture: "7%",
-    color: "Brown",
-  },
-  {
-    id: 70,
-    name: "Peanuts M(39/43)",
-    image: chinesePeanut,
-    origin: "China",
-    moisture: "7%",
-    color: "Brown",
-  },
-  {
-    id: 71,
-    name: "Peanuts S(41/51)",
-    image: chinesePeanut,
-    origin: "China",
-    moisture: "7%",
-    color: "Brown",
-  },
-  {
-    id: 72,
-    name: "Peanuts S(51/61)",
-    image: chinesePeanut,
-    origin: "China",
-    moisture: "7%",
-    color: "Brown",
-  },
-  {
-    id: 73,
-    name: "Peanuts S(61/71)",
-    image: chinesePeanut,
-    origin: "China",
-    moisture: "7%",
-    color: "Brown",
-  },
-  {
-    id: 74,
-    name: "Peanuts S(71/91)",
-    image: chinesePeanut,
-    origin: "China",
-    moisture: "7%",
-    color: "Brown",
-  },
-  {
-    id: 76,
-    name: "Almonds 18/20",
-    image: almond,
-    origin: "USA",
-    moisture: "6%",
-    color: "Light Brown",
-  },
-  {
-    id: 77,
-    name: "Almonds 20/22",
-    image: almond,
-    origin: "USA",
-    moisture: "6%",
-    color: "Light Brown",
-  },
-  {
-    id: 78,
-    name: "Almonds 23/25",
-    image: almond,
-    origin: "USA",
-    moisture: "6%",
-    color: "Light Brown",
-  },
-  {
-    id: 79,
-    name: "Almonds 25/27",
-    image: almond,
-    origin: "USA",
-    moisture: "6%",
-    color: "Light Brown",
-  },
-  {
-    id: 80,
-    name: "Almonds 27/30",
-    image: almond,
-    origin: "USA",
-    moisture: "6%",
-    color: "Light Brown",
-  },
-  {
-    id: 81,
-    name: "Almonds 30/32",
-    image: almond,
-    origin: "USA",
-    moisture: "6%",
-    color: "Light Brown",
-  },
-  {
-    id: 82,
-    name: "Cloves",
-    image: cloves,
-    origin: "Indonesia",
-    moisture: "12%",
-    color: "Dark Brown",
-  },
-];
+const products = sharedProducts;
 
-const productCategories = [
-  "Cashew Nuts",
-  "Desiccated Coconut",
-  "Edible Copra",
-  "Black Pepper",
-  "White Pepper",
-  "DRY SLICE GINGER A GRADE",
-  "DRY SLICE GINGER B GRADE",
-  "DRY SLICE GINGER C GRADE",
-  "Ginger Whole Dry",
-  "Ginger Whole Fresh",
-  "Roasted & Salted Cashew Nuts",
-  "Cashew Nuts WW320",
-  "Cashew Nuts WW240",
-  "Cashew Nuts WW180",
-  "Cashew Nuts WW450",
-  "Cashew Nuts SK",
-  "Cashew Nuts SL",
-  "Soft Dried Mango",
-  "TEJA RED CHILLI",
-  "Star Anise",
-  "Spring Star Anise",
-  "Autumn Star Anise",
-  "Canh Dan Star Anise",
-  "Broken Star Anise",
-  "Dyed Star Anise",
-  "Sweet Tamarind",
-  "Robusta Coffee Beans S16 Clean/Wet Polished",
-  "Robusta Coffee Beans S18 Clean/Wet Polished",
-  "Robusta Coffee Beans S13",
-  "Arabica Coffee Beans S16/S18",
-  "BIG CARDAMOM",
-  "BLACK CARDAMOM",
-  "GREEN CARDAMOM",
-  "TURMERIC FINGER",
-  "WALNUTS",
-  "SPLIT CASSIA",
-  "PRESSED CASSIA",
-  "BROKEN CASSIA",
-  "CASSIA CIGARETTE",
-  "CASSIA POWDER",
-  "CASSIA LEAVE",
-  "CASSIA HUSK",
-  "CASSIA LONG STICK",
-  "Pumpkin Seeds Grade AAA",
-  "Pumpkin Seeds Grade AA",
-  "Pumpkin Seeds Grade A",
-  "Sunflower Seeds Confectionery Grade",
-  "Sunflower Seeds Bakery Grade",
-  "Nigella sativa",
-  "Peanuts L(25/29)",
-  "Peanuts L(29/33)",
-  "Peanuts M(35/39)",
-  "Peanuts M(39/43)",
-  "Peanuts S(41/51)",
-  "Peanuts S(51/61)",
-  "Peanuts S(61/71)",
-  "Peanuts S(71/91)",
-  "Almonds 18/20",
-  "Almonds 20/22",
-  "Almonds 23/25",
-  "Almonds 25/27",
-  "Almonds 27/30",
-  "Almonds 30/32",
-  "Cloves",
-];
+// Only main categories (same as Products page sidebar), with at least one product
+const productCategories = MAIN_CATEGORIES.filter((cat) =>
+  products.some((p) => p.category === cat)
+);
 
 // Small set of rotating hero highlights shown in the top card
 const heroHighlights = [
@@ -719,49 +90,35 @@ export default function HomePage() {
     }
   }, [selectedCategory]);
 
+  // Products for the selected category (by category or exact name match)
+  const categoryProducts = products.filter(
+    (p) => p.category === selectedCategory || p.name === selectedCategory
+  );
+  const listLength = categoryProducts.length || 1;
+  const safeIndex = listLength > 0 ? Math.min(currentProductIndex, listLength - 1) : 0;
+  const currentProduct = categoryProducts[safeIndex] || categoryProducts[0] || products[0];
+
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
-    // Map category names to product names (handle mismatches)
-    const categoryToProductMap = {
-      "Dried Ginger": "Ginger", // Map "Dried Ginger" to "Ginger" product
-    };
-    
-    // Find the product that matches the category name
-    const productName = categoryToProductMap[category] || category;
-    const productIndex = products.findIndex(
-      (product) => product.name === productName
-    );
-    
-    // If product found, set its index; otherwise default to 0
-    if (productIndex !== -1) {
-      setCurrentProductIndex(productIndex);
-    } else {
-      // Fallback: try to find a partial match
-      const fallbackIndex = products.findIndex(
-        (product) => product.name.toLowerCase().includes(category.toLowerCase()) ||
-                     category.toLowerCase().includes(product.name.toLowerCase())
-      );
-      setCurrentProductIndex(fallbackIndex !== -1 ? fallbackIndex : 0);
-    }
+    setCurrentProductIndex(0);
   };
 
-  const currentProduct = products[currentProductIndex] || products[0];
-
   const handleNext = () => {
-  setCurrentProductIndex((prev) => {
-    const next = (prev + 1) % products.length;
-    setSelectedCategory(products[next].name); // <-- Sync category
-    return next;
-  });
-};
+    if (listLength <= 1) return;
+    setCurrentProductIndex((prev) => (prev + 1) % listLength);
+  };
 
-const handlePrevious = () => {
-  setCurrentProductIndex((prev) => {
-    const next = (prev - 1 + products.length) % products.length;
-    setSelectedCategory(products[next].name); // <-- Sync category
-    return next;
-  });
-};
+  const handlePrevious = () => {
+    if (listLength <= 1) return;
+    setCurrentProductIndex((prev) => (prev - 1 + listLength) % listLength);
+  };
+
+  // Keep index in bounds when category changes (e.g. switch to category with fewer products)
+  useEffect(() => {
+    if (listLength > 0 && currentProductIndex >= listLength) {
+      setCurrentProductIndex(listLength - 1);
+    }
+  }, [selectedCategory, listLength]);
 
   const NAVY = "#0A1C2E";
   const ROYAL = "#0D47A1";
@@ -832,24 +189,22 @@ const handlePrevious = () => {
             {/* Left - Text */}
             <div className="w-full md:w-1/2 max-w-xl md:max-w-none mb-4 md:mb-0 text-center md:text-left mx-auto md:mx-0">
               <h1
-                className="font-bold mb-4 leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
-                style={{ color: NAVY }}
+                className="mb-4 leading-[1.15] text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-[0.02em]"
+                style={{
+                  color: NAVY,
+                  fontFamily: "system-ui, -apple-system, 'Segoe UI', sans-serif",
+                  fontWeight: 800,
+                  textShadow: "0 1px 2px rgba(255,255,255,0.15), 0 2px 8px rgba(10,28,46,0.08)",
+                }}
               >
-                <span className="block whitespace-nowrap">
-                  Premium Cashew &amp; Spice
+                <span className="block text-[0.82em] font-semibold tracking-[0.22em] uppercase opacity-90 mb-1.5">
+                  A TRUSTED SOURCING PARTNER OF
                 </span>
-                <span className="block">
-                Exports from Asia
+                <span className="block font-extrabold tracking-[0.04em] uppercase">
+                  SPICES, NUTS, BEANS, &amp; SEEDS
                 </span>
               </h1>
-              <p
-                className="text-base sm:text-lg md:text-2xl font-medium"
-                style={{ color: ROYAL }}
-              >
-                Lion & Lotus Trading Co., Ltd. 
-                <br className="hidden sm:block" />
-                Trusted partner for cashew, coconut, black pepper & spices.
-              </p>
+              
 
               <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-start">
                 <button
@@ -1085,67 +440,82 @@ const handlePrevious = () => {
             </div>
           </div>
 
-          {/* Product Display */}
-          <div className="flex justify-center">
-            <div className="bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-6 sm:py-8 flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 w-full md:w-auto max-w-md md:max-w-none">
-            {/* Left Arrow */}
-            <button
-              onClick={handlePrevious}
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0"
-              style={{ borderColor: GOLD, background: "white" }}
-            >
-              <ChevronLeft color={NAVY} size={14} />
-            </button>
-
-            {/* Circular Product Display */}
-            <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0">
-              <div
-                className="absolute inset-0 rounded-full border-4 border-dashed flex items-center justify-center"
-                style={{ borderColor: GOLD }}
+          {/* Product Display - fixed layout: category tabs above, chevrons + image in a row */}
+          <div className="flex justify-center w-full">
+            <div className="bg-white rounded-2xl shadow-xl px-4 sm:px-6 py-6 sm:py-8 flex flex-row items-center justify-center gap-4 sm:gap-6 md:gap-8 w-full max-w-2xl md:max-w-3xl min-h-[280px] sm:min-h-[320px]">
+              {/* Left Arrow */}
+              <button
+                onClick={handlePrevious}
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0"
+                style={{ borderColor: GOLD, background: "white" }}
+                aria-label="Previous product"
               >
-                  <div className="w-44 h-44 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl bg-white transition-transform duration-500">
-                  <img
-                    src={currentProduct.image}
-                    alt={currentProduct.name}
-                    className="w-full h-full object-cover"
-                  />
+                <ChevronLeft color={NAVY} size={18} />
+              </button>
+
+              {/* Circular Product Display */}
+              <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 flex-shrink-0 flex items-center justify-center">
+                <div
+                  className="absolute inset-0 rounded-full border-4 border-dashed flex items-center justify-center"
+                  style={{ borderColor: GOLD }}
+                >
+                  <div className="w-44 h-44 sm:w-60 sm:h-60 md:w-72 md:h-72 rounded-full overflow-hidden shadow-2xl bg-white">
+                    {currentProduct && currentProduct.image && (
+                      <img
+                        src={currentProduct.image}
+                        alt={currentProduct.name}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Right Arrow */}
-            <button
-              onClick={handleNext}
-                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border-2 flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0"
-              style={{ borderColor: GOLD, background: "white" }}
-            >
-              <ChevronRight color={NAVY} size={14} />
-            </button>
+              {/* Right Arrow */}
+              <button
+                onClick={handleNext}
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 flex items-center justify-center hover:bg-gray-50 transition-colors flex-shrink-0"
+                style={{ borderColor: GOLD, background: "white" }}
+                aria-label="Next product"
+              >
+                <ChevronRight color={NAVY} size={18} />
+              </button>
             </div>
           </div>
 
           {/* Product Name and Button */}
           <div className="text-center mt-6 sm:mt-8">
-            <h3
-              className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6"
-              style={{ color: NAVY }}
-            >
-              {currentProduct.name}
-            </h3>
-            <p className="text-gray-500 text-sm sm:text-base mb-4">
-              {currentProduct.origin} · Moisture {currentProduct.moisture} · {currentProduct.color}
-            </p>
-            <button
-              onClick={() =>
-                navigate(`/product/${currentProduct.id}`, {
-                  state: { product: currentProduct },
-                })
-              }
+            {currentProduct && (
+              <>
+                <h3
+                  className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6"
+                  style={{ color: NAVY }}
+                >
+                  {currentProduct.name}
+                </h3>
+                <p className="text-gray-500 text-sm sm:text-base mb-2">
+                  {currentProduct.origin} · Moisture {currentProduct.moisture || "—"} · {currentProduct.color || "—"}
+                </p>
+                {(currentProduct.packing || currentProduct.containerCapacity) && (
+                  <p className="text-gray-500 text-xs sm:text-sm mb-4">
+                    {currentProduct.packing ? `Packing: ${currentProduct.packing}` : ""}
+                    {currentProduct.packing && currentProduct.containerCapacity ? " · " : ""}
+                    {currentProduct.containerCapacity ? `Loading: ${currentProduct.containerCapacity}` : ""}
+                  </p>
+                )}
+                <button
+                  onClick={() =>
+                    navigate(`/product/${currentProduct.id}`, {
+                      state: { product: currentProduct },
+                    })
+                  }
               className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg text-sm sm:text-base font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
               style={{ background: ROYAL, color: "white" }}
-            >
-              View Details <span>→</span>
-            </button>
+                >
+                  View Details <span>→</span>
+                </button>
+              </>
+            )}
           </div>
         </div>
       </section>

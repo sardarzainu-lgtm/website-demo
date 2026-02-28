@@ -5,12 +5,135 @@ const NAVY = "#0D47A1";
 const GOLD = "#C8A84E";
 const OFFWHITE = "#F5F1E8";
 
+const normalizeLabel = (label = "") =>
+  label.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+const normalizeValue = (value = "") =>
+  String(value)
+    .toLowerCase()
+    .replace(/[.,;:!?]+$/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+const inferSpecLabel = (text = "") => {
+  const value = text.toLowerCase();
+  if (value.includes("moisture")) return "Moisture";
+  if (value.includes("ffa")) return "FFA";
+  if (value.includes("fat content")) return "Fat Content";
+  if (value.includes("so2")) return "SO2";
+  if (value.includes("admixture")) return "Admixture";
+  if (value.includes("seeds/lb") || value.includes("counter per lb")) return "Seeds per lb";
+  if (value.includes("broken")) return "Broken";
+  if (value.includes("lower size")) return "Lower Size";
+  if (value.includes("mesh")) return "Mesh";
+  if (value.includes("oil content")) return "Oil Content";
+  if (value.includes("crop")) return "Crop";
+  if (value.includes("size")) return "Size";
+  if (value.includes("length")) return "Length";
+  if (value.includes("thickness")) return "Thickness";
+  if (value.includes("diameter")) return "Diameter";
+  if (value.includes("roll")) return "Roll";
+  if (value.includes("color") || value.includes("colour")) return "Color";
+  if (value.includes("free from") || value.includes("fungus") || value.includes("bacteria")) return "Safety";
+  if (value.includes("taste")) return "Taste";
+  if (value.includes("standard")) return "Standard";
+  return "Specification";
+};
+
+const parseSpecEntries = (specText = "") => {
+  if (!specText || typeof specText !== "string") return [];
+
+  const lines = specText
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  const entries = [];
+
+  lines.forEach((line, index) => {
+    const cleaned = line.replace(/^[-*•]\s*/, "").trim();
+    if (!cleaned) return;
+
+    if (cleaned.includes(":")) {
+      const parts = cleaned.split(":");
+      const label = parts.shift()?.trim();
+      const value = parts.join(":").trim();
+      if (label && value) {
+        entries.push({ label, value });
+      }
+      return;
+    }
+
+    if (index === 0 && /standard/i.test(cleaned)) {
+      entries.push({ label: "Standard", value: cleaned });
+      return;
+    }
+
+    entries.push({ label: inferSpecLabel(cleaned), value: cleaned });
+  });
+
+  return entries;
+};
+
 const ProductDetail = () => {
   const { state } = useLocation();
   const product = state?.product;
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category") || state?.category || "All";
+  const parsedSpecEntries = parseSpecEntries(product?.spec);
+  const baseSpecItems = [
+    { label: "Origin", value: product.origin || "Vietnam" },
+    ...(product.moisture ? [{ label: "Moisture", value: product.moisture }] : []),
+    ...(product.density ? [{ label: "Density", value: product.density }] : []),
+    ...(product.admixture ? [{ label: "Admixture", value: product.admixture }] : []),
+    ...(product.grade && (product.name?.includes("Black Pepper") || product.name?.includes("Pepper")) && !product.name?.includes("Ginger") ? [{ label: "Grade", value: product.grade }] : []),
+    ...(product.size && !product.name?.includes("Star Anise") && !product.name?.includes("Sweet Tamarind") ? [{ label: "Size", value: product.size }] : []),
+    ...(product.blackSeeds ? [{ label: "Black Seeds", value: product.blackSeeds }] : []),
+    ...(product.standard ? [{ label: "Standard", value: product.standard }] : []),
+    ...(product.seedsPerLb ? [{ label: "Seeds per lb", value: product.seedsPerLb }] : []),
+    ...(product.broken ? [{ label: "Broken", value: product.broken }] : []),
+    ...(product.lowerSize ? [{ label: "Lower Size", value: product.lowerSize }] : []),
+    ...(product.sieve ? [{ label: "Sieve", value: product.sieve }] : []),
+    ...(product.nutSize ? [{ label: "Nut Size", value: product.nutSize }] : []),
+    ...(product.crop ? [{ label: "Crop", value: product.crop }] : []),
+    ...(product.ffa ? [{ label: "FFA", value: product.ffa }] : []),
+    ...(product.fatContent ? [{ label: "Fat Content", value: product.fatContent }] : []),
+    ...(product.so2 ? [{ label: "SO2", value: product.so2 }] : []),
+    ...(product.ingredients ? [{ label: "Ingredients", value: product.ingredients }] : []),
+    ...(product.appearanceColor ? [{ label: "Appearance Color", value: product.appearanceColor }] : []),
+    ...(product.cuttingType ? [{ label: "Cutting Type", value: product.cuttingType }] : []),
+    ...(product.process ? [{ label: "Process", value: product.process }] : []),
+    ...(product.length ? [{ label: "Length", value: product.length }] : []),
+    ...(product.thickness ? [{ label: "Thickness", value: product.thickness }] : []),
+    ...(product.shelfLife ? [{ label: "Shelf Life", value: product.shelfLife }] : []),
+    ...(product.pungency ? [{ label: "Pungency", value: product.pungency }] : []),
+    ...(product.capsaicinContent ? [{ label: "Capsaicin Content", value: product.capsaicinContent }] : []),
+    ...(product.color && product.name === "TEJA RED CHILLI" ? [{ label: "Color", value: product.color }] : []),
+    ...(product.skinThickness ? [{ label: "Skin Thickness", value: product.skinThickness }] : []),
+    ...(product.podsWithStalks ? [{ label: "Pods with Stalks", value: product.podsWithStalks }] : []),
+    ...(product.brokenChilies ? [{ label: "Broken Chilies", value: product.brokenChilies }] : []),
+    ...(product.looseSeeds ? [{ label: "Loose Seeds", value: product.looseSeeds }] : []),
+    ...(product.size && product.name === "Star Anise" ? [{ label: "Size", value: product.size }] : []),
+    ...(product.brokenPieces ? [{ label: "Broken Pieces", value: product.brokenPieces }] : []),
+    ...(product.notes ? [{ label: "Notes", value: product.notes }] : []),
+    ...(product.variety ? [{ label: "Variety", value: product.variety }] : []),
+    ...(product.size && product.name === "Sweet Tamarind" ? [{ label: "Size", value: product.size }] : []),
+    ...(product.grades ? [{ label: "Grades", value: product.grades }] : []),
+    ...(product.brokenAndBlack ? [{ label: "Broken and Black", value: product.brokenAndBlack }] : []),
+    ...(product.grade && (product.name?.includes("Coffee") || product.name?.includes("coffee")) ? [{ label: "Grade", value: product.grade }] : []),
+    ...(product.grade && (product.name?.includes("Ginger") || product.name?.includes("ginger")) ? [{ label: "Grade", value: product.grade }] : []),
+  ];
+  const seenSpecKeys = new Set();
+  const seenValues = new Set();
+  const specItems = [...baseSpecItems, ...parsedSpecEntries].filter((item) => {
+    const key = `${normalizeLabel(item.label)}|${normalizeValue(item.value)}`;
+    const valueKey = normalizeValue(item.value);
+    if (!valueKey || seenSpecKeys.has(key) || seenValues.has(valueKey)) return false;
+    seenSpecKeys.add(key);
+    seenValues.add(valueKey);
+    return true;
+  });
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -153,61 +276,10 @@ const ProductDetail = () => {
               <h3 className="text-2xl font-semibold text-[#0A1C2E] mt-1 mb-3">Product Specifications</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {/* Common specs */}
-                {[
-                  { label: "Origin", value: product.origin || "Vietnam" },
-                  ...(product.moisture ? [{ label: "Moisture", value: product.moisture }] : []),
-                  // Black Pepper specific
-                  ...(product.density ? [{ label: "Density", value: product.density }] : []),
-                  ...(product.admixture ? [{ label: "Admixture", value: product.admixture }] : []),
-                  ...(product.grade && (product.name?.includes("Black Pepper") || product.name?.includes("Pepper")) && !product.name?.includes("Ginger") ? [{ label: "Grade", value: product.grade }] : []),
-                  ...(product.size && !product.name?.includes("Star Anise") && !product.name?.includes("Sweet Tamarind") ? [{ label: "Size", value: product.size }] : []),
-                  ...(product.blackSeeds ? [{ label: "Black Seeds", value: product.blackSeeds }] : []),
-                  // Cashew Nuts specific
-                  ...(product.standard ? [{ label: "Standard", value: product.standard }] : []),
-                  ...(product.seedsPerLb ? [{ label: "Seeds per lb", value: product.seedsPerLb }] : []),
-                  ...(product.broken ? [{ label: "Broken", value: product.broken }] : []),
-                  ...(product.lowerSize ? [{ label: "Lower Size", value: product.lowerSize }] : []),
-                  ...(product.sieve ? [{ label: "Sieve", value: product.sieve }] : []),
-                  ...(product.nutSize ? [{ label: "Nut Size", value: product.nutSize }] : []),
-                  ...(product.crop ? [{ label: "Crop", value: product.crop }] : []),
-                  // Desiccated Coconut specific
-                  ...(product.ffa ? [{ label: "FFA", value: product.ffa }] : []),
-                  ...(product.fatContent ? [{ label: "Fat Content", value: product.fatContent }] : []),
-                  ...(product.so2 ? [{ label: "SO2", value: product.so2 }] : []),
-                  // Soft Dried Mango specific
-                  ...(product.ingredients ? [{ label: "Ingredients", value: product.ingredients }] : []),
-                  ...(product.appearanceColor ? [{ label: "Appearance Color", value: product.appearanceColor }] : []),
-                  ...(product.cuttingType ? [{ label: "Cutting Type", value: product.cuttingType }] : []),
-                  ...(product.process ? [{ label: "Process", value: product.process }] : []),
-                  ...(product.length ? [{ label: "Length", value: product.length }] : []),
-                  ...(product.thickness ? [{ label: "Thickness", value: product.thickness }] : []),
-                  ...(product.shelfLife ? [{ label: "Shelf Life", value: product.shelfLife }] : []),
-                  // TEJA RED CHILLI specific
-                  ...(product.pungency ? [{ label: "Pungency", value: product.pungency }] : []),
-                  ...(product.capsaicinContent ? [{ label: "Capsaicin Content", value: product.capsaicinContent }] : []),
-                  ...(product.color && product.name === "TEJA RED CHILLI" ? [{ label: "Color", value: product.color }] : []),
-                  ...(product.skinThickness ? [{ label: "Skin Thickness", value: product.skinThickness }] : []),
-                  ...(product.podsWithStalks ? [{ label: "Pods with Stalks", value: product.podsWithStalks }] : []),
-                  ...(product.brokenChilies ? [{ label: "Broken Chilies", value: product.brokenChilies }] : []),
-                  ...(product.looseSeeds ? [{ label: "Loose Seeds", value: product.looseSeeds }] : []),
-                  // Star Anise specific
-                  ...(product.size && product.name === "Star Anise" ? [{ label: "Size", value: product.size }] : []),
-                  ...(product.brokenPieces ? [{ label: "Broken Pieces", value: product.brokenPieces }] : []),
-                  ...(product.notes ? [{ label: "Notes", value: product.notes }] : []),
-                  // Sweet Tamarind specific
-                  ...(product.variety ? [{ label: "Variety", value: product.variety }] : []),
-                  ...(product.size && product.name === "Sweet Tamarind" ? [{ label: "Size", value: product.size }] : []),
-                  // Coffee Beans specific
-                  ...(product.grades ? [{ label: "Grades", value: product.grades }] : []),
-                  ...(product.brokenAndBlack ? [{ label: "Broken and Black", value: product.brokenAndBlack }] : []),
-                  ...(product.grade && (product.name?.includes("Coffee") || product.name?.includes("coffee")) ? [{ label: "Grade", value: product.grade }] : []),
-                  // Ginger Whole specific
-                  ...(product.grade && (product.name?.includes("Ginger") || product.name?.includes("ginger")) ? [{ label: "Grade", value: product.grade }] : []),
-                  ...(product.appearance ? [{ label: "Appearance", value: product.appearance }] : []),
-                ].map((item) => (
-                  <div key={item.label} className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
+                {specItems.map((item) => (
+                  <div key={`${item.label}-${item.value}`} className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
                     <p className="text-xs text-gray-500">{item.label}</p>
-                    <p className="font-semibold text-gray-800">{item.value}</p>
+                    <p className="font-semibold text-gray-800 whitespace-pre-line">{item.value}</p>
                   </div>
                 ))}
                 {/* Brazilian Black Pepper specific - Full width fields */}
@@ -227,33 +299,6 @@ const ProductDetail = () => {
                   <div className="sm:col-span-2 rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
                     <p className="text-xs text-gray-500">Benefits</p>
                     <p className="font-semibold text-gray-800">{product.benefits}</p>
-                  </div>
-                )}
-                {/* Additional notes for Black Pepper */}
-                {product.grade === "FAQ" && (
-                  <div className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3 ">
-                    <p className="text-xs text-gray-500">Additional Notes</p>
-                    <p className="font-semibold text-gray-800">Free from mould</p>
-                  </div>
-                )}
-                {product.grade === "MC/ASTA" && (
-                  <div className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3 ">
-                    <p className="text-xs text-gray-500">Additional Notes</p>
-                    <p className="font-semibold text-gray-800">Free from mould, no stone, no metal</p>
-                  </div>
-                )}
-                {/* Additional notes for Desiccated Coconut */}
-                {(product.ffa || product.fatContent) && (
-                  <div className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
-                    <p className="text-xs text-gray-500">Additional Notes</p>
-                    <p className="font-semibold text-gray-800">Free from E.coli or bacteria, no foreign matter</p>
-                  </div>
-                )}
-                {/* Additional notes for Soft Dried Mango */}
-                {product.ingredients && product.name === "Soft Dried Mango" && (
-                  <div className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
-                    <p className="text-xs text-gray-500">Additional Notes</p>
-                    <p className="font-semibold text-gray-800">Natural product, no preservatives added</p>
                   </div>
                 )}
               </div>
