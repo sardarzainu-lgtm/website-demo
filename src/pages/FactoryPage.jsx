@@ -66,14 +66,14 @@ const factoryImages = {
 
 const SectionCard = ({ title, children, highlight, badgeTone = "#0B3A82" }) => (
   <div className="rounded-2xl bg-white/90 backdrop-blur shadow-xl border border-gray-200 p-6 sm:p-7 space-y-4">
-    <div className="flex items-center justify-between gap-3">
-      <div>
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div className="min-w-0">
         <p className="text-[11px] uppercase tracking-[0.18em] text-gray-500 font-semibold">Facility</p>
         <h3 className="text-xl sm:text-2xl font-semibold text-[#0A1C2E]">{title}</h3>
       </div>
       {highlight && (
         <span
-          className="flex-shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-[11px] font-semibold tracking-wide text-white shadow-md"
+          className="flex-shrink-0 w-fit max-w-full sm:max-w-none px-3 py-1.5 sm:px-4 rounded-full text-[10px] sm:text-[11px] font-semibold tracking-wide text-white shadow-md whitespace-normal sm:whitespace-nowrap text-center sm:text-left"
           style={{ background: badgeTone }}
         >
           {highlight}
