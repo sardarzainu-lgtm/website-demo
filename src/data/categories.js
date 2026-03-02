@@ -8,7 +8,7 @@ export const MAIN_CATEGORIES = [
   "Desiccated Coconut",
   "Pepper",
   "Edible Copra",
-  "Fresh Ginger",
+  "Ginger",
   "CASSIA/CINNAMON",
   "Soft Dried Mango",
   "TEJA RED CHILLI",

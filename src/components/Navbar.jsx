@@ -132,7 +132,7 @@ const Navbar = () => {
   // Product categories for dropdown (from data, in display order)
   const MAIN_CATEGORY_ORDER = [
     "Cashew Nuts", "WALNUTS", "Desiccated Coconut","Edible Copra", "Pepper", "TEJA RED CHILLI",
-    "CASSIA/CINNAMON",  "Soft Dried Mango","Fresh Ginger", "TURMERIC FINGER",
+    "CASSIA/CINNAMON",  "Soft Dried Mango","Ginger", "TURMERIC FINGER",
      "Star Anise", "Cardamom",
     "Seeds", "Peanuts", "Almonds", "Sweet Tamarind",
     "Green Coffee Beans", "Nigella sativa", "Cloves",
@@ -201,14 +201,15 @@ const Navbar = () => {
   ];
 
   const gingerSubcategories = [
+    { id: 6, name: "Fresh Ginger" },
     { id: "wholeGinger", name: "Dried Whole Ginger", hasSubcategories: true },
-    { id: "sliceGinger", name: "Dried Slice Ginger", hasSubcategories: true },
+    { id: "sliceGinger", name: "Dried Sliced Ginger", hasSubcategories: true },
   ];
   const wholeGingerSubcategories = products
-    .filter((p) => p.category === "Fresh Ginger" && p.subcategory === "Whole Ginger")
+    .filter((p) => p.category === "Ginger" && p.subcategory === "Whole Ginger")
     .map((p) => ({ id: p.id, name: p.name }));
   const sliceGingerSubcategories = products
-    .filter((p) => p.category === "Fresh Ginger" && p.subcategory === "Slice Ginger")
+    .filter((p) => p.category === "Ginger" && p.subcategory === "Slice Ginger")
     .map((p) => ({ id: p.id, name: p.name }));
 
   const cardamomSubcategories = products.filter((p) => p.category === "Cardamom").map((p) => ({ id: p.id, name: p.name }));
@@ -592,7 +593,7 @@ const Navbar = () => {
                               isCurrentlyOpen = pepperSubmenuOpen;
                             } else if (category.name === "Desiccated Coconut") {
                               isCurrentlyOpen = desiccatedCoconutSubmenuOpen;
-                            } else if (category.name === "Fresh Ginger") {
+                            } else if (category.name === "Ginger") {
                               isCurrentlyOpen = gingerSubmenuOpen;
                             } else if (category.name === "Cardamom") {
                               isCurrentlyOpen = cardamomSubmenuOpen;
@@ -621,7 +622,7 @@ const Navbar = () => {
                                 setPepperSubmenuOpen(true);
                               } else if (category.name === "Desiccated Coconut") {
                                 setDesiccatedCoconutSubmenuOpen(true);
-                              } else if (category.name === "Fresh Ginger") {
+                              } else if (category.name === "Ginger") {
                                 setGingerSubmenuOpen(true);
                               } else if (category.name === "Cardamom") {
                                 setCardamomSubmenuOpen(true);
@@ -651,7 +652,7 @@ const Navbar = () => {
                               (category.name === "Cashew Nuts" && cashewSubmenuOpen) ||
                               (category.name === "Pepper" && pepperSubmenuOpen) ||
                               (category.name === "Desiccated Coconut" && desiccatedCoconutSubmenuOpen) ||
-                              (category.name === "Fresh Ginger" && gingerSubmenuOpen) ||
+                              (category.name === "Ginger" && gingerSubmenuOpen) ||
                               (category.name === "Cardamom" && cardamomSubmenuOpen) ||
                               (category.name === "CASSIA/CINNAMON" && cassiaSubmenuOpen) ||
                               (category.name === "Seeds" && seedsSubmenuOpen) ||
@@ -1676,7 +1677,7 @@ const Navbar = () => {
                       </div>
                     )}
                     {/* Ginger Submenu */}
-                    {category.hasSubcategories && category.name === "Fresh Ginger" && gingerSubmenuOpen && (
+                    {category.hasSubcategories && category.name === "Ginger" && gingerSubmenuOpen && (
                       <div 
                         className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
                         onMouseEnter={() => {
@@ -2087,7 +2088,7 @@ const Navbar = () => {
                               isCurrentlyOpen = mobilePepperSubmenuOpen;
                             } else if (category.name === "Desiccated Coconut") {
                               isCurrentlyOpen = mobileDesiccatedCoconutSubmenuOpen;
-                            } else if (category.name === "Fresh Ginger") {
+                            } else if (category.name === "Ginger") {
                               isCurrentlyOpen = mobileGingerSubmenuOpen;
                             } else if (category.name === "Cardamom") {
                               isCurrentlyOpen = mobileCardamomSubmenuOpen;
@@ -2116,7 +2117,7 @@ const Navbar = () => {
                                 setMobilePepperSubmenuOpen(true);
                               } else if (category.name === "Desiccated Coconut") {
                                 setMobileDesiccatedCoconutSubmenuOpen(true);
-                              } else if (category.name === "Fresh Ginger") {
+                              } else if (category.name === "Ginger") {
                                 setMobileGingerSubmenuOpen(true);
                               } else if (category.name === "Cardamom") {
                                 setMobileCardamomSubmenuOpen(true);
@@ -2144,7 +2145,7 @@ const Navbar = () => {
                                 (category.name === "Cashew Nuts" && mobileCashewSubmenuOpen) ||
                                 (category.name === "Pepper" && mobilePepperSubmenuOpen) ||
                                 (category.name === "Desiccated Coconut" && mobileDesiccatedCoconutSubmenuOpen) ||
-                                (category.name === "Fresh Ginger" && mobileGingerSubmenuOpen) ||
+                                (category.name === "Ginger" && mobileGingerSubmenuOpen) ||
                                 (category.name === "Cardamom" && mobileCardamomSubmenuOpen) ||
                                 (category.name === "CASSIA/CINNAMON" && mobileCassiaSubmenuOpen) ||
                                 (category.name === "Seeds" && mobileSeedsSubmenuOpen) ||
@@ -2402,7 +2403,7 @@ const Navbar = () => {
                               ))}
                             </div>
                           )}
-                          {category.name === "Fresh Ginger" && mobileGingerSubmenuOpen && (
+                          {category.name === "Ginger" && mobileGingerSubmenuOpen && (
                             <div className="pl-4 mt-1 space-y-1">
                               {gingerSubcategories.map((subcat) => (
                                 <div key={subcat.id}>

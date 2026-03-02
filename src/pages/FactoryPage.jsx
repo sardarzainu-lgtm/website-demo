@@ -73,7 +73,7 @@ const SectionCard = ({ title, children, highlight, badgeTone = "#0B3A82" }) => (
       </div>
       {highlight && (
         <span
-          className="px-3 py-1 rounded-full text-xs font-semibold text-white shadow-sm"
+          className="flex-shrink-0 whitespace-nowrap px-4 py-1.5 rounded-full text-[11px] font-semibold tracking-wide text-white shadow-md"
           style={{ background: badgeTone }}
         >
           {highlight}
@@ -155,7 +155,7 @@ export default function FactoryPage() {
 
         {/* Pepper */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          <SectionCard title="Pepper Processing" highlight="Vietnam">
+          <SectionCard title="Pepper Processing" highlight="Vietnam - Brazil - Indonesia">
             <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
               <strong>Processing:</strong> Black Pepper, White Pepper, Brazilian Black Pepper<br />
               <strong>Standards:</strong> FQA pepper, ASTA clean, ETO &amp; Steam Sterilization<br />
@@ -185,7 +185,7 @@ export default function FactoryPage() {
 
         {/* Coconut */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-          <SectionCard title="Desiccated Coconut Processing" highlight="Vietnam">
+          <SectionCard title="Desiccated Coconut Processing" highlight="Vietnam - Indonesia - Sri Lanka">
             <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
               <strong>Processing:</strong> High Fat Desiccated Coconut, Low Fat Desiccated Coconut, Fine Grade, Medium Grade, Edible Copra<br />
               <strong>Standards:</strong> Moisture control, FFA standards, SO2 limits, microbiological controls<br />

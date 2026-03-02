@@ -99,17 +99,16 @@ export const products = [
     packing: "25kg/PP bag",
     containerCapacity: "15MT/20FT, 28MT/40FT",
   },
-  { id: 6, name: "Fresh Ginger", category: "Fresh Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
-  { id: 47, name: "CARDAMOM", category: "Cardamom", image: greenCardamom, origin: "Guatemala", moisture: "12% max", admixture: "0.5% max", size: "Small to medium pods", color: "Green", description: "Premium quality green cardamom with sweet, floral aroma. Perfect for desserts, teas, and savory dishes. Known as the 'Queen of Spices'." },
+  { id: 6, name: "Fresh Ginger", category: "Ginger", subcategory: "Fresh Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
 
   // CATEGORIZED UNDER GINGER - WHOLE GINGER
-  { id: 38, name: "Dried Ginger Whole Dry", category: "Fresh Ginger", subcategory: "Whole Ginger", image: gingerWholeDry, origin: "Vietnam", moisture: "10% max", grade: "Whole", appearance: "Natural color, clean, no foreign matter", packing: "10-25 kg bags" },
-  { id: 39, name: "Dried Ginger Whole Fresh", category: "Fresh Ginger", subcategory: "Whole Ginger", image: gingerWholeFresh, origin: "Vietnam", moisture: "12-15%", grade: "Whole Fresh", appearance: "Fresh appearance, natural color, clean", packing: "10-25 kg bags" },
+  { id: 38, name: "Dried Ginger Whole Dry", category: "Ginger", subcategory: "Whole Ginger", image: gingerWholeDry, origin: "Vietnam", moisture: "10% max", grade: "Whole", appearance: "Natural color, clean, no foreign matter", packing: "10-25 kg bags" },
+  { id: 39, name: "Dried Ginger Whole Fresh", category: "Ginger", subcategory: "Whole Ginger", image: gingerWholeFresh, origin: "Vietnam", moisture: "12-15%", grade: "Whole Fresh", appearance: "Fresh appearance, natural color, clean", packing: "10-25 kg bags" },
 
   // CATEGORIZED UNDER GINGER - SLICE GINGER
-  { id: 35, name: "DRY SLICE GINGER A GRADE", category: "Fresh Ginger", subcategory: "Slice Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
-  { id: 36, name: "DRY SLICE GINGER B GRADE", category: "Fresh Ginger", subcategory: "Slice Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
-  { id: 37, name: "DRY SLICE GINGER C GRADE", category: "Fresh Ginger", subcategory: "Slice Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
+  { id: 35, name: "DRY SLICE GINGER A GRADE", category: "Ginger", subcategory: "Slice Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
+  { id: 36, name: "DRY SLICE GINGER B GRADE", category: "Ginger", subcategory: "Slice Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
+  { id: 37, name: "DRY SLICE GINGER C GRADE", category: "Ginger", subcategory: "Slice Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
 
   // CATEGORIZED UNDER CASHEW NUTS - Roasted (A180, A240, A320)
   {
@@ -390,62 +389,7 @@ export const products = [
 
   // CATEGORIZED UNDER SPICES
   { id: 31, name: "TEJA RED CHILLI", category: "TEJA RED CHILLI", image: redChilli, origin: "India", pungency: "75,000 - 1,000,000 SHU", capsaicinContent: "1%", color: "Vibrant Red Color (ASTA 40-60)", length: "5-6 cm", skinThickness: "0.50-0.70 mm", podsWithStalks: "2%", brokenChilies: "1%", looseSeeds: "1%", description: "Perfect for adding bold spice to your curries, sauces, and snacks!" },
-  { id: 32, name: "Star Anise", category: "Star Anise", image: starAnise, origin: "Vietnam", moisture: "13.5%", size: "2.5 cm 80% up", brokenPieces: "10% max", notes: "No fungus, natural color" },
   // CATEGORIZED UNDER STAR ANISE
-  {
-    id: 83,
-    name: "Spring Star Anise",
-    category: "Star Anise",
-    subcategory: "Spring",
-    image: starAnise,
-    origin: "Vietnam",
-    moisture: "13.5% max",
-    size: "2 cm (80% up)",
-    brokenPieces: "10% max",
-    notes: "No fungus, natural color",
-    spec:
-      "- Flower size: 2 cm (80% up)\n- Broken pieces: 10% max\n- Admixture: 1% max\n- Moisture: 13.5% max\n- No fungus, natural color",
-    packing: "5KG/10KG CARTON",
-    containerCapacity: "6.5MT/20FT, 15MT/40FT",
-    description:
-      "Premium quality spring harvest star anise from Vietnam. Harvested during spring season for optimal flavor and aroma.",
-  },
-  {
-    id: 84,
-    name: "Autumn Star Anise",
-    category: "Star Anise",
-    subcategory: "Autumn",
-    image: starAnise,
-    origin: "Vietnam",
-    moisture: "13.5% max",
-    size: "2.5 cm (70-80% up)",
-    brokenPieces: "10-12% max",
-    notes: "No fungus, natural color, new crop 2025",
-    spec:
-      "- Flower size: 2.5cm (70-80% up)\n- Broken pieces: 10-12% max\n- Admixture: 1% max\n- Moisture: 13.5% max\n- No fungus, natural color\n- New crop: 2025",
-    packing: "5KG/10KG CARTON",
-    containerCapacity: "6.5MT/20FT, 15MT/40FT",
-    description:
-      "Premium quality autumn harvest star anise from Vietnam. Harvested during autumn season for rich, full-bodied flavor.",
-  },
-  {
-    id: 85,
-    name: "Canh Dan Star Anise",
-    category: "Star Anise",
-    subcategory: "Canh Dan",
-    image: starAnise,
-    origin: "Vietnam",
-    moisture: "13.5% max",
-    size: "2cm (70% up)",
-    brokenPieces: "12% max",
-    notes: "No fungus, natural color",
-    spec:
-      "- Flower size: 2cm (70% up)\n- Broken pieces: 12% max\n- Admixture: 1% max\n- Moisture: 13.5% max\n- No fungus, natural color",
-    packing: "5KG/10KG CARTON",
-    containerCapacity: "6.5MT/20FT, 15MT/40FT",
-    description:
-      "Premium quality Canh Dan variety star anise from Vietnam. Known for its distinctive aroma and superior quality.",
-  },
   {
     id: 86,
     name: "Broken Star Anise",
@@ -475,42 +419,6 @@ export const products = [
     notes: "Enhanced color, natural flavor",
     description:
       "Color-enhanced star anise from Vietnam. Ideal for decorative and culinary applications where visual appeal is important.",
-  },
-  {
-    id: 45,
-    name: "BIG CARDAMOM",
-    category: "Cardamom",
-    subcategory: "Big Cardamom",
-    image: bigCardamom,
-    origin: "Nepal",
-    moisture: "13.5% max",
-    admixture: "0.5% max",
-    size: "Round shape",
-    color: "Natural brown",
-    spec:
-      "- MOISTURE: 13.5%\n- ADMIXTURE: 0.5%\n- Strong smell, ROUND shape\n- New Crop 2025",
-    packing: "30kg/PP bag",
-    containerCapacity: "9MT/20FT, 23MT/40FT",
-    description:
-      "Premium round-shape cardamom with strong aroma. Ideal for teas, desserts, and spice blends.",
-  },
-  {
-    id: 41,
-    name: "BLACK CARDAMOM",
-    category: "Cardamom",
-    subcategory: "Black Cardamom",
-    image: blackCardamom,
-    origin: "Vietnam",
-    moisture: "13.5% max",
-    admixture: "0.5% max",
-    shape: "Long, strong aroma",
-    crop: "New crop 2025",
-    spec:
-      "- MOISTURE: 13.5%\n- ADMIXTURE: 0.5%\n- Strong smell, Long shape\n- New Crop 2025",
-    packing: "30kg/PP bag",
-    containerCapacity: "9MT/20FT, 19MT/40FT",
-    description:
-      "Bold, smoky flavor perfect for curries and soups. 100% natural, no additives or preservatives. Sourced sustainably from Vietnam's best farms.",
   },
   { id: 46, name: "GREEN CARDAMOM", category: "Cardamom", subcategory: "Green Cardamom", image: greenCardamom, origin: "Guatemala", moisture: "12% max", admixture: "0.5% max", size: "Small to medium pods", color: "Green", description: "Premium quality green cardamom with sweet, floral aroma. Perfect for desserts, teas, and savory dishes. Known as the 'Queen of Spices'." },
   { id: 42, name: "TURMERIC FINGER", category: "TURMERIC FINGER", image: turmericFinger, origin: "India", moisture: "10% max", curcuminContent: "3-5% min", color: "Bright Yellow to Deep Orange", shape: "Finger-like rhizomes", size: "3-5 cm length", admixture: "1% max", extraneousMatter: "0.5% max", description: "Premium quality turmeric fingers with high curcumin content. Perfect for culinary and medicinal uses. Natural, sun-dried, and free from additives." },

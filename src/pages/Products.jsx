@@ -180,6 +180,41 @@ const Products = () => {
     selectedCategory === "All"
       ? MAIN_CATEGORIES.flatMap((cat) => {
           const list = products.filter((p) => p.category === cat);
+          // For Star Anise, show a generic main card labeled "Star Anise"
+          // using the starAnise image, without adding a real product entry.
+          if (cat === "Star Anise" && list.length) {
+            const base = list[0];
+            return [
+              {
+                ...base,
+                name: "Star Anise",
+                image: starAnise,
+              },
+            ];
+          }
+          // For Cardamom, show a generic main card labeled "Cardamom"
+          // using the greenCardamom image, without adding a real product entry.
+          if (cat === "Cardamom" && list.length) {
+            const base = list[0];
+            return [
+              {
+                ...base,
+                name: "Cardamom",
+                image: greenCardamom,
+              },
+            ];
+          }
+          // For Ginger, show a generic main card labeled "Ginger"
+          if (cat === "Ginger" && list.length) {
+            const base = list[0];
+            return [
+              {
+                ...base,
+                name: "Ginger",
+                image: driedGinger,
+              },
+            ];
+          }
           const exact = list.find((p) => p.name === cat);
           return exact ? [exact] : list.length ? [list[0]] : [];
         })
@@ -202,11 +237,13 @@ const Products = () => {
       : selectedCategory === "White Pepper"
       ? products.filter((p) => p.category === "Pepper" && (p.subcategory === "White Pepper" || p.name === "White Pepper 630g/l (EU Standard)"))
       : selectedCategory === "Fresh Ginger"
+      ? products.filter((p) => p.category === "Ginger" && p.subcategory === "Fresh Ginger")
+      : selectedCategory === "Ginger"
       ? []
       : selectedCategory === "Dried Whole Ginger"
-      ? products.filter((p) => p.category === "Fresh Ginger" && p.subcategory === "Whole Ginger")
-      : selectedCategory === "Dried Slice Ginger"
-      ? products.filter((p) => p.category === "Fresh Ginger" && p.subcategory === "Slice Ginger")
+      ? products.filter((p) => p.category === "Ginger" && p.subcategory === "Whole Ginger")
+      : selectedCategory === "Dried Sliced Ginger"
+      ? products.filter((p) => p.category === "Ginger" && p.subcategory === "Slice Ginger")
       : selectedCategory === "CASSIA/CINNAMON"
       ? products.filter((p) => p.category === "CASSIA/CINNAMON" && p.subcategory !== "Pressed" && p.subcategory !== "Long Stick" && p.subcategory !== "Cigarette" && p.subcategory !== "Powder")
       : selectedCategory === "CASSIA/CINNAMON Pressed"
@@ -220,11 +257,11 @@ const Products = () => {
       : selectedCategory === "Star Anise"
       ? products.filter((p) => p.category === "Star Anise" && ![116, 117, 118, 119, 120, 121].includes(p.id))
       : selectedCategory === "Star Anise Autumn"
-      ? products.filter((p) => p.category === "Star Anise" && p.subcategory === "Autumn" && (p.name.includes("Premium") || p.name.includes("Good")))
+      ? products.filter((p) => p.category === "Star Anise" && p.subcategory === "Autumn")
       : selectedCategory === "Star Anise Tu Quy"
       ? products.filter((p) => p.category === "Star Anise" && p.name.includes("Tu Quy"))
       : selectedCategory === "Star Anise Canh Dan"
-      ? products.filter((p) => p.category === "Star Anise" && p.subcategory === "Canh Dan" && (p.name.includes("Premium") || p.name.includes("Good")))
+      ? products.filter((p) => p.category === "Star Anise" && p.subcategory === "Canh Dan")
       : selectedCategory === "Desiccated Coconut"
       ? products.filter(
           (p) =>
@@ -342,15 +379,15 @@ const Products = () => {
                 onClick={() => {
                   handleCategoryChange(cat);
                   // Don't close on category with subcategories
-                  if (cat !== "Cashew Nuts" && cat !== "Fresh Ginger" && cat !== "CASSIA/CINNAMON" && cat !== "Star Anise" && cat !== "Desiccated Coconut" && cat !== "Seeds") {
+                  if (cat !== "Cashew Nuts" && cat !== "Ginger" && cat !== "CASSIA/CINNAMON" && cat !== "Star Anise" && cat !== "Desiccated Coconut" && cat !== "Seeds") {
                     setIsFilterOpen(false);
                   }
                 }}
                 className={`w-full flex justify-between items-center px-4 py-3 rounded-xl text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 ${
-                  selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds")) ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-50 text-[#0A1C2E]"
+                  selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat")) || (cat === "Star Anise" && (selectedCategory === "Star Anise Autumn" || selectedCategory === "Star Anise Tu Quy" || selectedCategory === "Star Anise Canh Dan")) || (cat === "Ginger" && (selectedCategory === "Fresh Ginger" || selectedCategory === "Dried Sliced Ginger" || selectedCategory === "Dried Whole Ginger")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds")) ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-50 text-[#0A1C2E]"
                 }`}
                 style={{
-                  ...(selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds"))
+                  ...(selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat")) || (cat === "Star Anise" && (selectedCategory === "Star Anise Autumn" || selectedCategory === "Star Anise Tu Quy" || selectedCategory === "Star Anise Canh Dan")) || (cat === "Ginger" && (selectedCategory === "Fresh Ginger" || selectedCategory === "Dried Sliced Ginger" || selectedCategory === "Dried Whole Ginger")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds"))
                     ? { border: "none" }
                     : {
                         borderTop: "1px solid #e5e7eb",
@@ -362,7 +399,7 @@ const Products = () => {
                 }}
               >
                 <span className="font-semibold text-sm">{cat}</span>
-                <span className="text-base">{selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds")) ? "•" : "›"}</span>
+                <span className="text-base">{selectedCategory === cat || (cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat")) || (cat === "Star Anise" && (selectedCategory === "Star Anise Autumn" || selectedCategory === "Star Anise Tu Quy" || selectedCategory === "Star Anise Canh Dan")) || (cat === "Ginger" && (selectedCategory === "Fresh Ginger" || selectedCategory === "Dried Sliced Ginger" || selectedCategory === "Dried Whole Ginger")) || (cat === "Seeds" && (selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds")) ? "•" : "›"}</span>
               </button>
               {/* Show subcategories for Seeds */}
               {cat === "Seeds" && (selectedCategory === "Seeds" || selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds") && (
@@ -374,6 +411,40 @@ const Products = () => {
                   <button onClick={() => { handleCategoryChange("Sunflower Seeds"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Sunflower Seeds" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
                     <span className="font-medium">Sunflower Seeds</span>
                     <span className="text-xs">{selectedCategory === "Sunflower Seeds" ? "•" : "›"}</span>
+                  </button>
+                </div>
+              )}
+              {/* Show subcategories for Ginger */}
+              {cat === "Ginger" && (selectedCategory === "Ginger" || selectedCategory === "Fresh Ginger" || selectedCategory === "Dried Sliced Ginger" || selectedCategory === "Dried Whole Ginger") && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <button onClick={() => { handleCategoryChange("Fresh Ginger"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Fresh Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
+                    <span className="font-medium">Fresh Ginger</span>
+                    <span className="text-xs">{selectedCategory === "Fresh Ginger" ? "•" : "›"}</span>
+                  </button>
+                  <button onClick={() => { handleCategoryChange("Dried Sliced Ginger"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Dried Sliced Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
+                    <span className="font-medium">Dried Sliced Ginger</span>
+                    <span className="text-xs">{selectedCategory === "Dried Sliced Ginger" ? "•" : "›"}</span>
+                  </button>
+                  <button onClick={() => { handleCategoryChange("Dried Whole Ginger"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Dried Whole Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
+                    <span className="font-medium">Dried Whole Ginger</span>
+                    <span className="text-xs">{selectedCategory === "Dried Whole Ginger" ? "•" : "›"}</span>
+                  </button>
+                </div>
+              )}
+              {/* Show subcategories for Star Anise */}
+              {cat === "Star Anise" && (selectedCategory === "Star Anise" || selectedCategory === "Star Anise Autumn" || selectedCategory === "Star Anise Tu Quy" || selectedCategory === "Star Anise Canh Dan") && (
+                <div className="ml-4 mt-1 space-y-1">
+                  <button onClick={() => { handleCategoryChange("Star Anise Autumn"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Star Anise Autumn" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
+                    <span className="font-medium">Autumn</span>
+                    <span className="text-xs">{selectedCategory === "Star Anise Autumn" ? "•" : "›"}</span>
+                  </button>
+                  <button onClick={() => { handleCategoryChange("Star Anise Tu Quy"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Star Anise Tu Quy" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
+                    <span className="font-medium">Tu Quy</span>
+                    <span className="text-xs">{selectedCategory === "Star Anise Tu Quy" ? "•" : "›"}</span>
+                  </button>
+                  <button onClick={() => { handleCategoryChange("Star Anise Canh Dan"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Star Anise Canh Dan" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
+                    <span className="font-medium">Canh Dan</span>
+                    <span className="text-xs">{selectedCategory === "Star Anise Canh Dan" ? "•" : "›"}</span>
                   </button>
                 </div>
               )}
@@ -422,35 +493,6 @@ const Products = () => {
                   </button>
                 </div>
               )}
-              {/* Show subcategories for Ginger */}
-              {cat === "Fresh Ginger" && (selectedCategory === "Fresh Ginger" || selectedCategory === "Dried Whole Ginger" || selectedCategory === "Dried Slice Ginger") && (
-                <div className="ml-4 mt-1 space-y-1">
-                  <button
-                    onClick={() => {
-                      handleCategoryChange("Dried Whole Ginger");
-                      setIsFilterOpen(false);
-                    }}
-                    className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${
-                      selectedCategory === "Dried Whole Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"
-                    }`}
-                  >
-                    <span className="font-medium">Dried Whole Ginger</span>
-                    <span className="text-xs">{selectedCategory === "Dried Whole Ginger" ? "•" : "›"}</span>
-                  </button>
-                  <button
-                    onClick={() => {
-                      handleCategoryChange("Dried Slice Ginger");
-                      setIsFilterOpen(false);
-                    }}
-                    className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${
-                      selectedCategory === "Dried Slice Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"
-                    }`}
-                  >
-                    <span className="font-medium">Dried Slice Ginger</span>
-                    <span className="text-xs">{selectedCategory === "Dried Slice Ginger" ? "•" : "›"}</span>
-                  </button>
-                </div>
-              )}
               {/* Show subcategories for CASSIA/CINNAMON */}
               {cat === "CASSIA/CINNAMON" && (selectedCategory === "CASSIA/CINNAMON" || selectedCategory === "CASSIA/CINNAMON Pressed" || selectedCategory === "CASSIA/CINNAMON Long Stick" || selectedCategory === "CASSIA/CINNAMON Stick" || selectedCategory === "CASSIA/CINNAMON Powder") && (
                 <div className="ml-4 mt-1 space-y-1">
@@ -469,23 +511,6 @@ const Products = () => {
                   <button onClick={() => { handleCategoryChange("CASSIA/CINNAMON Powder"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "CASSIA/CINNAMON Powder" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
                     <span className="font-medium">Cassia Powder</span>
                     <span className="text-xs">{selectedCategory === "CASSIA/CINNAMON Powder" ? "•" : "›"}</span>
-                  </button>
-                </div>
-              )}
-              {/* Show subcategories for Pepper */}
-              {cat === "Star Anise" && (selectedCategory === "Star Anise" || selectedCategory === "Star Anise Autumn" || selectedCategory === "Star Anise Tu Quy" || selectedCategory === "Star Anise Canh Dan") && (
-                <div className="ml-4 mt-1 space-y-1">
-                  <button onClick={() => { handleCategoryChange("Star Anise Autumn"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Star Anise Autumn" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
-                    <span className="font-medium">Autumn</span>
-                    <span className="text-xs">{selectedCategory === "Star Anise Autumn" ? "•" : "›"}</span>
-                  </button>
-                  <button onClick={() => { handleCategoryChange("Star Anise Tu Quy"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Star Anise Tu Quy" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
-                    <span className="font-medium">Tu Quy</span>
-                    <span className="text-xs">{selectedCategory === "Star Anise Tu Quy" ? "•" : "›"}</span>
-                  </button>
-                  <button onClick={() => { handleCategoryChange("Star Anise Canh Dan"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Star Anise Canh Dan" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
-                    <span className="font-medium">Canh Dan</span>
-                    <span className="text-xs">{selectedCategory === "Star Anise Canh Dan" ? "•" : "›"}</span>
                   </button>
                 </div>
               )}
@@ -520,7 +545,7 @@ const Products = () => {
               {/* Show products in sidebar for categories that have no subcategories (not for "All") */}
               {cat === selectedCategory &&
                 cat !== "All" &&
-                !["Cashew Nuts", "Fresh Ginger", "CASSIA/CINNAMON", "Star Anise", "Desiccated Coconut", "Pepper", "Seeds"].includes(cat) &&
+                !["Cashew Nuts", "Ginger", "CASSIA/CINNAMON", "Star Anise", "Desiccated Coconut", "Pepper", "Seeds"].includes(cat) &&
                 filteredProducts.length > 0 && (
                 <div className="ml-4 mt-1 space-y-1">
                   {filteredProducts.map((product) => (
@@ -609,19 +634,36 @@ const Products = () => {
                   }}
                 />
               </>
-            ) : selectedCategory === "Fresh Ginger" ? (
+            ) : selectedCategory === "Ginger" ? (
               <>
+                <SubcategoryCard
+                  name="Fresh Ginger"
+                  image={driedGinger}
+                  onClick={() => handleCategoryChange("Fresh Ginger")}
+                />
+                <SubcategoryCard
+                  name="Dried Sliced Ginger"
+                  image={driedGinger}
+                  onClick={() => handleCategoryChange("Dried Sliced Ginger")}
+                />
                 <SubcategoryCard
                   name="Dried Whole Ginger"
                   image={gingerWholeDry}
                   onClick={() => handleCategoryChange("Dried Whole Ginger")}
                 />
-                <SubcategoryCard
-                  name="Dried Slice Ginger"
-                  image={driedGinger}
-                  onClick={() => handleCategoryChange("Dried Slice Ginger")}
-                />
               </>
+            ) : selectedCategory === "Fresh Ginger" ? (
+              filteredProducts.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onClick={() =>
+                    navigate(`/product/${product.id}?category=${encodeURIComponent(selectedCategory)}`, {
+                      state: { product, category: selectedCategory },
+                    })
+                  }
+                />
+              ))
             ) : selectedCategory === "Cashew Nuts Roasted" ? (
               filteredProducts.map((product) => (
                 <ProductCard
@@ -782,8 +824,8 @@ const Products = () => {
                   (product.name === "Cashew Nuts" ||
                     product.name === "Pepper" ||
                     product.name === "Desiccated Coconut" ||
-                    product.name === "Fresh Ginger" ||
-                    product.name === "CARDAMOM" ||
+                    product.name === "Ginger" ||
+                    product.name === "Cardamom" ||
                     product.name === "CASSIA/CINNAMON" ||
                     product.name === "Seeds" ||
                     product.name === "Pumpkin Seeds" ||
@@ -795,8 +837,7 @@ const Products = () => {
                 
                 const handleClick = () => {
                   if (isMainCategory) {
-                    const categoryName =
-                      product.name === "CARDAMOM" ? "Cardamom" : product.category || product.name;
+                    const categoryName = product.category || product.name;
                     handleCategoryChange(categoryName);
                   } else {
                     navigate(`/product/${product.id}?category=${encodeURIComponent(selectedCategory)}`, {
@@ -832,7 +873,31 @@ const Products = () => {
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
       </svg>
       <span className="text-white font-semibold text-sm tracking-wide">
-        {selectedCategory === "All" ? "Filter Products" : selectedCategory === "Cashew Nuts Roasted" ? "Salted and Roasted Cashew Nuts" : selectedCategory === "CASSIA/CINNAMON Pressed" ? "Cassia Pressed" : selectedCategory === "CASSIA/CINNAMON Long Stick" ? "Cassia Long Stick" : selectedCategory === "CASSIA/CINNAMON Stick" ? "Cassia Stick" : selectedCategory === "CASSIA/CINNAMON Powder" ? "Cassia Powder" : selectedCategory === "Star Anise Autumn" ? "Star Anise Autumn" : selectedCategory === "Star Anise Tu Quy" ? "Star Anise Tu Quy" : selectedCategory === "Star Anise Canh Dan" ? "Star Anise Canh Dan" : selectedCategory === "Desiccated Coconut Fine" ? "High Desiccated Fine Grade" : selectedCategory === "Desiccated Coconut Medium" ? "High Desiccated Medium Grade" : selectedCategory === "Desiccated Coconut Low Fat" ? "Low fat Desiccated Coconut" : selectedCategory}
+        {selectedCategory === "All"
+          ? "Filter Products"
+          : selectedCategory === "Cashew Nuts Roasted"
+          ? "Salted and Roasted Cashew Nuts"
+          : selectedCategory === "CASSIA/CINNAMON Pressed"
+          ? "Cassia Pressed"
+          : selectedCategory === "CASSIA/CINNAMON Long Stick"
+          ? "Cassia Long Stick"
+          : selectedCategory === "CASSIA/CINNAMON Stick"
+          ? "Cassia Stick"
+          : selectedCategory === "CASSIA/CINNAMON Powder"
+          ? "Cassia Powder"
+          : selectedCategory === "Desiccated Coconut Fine"
+          ? "High Desiccated Fine Grade"
+          : selectedCategory === "Desiccated Coconut Medium"
+          ? "High Desiccated Medium Grade"
+          : selectedCategory === "Desiccated Coconut Low Fat"
+          ? "Low fat Desiccated Coconut"
+          : selectedCategory === "Star Anise Autumn"
+          ? "Star Anise Autumn"
+          : selectedCategory === "Star Anise Tu Quy"
+          ? "Star Anise Tu Quy"
+          : selectedCategory === "Star Anise Canh Dan"
+          ? "Star Anise Canh Dan"
+          : selectedCategory}
       </span>
       <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse"></div>
     </button>
