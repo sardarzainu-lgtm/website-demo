@@ -13,7 +13,7 @@ import lowFatDesiccatedCoconut from "../assets/low-fat-desiccated-coconut.webp";
 import highFatDesiccatedCoconut from "../assets/high-fat-desiccated-coconut.webp";
 import mediumFatDesiccatedCoconut from "../assets/medium-fat-desiccated-cocunut.webp";
 import copraCup from "../assets/copraCup.webp";
-import driedGinger from "../assets/driedGinger.webp";
+import driedGinger from "../assets/driedginger.webp";
 import redChilli from "../assets/red-chilli.webp";
 import mangoChips from "../assets/mango-chips.webp";
 import sweetTamarind from "../assets/sweet-tamarind.webp";
