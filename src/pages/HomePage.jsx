@@ -346,7 +346,7 @@ export default function HomePage() {
               </div>
 
               <a
-                href="/about"
+                onClick={() => navigate("/about")}
                 className="mt-5 inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm sm:text-base shadow-md hover:shadow-lg transition-shadow duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0D47A1]"
                 style={{ background: ROYAL, color: "white" }}
               >
