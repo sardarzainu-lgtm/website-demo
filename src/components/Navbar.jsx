@@ -139,11 +139,18 @@ const Navbar = () => {
   ];
   const productCategories = MAIN_CATEGORY_ORDER
     .filter((name) => products.some((p) => p.category === name))
-    .map((name, i) => ({
-      id: i + 1,
-      name,
-      hasSubcategories: products.filter((p) => p.category === name).length > 1 || products.some((p) => p.category === name && p.subcategory),
-    }));
+    .map((name) => {
+      const categoryProducts = products.filter((p) => p.category === name);
+      const hasSubcategories =
+        categoryProducts.length > 1 || categoryProducts.some((p) => p.subcategory);
+
+      return {
+        // Use real product id for single-item categories to prevent wrong detail navigation.
+        id: categoryProducts[0]?.id ?? name,
+        name,
+        hasSubcategories,
+      };
+    });
 
   // Cashew Nuts: group by subcategory; WW320 as expandable, others as direct links
   const cashewBySub = {};

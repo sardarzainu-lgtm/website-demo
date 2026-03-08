@@ -736,7 +736,7 @@ export const products = [
     containerCapacity: "12MT/20FT, 25MT/40FT",
   },
   {
-    id: 130,
+    id: 132,
     name: "Cassia Pressed Tube Whole Premium (12kg)",
     category: "CASSIA/CINNAMON",
     subcategory: "Pressed",

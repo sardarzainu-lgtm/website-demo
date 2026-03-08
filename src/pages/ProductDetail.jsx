@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { products as sharedProducts } from "../data/products";
 
 const NAVY = "#0D47A1";
 const GOLD = "#C8A84E";
@@ -77,10 +78,16 @@ const parseSpecEntries = (specText = "") => {
 
 const ProductDetail = () => {
   const { state } = useLocation();
-  const product = state?.product;
+  const { id } = useParams();
+  const productFromRoute = sharedProducts.find((p) => String(p.id) === String(id));
+  const product =
+    state?.product && String(state.product.id) === String(id)
+      ? state.product
+      : productFromRoute;
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const category = searchParams.get("category") || state?.category || "All";
+  const category =
+    searchParams.get("category") || state?.category || product?.category || "All";
   const parsedSpecEntries = parseSpecEntries(product?.spec);
   const baseSpecItems = [
     { label: "Origin", value: product.origin || "Vietnam" },
@@ -259,7 +266,7 @@ const ProductDetail = () => {
                 WhatsApp to Order
               </a>
               <a
-                href="#contact"
+                href="/contact"
                 className="inline-flex justify-center items-center gap-2 px-5 py-3 rounded-full font-semibold border border-[#0B3A82] text-[#0B3A82] bg-white hover:bg-[#0B3A82] hover:text-white transition-colors"
               >
                 Get a Quote
