@@ -1913,8 +1913,8 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {/* Desktop CTA */}
           <a
-            href="/contact"
-            className={`hidden lg:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold shadow-md transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
+            onClick={() => navigate("/contact")}
+            className={`cursor-pointer hidden lg:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold shadow-md transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-lg ${
               isScrolled ? "text-white" : "text-white"
             }`}
             style={{
@@ -2866,7 +2866,7 @@ const Navbar = () => {
           {/* Mobile Contact Info */}
           <div className="pt-3 text-sm text-gray-700 space-y-1">
             <p className="font-semibold">Email</p>
-            <a href="mailto:info@lion-lotus.co" className="text-[#0D47A1] hover:underline break-all">
+            <a href="mailto:kashif@lion-lotus.co" className="text-[#0D47A1] hover:underline break-all">
               kashif@lion-lotus.co
             </a>
             <p className="font-semibold pt-2">Phone</p>

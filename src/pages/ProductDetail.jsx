@@ -266,8 +266,8 @@ const ProductDetail = () => {
                 WhatsApp to Order
               </a>
               <a
-                href="/contact"
-                className="inline-flex justify-center items-center gap-2 px-5 py-3 rounded-full font-semibold border border-[#0B3A82] text-[#0B3A82] bg-white hover:bg-[#0B3A82] hover:text-white transition-colors"
+                onClick={() => navigate("/contact")}
+                className="cursor-pointer inline-flex justify-center items-center gap-2 px-5 py-3 rounded-full font-semibold border border-[#0B3A82] text-[#0B3A82] bg-white hover:bg-[#0B3A82] hover:text-white transition-colors"
               >
                 Get a Quote
               </a>
