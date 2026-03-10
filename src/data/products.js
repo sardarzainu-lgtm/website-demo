@@ -61,7 +61,6 @@ import almond from "../assets/almond.webp";
 import cloves from "../assets/cloves.webp";
 
 export const products = [
-  { id: 1, name: "Cashew Nuts", category: "Cashew Nuts", image: cashewnuts, origin: "Vietnam", moisture: "5% max", standard: "AFI Standard 2012", packing: "10kg/vacuum bag or tin packing", containerCapacity: "15MT/20ft, 26.5MT/40ft" },
   {
     id: 29,
     name: "Cashew Nuts WW320",
@@ -79,10 +78,8 @@ export const products = [
     packing: "Vacuum/tin packing",
     containerCapacity: "15MT/20FT, 26.5MT/40FT",
   },
-  { id: 2, name: "Desiccated Coconut", category: "Desiccated Coconut", image: desiccatedCoconut, origin: "Vietnam", moisture: "3% max" },
   { id: 3, name: "Edible Copra", category: "Edible Copra", image: copraCup, origin: "Indonesia", moisture: "7-10%", packing: "40 Kg Net in Mesh Bags", description: "Looking for premium quality copra? Our Edible Copra is the perfect choice for various food applications and international trade!", fullName: "Edible Copra (White Copra Sundry - Split)" },
   { id: "pepper", name: "Pepper", category: "Pepper", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", packing: "25kg/bag", containerCapacity: "15MT/20ft, 28MT/40ft" },
-  { id: 4, name: "Black Pepper", category: "Pepper", subcategory: "Black Pepper", image: blackPepper, origin: "Vietnam", moisture: "13.5% max", packing: "25kg/PP bag", containerCapacity: "15MT/20FT, 28MT/40FT" },
   {
     id: 5,
     name: "White Pepper 630g/l (EU Standard)",
@@ -422,7 +419,6 @@ export const products = [
   },
   { id: 46, name: "GREEN CARDAMOM", category: "Cardamom", subcategory: "Green Cardamom", image: greenCardamom, origin: "Guatemala", moisture: "12% max", admixture: "0.5% max", size: "Small to medium pods", color: "Green", description: "Premium quality green cardamom with sweet, floral aroma. Perfect for desserts, teas, and savory dishes. Known as the 'Queen of Spices'." },
   { id: 42, name: "TURMERIC FINGER", category: "TURMERIC FINGER", image: turmericFinger, origin: "India", moisture: "10% max", curcuminContent: "3-5% min", color: "Bright Yellow to Deep Orange", shape: "Finger-like rhizomes", size: "3-5 cm length", admixture: "1% max", extraneousMatter: "0.5% max", description: "Premium quality turmeric fingers with high curcumin content. Perfect for culinary and medicinal uses. Natural, sun-dried, and free from additives." },
-  { id: 57, name: "CASSIA/CINNAMON", category: "CASSIA/CINNAMON", image: cassiaSplit, origin: "Vietnam", moisture: "13% max", description: "Premium quality cassia/cinnamon products from Vietnam. Available in various forms including split, pressed, broken, cigarette, powder, leaves, husk, long stick, and split varieties." },
   // CATEGORIZED UNDER CASSIA/CINNAMON
   {
     id: 48,
@@ -542,7 +538,6 @@ export const products = [
   { id: 63, name: "Pumpkin Seeds", category: "Seeds", subcategory: "Pumpkin Seeds", image: pumpkinAAA, origin: "China", moisture: "8% max", description: "Premium quality pumpkin seeds available in various grades. Perfect for snacking, baking, and culinary applications." },
   { id: 64, name: "Sunflower Seeds", category: "Seeds", subcategory: "Sunflower Seeds", image: sunflowerSeeds, origin: "China", moisture: "8% max", description: "Premium quality sunflower seeds available in confectionery and bakery grades. Perfect for snacking and baking applications." },
   { id: 66, name: "Peanuts", category: "Peanuts", image: chinesePeanut, origin: "China", moisture: "7% max", description: "Premium quality Chinese peanuts available in various sizes. Perfect for snacking, cooking, and commercial applications." },
-  { id: 75, name: "Almonds", category: "Almonds", image: almond, origin: "USA", moisture: "6% max", description: "Premium quality almonds available in various sizes. Perfect for snacking, baking, and commercial applications." },
 
   // CATEGORIZED UNDER PUMPKIN SEEDS
   { id: 58, name: "Pumpkin Seeds Grade AAA", category: "Seeds", subcategory: "Pumpkin Seeds", image: pumpkinAAA, origin: "China", moisture: "8% max", grade: "AAA", purity: "99% min", size: "Large, uniform seeds", color: "Green to dark green", description: "Premium quality pumpkin seeds Grade AAA. Large, uniform seeds with excellent taste and texture. Perfect for snacking, baking, and culinary applications." },
@@ -584,7 +579,6 @@ export const products = [
   { id: 33, name: "Sweet Tamarind", category: "Sweet Tamarind", image: sweetTamarind, origin: "Vietnam", moisture: "10-14%", variety: "Sirthong", size: "6.9 - 7.5 inches", process: "Not steamed" },
 
   // CATEGORIZED UNDER COFFEE
-  { id: 34, name: "Green Coffee Beans", category: "Green Coffee Beans", image: robustaBeans, origin: "Vietnam", moisture: "12.5%", description: "Premium quality green coffee beans from Vietnam. Available in Robusta and Arabica varieties." },
   // CATEGORIZED UNDER GREEN COFFEE BEANS
   {
     id: 88,

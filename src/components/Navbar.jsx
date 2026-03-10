@@ -274,10 +274,20 @@ const Navbar = () => {
   ];
 
   const pumpkinSeedsSubcategories = products
-    .filter((p) => p.category === "Seeds" && p.subcategory === "Pumpkin Seeds")
+    .filter(
+      (p) =>
+        p.category === "Seeds" &&
+        p.subcategory === "Pumpkin Seeds" &&
+        p.name !== "Pumpkin Seeds"
+    )
     .map((p) => ({ id: p.id, name: p.name }));
   const sunflowerSeedsSubcategories = products
-    .filter((p) => p.category === "Seeds" && p.subcategory === "Sunflower Seeds")
+    .filter(
+      (p) =>
+        p.category === "Seeds" &&
+        p.subcategory === "Sunflower Seeds" &&
+        p.name !== "Sunflower Seeds"
+    )
     .map((p) => ({ id: p.id, name: p.name }));
 
   const peanutsSubcategories = products.filter((p) => p.category === "Peanuts").map((p) => ({ id: p.id, name: p.name }));
