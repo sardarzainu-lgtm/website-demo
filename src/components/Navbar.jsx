@@ -207,17 +207,20 @@ const Navbar = () => {
       .map((p) => ({ id: p.id, name: p.name })),
   ];
 
-  const gingerSubcategories = [
-    { id: 6, name: "Fresh Ginger" },
-    { id: "wholeGinger", name: "Dried Whole Ginger", hasSubcategories: true },
-    { id: "sliceGinger", name: "Dried Sliced Ginger", hasSubcategories: true },
-  ];
   const wholeGingerSubcategories = products
     .filter((p) => p.category === "Ginger" && p.subcategory === "Whole Ginger")
     .map((p) => ({ id: p.id, name: p.name }));
   const sliceGingerSubcategories = products
     .filter((p) => p.category === "Ginger" && p.subcategory === "Slice Ginger")
     .map((p) => ({ id: p.id, name: p.name }));
+  const primaryWholeGingerProduct = wholeGingerSubcategories[0];
+  const gingerSubcategories = [
+    { id: 6, name: "Fresh Ginger" },
+    ...(primaryWholeGingerProduct
+      ? [{ id: primaryWholeGingerProduct.id, name: "Dried Whole Ginger" }]
+      : []),
+    { id: "sliceGinger", name: "Dried Sliced Ginger", hasSubcategories: true },
+  ];
 
   const cardamomSubcategories = products.filter((p) => p.category === "Cardamom").map((p) => ({ id: p.id, name: p.name }));
 

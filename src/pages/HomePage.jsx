@@ -90,13 +90,26 @@ export default function HomePage() {
     }
   }, [selectedCategory]);
 
-  // Products for the selected category (by category or exact name match)
-  const categoryProducts = products.filter(
-    (p) => p.category === selectedCategory || p.name === selectedCategory
-  );
+  // Products for the selected category (by category or exact name match).
+  // Ginger is intentionally normalized to three options in UI:
+  // Fresh Ginger, Dried Sliced Ginger, and Dried Whole Ginger.
+  const categoryProducts =
+    selectedCategory === "Ginger"
+      ? [
+          products.find((p) => p.category === "Ginger" && p.subcategory === "Fresh Ginger"),
+          products.find((p) => p.category === "Ginger" && p.subcategory === "Slice Ginger"),
+          products.find((p) => p.category === "Ginger" && p.subcategory === "Whole Ginger"),
+        ].filter(Boolean)
+      : products.filter(
+          (p) => p.category === selectedCategory || p.name === selectedCategory
+        );
   const listLength = categoryProducts.length || 1;
   const safeIndex = listLength > 0 ? Math.min(currentProductIndex, listLength - 1) : 0;
   const currentProduct = categoryProducts[safeIndex] || categoryProducts[0] || products[0];
+  const currentProductDisplayName =
+    selectedCategory === "Ginger" && currentProduct?.subcategory === "Whole Ginger"
+      ? "Dried Whole Ginger"
+      : currentProduct?.name;
 
   const handleCategoryClick = (category) => {
     setSelectedCategory(category);
@@ -463,7 +476,7 @@ export default function HomePage() {
                     {currentProduct && currentProduct.image && (
                       <img
                         src={currentProduct.image}
-                        alt={currentProduct.name}
+                        alt={currentProductDisplayName}
                         className="w-full h-full object-cover"
                       />
                     )}
@@ -491,7 +504,7 @@ export default function HomePage() {
                   className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6"
                   style={{ color: NAVY }}
                 >
-                  {currentProduct.name}
+                  {currentProductDisplayName}
                 </h3>
                 <p className="text-gray-500 text-sm sm:text-base mb-2">
                   {currentProduct.origin} · Moisture {currentProduct.moisture || "—"} · {currentProduct.color || "—"}

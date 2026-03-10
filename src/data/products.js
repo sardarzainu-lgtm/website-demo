@@ -99,7 +99,7 @@ export const products = [
   { id: 6, name: "Fresh Ginger", category: "Ginger", subcategory: "Fresh Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
 
   // CATEGORIZED UNDER GINGER - WHOLE GINGER
-  { id: 38, name: "Dried Ginger Whole Dry", category: "Ginger", subcategory: "Whole Ginger", image: gingerWholeDry, origin: "Vietnam", moisture: "10% max", grade: "Whole", appearance: "Natural color, clean, no foreign matter", packing: "10-25 kg bags" },
+  { id: 38, name: "Dried Whole Ginger", category: "Ginger", subcategory: "Whole Ginger", image: gingerWholeDry, origin: "Vietnam", moisture: "10% max", grade: "Whole", appearance: "Natural color, clean, no foreign matter", packing: "10-25 kg bags" },
   { id: 39, name: "Dried Ginger Whole Fresh", category: "Ginger", subcategory: "Whole Ginger", image: gingerWholeFresh, origin: "Vietnam", moisture: "12-15%", grade: "Whole Fresh", appearance: "Fresh appearance, natural color, clean", packing: "10-25 kg bags" },
 
   // CATEGORIZED UNDER GINGER - SLICE GINGER

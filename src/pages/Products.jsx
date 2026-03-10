@@ -41,6 +41,9 @@ const categories = [
   ...MAIN_CATEGORIES.filter((cat) => products.some((p) => p.category === cat)),
 ];
 
+const normalizeCategorySelection = (category) =>
+  category === "Dried Whole Ginger" ? "Ginger" : category;
+
 
 // PRODUCT CARD
 const ProductCard = memo(({ product, onClick }) => (
@@ -108,7 +111,9 @@ const SubcategoryCard = memo(({ name, image, onClick }) => (
 const Products = () => {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
-  const categoryFromUrl = searchParams.get("category") || "All";
+  const categoryFromUrl = normalizeCategorySelection(
+    searchParams.get("category") || "All"
+  );
   const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -130,7 +135,9 @@ const Products = () => {
 
   // Sync category with URL when URL changes (e.g., when navigating back)
   useEffect(() => {
-    const urlCategory = searchParams.get("category") || "All";
+    const urlCategory = normalizeCategorySelection(
+      searchParams.get("category") || "All"
+    );
     setSelectedCategory(urlCategory);
   }, [searchParams]);
 
@@ -245,6 +252,11 @@ const Products = () => {
       : [];
 
   // FILTER LOGIC: by category (and subcategory where used in sidebar)
+  const wholeGingerProducts = products.filter(
+    (p) => p.category === "Ginger" && p.subcategory === "Whole Ginger"
+  );
+  const primaryWholeGingerProduct = wholeGingerProducts[0] || null;
+
   const filteredProductsRaw =
     selectedCategory === "All"
       ? mainCategoryProducts
@@ -264,9 +276,7 @@ const Products = () => {
                     ? products.filter((p) => p.category === "Ginger" && p.subcategory === "Fresh Ginger")
                     : selectedCategory === "Ginger"
                       ? []
-                      : selectedCategory === "Dried Whole Ginger"
-                        ? products.filter((p) => p.category === "Ginger" && p.subcategory === "Whole Ginger")
-                        : selectedCategory === "Dried Sliced Ginger"
+                      : selectedCategory === "Dried Sliced Ginger"
                           ? products.filter((p) => p.category === "Ginger" && p.subcategory === "Slice Ginger")
                           : selectedCategory === "CASSIA/CINNAMON"
                             ? products.filter((p) => p.category === "CASSIA/CINNAMON" && p.subcategory !== "Pressed" && p.subcategory !== "Long Stick" && p.subcategory !== "Cigarette" && p.subcategory !== "Powder")
@@ -345,7 +355,7 @@ const Products = () => {
       "Desiccated Coconut Low Fat",
     ],
     "Star Anise": ["Star Anise Autumn", "Star Anise Tu Quy", "Star Anise Canh Dan"],
-    Ginger: ["Fresh Ginger", "Dried Sliced Ginger", "Dried Whole Ginger"],
+    Ginger: ["Fresh Ginger", "Dried Sliced Ginger"],
     Seeds: ["Pumpkin Seeds", "Sunflower Seeds"],
   };
 
@@ -466,7 +476,7 @@ const Products = () => {
                   </div>
                 )}
                 {/* Show subcategories for Ginger */}
-                {cat === "Ginger" && (selectedCategory === "Ginger" || selectedCategory === "Fresh Ginger" || selectedCategory === "Dried Sliced Ginger" || selectedCategory === "Dried Whole Ginger") && (
+                {cat === "Ginger" && (selectedCategory === "Ginger" || selectedCategory === "Fresh Ginger" || selectedCategory === "Dried Sliced Ginger") && (
                   <div className="ml-4 mt-1 space-y-1">
                     <button onClick={() => { handleCategoryChange("Fresh Ginger"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Fresh Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
                       <span className="font-medium">Fresh Ginger</span>
@@ -476,10 +486,25 @@ const Products = () => {
                       <span className="font-medium">Dried Sliced Ginger</span>
                       <span className="text-xs">{selectedCategory === "Dried Sliced Ginger" ? "•" : "›"}</span>
                     </button>
-                    <button onClick={() => { handleCategoryChange("Dried Whole Ginger"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Dried Whole Ginger" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
-                      <span className="font-medium">Dried Whole Ginger</span>
-                      <span className="text-xs">{selectedCategory === "Dried Whole Ginger" ? "•" : "›"}</span>
-                    </button>
+                    {primaryWholeGingerProduct && (
+                      <button
+                        onClick={() => {
+                          navigate(
+                            `/product/${primaryWholeGingerProduct.id}?category=${encodeURIComponent("Ginger")}`,
+                            {
+                              state: {
+                                product: primaryWholeGingerProduct,
+                                category: "Ginger",
+                              },
+                            }
+                          );
+                          setIsFilterOpen(false);
+                        }}
+                        className="w-full text-left px-4 py-2 rounded-lg text-xs font-medium text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50 transition-colors"
+                      >
+                        Dried Whole Ginger
+                      </button>
+                    )}
                   </div>
                 )}
                 {/* Show subcategories for Star Anise */}
@@ -693,11 +718,23 @@ const Products = () => {
                     image={driedGinger}
                     onClick={() => handleCategoryChange("Dried Sliced Ginger")}
                   />
-                  <SubcategoryCard
-                    name="Dried Whole Ginger"
-                    image={gingerWholeDry}
-                    onClick={() => handleCategoryChange("Dried Whole Ginger")}
-                  />
+                  {primaryWholeGingerProduct && (
+                    <SubcategoryCard
+                      name="Dried Whole Ginger"
+                      image={primaryWholeGingerProduct.image || gingerWholeDry}
+                      onClick={() =>
+                        navigate(
+                          `/product/${primaryWholeGingerProduct.id}?category=${encodeURIComponent("Ginger")}`,
+                          {
+                            state: {
+                              product: primaryWholeGingerProduct,
+                              category: "Ginger",
+                            },
+                          }
+                        )
+                      }
+                    />
+                  )}
                 </>
               ) : selectedCategory === "Fresh Ginger" ? (
                 filteredProducts.map((product) => (
