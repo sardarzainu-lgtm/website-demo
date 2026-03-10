@@ -96,7 +96,7 @@ export const products = [
     packing: "25kg/PP bag",
     containerCapacity: "15MT/20FT, 28MT/40FT",
   },
-  { id: 6, name: "Fresh Ginger", category: "Ginger", subcategory: "Fresh Ginger", image: driedGinger, origin: "Vietnam", moisture: "8%" },
+  { id: 6, name: "Fresh Ginger", category: "Ginger", subcategory: "Fresh Ginger", image: gingerWholeFresh, origin: "Vietnam", moisture: "8%" },
 
   // CATEGORIZED UNDER GINGER - WHOLE GINGER
   { id: 38, name: "Dried Whole Ginger", category: "Ginger", subcategory: "Whole Ginger", image: gingerWholeDry, origin: "Vietnam", moisture: "10% max", grade: "Whole", appearance: "Natural color, clean, no foreign matter", packing: "10-25 kg bags" },
