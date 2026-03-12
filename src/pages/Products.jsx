@@ -30,6 +30,7 @@ import sunflowerSeeds from "../assets/sunflower-seeds.webp"
 import desiccatedCoconut from "../assets/desiccatedCoconut.webp"
 import almonds from "../assets/almond.webp"
 import greenCoffeeBeans from "../assets/robusta-beans.webp"
+import chinesePeanut from "../assets/chinese-peanunt.webp"
 
 
 import { products, getDesiccatedCoconutFineProducts, getDesiccatedCoconutMediumProducts, getDesiccatedCoconutLowFatProducts } from "../data/products";
@@ -163,6 +164,17 @@ const Products = () => {
               ...base,
               name: "Cashew Nuts",
               image: cashewnuts,
+            },
+          ];
+        }
+
+        if (cat === "Peanuts" && list.length) {
+          const base = list[0];
+          return [
+            {
+              ...base,
+              name: "Peanuts",
+              image: chinesePeanut,
             },
           ];
         }

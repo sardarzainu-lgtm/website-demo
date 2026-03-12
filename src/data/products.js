@@ -537,7 +537,6 @@ export const products = [
   { id: 92, name: "Seeds", category: "Seeds", image: pumpkinAAA, origin: "Various", moisture: "8% max", description: "Premium quality seeds including pumpkin seeds, sunflower seeds, and watermelon seeds. Perfect for snacking, baking, and culinary applications." },
   { id: 63, name: "Pumpkin Seeds", category: "Seeds", subcategory: "Pumpkin Seeds", image: pumpkinAAA, origin: "China", moisture: "8% max", description: "Premium quality pumpkin seeds available in various grades. Perfect for snacking, baking, and culinary applications." },
   { id: 64, name: "Sunflower Seeds", category: "Seeds", subcategory: "Sunflower Seeds", image: sunflowerSeeds, origin: "China", moisture: "8% max", description: "Premium quality sunflower seeds available in confectionery and bakery grades. Perfect for snacking and baking applications." },
-  { id: 66, name: "Peanuts", category: "Peanuts", image: chinesePeanut, origin: "China", moisture: "7% max", description: "Premium quality Chinese peanuts available in various sizes. Perfect for snacking, cooking, and commercial applications." },
 
   // CATEGORIZED UNDER PUMPKIN SEEDS
   { id: 58, name: "Pumpkin Seeds Grade AAA", category: "Seeds", subcategory: "Pumpkin Seeds", image: pumpkinAAA, origin: "China", moisture: "8% max", grade: "AAA", purity: "99% min", size: "Large, uniform seeds", color: "Green to dark green", description: "Premium quality pumpkin seeds Grade AAA. Large, uniform seeds with excellent taste and texture. Perfect for snacking, baking, and culinary applications." },

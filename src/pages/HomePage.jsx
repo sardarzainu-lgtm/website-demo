@@ -611,7 +611,7 @@ export default function HomePage() {
                   borderColor: GOLD,
                 }}
               >
-                Factory Details →
+                Processing Details →
               </button>
             </div>
 
@@ -751,42 +751,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Revenue Trend */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
-            <h3
-              className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8"
-              style={{ color: NAVY }}
-            >
-              Revenue Overview
-            </h3>
-            <div className="flex flex-col md:flex-row gap-6 sm:gap-8 justify-center items-center">
-              {[
-                { year: "2020", revenue: "450", color: "#bfdbfe" },
-                { year: "2021", revenue: "500", color: "#93c5fd" },
-                { year: "2022", revenue: "550", color: "#60a5fa" },
-              ].map((item) => (
-                <div key={item.year} className="text-center">
-                  <div
-                    className="w-24 h-24 sm:w-32 sm:h-32 rounded-full border-4 border-dashed flex flex-col items-center justify-center mx-auto"
-                    style={{ borderColor: item.color }}
-                  >
-                    <div
-                      className="text-xl sm:text-2xl font-bold"
-                      style={{ color: NAVY }}
-                    >
-                      {item.revenue}
-                    </div>
-                    <div className="text-xs sm:text-sm text-gray-600">
-                      billion
-                    </div>
-                  </div>
-                  <p className="mt-3 sm:mt-4 font-semibold text-gray-700 text-sm sm:text-base">
-                    Year {item.year}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          
         </div>
       </section>
 
