@@ -713,44 +713,6 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-
-          {/* Statistics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-12">
-            <div className="text-center bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border border-gray-100">
-              <div
-                className="text-3xl sm:text-5xl font-bold mb-2"
-                style={{ color: NAVY }}
-              >
-                70+
-              </div>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Countries served through our export network
-              </p>
-            </div>
-            <div className="text-center bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border border-gray-100">
-              <div
-                className="text-3xl sm:text-5xl font-bold mb-2"
-                style={{ color: NAVY }}
-              >
-                30M+
-              </div>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Annual export value in USD (combined across product lines)
-              </p>
-            </div>
-            <div className="text-center bg-white p-6 sm:p-8 rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border border-gray-100">
-              <div
-                className="text-3xl sm:text-5xl font-bold mb-2"
-                style={{ color: NAVY }}
-              >
-                5000
-              </div>
-              <p className="text-gray-700 text-sm sm:text-base">
-                Approximate export volume (MT) handled annually
-              </p>
-            </div>
-          </div>
-
           
         </div>
       </section>

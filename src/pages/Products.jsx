@@ -33,7 +33,7 @@ import greenCoffeeBeans from "../assets/robusta-beans.webp"
 import chinesePeanut from "../assets/chinese-peanunt.webp"
 
 
-import { products, getDesiccatedCoconutFineProducts, getDesiccatedCoconutMediumProducts, getDesiccatedCoconutLowFatProducts } from "../data/products";
+import { products, getDesiccatedCoconutFineProducts, getDesiccatedCoconutMediumProducts } from "../data/products";
 import { MAIN_CATEGORIES } from "../data/categories";
 
 // Categories: "All" plus main categories that have at least one product (in display order)
@@ -185,7 +185,7 @@ const Products = () => {
           return [
             {
               ...base,
-              name: "Cassia/Cinnamon",
+              name: "CASSIA/CINNAMON",
               image: cassiaPressed,
             },
           ];
@@ -293,7 +293,7 @@ const Products = () => {
                           : selectedCategory === "CASSIA/CINNAMON"
                             ? products.filter((p) => p.category === "CASSIA/CINNAMON" && p.subcategory !== "Pressed" && p.subcategory !== "Long Stick" && p.subcategory !== "Cigarette" && p.subcategory !== "Powder")
                             : selectedCategory === "CASSIA/CINNAMON Pressed"
-                              ? products.filter((p) => p.category === "CASSIA/CINNAMON" && p.subcategory === "Pressed" && (p.name.includes("10kg") || p.name.includes("12kg")))
+                              ? products.filter((p) => p.category === "CASSIA/CINNAMON" && p.subcategory === "Pressed" && (p.name.includes("10kg") || p.name.includes("25kg")))
                               : selectedCategory === "CASSIA/CINNAMON Long Stick"
                                 ? products.filter((p) => p.category === "CASSIA/CINNAMON" && p.subcategory === "Long Stick")
                                 : selectedCategory === "CASSIA/CINNAMON Stick"
@@ -320,9 +320,7 @@ const Products = () => {
                                                 ? getDesiccatedCoconutFineProducts(products)
                                                 : selectedCategory === "Desiccated Coconut Medium"
                                                   ? getDesiccatedCoconutMediumProducts(products)
-                                                  : selectedCategory === "Desiccated Coconut Low Fat"
-                                                    ? getDesiccatedCoconutLowFatProducts(products)
-                                                    : selectedCategory === "Seeds"
+                                                  : selectedCategory === "Seeds"
                                                       ? products.filter(
                                                         (p) => p.category === "Seeds" && p.subcategory !== "Pumpkin Seeds" && p.subcategory !== "Sunflower Seeds"
                                                       )
@@ -364,7 +362,6 @@ const Products = () => {
     "Desiccated Coconut": [
       "Desiccated Coconut Fine",
       "Desiccated Coconut Medium",
-      "Desiccated Coconut Low Fat",
     ],
     "Star Anise": ["Star Anise Autumn", "Star Anise Tu Quy", "Star Anise Canh Dan"],
     Ginger: ["Fresh Ginger", "Dried Sliced Ginger"],
@@ -537,19 +534,15 @@ const Products = () => {
                   </div>
                 )}
                 {/* Show subcategories for Desiccated Coconut */}
-                {cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut" || selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat") && (
+                {cat === "Desiccated Coconut" && (selectedCategory === "Desiccated Coconut" || selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium") && (
                   <div className="ml-4 mt-1 space-y-1">
                     <button onClick={() => { handleCategoryChange("Desiccated Coconut Fine"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Desiccated Coconut Fine" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
-                      <span className="font-medium">High Desiccated Fine Grade</span>
+                      <span className="font-medium">High fat Fine Grade</span>
                       <span className="text-xs">{selectedCategory === "Desiccated Coconut Fine" ? "•" : "›"}</span>
                     </button>
                     <button onClick={() => { handleCategoryChange("Desiccated Coconut Medium"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Desiccated Coconut Medium" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
-                      <span className="font-medium">High Desiccated Medium Grade</span>
+                      <span className="font-medium">High fat Medium Grade</span>
                       <span className="text-xs">{selectedCategory === "Desiccated Coconut Medium" ? "•" : "›"}</span>
-                    </button>
-                    <button onClick={() => { handleCategoryChange("Desiccated Coconut Low Fat"); setIsFilterOpen(false); }} className={`w-full flex justify-between items-center px-4 py-2 rounded-lg text-left transition shadow-sm outline-none focus:outline-none focus:ring-0 text-xs ${selectedCategory === "Desiccated Coconut Low Fat" ? "bg-gradient-to-r from-[#0B3A82] to-[#128C7E] text-white border-0" : "bg-gray-100 text-[#0A1C2E]"}`}>
-                      <span className="font-medium">Low fat Desiccated Coconut</span>
-                      <span className="text-xs">{selectedCategory === "Desiccated Coconut Low Fat" ? "•" : "›"}</span>
                     </button>
                   </div>
                 )}
@@ -855,7 +848,7 @@ const Products = () => {
                   <SubcategoryCard name="Tu Quy" image={starAnise} onClick={() => handleCategoryChange("Star Anise Tu Quy")} />
                   <SubcategoryCard name="Canh Dan" image={starAnise} onClick={() => handleCategoryChange("Star Anise Canh Dan")} />
                 </>
-              ) : selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" || selectedCategory === "Desiccated Coconut Low Fat" ? (
+              ) : selectedCategory === "Desiccated Coconut Fine" || selectedCategory === "Desiccated Coconut Medium" ? (
                 filteredProducts.map((product) => (
                   <ProductCard
                     key={product.id}
@@ -880,9 +873,8 @@ const Products = () => {
                       }
                     />
                   ))}
-                  <SubcategoryCard name="High Desiccated Fine Grade" image={highFatDesiccatedCoconut} onClick={() => handleCategoryChange("Desiccated Coconut Fine")} />
-                  <SubcategoryCard name="High Desiccated Medium Grade" image={highFatDesiccatedCoconut} onClick={() => handleCategoryChange("Desiccated Coconut Medium")} />
-                  <SubcategoryCard name="Low fat Desiccated Coconut" image={highFatDesiccatedCoconut} onClick={() => handleCategoryChange("Desiccated Coconut Low Fat")} />
+                  <SubcategoryCard name="High fat Fine Grade" image={highFatDesiccatedCoconut} onClick={() => handleCategoryChange("Desiccated Coconut Fine")} />
+                  <SubcategoryCard name="High fat Medium Grade" image={highFatDesiccatedCoconut} onClick={() => handleCategoryChange("Desiccated Coconut Medium")} />
                 </>
               ) : selectedCategory === "Pumpkin Seeds" || selectedCategory === "Sunflower Seeds" ? (
                 filteredProducts.map((product) => (
@@ -982,11 +974,9 @@ const Products = () => {
                     : selectedCategory === "CASSIA/CINNAMON Powder"
                       ? "Cassia Powder"
                       : selectedCategory === "Desiccated Coconut Fine"
-                        ? "High Desiccated Fine Grade"
+                        ? "High fat Fine Grade"
                         : selectedCategory === "Desiccated Coconut Medium"
-                          ? "High Desiccated Medium Grade"
-                          : selectedCategory === "Desiccated Coconut Low Fat"
-                            ? "Low fat Desiccated Coconut"
+                          ? "High fat Medium Grade"
                             : selectedCategory === "Star Anise Autumn"
                               ? "Star Anise Autumn"
                               : selectedCategory === "Star Anise Tu Quy"

@@ -16,6 +16,19 @@ const normalizeValue = (value = "") =>
     .replace(/\s+/g, " ")
     .trim();
 
+/** Loading port by category: Hai Phong (Cassia, Star anise, Dried ginger, Black cardamom); Ho Chi Minh (Black pepper, Cashew nuts, Desiccated coconut, Coffee beans). */
+const getLoadingPort = (product) => {
+  if (!product?.category) return null;
+  const cat = product.category;
+  const sub = (product.subcategory || "").trim();
+  const haiPhongCategories = ["CASSIA/CINNAMON", "Star Anise", "Ginger"];
+  if (haiPhongCategories.includes(cat)) return "Hai Phong Port";
+  if (cat === "Cardamom" && sub === "Black Cardamom") return "Hai Phong Port";
+  const hoChiMinhCategories = ["Pepper", "Cashew Nuts", "Desiccated Coconut", "Green Coffee Beans"];
+  if (hoChiMinhCategories.includes(cat)) return "Ho Chi Minh Port";
+  return null;
+};
+
 const inferSpecLabel = (text = "") => {
   const value = text.toLowerCase();
   if (value.includes("moisture")) return "Moisture";
@@ -325,7 +338,7 @@ const ProductDetail = () => {
                 </div>
                 <div className="rounded-xl border border-gray-100 bg-white px-4 py-4 shadow-sm">
                   <p className="text-xs text-gray-500">Port of Loading</p>
-                  <p className="font-semibold text-gray-800">{ "Vietnam Port"}</p>
+                  <p className="font-semibold text-gray-800">{getLoadingPort(product) || "Vietnam Port"}</p>
                 </div>
               </div>
             </div>

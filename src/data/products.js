@@ -726,20 +726,7 @@ export const products = [
     spec:
       "- Moisture: 13.5% max\n- Length: 30-45 cm\n- Thickness: 1mm-2.5 mm\n- Admixture: 0.5% max\n- Not black inside, unmouldy, natural brown colour, thin bark,",
     packing: "25kg/carton",
-    containerCapacity: "12MT/20FT, 25MT/40FT",
-  },
-  {
-    id: 132,
-    name: "Cassia Pressed Tube Whole Premium (12kg)",
-    category: "CASSIA/CINNAMON",
-    subcategory: "Pressed",
-    image: cassiaPressed,
-    origin: "Vietnam",
-    moisture: "13.5% max",
-    spec:
-      "- Moisture: 13.5% max\n- Length: 35-45 cm\n- Thickness: 0.8mm- 2.5 mm\n- Admixture: 0.5% max\n- Not black inside, unmouldy, natural brown colour, thin bark,",
-    packing: "12kg/carton",
-    containerCapacity: "9MT/20FT, 18MT/40FT",
+    containerCapacity: "15MT/20FT, 27MT/40FT",
   },
   {
     id: 106,

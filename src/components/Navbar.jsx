@@ -199,9 +199,8 @@ const Navbar = () => {
     ...desiccatedCoconutLowFatSubcategories.map((x) => x.id),
   ];
   const desiccatedCoconutSubcategories = [
-    { id: "dc-fine", name: "High Desiccated Fine Grade", hasSubcategories: true },
-    { id: "dc-medium", name: "High Desiccated Medium Grade", hasSubcategories: true },
-    { id: "dc-lowfat", name: "Low fat Desiccated Coconut", hasSubcategories: true },
+    { id: "dc-fine", name: "High fat Fine Grade", hasSubcategories: true },
+    { id: "dc-medium", name: "High fat Medium Grade", hasSubcategories: true },
     ...products
       .filter((p) => p.category === "Desiccated Coconut" && !DESICCATED_COCONUT_GROUPED_IDS.includes(p.id))
       .map((p) => ({ id: p.id, name: p.name })),
@@ -224,7 +223,7 @@ const Navbar = () => {
 
   const cardamomSubcategories = products.filter((p) => p.category === "Cardamom").map((p) => ({ id: p.id, name: p.name }));
 
-  // Cassia: group by subcategory; Pressed (10/12 kg), Long Stick, Stick (Cigarette), Powder as expandable
+  // Cassia: group by subcategory; Pressed (10/25 kg), Long Stick, Stick (Cigarette), Powder as expandable
   const cassiaBySub = {};
   products.filter((p) => p.category === "CASSIA/CINNAMON").forEach((p) => {
     const s = p.subcategory || p.name;
@@ -258,14 +257,22 @@ const Navbar = () => {
     cassiaBySub[sub].forEach((p) => cassiaSubcategories.push({ id: p.id, name: p.name }));
   });
 
-  // Cassia Pressed: only Whole Premium 10 kg and 12 kg (display names), 10 kg first
+  // Cassia Pressed: only Whole Premium 10 kg and 25 kg (display names), 10 kg first
   const cassiaPressedSubcategories = products
-    .filter((p) => p.category === "CASSIA/CINNAMON" && p.subcategory === "Pressed" && (p.name.includes("10kg") || p.name.includes("12kg")))
+    .filter((p) => p.category === "CASSIA/CINNAMON" && p.subcategory === "Pressed" && (p.name.includes("10kg") || p.name.includes("25kg")))
     .sort((a, b) => a.id - b.id)
-    .map((p) => ({ id: p.id, name: p.name.includes("10kg") ? "Whole Premium 10 kg" : "Whole Premium 12 kg" }));
-  const cassiaLongStickSubcategories = (cassiaBySub["Long Stick"] || []).map((p) => ({ id: p.id, name: p.name }));
-  const cassiaStickSubcategories = (cassiaBySub["Cigarette"] || []).map((p) => ({ id: p.id, name: p.name }));
-  const cassiaPowderSubcategories = (cassiaBySub["Powder"] || []).map((p) => ({ id: p.id, name: p.name }));
+    .map((p) => ({ id: p.id, name: p.name.includes("10kg") ? "Whole Premium 10 kg" : "Whole Premium 25 kg" }));
+  // Hide placeholder products (CASSIA LONG STICK, CASSIA CIGARETTE, CASSIA POWDER) from navbar flyouts; show only variants.
+  const cassiaPlaceholderNames = ["CASSIA LONG STICK", "CASSIA CIGARETTE", "CASSIA POWDER"];
+  const cassiaLongStickSubcategories = (cassiaBySub["Long Stick"] || [])
+    .filter((p) => !cassiaPlaceholderNames.includes(p.name))
+    .map((p) => ({ id: p.id, name: p.name }));
+  const cassiaStickSubcategories = (cassiaBySub["Cigarette"] || [])
+    .filter((p) => !cassiaPlaceholderNames.includes(p.name))
+    .map((p) => ({ id: p.id, name: p.name }));
+  const cassiaPowderSubcategories = (cassiaBySub["Powder"] || [])
+    .filter((p) => !cassiaPlaceholderNames.includes(p.name))
+    .map((p) => ({ id: p.id, name: p.name }));
 
   const pumpkinSeedMain = products.find((p) => p.category === "Seeds" && p.name === "Pumpkin Seeds");
   const sunflowerSeedMain = products.find((p) => p.category === "Seeds" && p.name === "Sunflower Seeds");
@@ -973,7 +980,6 @@ const Navbar = () => {
                               if (subcat.hasSubcategories) {
                                 setDesiccatedCoconutFineSubmenuOpen(subcat.id === "dc-fine");
                                 setDesiccatedCoconutMediumSubmenuOpen(subcat.id === "dc-medium");
-                                setDesiccatedCoconutLowFatSubmenuOpen(subcat.id === "dc-lowfat");
                               }
                             }}
                           >
@@ -987,21 +993,14 @@ const Navbar = () => {
                                   setDesiccatedCoconutSubmenuOpen(true);
                                   setDesiccatedCoconutFineSubmenuOpen(subcat.id === "dc-fine");
                                   setDesiccatedCoconutMediumSubmenuOpen(subcat.id === "dc-medium");
-                                  setDesiccatedCoconutLowFatSubmenuOpen(subcat.id === "dc-lowfat");
                                 }}
                                 onClick={() => {
                                   if (subcat.id === "dc-fine") {
                                     setDesiccatedCoconutFineSubmenuOpen(!desiccatedCoconutFineSubmenuOpen);
                                     setDesiccatedCoconutMediumSubmenuOpen(false);
-                                    setDesiccatedCoconutLowFatSubmenuOpen(false);
                                   } else if (subcat.id === "dc-medium") {
                                     setDesiccatedCoconutMediumSubmenuOpen(!desiccatedCoconutMediumSubmenuOpen);
                                     setDesiccatedCoconutFineSubmenuOpen(false);
-                                    setDesiccatedCoconutLowFatSubmenuOpen(false);
-                                  } else if (subcat.id === "dc-lowfat") {
-                                    setDesiccatedCoconutLowFatSubmenuOpen(!desiccatedCoconutLowFatSubmenuOpen);
-                                    setDesiccatedCoconutFineSubmenuOpen(false);
-                                    setDesiccatedCoconutMediumSubmenuOpen(false);
                                   }
                                 }}
                                 className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors flex items-center justify-between"
@@ -1009,7 +1008,7 @@ const Navbar = () => {
                                 <span>{subcat.name}</span>
                                 <ChevronRight 
                                   size={14} 
-                                  className={`text-gray-400 transition-transform duration-200 ${(subcat.id === "dc-fine" && desiccatedCoconutFineSubmenuOpen) || (subcat.id === "dc-medium" && desiccatedCoconutMediumSubmenuOpen) || (subcat.id === "dc-lowfat" && desiccatedCoconutLowFatSubmenuOpen) ? "rotate-90" : ""}`}
+                                  className={`text-gray-400 transition-transform duration-200 ${(subcat.id === "dc-fine" && desiccatedCoconutFineSubmenuOpen) || (subcat.id === "dc-medium" && desiccatedCoconutMediumSubmenuOpen) ? "rotate-90" : ""}`}
                                 />
                               </button>
                             ) : (
@@ -1062,28 +1061,7 @@ const Navbar = () => {
                                 ))}
                               </div>
                             )}
-                            {subcat.hasSubcategories && subcat.id === "dc-lowfat" && desiccatedCoconutLowFatSubmenuOpen && (
-                              <div 
-                                className="absolute left-full top-0 ml-1 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-[1200]"
-                                onMouseEnter={() => {
-                                  if (dropdownTimeoutRef.current) clearTimeout(dropdownTimeoutRef.current);
-                                  setProductsDropdownOpen(true);
-                                  setDesiccatedCoconutSubmenuOpen(true);
-                                  setDesiccatedCoconutLowFatSubmenuOpen(true);
-                                }}
-                                onMouseLeave={() => {
-                                  dropdownTimeoutRef.current = setTimeout(() => {
-                                    setDesiccatedCoconutSubmenuOpen(false);
-                                    setDesiccatedCoconutLowFatSubmenuOpen(false);
-                                  }, 200);
-                                }}
-                              >
-                                {desiccatedCoconutLowFatSubcategories.map((item) => (
-                                  <button key={item.id} onClick={() => handleProductClick(item.id)} className="w-full text-left px-4 py-2.5 hover:bg-gray-50 text-sm font-medium text-gray-800 hover:text-[#0D47A1] transition-colors">{item.name}</button>
-                                ))}
-                              </div>
-                            )}
-                          </div>
+                            </div>
                         ))}
                       </div>
                     )}
@@ -2324,15 +2302,9 @@ const Navbar = () => {
                                           if (subcat.id === "dc-fine") {
                                             setMobileDesiccatedCoconutFineSubmenuOpen(!mobileDesiccatedCoconutFineSubmenuOpen);
                                             setMobileDesiccatedCoconutMediumSubmenuOpen(false);
-                                            setMobileDesiccatedCoconutLowFatSubmenuOpen(false);
                                           } else if (subcat.id === "dc-medium") {
                                             setMobileDesiccatedCoconutMediumSubmenuOpen(!mobileDesiccatedCoconutMediumSubmenuOpen);
                                             setMobileDesiccatedCoconutFineSubmenuOpen(false);
-                                            setMobileDesiccatedCoconutLowFatSubmenuOpen(false);
-                                          } else if (subcat.id === "dc-lowfat") {
-                                            setMobileDesiccatedCoconutLowFatSubmenuOpen(!mobileDesiccatedCoconutLowFatSubmenuOpen);
-                                            setMobileDesiccatedCoconutFineSubmenuOpen(false);
-                                            setMobileDesiccatedCoconutMediumSubmenuOpen(false);
                                           }
                                         }}
                                         className="w-full flex items-center justify-between px-2 py-2 rounded-md text-[13px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
@@ -2342,8 +2314,7 @@ const Navbar = () => {
                                           size={12} 
                                           className={`transition-transform duration-200 ${
                                             (subcat.id === "dc-fine" && mobileDesiccatedCoconutFineSubmenuOpen) ||
-                                            (subcat.id === "dc-medium" && mobileDesiccatedCoconutMediumSubmenuOpen) ||
-                                            (subcat.id === "dc-lowfat" && mobileDesiccatedCoconutLowFatSubmenuOpen)
+                                            (subcat.id === "dc-medium" && mobileDesiccatedCoconutMediumSubmenuOpen)
                                               ? "rotate-90" : ""
                                           }`}
                                         />
@@ -2386,26 +2357,7 @@ const Navbar = () => {
                                           ))}
                                         </div>
                                       )}
-                                      {subcat.id === "dc-lowfat" && mobileDesiccatedCoconutLowFatSubmenuOpen && (
-                                        <div className="pl-4 mt-1 space-y-1">
-                                          {desiccatedCoconutLowFatSubcategories.map((item) => (
-                                            <button
-                                              key={item.id}
-                                              onClick={() => {
-                                                handleProductClick(item.id);
-                                                setMenuOpen(false);
-                                                setMobileProductsDropdownOpen(false);
-                                                setMobileDesiccatedCoconutSubmenuOpen(false);
-                                                setMobileDesiccatedCoconutLowFatSubmenuOpen(false);
-                                              }}
-                                              className="w-full text-left px-2 py-2 rounded-md text-[12px] text-gray-600 hover:text-[#0D47A1] hover:bg-gray-50"
-                                            >
-                                              {item.name}
-                                            </button>
-                                          ))}
-                                        </div>
-                                      )}
-                                    </>
+                                      </>
                                   ) : (
                                     <button
                                       onClick={() => {
