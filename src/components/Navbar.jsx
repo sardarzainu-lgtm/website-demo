@@ -179,7 +179,10 @@ const Navbar = () => {
   });
 
   const roastedSubcategories = (cashewBySub["Roasted"] || []).map((p) => ({ id: p.id, name: p.name }));
-  const ww320Subcategories = (cashewBySub["WW320"] || []).map((p) => ({ id: p.id, name: p.name }));
+  // Hide placeholder "Cashew Nuts WW320" in WW320 flyout; show only variants (AFI Standard, High Quality, Premium).
+  const ww320Subcategories = (cashewBySub["WW320"] || [])
+    .filter((p) => p.name !== "Cashew Nuts WW320")
+    .map((p) => ({ id: p.id, name: p.name }));
 
   const pepperSubcategories = [
     { id: "blackPepper", name: "Black Pepper", hasSubcategories: true },

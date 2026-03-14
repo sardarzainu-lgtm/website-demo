@@ -110,7 +110,7 @@ export const products = [
   // CATEGORIZED UNDER CASHEW NUTS - Roasted (A180, A240, A320)
   {
     id: 7,
-    name: "Salted and Roasted A180",
+    name: "Salted and Roasted Cashew A180",
     category: "Cashew Nuts",
     subcategory: "Roasted",
     image: roastedSaltedCashew,
@@ -645,7 +645,7 @@ export const products = [
   // ---------- MISSING PRODUCTS FROM CSV (same product different name → main category + subcategory) ----------
   {
     id: 100,
-    name: "Cashew Nuts WW210 (AFI)",
+    name: "Cashew Nuts WW210",
     category: "Cashew Nuts",
     subcategory: "WW210",
     image: ww240Cashew,
