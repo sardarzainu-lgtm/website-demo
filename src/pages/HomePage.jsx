@@ -211,7 +211,7 @@ export default function HomePage() {
                 }}
               >
                 <span className="block text-[0.82em] font-semibold tracking-[0.22em] uppercase opacity-90 mb-1.5">
-                  A TRUSTED SOURCING PARTNER FOR
+                  LION LOTUS A TRUSTED SOURCING PARTNER FOR
                 </span>
                 <span className="block font-extrabold tracking-[0.04em] uppercase">
                   SPICES, NUTS, BEANS, &amp; SEEDS
